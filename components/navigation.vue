@@ -1,0 +1,176 @@
+<template>
+	<div
+		class="fixed w-[100px] hover:w-[200px] transition-all duration-500 ease-in-out bg-black h-screen right-0 border-l border-golden-three hover:drop-shadow-xl cursor-pointer z-[10000]">
+
+		<div class="w-full h-full grid place-items-center relative group " @click="toggleNav">
+
+			<div class="w-5 h-fit flex flex-col gap-[2px]">
+				<span class="w-full h-[2px] bg-golden-three"></span>
+				<span class="w-full h-[2px] bg-golden-three"></span>
+				<span class="w-full h-[2px] bg-golden-three"></span>
+			</div>
+
+			<!-- <img src="../assets/imgs/united2.jpg"
+				class="absolute w-full h-full object-cover z-[-5] opacity-0 group-hover:opacity-30 transition-all duration-500 ease-in-out" /> -->
+			<div
+				class="absolute w-full h-full bg-golden-three group-hover:opacity-30 opacity-0 transition-all duration-500 ease-in-out">
+			</div>
+
+			<video playsinline autoplay loop muted key="video" id="avatarVideo" src="~/assets/vid2.mp4"
+				class="object-cover w-full h-full bg-white absolute opacity-0 group-hover:opacity-30 transition-all duration-150 ease-in-out">
+			</video>
+
+		</div>
+
+	</div>
+
+	<!-- navigation content -->
+	<div id="nav-content"
+		class="fixed w-screen h-screen bg-black outline outline-1 outline-golden-three translate-x-full z-[10000]">
+
+		<div class="w-full h-full flex relative">
+
+			<!-- content -->
+			<div class="w-full h-full pr-[100px] flex">
+
+				<!-- graphics -->
+				<section class="w-full">
+					<img src="../assets/imgs/gloves.JPG" alt="" class="object-cover w-full h-full">
+				</section>
+
+				<!-- contact us -->
+				<section class="w-[1000px] border-l border-golden-three flex flex-col justify-center items-center">
+
+					<div class="px-10 h-full text-white flex flex-col gap-2 justify-center items-center">
+						<h1 class="text-white w-full text-[2rem]">Contact Us</h1>
+						<p class="w-full text-xl">Send Us A Message</p>
+
+						<div class="w-full h-10 bg-neutral-900 border border-golden-three flex gap-[2px] p-[2px]">
+							<label for="Name" class="w-20 h-full flex justify-center items-center px-2 py-2 bg-golden-three"><span
+									class="drop-shadow-xl font-bold tracking-wider">Name</span></label>
+							<input id="Name" type="text" class="w-full bg-transparent pl-5 focus:outline-none">
+						</div>
+
+						<div class="w-full h-10 bg-neutral-900 border border-golden-three flex gap-[2px] p-[2px]">
+							<label for="Email" class="w-20 h-full flex justify-center items-center px-2 py-2 bg-golden-three"><span
+									class="drop-shadow-xl font-bold tracking-wider">Email</span></label>
+							<input id="Email" type="text" class="w-full bg-transparent pl-5 focus:outline-none">
+						</div>
+
+						<div
+							class="mt-4 w-full min-h-[40px] bg-neutral-900 border border-golden-three gap-[2px] p-[2px] flex flex-col">
+							<label for="Message" class="text-golden-three text-right w-full px-2">Message</label>
+							<textarea id="Message" class="w-full bg-transparent pl-5 focus:outline-none" />
+						</div>
+
+						<!-- <button class="mt-2 w-full h-10 bg-golden-three">Send Message</button> -->
+						<BoxContainer class="mt-2 font-bold text-xl tracking-wide">Send Message</BoxContainer>
+
+						<NuxtLink href="https://maps.app.goo.gl/6H1wYmEfxw5DFBQV7"
+							class="italic text-xl pt-3 text-golden-one hover:text-golden-three font-bold cursor-pointer">Find Our
+							Location</NuxtLink>
+					</div>
+
+					<div class="w-full border-t border-golden-three text-white px-5 py-10 flex flex-col">
+						<span class="">telephone</span>
+						<span class="">company email</span>
+					</div>
+
+				</section>
+
+				<!-- links -->
+				<section class="text-white w-full border-l border-golden-three flex flex-col">
+					<div class="w-full h-24 border-b border-golden-three"></div>
+					<div class="flex flex-col h-full w-full pl-10 justify-center font-bold text-[3.5rem] gap-5 group">
+						<NuxtLink @click="onNavClick(false)" to="/"
+							class=" hover:text-golden-three border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">
+							Home</NuxtLink>
+						<NuxtLink @click="onNavClick(false)" to="/about"
+							class=" hover:text-golden-three border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">
+							About Us</NuxtLink>
+						<NuxtLink @click="onNavClick(true)" to="/"
+							class=" hover:text-golden-three border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">
+							Services</NuxtLink>
+						<NuxtLink @click="onNavClick(false)" to="/athletes"
+							class=" hover:text-golden-three border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">
+							Our
+							Athletes</NuxtLink>
+						<!-- <NuxtLink @click="()=>{setTimeout(toggleNav(),1000)}" to="/"
+							class=" hover:text-golden-three border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">Projects</NuxtLink> -->
+					</div>
+				</section>
+			</div>
+
+			<!-- close nav -->
+			<div
+				class="w-[100px] h-full grid place-items-center border-l border-golden-three absolute right-0 top-0 hover:bg-golden-three hover:bg-opacity-10 transition-all duration-500 ease-in-out "
+				@click="toggleNav">
+				<div class="w-5 aspect-square flex flex-col justify-between relative -translate-x-2">
+					<div
+						class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-45 w-full h-[2px] bg-golden-three">
+					</div>
+					<div
+						class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-45 w-full h-[2px] bg-golden-three">
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</template>
+
+<script setup lang="ts">
+import appStore from '~/stores/app';
+
+const { $gsap: gsap } = useNuxtApp();
+const { opened } = storeToRefs(appStore())
+const nav_target = ref()
+const parallax = reactive(useParallax(nav_target))
+
+function onNavClick(bool?: boolean) {
+	setTimeout(() => {
+		if (!opened.value) {
+			gsap.to(window, { duration: 1, scrollTo: { y: 0 }, ease: 'power2.inOut' })
+		}
+		toggleNav()
+	}, 300)
+
+	if (bool) {
+		setTimeout(goToServices, 400)
+	} else { }
+}
+
+function goToServices() {
+	gsap.to(window, { duration: 1, scrollTo: '.services', ease: 'power2.inOut' })
+}
+
+const cardStyle = computed(() => ({
+	transition: '.3s ease-out all',
+	boxShadow: '0 0 20px 0 rgba(255, 255, 255, 0.25)',
+	transform: `rotateX(${parallax.roll * 20}deg) rotateY(${parallax.tilt * 20
+		}deg)`,
+}))
+
+
+const toggleNav = () => {
+	const nav_content = document.getElementById('nav-content')!;
+	if (!opened.value) {
+		gsap.to(nav_content, {
+			x: '100%',
+			duration: 1,
+			ease: 'ease-in-out'
+		})
+	} else {
+		gsap.to(nav_content, {
+			x: 0,
+			duration: 1,
+			ease: 'ease-in-out'
+		})
+	}
+	appStore().$patch(() => opened.value = !opened.value)
+}
+
+</script>
+
+
+<style scoped></style>
