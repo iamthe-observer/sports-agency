@@ -35,7 +35,8 @@
 
 				<!-- graphics -->
 				<section class="w-full">
-					<img src="../assets/imgs/gloves.JPG" alt="" class="object-cover w-full h-full">
+					<!-- <img src="../assets/imgs/gloves.JPG" alt="" class="object-cover w-full h-full"> -->
+					<video src="~/assets/eagle.mp4" class="w-full h-full object-cover" autoplay loop mute playsinline></video>
 				</section>
 
 				<!-- contact us -->
@@ -64,10 +65,11 @@
 						</div>
 
 						<!-- <button class="mt-2 w-full h-10 bg-golden-three">Send Message</button> -->
-						<BoxContainer class="mt-2 font-bold text-xl tracking-wide">Send Message</BoxContainer>
+						<BoxContainer class="mt-2 text-xl tracking-wide">Send Message</BoxContainer>
 
 						<NuxtLink href="https://maps.app.goo.gl/6H1wYmEfxw5DFBQV7"
-							class="italic text-xl pt-3 text-golden-one hover:text-golden-three font-bold cursor-pointer">Find Our
+							class="italic text-xs font-Outfit pt-3 text-golden-one hover:text-golden-three font-semibold cursor-pointer">
+							Find Our
 							Location</NuxtLink>
 					</div>
 
@@ -81,20 +83,19 @@
 				<!-- links -->
 				<section class="text-white w-full border-l border-golden-three flex flex-col">
 					<div class="w-full h-24 border-b border-golden-three"></div>
-					<div class="flex flex-col h-full w-full pl-10 justify-center font-bold text-[3.5rem] gap-5 group">
+					<div class="flex flex-col h-full w-full pl-10 justify-center font-bold text-[2.7rem] gap-5 group">
 						<NuxtLink @click="onNavClick(false)" to="/"
 							class=" hover:text-golden-three border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">
-							Home</NuxtLink>
+							HOME</NuxtLink>
 						<NuxtLink @click="onNavClick(false)" to="/about"
 							class=" hover:text-golden-three border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">
-							About Us</NuxtLink>
+							ABOUT US</NuxtLink>
 						<NuxtLink @click="onNavClick(true)" to="/"
 							class=" hover:text-golden-three border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">
-							Services</NuxtLink>
+							SERVICES</NuxtLink>
 						<NuxtLink @click="onNavClick(false)" to="/athletes"
 							class=" hover:text-golden-three border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">
-							Our
-							Athletes</NuxtLink>
+							OUR ATHLETES</NuxtLink>
 						<!-- <NuxtLink @click="()=>{setTimeout(toggleNav(),1000)}" to="/"
 							class=" hover:text-golden-three border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">Projects</NuxtLink> -->
 					</div>

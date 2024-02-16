@@ -12,7 +12,7 @@
 			<Logo />
 
 			<div class="absolute right-0 top-0">
-				<BoxContainer class="absolute top-6 right-6 tracking-wide text-white font-bold text-xl">
+				<BoxContainer class="absolute top-6 right-6 tracking-wide text-white text-xl">
 					<span class="drop-shadow-md">Get In
 						Touch
 					</span>
@@ -26,11 +26,10 @@
 				</div>
 
 				<div class="w-full flex justify-end gap-5">
-					<BoxContainer link="/about" class="text-white font-bold tracking-wide text-xl"><span
-							class="drop-shadow-md">About Us</span>
+					<BoxContainer link="/about" class="text-white tracking-wide text-xl"><span class="drop-shadow-md">About
+							Us</span>
 					</BoxContainer>
-					<BoxContainer link="/athletes" class="text-white font-bold tracking-wide text-xl"><span
-							class="drop-shadow-md">Our
+					<BoxContainer link="/athletes" class="text-white tracking-wide text-xl"><span class="drop-shadow-md">Our
 							Athletes</span>
 					</BoxContainer>
 
@@ -40,8 +39,9 @@
 
 		<!-- mission statement -->
 		<div class="text-white w-full flex flex-col px-10 pt-40 border-l border-golden-three pb-36">
-			<h1 class="the-container text-center w-full font-bold text-2xl mb-6">Welcome to EagleEye,</h1>
-			<p class="text-[60px] font-bold text-center w-full">
+			<h1 class="the-container text-center w-full font-bold font-Outfit text-2xl mb-6">Welcome to <span
+					class="text-golden-three">EagleEye</span>,</h1>
+			<p class="text-[60px] text-center w-[90%] mx-auto">
 				To empower atheletes, sports organisations and businesses in the sports industry to achieve their full potential.
 			</p>
 
@@ -58,7 +58,7 @@
 			</div>
 
 
-			<p class="font-bold text-3xl text-center w-4/5 mx-auto tracking-wide">
+			<p class=" text-3xl text-center w-4/5 mx-auto tracking-wide font-Outfit">
 				Our dedication to the excellence, intergrity and client-centric approach ensures that we deliver
 				tailored
 				strategies and actionable insights to maximum performance, enhance competitivesness and unlock new opportunities

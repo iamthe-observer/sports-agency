@@ -226,16 +226,13 @@ function horizontalLoop(items: any, config: any) {
 		<div class="wrapper overflow-hidden">
 			<div v-for="n in 10" class="box">
 				<div class="w-[85%] h-full mx-auto flex flex-col text-white group">
-					<!-- <div class="w-full h-[200px]">
-						<img src="../assets/imgs/united2.jpg" alt="" class="object-cover w-full h-full">
-					</div> -->
 
 					<div
 						class="transition-all duration-150 ease-in-out group-hover:bg-golden-three h-[200px] w-full relative -translate-x-3 -translate-y-3 border border-golden-three">
 						<div ref="target"
 							class="w-full h-full absolute top-0 left-0 overflow-hidden translate-x-3 translate-y-3 border border-golden-three perspectiv">
-							<img :style="layer3" src="../assets/imgs/braden-collum-9HI8UJMSdZA-unsplash.jpg" alt=""
-								class="object-cover w-full h-full group-hover:scale-110 transition-all duration-300 ease-in-out">
+							<NuxtImg src="/ballboot.jpg" alt=""
+								class="object-cover w-full h-full group-hover:scale-110 transition-all duration-300 ease-in-out" />
 						</div>
 						<div
 							class="absolute top-0 left-0 w-1/2 bg-golden-three  translate-x-3 translate-y-3 shadow-lg text-black font-bold px-3">
@@ -244,7 +241,9 @@ function horizontalLoop(items: any, config: any) {
 					</div>
 
 
-					<p class="font-bold pt-6">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati recusandae
+					<p class="font-bold font-Outfit pt-6">
+						<span class="italic font-bold pr-1 text-golden-three font-">HEADLINE:</span>
+						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati recusandae
 						delectus.
 					</p>
 				</div>
@@ -329,4 +328,5 @@ button {
 
 .show-overflow {
 	overflow: visible;
-}</style>
+}
+</style>

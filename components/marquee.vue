@@ -47,7 +47,7 @@ const props = defineProps(['text'])
 	float: left;
 	width: 25%;
 	height: 100px;
-	font-size: 140px;
+	font-size: 85px;
 	color: #E5B80B;
 }
 

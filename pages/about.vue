@@ -12,7 +12,7 @@
 			<Logo />
 
 			<div class="absolute right-0 top-0">
-				<BoxContainer class="absolute top-6 right-6 tracking-wide text-white font-bold text-xl">
+				<BoxContainer class="absolute top-6 right-6 tracking-wide text-white font-semibold text-xl">
 					<span class="drop-shadow-md">Get In
 						Touch
 					</span>
@@ -23,14 +23,14 @@
 				<span class="font-bold text-4xl drop-shadow-xl">
 					EXPERTS ON HELPING SPORTS PROPERTIES BREAK INTO NEW MARKETS AND GENERATE NEW BUSINESS OPPORTUNITIES
 				</span>
-				<span class="text-lg drop-shadow-xl">
+				<span class="text-lg drop-shadow-xl font-Outfit">
 					EagleEye relies on its powerful network, experienced multicultural team, and comprehensive knowledge of the US
 					and
 					European markets to generate ongoing business opportunities for the most prominent sports organizations, brands,
 					and athletes worldwide.
 				</span>
 
-				<BoxContainer @click="scrollTo" class="w-fit self-end font-bold tracking-wider text-xl">Learn More
+				<BoxContainer @click="scrollTo" class="w-fit self-end font-semibold tracking-wider text-xl">Learn More
 				</BoxContainer>
 			</div>
 
@@ -42,12 +42,12 @@
 			<div class="pb-10">
 				<img src="../assets/imgs/iconLogo.png" alt="" class="mx-auto w-20 aspect-square">
 			</div>
-			<p class="text-[3rem] text-white w-4/5 text-center pb-6">
+			<p class="text-[3rem] text-white w-4/5 text-center pb-6 font-Outfit">
 				EagleEye Sports Consults is a Global Sport Management and Marketing Agency working
 				with the world’s top organizations, brands and athletes.
 			</p>
 
-			<p class="text-xl text-white w-3/5 text-center">
+			<p class="text-xl text-white w-3/5 text-center font-Outfit">
 				Lorem ipsum dolor sit, amet consectetur adipisicing elit. At sapiente quibusdam pariatur modi suscipit dignissimos
 				nisi asperiores totam, nemo iusto nobis quod facilis hic atque maiores! A maiores laboriosam amet!
 			</p>
@@ -92,7 +92,7 @@
 				<span class="pr-1 text-golden-three">//</span>
 				Co-Founders
 			</h2>
-			<p class="text-2xl mb-14">
+			<p class="text-2xl mb-14 font-Outfit">
 				Meet the faces of the EagleEye Sports Consults' corporate executive group, providing leadership to our teams and
 				events around
 				the world.
