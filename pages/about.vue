@@ -5,7 +5,7 @@
 		<div ref="target" class="relative w-full h-screen border-y border-l border-golden-three">
 
 			<div class="h-screen w-full overflow-hidden perspectiv opacity-50 image">
-				<img :style="layer3" src="../assets/imgs/tennisCourt.jpg" alt="" class="image object-cover w-full h-full">
+				<NuxtImg :style="layer3" src="/tennisCourt.jpg" alt="" class="image object-cover w-full h-full" />
 			</div>
 
 			<!-- logo and contact us -->
@@ -40,7 +40,7 @@
 		<div id="about" class="relative w-full border-l border-golden-three flex flex-col items-center py-20">
 
 			<div class="pb-10">
-				<img src="../assets/imgs/iconLogo.png" alt="" class="mx-auto w-20 aspect-square">
+				<NuxtImg src="/iconLogo.png" alt="" class="mx-auto w-20 aspect-square" />
 			</div>
 			<p class="text-[3rem] text-white w-4/5 text-center pb-6 font-Outfit">
 				EagleEye Sports Consults is a Global Sport Management and Marketing Agency working
@@ -56,8 +56,8 @@
 				class="bg-golden-three bg-opacity-20 max-w-[1000px] mx-auto mt-10 min-h-[500px] w-full relative -translate-x-4 -translate-y-4 border border-golden-three">
 				<div
 					class="w-full h-full absolute top-0 left-0 overflow-hidden translate-x-4 translate-y-4 border border-golden-three perspectiv">
-					<img :style="layer3" src="../assets/imgs/braden-collum-9HI8UJMSdZA-unsplash.jpg" alt=""
-						class="object-cover w-full h-full">
+					<NuxtImg :style="layer3" src="/braden-collum-9HI8UJMSdZA-unsplash.jpg" alt=""
+						class="object-cover w-full h-full" />
 				</div>
 			</div>
 
