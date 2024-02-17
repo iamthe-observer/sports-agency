@@ -4,8 +4,8 @@
 		<div class="border-t border-l border-golden-three w-full h-screen relative">
 
 			<div class="w-full h-full bg-black flex overflow-hidden image">
-				<NuxtImg src="/teammanagement.jpg" class="object-cover flex-1 image scale-150" alt="">
-					<div class="absolute inset-0 bg-black bg-opacity-30"></div>
+				<NuxtImg src="/teammanagement.jpg" class="object-cover flex-1 image scale-150" alt="" />
+				<div class="absolute inset-0 bg-black bg-opacity-30"></div>
 			</div>
 
 			<Logo />
