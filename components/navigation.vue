@@ -17,7 +17,7 @@
 			</div>
 
 			<video playsinline autoplay loop muted key="video" id="avatarVideo" src="~/assets/vid2.mp4"
-				class="object-cover w-full h-full bg-white absolute opacity-0 group-hover:opacity-30 transition-all duration-150 ease-in-out">
+				class="object-cover w-full h-full bg-black absolute opacity-0 group-hover:opacity-30 transition-all duration-150 ease-in-out">
 			</video>
 
 		</div>
@@ -36,7 +36,8 @@
 				<!-- graphics -->
 				<section class="w-full">
 					<!-- <img src="../assets/imgs/gloves.JPG" alt="" class="object-cover w-full h-full"> -->
-					<video src="~/assets/eagle.mp4" class="w-full h-full object-cover" autoplay loop mute playsinline></video>
+					<video src="~/assets/eagle.mp4" class="w-full h-full object-cover bg-black" autoplay loop mute
+						playsinline></video>
 				</section>
 
 				<!-- contact us -->

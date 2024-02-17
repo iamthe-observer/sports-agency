@@ -23,7 +23,7 @@
 
 			<div class="w-1/2 flex flex-col gap-10">
 
-				<div v-for="(service, i) in services" :key="i"
+				<div v-motion-fade-visible-once v-for="(service, i) in services" :key="i"
 					class="ball bg-golden-three bg-opacity-5 hover:bg-opacity-20 transition-all duration-[1s] ease-in-out flex flex-col items-center w-full h-fit border border-golden-three">
 					<h1 class="border-b border-golden-three w-full text-center text-4xl py-2">
 						{{ service.title }}

@@ -17,6 +17,11 @@
 }
 
 @layer utilities {
+  .png-shadow {
+    -webkit-filter: drop-shadow(0px 0px 15px #e5b80b);
+    filter: drop-shadow(0px 0px 15px #e5b80b);
+  }
+
   .vertical-text {
     writing-mode: vertical-rl;
     text-orientation: upright;

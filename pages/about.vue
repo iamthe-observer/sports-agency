@@ -2,24 +2,24 @@
 	<div class="w-full h-full relative">
 
 		<!-- background graphics -->
-		<div ref="target" class="relative w-full h-screen border-y border-l border-golden-three">
+		<div class="relative w-full h-screen border-t border-l border-golden-three">
 
 			<div class="h-screen w-full overflow-hidden perspectiv opacity-50 image">
 				<NuxtImg :style="layer3" src="/tennisCourt.jpg" alt="" class="image object-cover w-full h-full" />
 			</div>
 
 			<!-- logo and contact us -->
-			<Logo />
+			<Logo v-motion-fade />
 
 			<div class="absolute right-0 top-0">
-				<BoxContainer class="absolute top-6 right-6 tracking-wide text-white font-semibold text-xl">
+				<BoxContainer v-motion-fade class="absolute top-6 right-6 tracking-wide text-white font-semibold text-xl">
 					<span class="drop-shadow-md">Get In
 						Touch
 					</span>
 				</BoxContainer>
 			</div>
 
-			<div class="absolute bottom-1/2 translate-y-2/3 right-10 text-white w-[40%] h-fit flex flex-col gap-5">
+			<div class="absolute bottom-1/2 translate-y-2/3 right-10 text-white w-[40%] h-fit flex flex-col gap-5 visi">
 				<span class="font-bold text-4xl drop-shadow-xl">
 					EXPERTS ON HELPING SPORTS PROPERTIES BREAK INTO NEW MARKETS AND GENERATE NEW BUSINESS OPPORTUNITIES
 				</span>
@@ -37,27 +37,26 @@
 		</div>
 
 		<!-- about us -->
-		<div id="about" class="relative w-full border-l border-golden-three flex flex-col items-center py-20">
+		<div ref="target" id="about" class="relative w-full border-l border-golden-three flex flex-col items-center py-20">
 
 			<div class="pb-10">
-				<NuxtImg src="/iconLogo.png" alt="" class="mx-auto w-20 aspect-square" />
+				<img v-motion-roll-visible-bottom src="/iconLogo.png" alt="" class="mx-auto w-20 aspect-square" />
 			</div>
-			<p class="text-[3rem] text-white w-4/5 text-center pb-6 font-Outfit">
+			<p v-motion-slide-visible-bottom class="text-[3rem] text-white w-4/5 text-center pb-6 font-Outfit">
 				EagleEye Sports Consults is a Global Sport Management and Marketing Agency working
 				with the world’s top organizations, brands and athletes.
 			</p>
 
-			<p class="text-xl text-white w-3/5 text-center font-Outfit">
+			<p v-motion-slide-visible-bottom class="text-xl text-white w-3/5 text-center font-Outfit">
 				Lorem ipsum dolor sit, amet consectetur adipisicing elit. At sapiente quibusdam pariatur modi suscipit dignissimos
 				nisi asperiores totam, nemo iusto nobis quod facilis hic atque maiores! A maiores laboriosam amet!
 			</p>
 
-			<div
+			<div v-motion-fade-visible
 				class="bg-golden-three bg-opacity-20 max-w-[1000px] mx-auto mt-10 min-h-[500px] w-full relative -translate-x-4 -translate-y-4 border border-golden-three">
 				<div
 					class="w-full h-full absolute top-0 left-0 overflow-hidden translate-x-4 translate-y-4 border border-golden-three perspectiv">
-					<NuxtImg :style="layer3" src="/braden-collum-9HI8UJMSdZA-unsplash.jpg" alt=""
-						class="object-cover w-full h-full" />
+					<img :style="layer3" src="/braden-collum-9HI8UJMSdZA-unsplash.jpg" alt="" class="object-cover w-full h-full" />
 				</div>
 			</div>
 
@@ -88,17 +87,17 @@
 
 		<!-- owners -->
 		<div class="text-white relative w-full border-l border-golden-three flex flex-col px-10 py-20">
-			<h2 class="text-[4rem] font-bold">
+			<h2 v-motion-fade-visible class="text-[4rem] font-bold">
 				<span class="pr-1 text-golden-three">//</span>
 				Co-Founders
 			</h2>
-			<p class="text-2xl mb-14 font-Outfit">
+			<p v-motion-slide-visible-bottom class="text-2xl mb-14 font-Outfit">
 				Meet the faces of the EagleEye Sports Consults' corporate executive group, providing leadership to our teams and
 				events around
 				the world.
 			</p>
 
-			<div class="flex items-center justify-center gap-10">
+			<div v-motion-fade-visible-once class="flex items-center justify-center gap-10">
 				<FlipContainer src="/CF1.jpg" text="NANA A. K. LARBI" />
 				<FlipContainer src="/CF2.png" text="MORRISON AKOWUAH" />
 			</div>
@@ -115,6 +114,10 @@ import type { CSSProperties } from 'vue';
 const { $gsap: gsap } = useNuxtApp()
 const target = ref()
 const parallax = reactive(useParallax(target))
+
+onMounted(() => {
+	// gsap.to('.visi')
+})
 
 const layer3 = computed<CSSProperties>(() => ({
 	// ...layerBase,

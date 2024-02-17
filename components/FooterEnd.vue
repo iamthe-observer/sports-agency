@@ -12,13 +12,13 @@
 				</a>
 			</div>
 			<div class="w-full h-full text-white flex items-center justify-center gap-14 text-[3rem]">
-				<NuxtLink to="/"
+				<NuxtLink v-motion-fade-visible to="/"
 					class="outline outline-2 outline-transparent hover:outline-golden-three px-4 transition-all duration-150 ease-in-out cursor-pointer">
 					HOME</NuxtLink>
-				<NuxtLink to="/about"
+				<NuxtLink v-motion-fade-visible to="/about"
 					class="outline outline-2 outline-transparent hover:outline-golden-three px-4 transition-all duration-150 ease-in-out cursor-pointer">
 					ABOUT US</NuxtLink>
-				<NuxtLink to="/athletes"
+				<NuxtLink v-motion-fade-visible to="/athletes"
 					class="outline outline-2 outline-transparent hover:outline-golden-three px-4 transition-all duration-150 ease-in-out cursor-pointer">
 					ATHLETES</NuxtLink>
 			</div>
@@ -46,13 +46,13 @@
 
 					<div class="w-full flex gap-10">
 						<p class="text-xs uppercase font-Outfit">
-							<span class="text-golden-three italic font-Outfit font-bold">Address #1:</span> <br />
+							<span class="text-golden-three italic font-Outfit font-bold">Ghana, Accra:</span> <br />
 							L3 COASTAL ESTATES <br />
 							SK DTD 4040<br />
 							SPINTEX ROAD, ACCRA
 						</p>
 						<p class="text-xs uppercase font-Outfit">
-							<span class="text-golden-three italic font-Outfit font-bold">Address #2:</span> <br />
+							<span class="text-golden-three italic font-Outfit font-bold">Germany, Bremen:</span> <br />
 							Appartement Nr. 9003<br />
 							LUISENTAL 29F<br />
 							28359<br />
