@@ -95,9 +95,9 @@
 		</div>
 
 		<div class="h-[100px] w-full border-t border-golden-three flex text-white">
-			<div class="w-full h-full grid place-items-center">Email</div>
+			<p class="text-neutral-400 w-full h-full grid place-items-center">eagleeyespc@gmail.com</p>
 			<div class="w-[900px] flex">
-				<a href="https://www.facebook.com/profile.php?id=61556099897439&mibextid=PtKPJ9"
+				<a target="_blank" href="https://www.facebook.com/profile.php?id=61556099897439&mibextid=PtKPJ9"
 					class="cursor-pointer hover:bg-golden-three transition-all duration-150 ease-in-out w-full h-full border-x border-golden-three grid place-items-center">
 					<svg class="drop-shadow-lg" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
 						<path fill="currentColor"
@@ -105,7 +105,7 @@
 					</svg>
 				</a>
 
-				<a href="https://www.instagram.com/eagleeye_sports_consults?igsh=cWl0aTM0bGJicXZt&utm_source=qr"
+				<a target="_blank" href="https://www.instagram.com/eagleeye_sports_consults?igsh=cWl0aTM0bGJicXZt&utm_source=qr"
 					class="cursor-pointer hover:bg-golden-three transition-all duration-150 ease-in-out w-full h-full grid place-items-center">
 					<svg class="drop-shadow-lg" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
 						<g fill="currentColor">
@@ -119,7 +119,7 @@
 					</svg>
 				</a>
 
-				<a href="https://x.com/eagleeyespc/status/1758181248097292575?s=46&t=TWkb0d7GRL-W9BrNlTL1Vw"
+				<a target="_blank" href="https://x.com/eagleeyespc/status/1758181248097292575?s=46&t=TWkb0d7GRL-W9BrNlTL1Vw"
 					class="cursor-pointer hover:bg-golden-three transition-all duration-150 ease-in-out w-full h-full border-l border-golden-three grid place-items-center">
 					<svg class="drop-shadow-lg" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
 						<path fill="currentColor"
@@ -127,7 +127,7 @@
 					</svg>
 				</a>
 
-				<a href="https://youtube.com/@EagleEyeSportsConsults?si=pTw90oZicIL3Mow_"
+				<a target="_blank" href="https://youtube.com/@EagleEyeSportsConsults?si=pTw90oZicIL3Mow_"
 					class="cursor-pointer hover:bg-golden-three transition-all duration-150 ease-in-out w-full h-full border-x border-golden-three grid place-items-center">
 					<svg xmlns="http://www.w3.org/2000/svg" width="36.58" height="32" viewBox="0 0 16 14">
 						<path fill="currentColor"
@@ -137,7 +137,17 @@
 
 			</div>
 
-			<div class="w-full h-full grid place-items-center">Phone Number</div>
+			<div class="w-full h-full grid text-neutral-400	 place-items-center">
+				<span class="">
+					+491745969531
+				</span>
+				<span class="">
+					+4915216434754
+				</span>
+				<span class="">
+					+233537804885
+				</span>
+			</div>
 		</div>
 	</div>
 </template>
