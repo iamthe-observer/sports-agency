@@ -11,7 +11,7 @@ const props = defineProps({
 		<div
 			class="front flex justify-center items-center absolute w-full h-full back-face-v overflow-hidden border border-golden-three">
 			<div class="w-full h-full p-1">
-				<NuxtImg :src="src"
+				<img :src="src"
 					class="object-cover w-full h-full opacity-100 gradiento transition-all duration-300 ease-in-out grayscale-0" />
 			</div>
 		</div>

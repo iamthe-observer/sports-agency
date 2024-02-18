@@ -3,7 +3,7 @@
 		<div class="relative video-content w-full h-screen border-t border-l border-golden-three">
 			<!-- background graphics -->
 			<div class="h-screen w-full opacity-50">
-				<video playsinline autoplay loop muted key="video" id="avatarVideo" src="~/assets/vid1.mp4"
+				<video playsinline autoplay loop muted key="video" id="avatarVideo" src="../public/vid1.mp4"
 					class="object-cover w-full h-full bg-black image">
 				</video>
 			</div>
@@ -52,7 +52,7 @@
 					class="bg-golden-three bg-opacity-20 max-w-[1000px] mx-auto mt-10 min-h-[500px] w-full relative -translate-x-4 -translate-y-4 border border-golden-three">
 					<div ref="target"
 						class="w-full h-full absolute top-0 left-0 overflow-hidden translate-x-4 translate-y-4 border border-golden-three perspectiv">
-						<NuxtImg :style="layer3" src="/ballkick.jpg" alt="" class="object-cover w-full h-full" />
+						<img :style="layer3" src="/ballkick.jpg" alt="" class="object-cover w-full h-full" />
 						<div class="absolute bg-black opacity-40 translate-x- translate-y- top-0 left-0 w-full h-full"></div>
 					</div>
 				</div>

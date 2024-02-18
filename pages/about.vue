@@ -5,7 +5,7 @@
 		<div class="relative w-full h-screen border-t border-l border-golden-three">
 
 			<div class="h-screen w-full overflow-hidden perspectiv opacity-50 image">
-				<NuxtImg :style="layer3" src="/tennisCourt.jpg" alt="" class="image object-cover w-full h-full" />
+				<img :style="layer3" src="/tennisCourt.jpg" alt="" class="image object-cover w-full h-full" />
 			</div>
 
 			<!-- logo and contact us -->
@@ -40,14 +40,14 @@
 		<div ref="target" id="about" class="relative w-full border-l border-golden-three flex flex-col items-center py-20">
 
 			<div class="pb-10">
-				<img v-motion-roll-visible-bottom src="/iconLogo.png" alt="" class="mx-auto w-20 aspect-square" />
+				<img v-motion-roll-visible-once-bottom src="/iconLogo.png" alt="" class="mx-auto w-20 aspect-square" />
 			</div>
-			<p v-motion-slide-visible-bottom class="text-[3rem] text-white w-4/5 text-center pb-6 font-Outfit">
+			<p v-motion-slide-visible-once-bottom class="text-[3rem] text-white w-4/5 text-center pb-6 font-Outfit">
 				EagleEye Sports Consults is a Global Sport Management and Marketing Agency working
 				with the world’s top organizations, brands and athletes.
 			</p>
 
-			<p v-motion-slide-visible-bottom class="text-xl text-white w-3/5 text-center font-Outfit">
+			<p v-motion-slide-visible-once-bottom class="text-xl text-white w-3/5 text-center font-Outfit">
 				Lorem ipsum dolor sit, amet consectetur adipisicing elit. At sapiente quibusdam pariatur modi suscipit dignissimos
 				nisi asperiores totam, nemo iusto nobis quod facilis hic atque maiores! A maiores laboriosam amet!
 			</p>
@@ -91,7 +91,7 @@
 				<span class="pr-1 text-golden-three">//</span>
 				Co-Founders
 			</h2>
-			<p v-motion-slide-visible-bottom class="text-2xl mb-14 font-Outfit">
+			<p v-motion-slide-visible-once-bottom class="text-2xl mb-14 font-Outfit">
 				Meet the faces of the EagleEye Sports Consults' corporate executive group, providing leadership to our teams and
 				events around
 				the world.

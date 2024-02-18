@@ -36,8 +36,8 @@
 				<!-- graphics -->
 				<section class="w-full">
 					<!-- <img src="../assets/imgs/gloves.JPG" alt="" class="object-cover w-full h-full"> -->
-					<video src="~/assets/eagle.mp4" class="w-full h-full object-cover bg-black" autoplay loop mute
-						playsinline></video>
+					<video src="../public/eagle.mp4" class="w-full h-full object-cover bg-black" playsinline autoplay loop
+						muted></video>
 				</section>
 
 				<!-- contact us -->
