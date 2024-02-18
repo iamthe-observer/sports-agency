@@ -99,8 +99,8 @@
 			</p>
 
 			<div v-motion-fade-visible-once class="flex items-center justify-center gap-10">
-				<FlipContainer src="../public/CF1.jpg" text="NANA A. K. LARBI" />
-				<FlipContainer src="../public/CF2.png" text="MORRISON AKOWUAH" />
+				<FlipContainer src="/CF1.jpg" text="NANA A. K. LARBI" />
+				<FlipContainer src="/CF2.png" text="MORRISON AKOWUAH" />
 			</div>
 
 		</div>
