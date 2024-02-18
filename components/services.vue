@@ -15,7 +15,7 @@
 					class="bg-golden-three bg-opacity-20 max-w-[1000px] mx-auto mt-4 h-[80vh] w-full relative -translate-x-4 -translate-y-4 border border-golden-three">
 					<div
 						class="w-full h-full absolute top-0 left-0 overflow-hidden translate-x-4 translate-y-4 border border-golden-three perspectiv">
-						<img :style="layer3" src="/gloves.jpg" alt="" class="object-cover w-full h-full" />
+						<img :style="layer3" src="../public/gloves.jpg" alt="" class="object-cover w-full h-full" />
 					</div>
 				</div>
 
@@ -74,23 +74,23 @@ const services = reactive([
 	{
 		title: 'Athlete Representation',
 		description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam exercitationem fuga at eligendi rerum voluptatibus nihil doloribus vel optio unde!',
-		src: '/ballkick.jpg',
+		src: '../public/ballkick.jpg',
 	}, {
 		title: 'Player Management',
 		description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam exercitationem fuga at eligendi rerum voluptatibus nihil doloribus vel optio unde!',
-		src: '/stuff.jpg',
+		src: '../public/stuff.jpg',
 	}, {
 		title: 'Sports Marketing',
 		description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam exercitationem fuga at eligendi rerum voluptatibus nihil doloribus vel optio unde!',
-		src: '/baseball.jpg',
+		src: '../public/baseball.jpg',
 	}, {
 		title: 'Legal and Sports Consulting',
 		description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam exercitationem fuga at eligendi rerum voluptatibus nihil doloribus vel optio unde!',
-		src: '/suit.jpg',
+		src: '../public/suit.jpg',
 	}, {
 		title: 'Sports Psychology',
 		description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam exercitationem fuga at eligendi rerum voluptatibus nihil doloribus vel optio unde!',
-		src: '/motiv.jpg',
+		src: '../public/motiv.jpg',
 	}
 ])
 const parallax = reactive(useParallax(target))

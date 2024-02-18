@@ -5,7 +5,7 @@
 		<div class="relative w-full h-screen border-t border-l border-golden-three">
 
 			<div class="h-screen w-full overflow-hidden perspectiv opacity-50 image">
-				<img :style="layer3" src="/tennisCourt.jpg" alt="" class="image object-cover w-full h-full" />
+				<img :style="layer3" src="../public/tennisCourt.jpg" alt="" class="image object-cover w-full h-full" />
 			</div>
 
 			<!-- logo and contact us -->
@@ -40,7 +40,7 @@
 		<div ref="target" id="about" class="relative w-full border-l border-golden-three flex flex-col items-center py-20">
 
 			<div class="pb-10">
-				<img v-motion-roll-visible-once-bottom src="/iconLogo.png" alt="" class="mx-auto w-20 aspect-square" />
+				<img v-motion-roll-visible-once-bottom src="../public/iconLogo.png" alt="" class="mx-auto w-20 aspect-square" />
 			</div>
 			<p v-motion-slide-visible-once-bottom class="text-[3rem] text-white w-4/5 text-center pb-6 font-Outfit">
 				EagleEye Sports Consults is a Global Sport Management and Marketing Agency working
@@ -56,7 +56,8 @@
 				class="bg-golden-three bg-opacity-20 max-w-[1000px] mx-auto mt-10 min-h-[500px] w-full relative -translate-x-4 -translate-y-4 border border-golden-three">
 				<div
 					class="w-full h-full absolute top-0 left-0 overflow-hidden translate-x-4 translate-y-4 border border-golden-three perspectiv">
-					<img :style="layer3" src="/braden-collum-9HI8UJMSdZA-unsplash.jpg" alt="" class="object-cover w-full h-full" />
+					<img :style="layer3" src="../public/braden-collum-9HI8UJMSdZA-unsplash.jpg" alt=""
+						class="object-cover w-full h-full" />
 				</div>
 			</div>
 
@@ -98,8 +99,8 @@
 			</p>
 
 			<div v-motion-fade-visible-once class="flex items-center justify-center gap-10">
-				<FlipContainer src="/CF1.jpg" text="NANA A. K. LARBI" />
-				<FlipContainer src="/CF2.png" text="MORRISON AKOWUAH" />
+				<FlipContainer src="../public/CF1.jpg" text="NANA A. K. LARBI" />
+				<FlipContainer src="../public/CF2.png" text="MORRISON AKOWUAH" />
 			</div>
 
 		</div>
