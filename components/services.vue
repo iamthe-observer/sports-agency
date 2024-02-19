@@ -15,7 +15,7 @@
 					class="bg-golden-three bg-opacity-20 max-w-[1000px] mx-auto mt-4 h-[80vh] w-full relative -translate-x-4 -translate-y-4 border border-golden-three">
 					<div
 						class="w-full h-full absolute top-0 left-0 overflow-hidden translate-x-4 translate-y-4 border border-golden-three perspectiv">
-						<img :style="layer3" src="../assets/imgs/gloves.jpg" alt="" class="object-cover w-full h-full" />
+						<img :style="layer3" src="/gloves.jpg" alt="" class="object-cover w-full h-full image1" />
 					</div>
 				</div>
 
@@ -73,25 +73,25 @@ const target = ref()
 const services = reactive([
 	{
 		title: 'Athlete Representation',
-		description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam exercitationem fuga at eligendi rerum voluptatibus nihil doloribus vel optio unde!',
-		src: '../public/ballkick.jpg',
+		description: "On behalf of our athletes, our agents are in charge of negotiating professional activities and contracts. In addition, they handle correspondence between athletes and professional teams, the media, and brands or companies who are interested in them. The experience of our agents is essential because it enables them to select the leagues and teams that will best support our athletes' professional growth in light of their expertise, market knowledge, and analytical abilities.",
+		src: '/ballkick.jpg',
 	}, {
-		title: 'Player Management',
-		description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam exercitationem fuga at eligendi rerum voluptatibus nihil doloribus vel optio unde!',
-		src: '../public/stuff.jpg',
-	}, {
-		title: 'Sports Marketing',
-		description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam exercitationem fuga at eligendi rerum voluptatibus nihil doloribus vel optio unde!',
-		src: '../public/baseball.jpg',
+		title: 'Sports Marketing & Events Management',
+		description: "The portfolio serves as an athlete's entry ticket into the professional ranks. We watch over them and give them presentation and communication tips. Together, our clients and our team build their own electronic portfolios, complete with a highlight reel and an in-depth athlete bio. These are invaluable resources that help us provide exceptional service, build our clients' brands, and raise their market value.",
+		src: '/stuff.jpg',
 	}, {
 		title: 'Legal and Sports Consulting',
-		description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam exercitationem fuga at eligendi rerum voluptatibus nihil doloribus vel optio unde!',
-		src: '../public/suit.jpg',
+		description: "We assist our customers in adjusting to and overcoming the challenges of being a professional athlete by offering career counselling services. Through career plan development and goal-setting, our counselling sessions help our clients maximize their earning potential and achieve their career objectives.",
+		src: '/suit.jpg',
 	}, {
-		title: 'Sports Psychology',
-		description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam exercitationem fuga at eligendi rerum voluptatibus nihil doloribus vel optio unde!',
-		src: '../public/motiv.jpg',
-	}
+		title: 'Talent Scouting',
+		description: "By working with different sports leagues and academies, we try to find athletes that have the potential to advance in their careers. Our goal is to expand and enhance our scouting network by means of club outreach, age-appropriate identification, and easily available and thorough education.",
+		src: '/motiv.jpg',
+	}, {
+		title: 'Athlete Management & Career Development',
+		description: "Even when the contract is signed, our job is not concluded. We continue to oversee our athletes and make sure their needs are met at their individual clubs. In addition to providing emotional support during the frequently demanding football seasons, we also offer financial, branding, and PR consultancy services.",
+		src: '/baseball.jpg',
+	},
 ])
 const parallax = reactive(useParallax(target))
 

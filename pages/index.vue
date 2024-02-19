@@ -15,8 +15,9 @@
 
 			<div v-motion-fade class="absolute right-0 top-1/2 -translate-y-[30%] w-4/5 flex flex-col gap-5 pr-10">
 				<div class="h-fit w-full bg-opacity-20 text-right flex flex-col items-end justify-center">
-					<p class="font-bold text-[60px] text-  droping text-golden-three">EagleEye Sports Consults</p>
-					<p class="font-bold text-2xl text-white droping italic font-Satisfy">Your Pathway to Sporting Greatness</p>
+					<p class="font-semibold text-[60px] text-  droping text-golden-three">EagleEye Sports Consults</p>
+					<p class="font- tracking-wide text-3xl text-white droping italic font-Satisfy">Your Pathway to Sporting
+						Greatness</p>
 				</div>
 
 				<div class="w-full flex justify-end gap-5">
@@ -37,8 +38,11 @@
 				Welcome to
 				<span class="text-golden-three">EagleEye</span>,
 			</h1>
-			<p v-motion-slide-visible-bottom class="text-[60px] text-center w-[90%] mx-auto">
-				To empower atheletes, sports organisations and businesses in the sports industry to achieve their full potential.
+			<p v-motion-slide-visible-bottom class="text-[40px] text-center w-[90%] mx-auto">
+				EagleEye strives to identify and sign gifted athletes and expand its networks by thinking out of the box. Our goal
+				is to give value to professional sport organizations by utilizing our global network and a contemporary approach
+				to the beautiful game. In order to enhance player value, we run a cutting-edge sports consultancy and agency on
+				behalf of teams and athletes.
 			</p>
 
 			<div v-motion-fade-visible class="text-white w-full flex flex-col px-10 pb-6">
@@ -46,7 +50,7 @@
 					class="bg-golden-three bg-opacity-20 max-w-[1000px] mx-auto mt-10 min-h-[500px] w-full relative -translate-x-4 -translate-y-4 border border-golden-three">
 					<div ref="target"
 						class="w-full h-full absolute top-0 left-0 overflow-hidden translate-x-4 translate-y-4 border border-golden-three perspectiv">
-						<img :style="layer3" src="../public/ballkick.jpg" alt="" class="object-cover w-full h-full" />
+						<img :style="layer3" src="/ballkick.jpg" alt="" class="object-cover w-full h-full" />
 						<div class="absolute bg-black opacity-40 translate-x- translate-y- top-0 left-0 w-full h-full"></div>
 					</div>
 				</div>
@@ -54,10 +58,10 @@
 			</div>
 
 
-			<p class=" text-3xl text-center w-4/5 mx-auto tracking-wide font-Outfit">
-				Our dedication to the excellence, intergrity and client-centric approach ensures that we deliver
-				tailored
-				strategies and actionable insights to maximum performance, enhance competitivesness and unlock new opportunities
+			<p class=" text-2xl text-center w-4/5 mx-auto tracking-wide font-Outfit">
+				To empower athletes, sports organizations and businesses in the sports industry to achieve their full potential.
+				Our dedication to the excellence, integrity and client-centric approach ensures that we deliver tailored
+				strategies and actionable insights to maximum performance, enhance competitiveness and unlock new opportunities
 				for our clients.
 			</p>
 		</div>

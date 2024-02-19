@@ -1,5 +1,8 @@
 <script setup lang="ts">
 // @ts-nocheck
+import appStore from '~/stores/app';
+
+const { news_data: news } = storeToRefs(appStore())
 const { $gsap: gsap } = useNuxtApp()
 onMounted(() => {
 	const wrapper = document.querySelector<HTMLElement>(".wrapper");
@@ -224,7 +227,7 @@ function horizontalLoop(items: any, config: any) {
 		</h1>
 
 		<div class="wrapper overflow-hidden">
-			<div v-for="n in 10" class="box">
+			<div v-for="(n, i) in news" :key="i" class="box">
 				<div class="w-[85%] h-full mx-auto flex flex-col text-white group">
 
 					<div
@@ -236,15 +239,14 @@ function horizontalLoop(items: any, config: any) {
 						</div>
 						<div
 							class="absolute top-0 left-0 w-1/2 bg-golden-three  translate-x-3 translate-y-3 shadow-lg text-black font-bold px-3">
-							02/{{ new Date().getFullYear() }}
+							0{{ i + 1 }} / {{ new Date().getFullYear() }}
 						</div>
 					</div>
 
 
 					<p class="font-bold font-Outfit pt-6">
 						<span class="italic font-bold pr-1 text-golden-three font-">HEADLINE:</span>
-						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati recusandae
-						delectus.
+						{{ n.headline }}
 					</p>
 				</div>
 			</div>

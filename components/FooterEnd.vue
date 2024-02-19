@@ -14,19 +14,19 @@
 			</div>
 			<div class="w-full h-full text-white flex items-center justify-center gap-14 text-[2rem]">
 				<NuxtLink @click="onNavClick()" v-motion-fade-visible to="/"
-					class="outline outline-2 outline-transparent hover:outline-golden-three px-4 transition-all duration-150 ease-in-out cursor-pointer">
+					class="linkzz homE outline outline-2 outline-transparent hover:outline-golden-three px-4 transition-all duration-150 ease-in-out cursor-pointer">
 					HOME</NuxtLink>
 				<NuxtLink @click="onNavClick(true)" v-motion-fade-visible to="/"
-					class="outline outline-2 outline-transparent hover:outline-golden-three px-4 transition-all duration-150 ease-in-out cursor-pointer">
+					class="linkzz serviceS outline outline-2 outline-transparent hover:outline-golden-three px-4 transition-all duration-150 ease-in-out cursor-pointer">
 					SERVICES</NuxtLink>
 				<NuxtLink @click="onNavClick()" v-motion-fade-visible to="/about"
-					class="outline outline-2 outline-transparent hover:outline-golden-three px-4 transition-all duration-150 ease-in-out cursor-pointer">
+					class="linkzz abouT outline outline-2 outline-transparent hover:outline-golden-three px-4 transition-all duration-150 ease-in-out cursor-pointer">
 					ABOUT US</NuxtLink>
 				<NuxtLink @click="onNavClick()" v-motion-fade-visible to="/athletes"
-					class="outline outline-2 outline-transparent hover:outline-golden-three px-4 transition-all duration-150 ease-in-out cursor-pointer">
+					class="linkzz athleteS outline outline-2 outline-transparent hover:outline-golden-three px-4 transition-all duration-150 ease-in-out cursor-pointer">
 					OUR ATHLETES</NuxtLink>
 				<NuxtLink @click="onNavClick()" v-motion-fade-visible to="/gallery"
-					class="outline outline-2 outline-transparent hover:outline-golden-three px-4 transition-all duration-150 ease-in-out cursor-pointer">
+					class="linkzz gallerY outline outline-2 outline-transparent hover:outline-golden-three px-4 transition-all duration-150 ease-in-out cursor-pointer">
 					GALLERY</NuxtLink>
 			</div>
 		</div>
@@ -169,10 +169,12 @@
 
 <script setup lang="ts">
 import appStore from '~/stores/app';
+import navStore from '~/stores/nav';
 
 const if_contact = ref(false)
 const { $gsap: gsap } = useNuxtApp();
 const { opened } = storeToRefs(appStore())
+const { curr_nav } = storeToRefs(navStore())
 
 function onNavClick(bool: boolean = false) {
 	setTimeout(() => {
@@ -208,10 +210,41 @@ function toScreenTop() {
 	window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+onMounted(() => {
+	function removeClass() {
+		document.querySelectorAll('.linkzz').forEach((link) => {
+			link.classList.remove('selected')
+		})
+	}
+	function setClass(target: string) {
+		document.querySelector(`.${target}`)!.classList.add('selected')
+	}
+	watchEffect(() => {
+		if (curr_nav.value == '/') {
+			removeClass()
+			setClass('homE')
+		} else if (curr_nav.value == '/about') {
+			removeClass()
+			setClass('abouT')
+		} else if (curr_nav.value == '/athletes') {
+			removeClass()
+			setClass('athleteS')
+		} else if (curr_nav.value == '/gallery') {
+			removeClass()
+			setClass('gallerY')
+		}
+	})
+
+})
+
 
 </script>
 
 <style scoped>
+.selected {
+	@apply text-golden-three bg-golden-three bg-opacity-10 border border-golden-three;
+}
+
 .grad {
 	background: linear-gradient(to bottom, #E5B80B11, transparent);
 }

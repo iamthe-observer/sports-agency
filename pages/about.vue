@@ -2,10 +2,10 @@
 	<div class="w-full h-full relative">
 
 		<!-- background graphics -->
-		<div class="relative w-full h-screen border-t border-l border-golden-three">
+		<div ref="target2" class="relative w-full h-screen border-t border-l border-golden-three">
 
 			<div class="h-screen w-full overflow-hidden perspectiv opacity-50 image">
-				<img :style="layer3" src="../public/tennisCourt.jpg" alt="" class="image object-cover w-full h-full" />
+				<img :style="layer4" src="/tennisCourt.jpg" alt="" class="image object-cover w-full h-full" />
 			</div>
 
 			<!-- logo and contact us -->
@@ -18,10 +18,12 @@
 					ABOUT US
 				</span>
 				<span class="text-lg drop-shadow-xl font-Outfit">
-					EagleEye relies on its powerful network, experienced multicultural team, and comprehensive knowledge of the US
-					and
-					European markets to generate ongoing business opportunities for the most prominent sports organizations, brands,
-					and athletes worldwide.
+					In February 2024, EagleEye Sports Consults was founded as a company that represents athletes and provides them
+					with comprehensive management. Our goal is to help athletes achieve their personal and athletic goals by
+					designing their professional careers. Additionally, we provide our clients with a staff of professionals who are
+					available around-the-clock, allowing them to concentrate just on the ball. Our services include: Sports
+					Marketing & Events Management, Talent Scouting, Athlete Management & Career Development, Legal & Sports
+					Consulting, Athlete Representation.
 				</span>
 
 				<BoxContainer @click="scrollTo" class="w-fit self-end font-semibold tracking-wider text-xl">Learn More
@@ -34,24 +36,33 @@
 		<div ref="target" id="about" class="relative w-full border-l border-golden-three flex flex-col items-center py-20">
 
 			<div class="pb-10">
-				<img v-motion-roll-visible-once-bottom src="../public/iconLogo.png" alt="" class="mx-auto w-20 aspect-square" />
+				<img v-motion-roll-visible-once-bottom src="/iconLogo.png" alt="" class="mx-auto w-20 aspect-square" />
 			</div>
-			<p v-motion-slide-visible-once-bottom class="text-[3rem] text-white w-4/5 text-center pb-6 font-Outfit">
-				EagleEye Sports Consults is a Global Sport Management and Marketing Agency working
-				with the world’s top organizations, brands and athletes.
+
+			<h2 v-motion-fade-visible class="text-center text-white w-full h-full font-semibold text-4xl">
+				<span class="text-golden-three font-semibold pr-2">//</span>Our Mission
+			</h2>
+			<p v-motion-slide-visible-once-bottom class="text-[1.5rem] pt-4 text-white w-4/5 text-center pb-12 font-Outfit">
+				To empower athletes, sports organizations and businesses in the sports industry to achieve their full potential.
+				Our dedication to the excellence, integrity and client-centric approach ensures that we deliver tailored
+				strategies and actionable insights to maximum performance, enhance competitiveness and unlock new opportunities
+				for our clients.
 			</p>
 
-			<p v-motion-slide-visible-once-bottom class="text-xl text-white w-3/5 text-center font-Outfit">
-				Lorem ipsum dolor sit, amet consectetur adipisicing elit. At sapiente quibusdam pariatur modi suscipit dignissimos
-				nisi asperiores totam, nemo iusto nobis quod facilis hic atque maiores! A maiores laboriosam amet!
+			<h2 v-motion-fade-visible class="text-center text-white w-full h-full font-semibold text-4xl">
+				<span class="text-golden-three font-semibold pr-2">//</span>Our Vision
+			</h2>
+
+			<p v-motion-slide-visible-once-bottom class="text-xl pt-4 text-white w-3/5 text-center font-Outfit">
+				To rise to the position of premier industry leader as a result of the sports community's increasing demand for
+				representation.
 			</p>
 
 			<div v-motion-fade-visible
 				class="bg-golden-three bg-opacity-20 max-w-[1000px] mx-auto mt-10 min-h-[500px] w-full relative -translate-x-4 -translate-y-4 border border-golden-three">
 				<div
 					class="w-full h-full absolute top-0 left-0 overflow-hidden translate-x-4 translate-y-4 border border-golden-three perspectiv">
-					<img :style="layer3" src="../public/braden-collum-9HI8UJMSdZA-unsplash.jpg" alt=""
-						class="object-cover w-full h-full" />
+					<img :style="layer3" src="/braden-collum-9HI8UJMSdZA-unsplash.jpg" alt="" class="object-cover w-full h-full" />
 				</div>
 			</div>
 
@@ -109,16 +120,21 @@ import type { CSSProperties } from 'vue';
 
 const { $gsap: gsap } = useNuxtApp()
 const target = ref()
+const target2 = ref()
 const parallax = reactive(useParallax(target))
-
-onMounted(() => {
-	// gsap.to('.visi')
-})
+const parallax2 = reactive(useParallax(target2))
 
 const layer3 = computed<CSSProperties>(() => ({
 	// ...layerBase,
 	transform: `translateX(${parallax.tilt * 20}px) translateY(${parallax.roll * 10
 		}px) scale(1.33) rotateX(${parallax.roll * 20}deg) rotateY(${parallax.tilt * 10
+		}deg)`,
+	transition: 'all .7s ease-out',
+}))
+const layer4 = computed<CSSProperties>(() => ({
+	// ...layerBase,
+	transform: `translateX(${parallax2.tilt * 20}px) translateY(${parallax2.roll * 10
+		}px) scale(1.33) rotateX(${parallax2.roll * 20}deg) rotateY(${parallax2.tilt * 10
 		}deg)`,
 	transition: 'all .7s ease-out',
 }))

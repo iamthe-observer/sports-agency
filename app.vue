@@ -11,6 +11,10 @@
 </template>
 
 <script setup lang="ts">
+import navStore from './stores/nav'
+
+const { curr_nav } = storeToRefs(navStore())
+
 useServerSeoMeta({
 	title: 'EagleEye Sports Consults',
 	ogTitle: 'EagleEye Sports Consults',

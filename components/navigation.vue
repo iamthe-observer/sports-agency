@@ -25,8 +25,7 @@
 	</div>
 
 	<!-- navigation content -->
-	<div id="nav-content"
-		class="fixed w-screen h-screen bg-black outline outline-1 outline-golden-three translate-x-full z-[10000]">
+	<div id="nav-content" class="fixed w-screen h-screen bg-black border border-golden-three translate-x-full z-[10000]">
 
 		<div class="w-full h-full flex relative">
 
@@ -36,12 +35,12 @@
 				<!-- graphics -->
 				<section class="w-full">
 					<!-- <img src="../assets/imgs/gloves.JPG" alt="" class="object-cover w-full h-full"> -->
-					<video src="../public/eagle.mp4" class="w-full h-full object-cover bg-black" playsinline autoplay loop
+					<video src="/eagle.mp4" class="w-full h-full object-cover bg-black" playsinline autoplay loop
 						muted></video>
 				</section>
 
 				<!-- contact us -->
-				<section class="w-[1000px] border-l border-golden-three flex flex-col justify-center items-center">
+				<section class="w-[1000px] border-l border-golden-three flex flex-col justify-center items-center group">
 
 					<div class="px-10 h-full text-white flex flex-col gap-2 justify-center items-center">
 						<h1 class="text-white w-full text-[2rem] font-semibold">Contact Us</h1>
@@ -60,13 +59,16 @@
 						</div>
 
 						<div
-							class="mt-4 w-full min-h-[40px] bg-neutral-900 border border-golden-three gap-[2px] p-[2px] flex flex-col">
+							class="mt-4 w-full min-h-[40px] bg-neutral-900 border border-golden-three gap-[2px] p-[2px] flex flex-col ">
 							<label for="Message" class="text-golden-three text-right w-full px-2">Message</label>
 							<textarea id="Message" class="w-full bg-transparent pl-5 focus:outline-none" />
 						</div>
 
 						<!-- <button class="mt-2 w-full h-10 bg-golden-three">Send Message</button> -->
 						<BoxContainer class="mt-2 text-xl tracking-wide">Send Message</BoxContainer>
+						<div class="italic text-xl font-Outfit pt-3 text-white hover:text-golden-three font-semibold">
+							eagleeyespc@gmail.com
+						</div>
 
 						<NuxtLink href="https://maps.app.goo.gl/6H1wYmEfxw5DFBQV7"
 							class="italic text-xs font-Outfit pt-3 text-golden-one hover:text-golden-three font-semibold cursor-pointer">
@@ -74,31 +76,35 @@
 							Location</NuxtLink>
 					</div>
 
-					<div class="w-full border-t border-golden-three text-white px-5 py-10 flex flex-col">
-						<span class="">telephone</span>
-						<span class="">company email</span>
+
+					<div
+						class="w-full border-t group-hover:bg-golden-three group-hover:bg-opacity-15 transition-all duration-150 ease-in-out border-golden-three text-white px-5 py-10 flex flex-col">
+						<!-- <span class="">telephone</span>
+						<span class="">company email</span> -->
 					</div>
 
 				</section>
 
 				<!-- links -->
-				<section class="text-white w-full border-l border-golden-three flex flex-col">
-					<div class="w-full h-24 border-b border-golden-three"></div>
+				<section class="text-white w-full border-l border-golden-three flex flex-col group">
+					<div
+						class="w-full h-24 border-b border-golden-three group-hover:bg-golden-three group-hover:bg-opacity-15 transition-all duration-150 ease-in-out">
+					</div>
 					<div class="flex flex-col h-full w-full pl-10 justify-center font-semibold text-[2.7rem] gap-5 group">
 						<NuxtLink @click="onNavClick(false)" to="/"
-							class=" hover:text-golden-three border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">
+							class="hover:text-golden-three linkz home border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">
 							HOME</NuxtLink>
 						<NuxtLink @click="onNavClick(false)" to="/about"
-							class=" hover:text-golden-three border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">
+							class="hover:text-golden-three linkz about border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">
 							ABOUT US</NuxtLink>
 						<NuxtLink @click="onNavClick(true)" to="/"
-							class=" hover:text-golden-three border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">
+							class="hover:text-golden-three linkz home border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">
 							SERVICES</NuxtLink>
 						<NuxtLink @click="onNavClick(false)" to="/athletes"
-							class=" hover:text-golden-three border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">
+							class="hover:text-golden-three linkz athletes border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">
 							OUR ATHLETES</NuxtLink>
 						<NuxtLink @click="onNavClick(false)" to="/gallery"
-							class=" hover:text-golden-three border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">
+							class="hover:text-golden-three linkz gallery border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">
 							GALLERY</NuxtLink>
 						<!-- <NuxtLink @click="()=>{setTimeout(toggleNav(),1000)}" to="/"
 							class=" hover:text-golden-three border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">Projects</NuxtLink> -->
@@ -126,11 +132,40 @@
 
 <script setup lang="ts">
 import appStore from '~/stores/app';
+import navStore from '~/stores/nav';
 
 const { $gsap: gsap } = useNuxtApp();
 const { opened } = storeToRefs(appStore())
+const { curr_nav } = storeToRefs(navStore())
 const nav_target = ref()
 const parallax = reactive(useParallax(nav_target))
+
+onMounted(() => {
+	function removeClass() {
+		document.querySelectorAll('.linkz').forEach((link) => {
+			link.classList.remove('selectedLink')
+		})
+	}
+	function setClass(target: string) {
+		document.querySelector(`.${target}`)!.classList.add('selectedLink')
+	}
+	watchEffect(() => {
+		if (curr_nav.value == '/') {
+			removeClass()
+			setClass('home')
+		} else if (curr_nav.value == '/about') {
+			removeClass()
+			setClass('about')
+		} else if (curr_nav.value == '/athletes') {
+			removeClass()
+			setClass('athletes')
+		} else if (curr_nav.value == '/gallery') {
+			removeClass()
+			setClass('gallery')
+		}
+	})
+
+})
 
 function onNavClick(bool?: boolean) {
 	setTimeout(() => {
@@ -148,14 +183,6 @@ function onNavClick(bool?: boolean) {
 function goToServices() {
 	gsap.to(window, { duration: 1, scrollTo: '.services', ease: 'power2.inOut' })
 }
-
-const cardStyle = computed(() => ({
-	transition: '.3s ease-out all',
-	boxShadow: '0 0 20px 0 rgba(255, 255, 255, 0.25)',
-	transform: `rotateX(${parallax.roll * 20}deg) rotateY(${parallax.tilt * 20
-		}deg)`,
-}))
-
 
 const toggleNav = () => {
 	const nav_content = document.getElementById('nav-content')!;
@@ -178,4 +205,8 @@ const toggleNav = () => {
 </script>
 
 
-<style scoped></style>
+<style>
+.selectedLink {
+	@apply text-golden-three bg-golden-three bg-opacity-10 border border-golden-three;
+}
+</style>
