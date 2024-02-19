@@ -20,6 +20,14 @@ export default defineNuxtConfig({
       },
     },
   },
+  app: {
+    head: {
+      title: 'EagleEye Sports Consults',
+      meta: [
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      ],
+    },
+  },
   modules: [
     '@vueuse/nuxt',
     '@tresjs/nuxt',

@@ -11,9 +11,9 @@
   /* cursor: none; */
   box-sizing: border-box;
   /* font-family: Saira Extra Condensed; */
-  /* font-family: Barlow Condensed; */
+  font-family: Barlow Condensed;
   /* font-family: Big Shoulders Stencil Text; */
-  font-family: Tektur;
+  /* font-family: Tektur; */
 }
 
 @layer utilities {

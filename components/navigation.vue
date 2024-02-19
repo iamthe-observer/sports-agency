@@ -4,7 +4,7 @@
 
 		<div class="w-full h-full grid place-items-center relative group " @click="toggleNav">
 
-			<div class="w-5 h-fit flex flex-col gap-[2px]">
+			<div class="droping w-5 h-fit flex flex-col gap-[2px]">
 				<span class="w-full h-[2px] bg-golden-three"></span>
 				<span class="w-full h-[2px] bg-golden-three"></span>
 				<span class="w-full h-[2px] bg-golden-three"></span>
@@ -12,12 +12,12 @@
 
 			<!-- <img src="../assets/imgs/united2.jpg"
 				class="absolute w-full h-full object-cover z-[-5] opacity-0 group-hover:opacity-30 transition-all duration-500 ease-in-out" /> -->
-			<div
-				class="absolute w-full h-full bg-golden-three group-hover:opacity-30 opacity-0 transition-all duration-500 ease-in-out">
-			</div>
+			<!-- <div
+				class="absolute w-full h-full bg-golden-three group-hover:opacity-0 opacity-0 transition-all duration-500 ease-in-out">
+			</div> -->
 
 			<video playsinline autoplay loop muted key="video" id="avatarVideo" src="~/assets/vid2.mp4"
-				class="object-cover w-full h-full bg-black absolute opacity-0 group-hover:opacity-30 transition-all duration-150 ease-in-out">
+				class="object-cover w-full h-full bg-black absolute opacity-0 group-hover:opacity-40 transition-all duration-150 ease-in-out">
 			</video>
 
 		</div>
@@ -44,7 +44,7 @@
 				<section class="w-[1000px] border-l border-golden-three flex flex-col justify-center items-center">
 
 					<div class="px-10 h-full text-white flex flex-col gap-2 justify-center items-center">
-						<h1 class="text-white w-full text-[2rem]">Contact Us</h1>
+						<h1 class="text-white w-full text-[2rem] font-semibold">Contact Us</h1>
 						<p class="w-full text-xl">Send Us A Message</p>
 
 						<div class="w-full h-10 bg-neutral-900 border border-golden-three flex gap-[2px] p-[2px]">
@@ -84,7 +84,7 @@
 				<!-- links -->
 				<section class="text-white w-full border-l border-golden-three flex flex-col">
 					<div class="w-full h-24 border-b border-golden-three"></div>
-					<div class="flex flex-col h-full w-full pl-10 justify-center font-bold text-[2.7rem] gap-5 group">
+					<div class="flex flex-col h-full w-full pl-10 justify-center font-semibold text-[2.7rem] gap-5 group">
 						<NuxtLink @click="onNavClick(false)" to="/"
 							class=" hover:text-golden-three border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">
 							HOME</NuxtLink>
@@ -97,6 +97,9 @@
 						<NuxtLink @click="onNavClick(false)" to="/athletes"
 							class=" hover:text-golden-three border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">
 							OUR ATHLETES</NuxtLink>
+						<NuxtLink @click="onNavClick(false)" to="/gallery"
+							class=" hover:text-golden-three border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">
+							GALLERY</NuxtLink>
 						<!-- <NuxtLink @click="()=>{setTimeout(toggleNav(),1000)}" to="/"
 							class=" hover:text-golden-three border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">Projects</NuxtLink> -->
 					</div>

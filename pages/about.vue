@@ -10,18 +10,12 @@
 
 			<!-- logo and contact us -->
 			<Logo v-motion-fade />
-
-			<div class="absolute right-0 top-0">
-				<BoxContainer v-motion-fade class="absolute top-6 right-6 tracking-wide text-white font-semibold text-xl">
-					<span class="drop-shadow-md">Get In
-						Touch
-					</span>
-				</BoxContainer>
-			</div>
+			<GetInTouch />
+			<Socials />
 
 			<div class="absolute bottom-1/2 translate-y-2/3 right-10 text-white w-[40%] h-fit flex flex-col gap-5 visi">
 				<span class="font-bold text-4xl drop-shadow-xl">
-					EXPERTS ON HELPING SPORTS PROPERTIES BREAK INTO NEW MARKETS AND GENERATE NEW BUSINESS OPPORTUNITIES
+					ABOUT US
 				</span>
 				<span class="text-lg drop-shadow-xl font-Outfit">
 					EagleEye relies on its powerful network, experienced multicultural team, and comprehensive knowledge of the US
@@ -90,17 +84,18 @@
 		<div class="text-white relative w-full border-l border-golden-three flex flex-col px-10 py-20">
 			<h2 v-motion-fade-visible class="text-[4rem] font-bold">
 				<span class="pr-1 text-golden-three">//</span>
-				Co-Founders
+				Our Team
 			</h2>
-			<p v-motion-slide-visible-once-bottom class="text-2xl mb-14 font-Outfit">
-				Meet the faces of the EagleEye Sports Consults' corporate executive group, providing leadership to our teams and
+			<p v-motion-slide-visible-once-bottom class="text-xl mb-14 font-Outfit">
+				Meet the faces of EagleEye Sports Consults' corporate executive group, providing leadership to our teams and
 				events around
 				the world.
 			</p>
 
 			<div v-motion-fade-visible-once class="flex items-center justify-center gap-10">
-				<FlipContainer src="/CF1.jpg" text="NANA A. K. LARBI" />
-				<FlipContainer src="/CF2.png" text="MORRISON AKOWUAH" />
+				<FlipContainer src="/CF1.jpg" text2="Co-Founder / Player Agent" text1="NANA A. K. LARBI" />
+				<FlipContainer src="/CF2.png" text2="Co-Founder / Player Agent" text1="MORRISON AKOWUAH" />
+				<FlipContainer src="/CF2.png" text2="Head of Operations" text1="LARBI RANSFORD" />
 			</div>
 
 		</div>

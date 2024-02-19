@@ -15,7 +15,7 @@
 					class="bg-golden-three bg-opacity-20 max-w-[1000px] mx-auto mt-4 h-[80vh] w-full relative -translate-x-4 -translate-y-4 border border-golden-three">
 					<div
 						class="w-full h-full absolute top-0 left-0 overflow-hidden translate-x-4 translate-y-4 border border-golden-three perspectiv">
-						<img :style="layer3" src="../public/gloves.jpg" alt="" class="object-cover w-full h-full" />
+						<img :style="layer3" src="../assets/imgs/gloves.jpg" alt="" class="object-cover w-full h-full" />
 					</div>
 				</div>
 

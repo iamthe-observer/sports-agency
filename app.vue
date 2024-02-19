@@ -11,6 +11,13 @@
 </template>
 
 <script setup lang="ts">
+useServerSeoMeta({
+	title: 'EagleEye Sports Consults',
+	ogTitle: 'EagleEye Sports Consults',
+	description: 'Your Pathway to Sporting Greatness',
+	ogDescription: 'Your Pathway to Sporting Greatness',
+})
+
 </script>
 
 <style scoped>

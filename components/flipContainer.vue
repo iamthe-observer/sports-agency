@@ -1,7 +1,8 @@
 <script setup lang="ts">
 const props = defineProps({
 	src: String,
-	text: String
+	text1: String,
+	text2: String
 })
 </script>
 
@@ -15,11 +16,20 @@ const props = defineProps({
 					class="object-cover w-full h-full opacity-100 gradiento transition-all duration-300 ease-in-out grayscale-0" />
 			</div>
 		</div>
+
 		<div
-			class="back  border-golden-three flex justify-center items-center absolute w-full h-full back-face-v bg-golden-three bg-opacity-5">
-			<div class="translateZ transition-all duration-300 ease-in-out opacity-0">
-				<p class="text-[4rem] text-center font-bold text-golden-three">{{ text }}</p>
+			class="back border-golden-three flex justify-center items-center absolute w-full h-full back-face-v bg-golden-three bg-opacity-5">
+			<div
+				class="absolute inset-0 w-full h-full  grid place-items-center translateZ transition-all duration-300 ease-in-out opacity-0">
+				<p class="text-[2.8rem] text-center font-bold text-golden-three flex flex-col gap-2">
+					<span class="">{{ text1 }}</span>
+					<span class="font-normal text-[1.5rem]">{{ text2 }}</span>
+				</p>
+				<!-- <p class="text-[1.5rem] text-center text-golden-three">{{ text2 }}</p> -->
 			</div>
+
+			<img src="/iconLogo.png" class="opacity-10" alt="">
+
 		</div>
 	</div>
 </template>

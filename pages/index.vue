@@ -2,22 +2,16 @@
 	<div class="w-full h-full relative">
 		<div class="relative video-content w-full h-screen border-t border-l border-golden-three">
 			<!-- background graphics -->
-			<div class="h-screen w-full opacity-50">
-				<video playsinline autoplay loop muted key="video" id="avatarVideo" src="../public/vid1.mp4"
+			<div class="h-screen w-full opacity-90">
+				<video playsinline autoplay loop muted key="video" id="avatarVideo" src="/vid1.mp4"
 					class="object-cover w-full h-full bg-black image">
 				</video>
 			</div>
 
-			<!-- logo and contact us -->
+			<!-- logo and socials -->
 			<Logo v-motion-fade />
-
-			<div class="absolute right-0 top-0">
-				<BoxContainer v-motion-fade class="absolute top-6 right-6 tracking-wide text-white text-xl">
-					<span class="drop-shadow-md">Get In
-						Touch
-					</span>
-				</BoxContainer>
-			</div>
+			<GetInTouch />
+			<Socials />
 
 			<div v-motion-fade class="absolute right-0 top-1/2 -translate-y-[30%] w-4/5 flex flex-col gap-5 pr-10">
 				<div class="h-fit w-full bg-opacity-20 text-right flex flex-col items-end justify-center">

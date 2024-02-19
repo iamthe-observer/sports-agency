@@ -1,9 +1,10 @@
 <template>
 	<div class="border-golden-three w-full hfit flex flex-col border-l grad border-b relative">
+
 		<div class="w-full h-[400px] border-t border-golden-three flex flex-col">
 			<div class="w-full h-fit flex items-center justify-center">
 
-				<a class="text-white border-x border-b border-golden-three px-10 py-6 text-center text-3xl group hover:bg-golden-three transition-all duration-150 ease-in-out cursor-pointer"
+				<a class="text-white border-x border-b border-golden-three px-10 py-6 text-center text-3xl group hover:text-black hover:bg-golden-three transition-all duration-150 ease-in-out cursor-pointer"
 					@click="toScreenTop">
 					<span
 						class="text-golden-three font-semibold tracking-wider group-hover:text-black transition-all duration-150 ease-in-out">EagleEye</span>
@@ -11,16 +12,22 @@
 					<span class="tracking-wider drop-shadow-md">Sports Consults</span>
 				</a>
 			</div>
-			<div class="w-full h-full text-white flex items-center justify-center gap-14 text-[3rem]">
-				<NuxtLink v-motion-fade-visible to="/"
+			<div class="w-full h-full text-white flex items-center justify-center gap-14 text-[2rem]">
+				<NuxtLink @click="onNavClick()" v-motion-fade-visible to="/"
 					class="outline outline-2 outline-transparent hover:outline-golden-three px-4 transition-all duration-150 ease-in-out cursor-pointer">
 					HOME</NuxtLink>
-				<NuxtLink v-motion-fade-visible to="/about"
+				<NuxtLink @click="onNavClick(true)" v-motion-fade-visible to="/"
+					class="outline outline-2 outline-transparent hover:outline-golden-three px-4 transition-all duration-150 ease-in-out cursor-pointer">
+					SERVICES</NuxtLink>
+				<NuxtLink @click="onNavClick()" v-motion-fade-visible to="/about"
 					class="outline outline-2 outline-transparent hover:outline-golden-three px-4 transition-all duration-150 ease-in-out cursor-pointer">
 					ABOUT US</NuxtLink>
-				<NuxtLink v-motion-fade-visible to="/athletes"
+				<NuxtLink @click="onNavClick()" v-motion-fade-visible to="/athletes"
 					class="outline outline-2 outline-transparent hover:outline-golden-three px-4 transition-all duration-150 ease-in-out cursor-pointer">
-					ATHLETES</NuxtLink>
+					OUR ATHLETES</NuxtLink>
+				<NuxtLink @click="onNavClick()" v-motion-fade-visible to="/gallery"
+					class="outline outline-2 outline-transparent hover:outline-golden-three px-4 transition-all duration-150 ease-in-out cursor-pointer">
+					GALLERY</NuxtLink>
 			</div>
 		</div>
 
@@ -85,76 +92,99 @@
 						</div>
 
 						<BoxContainer class="mt-2 text-xl tracking-wide">Send Message</BoxContainer>
-
 					</div>
-
 				</div>
-
-			</div>
-
-		</div>
-
-		<div class="h-[100px] w-full border-t border-golden-three flex text-white">
-			<p class="text-neutral-400 w-full h-full grid place-items-center">eagleeyespc@gmail.com</p>
-			<div class="w-[900px] flex">
-				<a target="_blank" href="https://www.facebook.com/profile.php?id=61556099897439&mibextid=PtKPJ9"
-					class="cursor-pointer hover:bg-golden-three transition-all duration-150 ease-in-out w-full h-full border-x border-golden-three grid place-items-center">
-					<svg class="drop-shadow-lg" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-						<path fill="currentColor"
-							d="M20.9 2H3.1A1.1 1.1 0 0 0 2 3.1v17.8A1.1 1.1 0 0 0 3.1 22h9.58v-7.75h-2.6v-3h2.6V9a3.64 3.64 0 0 1 3.88-4a20.26 20.26 0 0 1 2.33.12v2.7H17.3c-1.26 0-1.5.6-1.5 1.47v1.93h3l-.39 3H15.8V22h5.1a1.1 1.1 0 0 0 1.1-1.1V3.1A1.1 1.1 0 0 0 20.9 2" />
-					</svg>
-				</a>
-
-				<a target="_blank" href="https://www.instagram.com/eagleeye_sports_consults?igsh=cWl0aTM0bGJicXZt&utm_source=qr"
-					class="cursor-pointer hover:bg-golden-three transition-all duration-150 ease-in-out w-full h-full grid place-items-center">
-					<svg class="drop-shadow-lg" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-						<g fill="currentColor">
-							<path fill-rule="evenodd" d="M12 7a5 5 0 1 0 0 10a5 5 0 0 0 0-10m-3 5a3 3 0 1 0 6 0a3 3 0 0 0-6 0"
-								clip-rule="evenodd" />
-							<path d="M18 5a1 1 0 1 0 0 2a1 1 0 0 0 0-2" />
-							<path fill-rule="evenodd"
-								d="M5 1a4 4 0 0 0-4 4v14a4 4 0 0 0 4 4h14a4 4 0 0 0 4-4V5a4 4 0 0 0-4-4zm14 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"
-								clip-rule="evenodd" />
-						</g>
-					</svg>
-				</a>
-
-				<a target="_blank" href="https://x.com/eagleeyespc/status/1758181248097292575?s=46&t=TWkb0d7GRL-W9BrNlTL1Vw"
-					class="cursor-pointer hover:bg-golden-three transition-all duration-150 ease-in-out w-full h-full border-l border-golden-three grid place-items-center">
-					<svg class="drop-shadow-lg" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
-						<path fill="currentColor"
-							d="M389.2 48h70.6L305.6 224.2L487 464H345L233.7 318.6L106.5 464H35.8l164.9-188.5L26.8 48h145.6l100.5 132.9zm-24.8 373.8h39.1L151.1 88h-42z" />
-					</svg>
-				</a>
-
-				<a target="_blank" href="https://youtube.com/@EagleEyeSportsConsults?si=pTw90oZicIL3Mow_"
-					class="cursor-pointer hover:bg-golden-three transition-all duration-150 ease-in-out w-full h-full border-x border-golden-three grid place-items-center">
-					<svg xmlns="http://www.w3.org/2000/svg" width="36.58" height="32" viewBox="0 0 16 14">
-						<path fill="currentColor"
-							d="M8 1.5c-6.88 0-7 .62-7 5.5s.12 5.5 7 5.5s7-.62 7-5.5s-.12-5.5-7-5.5m2.24 5.74L7.1 8.74c-.28.13-.5-.02-.5-.33V5.59c0-.31.23-.46.5-.33l3.14 1.5c.28.13.28.35 0 .48" />
-					</svg>
-				</a>
-
-			</div>
-
-			<div class="w-full h-full grid text-neutral-400	 place-items-center">
-				<span class="">
-					+491745969531
-				</span>
-				<span class="">
-					+4915216434754
-				</span>
-				<span class="">
-					+233537804885
-				</span>
 			</div>
 		</div>
+
+	</div>
+
+	<div class="w-full h-[100px] border-b border-l border-golden-three flex items-center gap-2 text-white">
+		<p class="w-full h-full flex justify-center items-center gap-3">
+			<svg xmlns="http://www.w3.org/2000/svg" class="w-8 aspect-square" viewBox="0 0 24 24">
+				<path fill="currentColor"
+					d="M11 11L3 6v10h10v2H1V2h20v7h-2V6zm0-2l8-5H3zm8 13q-1.65 0-2.825-1.175T15 18v-4.5q0-1.05.725-1.775T17.5 11q1.05 0 1.775.725T20 13.5V18h-2v-4.5q0-.2-.15-.35T17.5 13q-.2 0-.35.15t-.15.35V18q0 .825.588 1.413T19 20q.825 0 1.413-.587T21 18v-4h2v4q0 1.65-1.175 2.825T19 22M3 6V4v12z" />
+			</svg>
+			<span class="-translate-y-1 text-xl tracking-wider">
+				eagleeyespc@gmail.com
+			</span>
+		</p>
+
+		<p class="w-full h-full flex">
+			<a target="_blank" href="https://www.facebook.com/profile.php?id=61556099897439&mibextid=PtKPJ9"
+				class="cursor-pointer hover:text-black hover:bg-golden-three transition-all duration-150 ease-in-out w-full h-full border-x border-golden-three grid place-items-center">
+				<svg class="drop-shadow-lg" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+					<path fill="currentColor"
+						d="M20.9 2H3.1A1.1 1.1 0 0 0 2 3.1v17.8A1.1 1.1 0 0 0 3.1 22h9.58v-7.75h-2.6v-3h2.6V9a3.64 3.64 0 0 1 3.88-4a20.26 20.26 0 0 1 2.33.12v2.7H17.3c-1.26 0-1.5.6-1.5 1.47v1.93h3l-.39 3H15.8V22h5.1a1.1 1.1 0 0 0 1.1-1.1V3.1A1.1 1.1 0 0 0 20.9 2" />
+				</svg>
+			</a>
+
+			<a target="_blank" href="https://www.instagram.com/eagleeye_sports_consults?igsh=cWl0aTM0bGJicXZt&utm_source=qr"
+				class="cursor-pointer hover:text-black hover:bg-golden-three transition-all duration-150 ease-in-out w-full h-full grid place-items-center">
+				<svg class="drop-shadow-lg" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+					<g fill="currentColor">
+						<path fill-rule="evenodd" d="M12 7a5 5 0 1 0 0 10a5 5 0 0 0 0-10m-3 5a3 3 0 1 0 6 0a3 3 0 0 0-6 0"
+							clip-rule="evenodd" />
+						<path d="M18 5a1 1 0 1 0 0 2a1 1 0 0 0 0-2" />
+						<path fill-rule="evenodd"
+							d="M5 1a4 4 0 0 0-4 4v14a4 4 0 0 0 4 4h14a4 4 0 0 0 4-4V5a4 4 0 0 0-4-4zm14 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"
+							clip-rule="evenodd" />
+					</g>
+				</svg>
+			</a>
+
+			<a target="_blank" href="https://twitter.com/EagleEyeSpC"
+				class="cursor-pointer hover:text-black hover:bg-golden-three transition-all duration-150 ease-in-out w-full h-full border-l border-golden-three grid place-items-center">
+				<svg class="drop-shadow-lg" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
+					<path fill="currentColor"
+						d="M389.2 48h70.6L305.6 224.2L487 464H345L233.7 318.6L106.5 464H35.8l164.9-188.5L26.8 48h145.6l100.5 132.9zm-24.8 373.8h39.1L151.1 88h-42z" />
+				</svg>
+			</a>
+
+			<a target="_blank" href="https://youtube.com/@EagleEyeSportsConsults?si=pTw90oZicIL3Mow_"
+				class="cursor-pointer hover:text-black hover:bg-golden-three transition-all duration-150 ease-in-out w-full h-full border-x border-golden-three grid place-items-center">
+				<svg xmlns="http://www.w3.org/2000/svg" width="36.58" height="32" viewBox="0 0 16 14">
+					<path fill="currentColor"
+						d="M8 1.5c-6.88 0-7 .62-7 5.5s.12 5.5 7 5.5s7-.62 7-5.5s-.12-5.5-7-5.5m2.24 5.74L7.1 8.74c-.28.13-.5-.02-.5-.33V5.59c0-.31.23-.46.5-.33l3.14 1.5c.28.13.28.35 0 .48" />
+				</svg>
+			</a>
+		</p>
+
+		<p class="w-full h-full flex items-center justify-center gap-3">
+			<svg xmlns="http://www.w3.org/2000/svg" class="w-8 aspect-square" viewBox="0 0 24 24">
+				<path fill="currentColor"
+					d="M18.95 22q-3.125 0-6.187-1.35T7.2 16.8q-2.5-2.5-3.85-5.55T2 5.05V4h5.9l.925 5.025l-2.85 2.875q.55.975 1.225 1.85t1.45 1.625q.725.725 1.588 1.388T12.1 18l2.9-2.9l5 1.025V22zM5.025 10l1.65-1.65L6.25 6H4.025q.125 1.125.375 2.113T5.025 10m8.95 8.95q1 .425 2.013.675T18 19.95v-2.2l-2.35-.475zM12 4V2h10v2zm0 4V6h10v2zm0 4v-2h10v2z" />
+			</svg>
+
+			<span class="text-xl tracking-wider">
+				+491745969531<br />
+				+4915216434754<br />
+				+233537804885
+			</span>
+
+		</p>
+
 	</div>
 </template>
 
 <script setup lang="ts">
+import appStore from '~/stores/app';
+
 const if_contact = ref(false)
 const { $gsap: gsap } = useNuxtApp();
+const { opened } = storeToRefs(appStore())
+
+function onNavClick(bool: boolean = false) {
+	setTimeout(() => {
+		if (!opened.value) {
+			gsap.to(window, { duration: 1, scrollTo: { y: 0 }, ease: 'power2.inOut' })
+		}
+	}, 100)
+
+	if (bool) {
+		gsap.to(window, { duration: 1, scrollTo: '.services', ease: 'power2.inOut' })
+	} else { }
+}
 
 const toggleContact = () => {
 	if_contact.value = !if_contact.value

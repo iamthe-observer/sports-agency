@@ -10,17 +10,12 @@
 
 			<Logo />
 
-			<div class="absolute right-0 top-0">
-				<BoxContainer class="absolute top-6 right-6 tracking-wide text-white font-semibold text-xl">
-					<span class="drop-shadow-md">Get In
-						Touch
-					</span>
-				</BoxContainer>
-			</div>
+			<get-in-touch></get-in-touch>
+			<socials />
 
 			<div class="absolute bottom-1/2 translate-y-2/3 right-10 text-white w-[40%] h-fit flex flex-col gap-5">
 				<span class="font-bold text-4xl drop-shadow-xl text-right">
-					Our Players</span>
+					Our Athletes</span>
 				<span class="text-lg drop-shadow-xl font-Outfit text-right">
 					Sports agency for talented people.
 				</span>
@@ -38,7 +33,7 @@
 		<div id="athletes" class="w-full h-full border-l border-golden-three py-32 px-20">
 
 			<h1 v-motion-slide-visible-once-bottom class="text-4xl text-white mb-6 font-semibold"><span
-					class="text-golden-three pr-4">//</span>Featured</h1>
+					class="text-golden-three pr-4">//</span>Featured Athletes</h1>
 
 			<div class="grid grid-cols-3 gap-14">
 
