@@ -7,7 +7,7 @@
 			class="w-full h-screen text-[3rem] font-semibold flex justify-center items-center flex-col text-white relative border-t border-l border-golden-three z-5">
 			<Logo class="z-[2]" />
 			<div class="absolute inset-0">
-				<img src="https://live.staticflickr.com/65535/53534142101_68648c04e4_o.jpg" alt=""
+				<img src="https://live.staticflickr.com/65535/53540906021_0c289c79e0_b.jpg" alt=""
 					class="object-cover w-full h-full opacity-25 image z-0">
 			</div>
 			<span class="text-[3rem] text-white z-[100] droping">Gallery</span>

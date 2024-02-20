@@ -18,7 +18,7 @@ const appStore = defineStore('app', () => {
     },
     {
       date: '22/01/2024',
-      src: '/news2.jpg',
+      src: '/news3.jpg',
       headline:
         "Semenyo scores impressive goal in Bournemouth's 2-2 draw at Newcastle",
       content:
@@ -26,7 +26,7 @@ const appStore = defineStore('app', () => {
     },
     {
       date: '30/01/2024',
-      src: '/news3.jpg',
+      src: '/news2.jpg',
       headline:
         "Ex-president Kufuor backs Kurt Okraku to fix Ghana's football woes",
       content:
@@ -34,7 +34,7 @@ const appStore = defineStore('app', () => {
     },
     {
       date: '02/02/2024',
-      src: '/news4.jpg',
+      src: '/news5.jpg',
       headline:
         "Ghana's Sena Agbeko loses world title fight in round 2 to David Morrell Jr",
       content:
@@ -42,7 +42,7 @@ const appStore = defineStore('app', () => {
     },
     {
       date: '14/02/2024',
-      src: '/news5.jpg',
+      src: '/news4.jpg',
       headline: 'Asante Kotoko beats Nsoatreman 2-1 to win J.A Kufuor Cup',
       content:
         "On Sunday, February 18, 2024, Asante Kotoko defeated Nsoatreman 2-1 in the J.A. Kufuor Cup at the Baba Yara Stadium in Kumasi, coming from behind. The match began with both sides wearing identical yellow strips until the 25th minute, at which point Kotoko paused play to change to a white shirt for easier identification. Before Abdul Rahman broke the tie and gave Nsoatreman the lead in the game, it appeared as though the first half would end in a scoreless draw. Following the break, Steven Mukwala of Uganda was on hand to secure an equaliser for the Porcupine Warriors, which happened in the 57th minute when Asante Kotoko went in pursuit of one. Nsoatreman was given another opportunity to score a penalty in the game. Frederick Asare, nevertheless, saved Manaf Umar's penalty kick. With a goal in the 67th minute, Peter Amidu of Kotoko completed the victory after receiving a perfectly timed ball from Richmond Lamptey. The JAK Foundation arranged the game in remembrance of former Ghanaian President John Agyekum Kufuor, who led the country for two years between 2000 and 2008.",
