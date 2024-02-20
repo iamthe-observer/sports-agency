@@ -234,7 +234,7 @@ function horizontalLoop(items: any, config: any) {
 						class="transition-all duration-150 ease-in-out group-hover:bg-golden-three h-[200px] w-full relative -translate-x-3 -translate-y-3 border border-golden-three">
 						<div ref="target"
 							class="w-full h-full absolute top-0 left-0 overflow-hidden translate-x-3 translate-y-3 border border-golden-three perspectiv">
-							<NuxtImg src="/ballboot.jpg" alt=""
+							<img :src="n.src" alt=""
 								class="object-cover w-full h-full group-hover:scale-110 transition-all duration-300 ease-in-out" />
 						</div>
 						<div
@@ -252,16 +252,16 @@ function horizontalLoop(items: any, config: any) {
 			</div>
 		</div>
 
-		<div class="relative flex gap-5 w-full justify-between items-center">
+		<div class="relative flex gap-5 w-full justify-center items-center">
 			<button
-				class="prev border-y border-r hover:bg-golden-three hover:text-black transition-all duration-150 ease-in-out border-golden-three bg-black">prev</button>
+				class="prev border hover:bg-golden-three hover:text-black transition-all duration-150 ease-in-out border-golden-three bg-black">prev</button>
 
-			<button
+			<!-- <button
 				class="text-white font-bold text-xl border border-golden-three bg-black hover:bg-golden-three hover:text-black transition-all duration-150 ease-in-out">View
-				All</button>
+				All</button> -->
 
 			<button
-				class="next border-y border-l hover:bg-golden-three hover:text-black transition-all duration-150 ease-in-out border-golden-three bg-black">next</button>
+				class="next border hover:bg-golden-three hover:text-black transition-all duration-150 ease-in-out border-golden-three bg-black">next</button>
 			<!-- <button class="toggle">toggle overflow</button> -->
 		</div>
 	</div>
