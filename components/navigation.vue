@@ -35,8 +35,7 @@
 				<!-- graphics -->
 				<section class="w-full">
 					<!-- <img src="../assets/imgs/gloves.JPG" alt="" class="object-cover w-full h-full"> -->
-					<video src="/eagle.mp4" class="w-full h-full object-cover bg-black" playsinline autoplay loop
-						muted></video>
+					<video src="/eagle.mp4" class="w-full h-full object-cover bg-black" playsinline autoplay loop muted></video>
 				</section>
 
 				<!-- contact us -->
@@ -94,12 +93,12 @@
 						<NuxtLink @click="onNavClick(false)" to="/"
 							class="hover:text-golden-three linkz home border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">
 							HOME</NuxtLink>
-						<NuxtLink @click="onNavClick(false)" to="/about"
-							class="hover:text-golden-three linkz about border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">
-							ABOUT US</NuxtLink>
 						<NuxtLink @click="onNavClick(true)" to="/"
 							class="hover:text-golden-three linkz home border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">
 							SERVICES</NuxtLink>
+						<NuxtLink @click="onNavClick(false)" to="/about"
+							class="hover:text-golden-three linkz about border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">
+							ABOUT US</NuxtLink>
 						<NuxtLink @click="onNavClick(false)" to="/athletes"
 							class="hover:text-golden-three linkz athletes border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">
 							OUR ATHLETES</NuxtLink>

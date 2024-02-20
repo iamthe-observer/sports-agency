@@ -3,6 +3,8 @@
 		<!-- <MouseEffect /> -->
 		<!-- <Intro @complete="intro = true" v-if="!intro" /> -->
 
+		<Loading v-if="if_loading" />
+
 		<NuxtLayout>
 			<NuxtPage />
 			<!-- <NuxtPage v-if="intro" /> -->
@@ -14,6 +16,14 @@
 import navStore from './stores/nav'
 
 const { curr_nav } = storeToRefs(navStore())
+const if_loading = ref(false)
+
+watch(curr_nav, () => {
+	if_loading.value = true
+	setTimeout(() => {
+		if_loading.value = false
+	}, Math.floor(Math.random() * (3000 - 1000 + 1) + 1000))
+})
 
 useServerSeoMeta({
 	title: 'EagleEye Sports Consults',

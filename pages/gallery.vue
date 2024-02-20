@@ -18,7 +18,10 @@
 </template>
 
 <script setup lang="ts">
-
+import { useTitle } from '@vueuse/core'
+onMounted(() => {
+	useTitle('EagleEye Sports Consults | Gallery')
+})
 </script>
 
 <style scoped></style>

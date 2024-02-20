@@ -4,6 +4,8 @@ const appStore = defineStore('app', () => {
   const open_nav = ref(false)
   const opened = ref(true)
   const footer_open = ref(false)
+  const if_contact = ref(false)
+  const { $gsap: gsap } = useNuxtApp()
 
   const news_data = ref([
     {
@@ -37,6 +39,31 @@ const appStore = defineStore('app', () => {
     },
   ])
 
+  const toggleContact = (bool?: boolean) => {
+    if (bool) {
+      return gsap.to('#contact', {
+        height: '450px',
+        duration: 0.5,
+        ease: 'power4.out',
+      })
+    } else {
+      if_contact.value = !if_contact.value
+      if (if_contact.value) {
+        gsap.to('#contact', {
+          height: '450px',
+          duration: 0.5,
+          ease: 'power4.out',
+        })
+      } else {
+        gsap.to('#contact', {
+          height: '100px',
+          duration: 0.5,
+          ease: 'power4.out',
+        })
+      }
+    }
+  }
+
   return {
     showNav,
     ifShowNav,
@@ -44,6 +71,8 @@ const appStore = defineStore('app', () => {
     opened,
     footer_open,
     news_data,
+    if_contact,
+    toggleContact,
   }
 })
 

@@ -74,11 +74,11 @@ const services = reactive([
 	{
 		title: 'Athlete Representation',
 		description: "On behalf of our athletes, our agents are in charge of negotiating professional activities and contracts. In addition, they handle correspondence between athletes and professional teams, the media, and brands or companies who are interested in them. The experience of our agents is essential because it enables them to select the leagues and teams that will best support our athletes' professional growth in light of their expertise, market knowledge, and analytical abilities.",
-		src: '/ballkick.jpg',
+		src: '/athlete-rep.jpg',
 	}, {
 		title: 'Sports Marketing & Events Management',
 		description: "The portfolio serves as an athlete's entry ticket into the professional ranks. We watch over them and give them presentation and communication tips. Together, our clients and our team build their own electronic portfolios, complete with a highlight reel and an in-depth athlete bio. These are invaluable resources that help us provide exceptional service, build our clients' brands, and raise their market value.",
-		src: '/stuff.jpg',
+		src: '/jersey.png',
 	}, {
 		title: 'Legal and Sports Consulting',
 		description: "We assist our customers in adjusting to and overcoming the challenges of being a professional athlete by offering career counselling services. Through career plan development and goal-setting, our counselling sessions help our clients maximize their earning potential and achieve their career objectives.",
@@ -86,18 +86,18 @@ const services = reactive([
 	}, {
 		title: 'Talent Scouting',
 		description: "By working with different sports leagues and academies, we try to find athletes that have the potential to advance in their careers. Our goal is to expand and enhance our scouting network by means of club outreach, age-appropriate identification, and easily available and thorough education.",
-		src: '/motiv.jpg',
+		src: '/stuff.jpg',
 	}, {
 		title: 'Athlete Management & Career Development',
 		description: "Even when the contract is signed, our job is not concluded. We continue to oversee our athletes and make sure their needs are met at their individual clubs. In addition to providing emotional support during the frequently demanding football seasons, we also offer financial, branding, and PR consultancy services.",
-		src: '/baseball.jpg',
+		src: '/career-dev.jpg',
 	},
 ])
 const parallax = reactive(useParallax(target))
 
 const layer3 = computed<CSSProperties>(() => ({
 	transform: `translateX(${parallax.tilt * 40}px) translateY(${parallax.roll * 30
-		}px) scale(1.33) rotateX(${parallax.roll * 30}deg) rotateY(${parallax.tilt * 20
+		}px) scale(1.19) rotateX(${parallax.roll * 30}deg) rotateY(${parallax.tilt * 20
 		}deg)`,
 	transition: 'all .7s ease-out',
 }))

@@ -76,6 +76,11 @@
 
 <script setup lang="ts">
 import type { CSSProperties } from 'vue';
+import { useTitle } from '@vueuse/core'
+
+onMounted(() => {
+	useTitle('EagleEye Sports Consults | Athletes')
+})
 
 const { $gsap: gsap } = useNuxtApp()
 const target = ref()

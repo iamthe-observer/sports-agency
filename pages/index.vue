@@ -38,7 +38,7 @@
 				Welcome to
 				<span class="text-golden-three">EagleEye</span>,
 			</h1>
-			<p v-motion-slide-visible-bottom class="text-[40px] text-center w-[90%] mx-auto">
+			<p v-motion-slide-visible-bottom class="text-[30px] text-center w-[90%] mx-auto">
 				EagleEye strives to identify and sign gifted athletes and expand its networks by thinking out of the box. Our goal
 				is to give value to professional sport organizations by utilizing our global network and a contemporary approach
 				to the beautiful game. In order to enhance player value, we run a cutting-edge sports consultancy and agency on
@@ -50,13 +50,17 @@
 					class="bg-golden-three bg-opacity-20 max-w-[1000px] mx-auto mt-10 min-h-[500px] w-full relative -translate-x-4 -translate-y-4 border border-golden-three">
 					<div ref="target"
 						class="w-full h-full absolute top-0 left-0 overflow-hidden translate-x-4 translate-y-4 border border-golden-three perspectiv">
-						<img :style="layer3" src="/ballkick.jpg" alt="" class="object-cover w-full h-full" />
+						<img :style="layer3" src="/hooprun2.jpg" alt="" class="object-cover w-full h-full" />
 						<div class="absolute bg-black opacity-40 translate-x- translate-y- top-0 left-0 w-full h-full"></div>
 					</div>
 				</div>
 
 			</div>
 
+			<h1 class="text-center w-full font-semibold text-4xl pt-4 pb-3">
+				<span class="text-golden-three">//</span>
+				Mission Statement
+			</h1>
 
 			<p class=" text-2xl text-center w-4/5 mx-auto tracking-wide font-Outfit">
 				To empower athletes, sports organizations and businesses in the sports industry to achieve their full potential.
@@ -81,6 +85,7 @@
 
 <script setup lang="ts">
 import type { CSSProperties } from 'vue';
+import { useTitle } from '@vueuse/core'
 
 const target = ref()
 const parallax = reactive(useParallax(target))
@@ -94,6 +99,8 @@ const layer3 = computed<CSSProperties>(() => ({
 }))
 
 onMounted(() => {
+	useTitle('EagleEye Sports Consults | Home')
+
 	let card_container = document.querySelectorAll('.card-container')
 	// let flipcard = document.querySelectorAll('.flipcard')
 	card_container.forEach((card) => {

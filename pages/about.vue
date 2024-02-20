@@ -104,9 +104,14 @@
 			</p>
 
 			<div v-motion-fade-visible-once class="flex items-center justify-center gap-10">
-				<FlipContainer src="/CF1.jpg" text2="Co-Founder / Player Agent" text1="NANA A. K. LARBI" />
-				<FlipContainer src="/CF2.png" text2="Co-Founder / Player Agent" text1="MORRISON AKOWUAH" />
-				<FlipContainer src="/CF2.png" text2="Head of Operations" text1="LARBI RANSFORD" />
+				<FlipContainer src="/CF2NEW.jpg" text2="Co-Founder / Player Agent" text1="NANA A. K. LARBI" />
+				<FlipContainer src="/CF1NEW.jpg" text2="Co-Founder / Player Agent" text1="MORRISON AKOWUAH" />
+				<FlipContainer src="/CF5.jpg" text2="Head of Operations" text1="LARBI RANSFORD" />
+			</div>
+
+			<div v-motion-fade-visible-once class="flex items-center justify-center gap-10 pt-10">
+				<FlipContainer src="/CF4.jpg" text2="Chief Scout (Ghana)" text1="YAW OWUSU BANAHENE" />
+				<FlipContainer src="/CF3.jpg" text2="Scout (Kenya)" text1="CHURCHILL CARLOS MASHETI" />
 			</div>
 
 		</div>
@@ -117,6 +122,11 @@
 
 <script setup lang="ts">
 import type { CSSProperties } from 'vue';
+import { useTitle } from '@vueuse/core'
+
+onMounted(() => {
+	useTitle('EagleEye Sports Consults | About Us')
+})
 
 const { $gsap: gsap } = useNuxtApp()
 const target = ref()

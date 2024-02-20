@@ -33,7 +33,7 @@
 
 		<div id="contact"
 			class="h-[100px] w-full text-white flex flex-col items-center overflow-hidden px-8 border-golden-three border-t hover:bg-golden-three hover:bg-opacity-10">
-			<h1 @click="toggleContact"
+			<h1 @click="appStore().toggleContact(false)"
 				class="text-3xl font-normal w-full min-h-[100px] grid place-items-center cursor-pointer relative text-center">
 				Contact Us
 				<div class="iconexpand absolute top-1/2 -translate-y-1/2 right-0 w-10 aspect-square">
@@ -171,9 +171,8 @@
 import appStore from '~/stores/app';
 import navStore from '~/stores/nav';
 
-const if_contact = ref(false)
 const { $gsap: gsap } = useNuxtApp();
-const { opened } = storeToRefs(appStore())
+const { opened, if_contact } = storeToRefs(appStore())
 const { curr_nav } = storeToRefs(navStore())
 
 function onNavClick(bool: boolean = false) {
@@ -189,7 +188,7 @@ function onNavClick(bool: boolean = false) {
 }
 
 const toggleContact = () => {
-	if_contact.value = !if_contact.value
+	appStore().$patch({ if_contact: !if_contact.value })
 	if (if_contact.value) {
 		gsap.to('#contact', {
 			height: '450px',
@@ -202,7 +201,6 @@ const toggleContact = () => {
 			duration: 0.5,
 			ease: 'power4.out'
 		})
-		// tl.reverse()
 	}
 }
 
