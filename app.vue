@@ -20,8 +20,10 @@ const if_loading = ref(false)
 
 watch(curr_nav, () => {
 	if_loading.value = true
+	document.body.style.overflow = "hidden";
 	setTimeout(() => {
 		if_loading.value = false
+		document.body.style.overflow = "auto";
 	}, Math.floor(Math.random() * (3000 - 1000 + 1) + 1000))
 })
 
