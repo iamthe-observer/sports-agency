@@ -5,7 +5,8 @@
 		<div ref="target2" class="relative w-full h-screen border-t border-l border-golden-three">
 
 			<div class="h-screen w-full overflow-hidden perspectiv opacity-50 image">
-				<img :style="layer4" src="/tennisCourt.jpg" alt="" class="image object-cover w-full h-full" />
+				<img :style="layer4" src="https://live.staticflickr.com/65535/53534320538_e5d81e3fc7_o.jpg" alt=""
+					class="image object-cover w-full h-full" />
 			</div>
 
 			<!-- logo and contact us -->
@@ -62,7 +63,8 @@
 				class="bg-golden-three bg-opacity-20 max-w-[1000px] mx-auto mt-10 min-h-[500px] w-full relative -translate-x-4 -translate-y-4 border border-golden-three">
 				<div
 					class="w-full h-full absolute top-0 left-0 overflow-hidden translate-x-4 translate-y-4 border border-golden-three perspectiv">
-					<img :style="layer3" src="/braden-collum-9HI8UJMSdZA-unsplash.jpg" alt="" class="object-cover w-full h-full" />
+					<img :style="layer3" src="https://live.staticflickr.com/65535/53533251352_6f151bfcf1_o.jpg" alt=""
+						class="object-cover w-full h-full" />
 				</div>
 			</div>
 
@@ -104,14 +106,19 @@
 			</p>
 
 			<div v-motion-fade-visible-once class="flex items-center justify-center gap-10">
-				<FlipContainer src="/CF2NEW.jpg" text2="Co-Founder / Player Agent" text1="NANA A. K. LARBI" />
-				<FlipContainer src="/CF1NEW.jpg" text2="Co-Founder / Player Agent" text1="MORRISON AKOWUAH" />
-				<FlipContainer src="/CF5.jpg" text2="Head of Operations" text1="LARBI RANSFORD" />
+				<FlipContainer src="https://live.staticflickr.com/65535/53541056275_bd04f734bd_o.jpg"
+					text2="Co-Founder / Player Agent" text1="NANA A. K. LARBI" />
+				<FlipContainer src="https://live.staticflickr.com/65535/53540633426_f94b2cc16c_o.jpg"
+					text2="Co-Founder / Player Agent" text1="MORRISON AKOWUAH" />
+				<FlipContainer src="https://live.staticflickr.com/65535/53540812068_63943e2af1_o.jpg" text2="Head of Operations"
+					text1="LARBI RANSFORD" />
 			</div>
 
 			<div v-motion-fade-visible-once class="flex items-center justify-center gap-10 pt-10">
-				<FlipContainer src="/CF4.jpg" text2="Chief Scout (Ghana)" text1="YAW OWUSU BANAHENE" />
-				<FlipContainer src="/CF3.jpg" text2="Scout (Kenya)" text1="CHURCHILL CARLOS MASHETI" />
+				<FlipContainer src="https://live.staticflickr.com/65535/53540959629_ecaa9285ac_o.jpg" text2="Chief Scout (Ghana)"
+					text1="YAW OWUSU BANAHENE" />
+				<FlipContainer src="https://live.staticflickr.com/65535/53541056280_c9558276c5_o.jpg" text2="Scout (Kenya)"
+					text1="CHURCHILL CARLOS MASHETI" />
 			</div>
 
 		</div>

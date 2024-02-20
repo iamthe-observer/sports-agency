@@ -15,7 +15,8 @@
 					class="bg-golden-three bg-opacity-20 max-w-[1000px] mx-auto mt-4 h-[80vh] w-full relative -translate-x-4 -translate-y-4 border border-golden-three">
 					<div
 						class="w-full h-full absolute top-0 left-0 overflow-hidden translate-x-4 translate-y-4 border border-golden-three perspectiv">
-						<img :style="layer3" src="/gloves.jpg" alt="" class="object-cover w-full h-full image1" />
+						<img :style="layer3" src="https://live.staticflickr.com/65535/53534559030_5edc6a41d8_o.jpg" alt=""
+							class="object-cover w-full h-full image1" />
 					</div>
 				</div>
 
@@ -61,8 +62,9 @@ onMounted(() => {
 		scrollTrigger: {
 			trigger: ".image_container",
 			start: "top 6%",
-			end: () => `+=${container_height * .804}`,
-			scrub: 3,
+			end: () => `+=${container_height - document.querySelector('.image1')!.clientHeight - 18}`,
+			// end: () => `+=${container_height * .804}`,
+			scrub: 1,
 			pin: true,
 			immediateRender: true
 		}
@@ -70,30 +72,34 @@ onMounted(() => {
 })
 
 const target = ref()
+const parallax = reactive(useParallax(target))
 const services = reactive([
 	{
 		title: 'Athlete Representation',
 		description: "On behalf of our athletes, our agents are in charge of negotiating professional activities and contracts. In addition, they handle correspondence between athletes and professional teams, the media, and brands or companies who are interested in them. The experience of our agents is essential because it enables them to select the leagues and teams that will best support our athletes' professional growth in light of their expertise, market knowledge, and analytical abilities.",
-		src: '/athlete-rep.jpg',
-	}, {
+		src: 'https://live.staticflickr.com/65535/53539752002_f67e871aa2_o.jpg',
+	},
+	{
 		title: 'Sports Marketing & Events Management',
 		description: "The portfolio serves as an athlete's entry ticket into the professional ranks. We watch over them and give them presentation and communication tips. Together, our clients and our team build their own electronic portfolios, complete with a highlight reel and an in-depth athlete bio. These are invaluable resources that help us provide exceptional service, build our clients' brands, and raise their market value.",
-		src: '/jersey.png',
-	}, {
+		src: 'https://live.staticflickr.com/65535/53541058040_442c708e6f_o.png',
+	},
+	{
 		title: 'Legal and Sports Consulting',
 		description: "We assist our customers in adjusting to and overcoming the challenges of being a professional athlete by offering career counselling services. Through career plan development and goal-setting, our counselling sessions help our clients maximize their earning potential and achieve their career objectives.",
-		src: '/suit.jpg',
-	}, {
+		src: 'https://live.staticflickr.com/65535/53534559105_6615114621_o.jpg',
+	},
+	{
 		title: 'Talent Scouting',
 		description: "By working with different sports leagues and academies, we try to find athletes that have the potential to advance in their careers. Our goal is to expand and enhance our scouting network by means of club outreach, age-appropriate identification, and easily available and thorough education.",
-		src: '/stuff.jpg',
-	}, {
+		src: 'https://live.staticflickr.com/65535/53534142181_6ba44e0de9_o.jpg',
+	},
+	{
 		title: 'Athlete Management & Career Development',
 		description: "Even when the contract is signed, our job is not concluded. We continue to oversee our athletes and make sure their needs are met at their individual clubs. In addition to providing emotional support during the frequently demanding football seasons, we also offer financial, branding, and PR consultancy services.",
-		src: '/career-dev.jpg',
+		src: 'https://live.staticflickr.com/65535/53541058030_35f8cf5417_o.jpg',
 	},
 ])
-const parallax = reactive(useParallax(target))
 
 const layer3 = computed<CSSProperties>(() => ({
 	transform: `translateX(${parallax.tilt * 40}px) translateY(${parallax.roll * 30

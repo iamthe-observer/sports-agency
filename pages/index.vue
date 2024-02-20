@@ -50,7 +50,8 @@
 					class="bg-golden-three bg-opacity-20 max-w-[1000px] mx-auto mt-10 min-h-[500px] w-full relative -translate-x-4 -translate-y-4 border border-golden-three">
 					<div ref="target"
 						class="w-full h-full absolute top-0 left-0 overflow-hidden translate-x-4 translate-y-4 border border-golden-three perspectiv">
-						<img :style="layer3" src="/hooprun2.jpg" alt="" class="object-cover w-full h-full" />
+						<img :style="layer3" src="https://live.staticflickr.com/65535/53534142101_68648c04e4_o.jpg" alt=""
+							class="object-cover w-full h-full" />
 						<div class="absolute bg-black opacity-40 translate-x- translate-y- top-0 left-0 w-full h-full"></div>
 					</div>
 				</div>
@@ -92,8 +93,8 @@ const parallax = reactive(useParallax(target))
 
 const layer3 = computed<CSSProperties>(() => ({
 	// ...layerBase,
-	transform: `translateX(${parallax.tilt * 40}px) translateY(${parallax.roll * 30
-		}px) scale(1.33) rotateX(${parallax.roll * 30}deg) rotateY(${parallax.tilt * 20
+	transform: `translateX(${parallax.tilt * 20}px) translateY(${parallax.roll * 20
+		}px) scale(1.33) rotateX(${parallax.roll * 20}deg) rotateY(${parallax.tilt * 20
 		}deg)`,
 	transition: 'all .7s ease-out',
 }))

@@ -4,7 +4,8 @@
 		<div ref="target" class="border-t border-l border-golden-three w-full h-screen relative">
 
 			<div class="w-full h-full bg-black flex overflow-hidden image perspectiv">
-				<img :style="layer3" src="/foosball.jpg" class="object-cover flex-1 image scale-150" alt="" />
+				<img :style="layer3" src="https://live.staticflickr.com/65535/53541058015_a62d10d291_o.jpg"
+					class="object-cover flex-1 image scale-150" alt="" />
 				<div class="absolute inset-0 bg-black bg-opacity-30"></div>
 			</div>
 
@@ -38,28 +39,28 @@
 			<div class="grid grid-cols-3 gap-14">
 
 				<div class="players flex flex-col gap-4 items-center">
-					<img src="/P1.png" alt=""
+					<img src="~/assets/P1.png" alt=""
 						class="hover:png-shadow transition-all duration-150 ease-out object-contain w-[300px] h-[400px] hover:scale-105" />
 
 					<span class="text-white mx-auto font-semibold text-xl tracking-wide">Michael Ofori</span>
 				</div>
 
 				<div class="players flex flex-col gap-4 items-center">
-					<img src="/P4.png" alt=""
+					<img src="~/assets/P4.png" alt=""
 						class="hover:png-shadow transition-all duration-150 ease-out object-contain w-[300px] h-[400px] hover:scale-105" />
 
 					<span class="text-white mx-auto font-semibold text-xl tracking-wide">Samuel Lartey</span>
 				</div>
 
 				<div class="players flex flex-col gap-4 items-center">
-					<img src="/P2.png" alt=""
+					<img src="~/assets/P2.png" alt=""
 						class="hover:png-shadow transition-all duration-150 ease-out object-contain w-[300px] h-[400px] hover:scale-100 scale-90" />
 
 					<span class="text-white mx-auto font-semibold text-xl tracking-wide">Christopher Okonkwo</span>
 				</div>
 
 				<div class="players flex flex-col gap-4 items-center col-span-3">
-					<img src="/P3.png" alt=""
+					<img src="~/assets/P3.png" alt=""
 						class="hover:png-shadow transition-all duration-150 ease-out object-contain w-[300px] h-[400px] hover:scale-100 scale-90" />
 
 					<span class="text-white mx-auto font-semibold text-xl tracking-wide">Abubakar Sadick</span>
