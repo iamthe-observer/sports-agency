@@ -251,7 +251,7 @@ function horizontalLoop(items: any, config: any) {
 					</div>
 
 
-					<p class="font-bold font-Outfit pt-6">
+					<p class="font-bold font-Outfit pt-6 h-full w-full">
 						<span class="italic font-bold pr-1 text-golden-three font-">HEADLINE:</span>
 						{{ n.headline ? n.headline : "..." }}
 					</p>
@@ -335,7 +335,7 @@ function horizontalLoop(items: any, config: any) {
 .box {
 	box-sizing: border-box;
 	height: 100%;
-	width: 40%;
+	width: 80%;
 	margin: 0;
 	padding-top: 20px;
 	position: relative;

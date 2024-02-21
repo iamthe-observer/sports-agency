@@ -1,16 +1,16 @@
 <template>
 	<div ref="target"
-		class="border-golden-three text-white w-full flex flex-col pb-20 border-l py-20 services overflow-y-hidden">
+		class="border-golden-three text-white w-full flex flex-col lg:border-l py-5 pb-20 lg:py-20 services overflow-y-hidden">
 
-		<h2 class="text-center w-full h-full font-bold text-2xl mx-auto mb-20">
+		<h2 class="text-center w-full h-full font-bold text-2xl mx-auto mb-5 lg:mb-20">
 			<!-- <span class="">Our Services</span> -->
 			<Marquee text="OUR SERVICES" />
 		</h2>
 
 		<section
-			class="text-white max-h-full flex justify-between w-full py-8 px-10 min-h-[1900px] gap-3 bg-base900 relative isolate">
-			<div class="image_container flex-1 relative w-1/2 pointer-events-none px-10">
+			class="text-white max-h-full flex justify-between w-full py-8 px-4 lg:px-10 min-h-[1900px] gap-3 bg-base900 relative isolate">
 
+			<div v-if="!if_sm" class="image_container flex-1 relative w-1/2 pointer-events-none px-10">
 				<div
 					class="bg-golden-three bg-opacity-20 max-w-[1000px] mx-auto mt-4 h-[80vh] w-full relative -translate-x-4 -translate-y-4 border border-golden-three">
 					<div
@@ -19,10 +19,9 @@
 							class="object-cover w-full h-full image1" />
 					</div>
 				</div>
-
 			</div>
 
-			<div class="w-1/2 flex flex-col gap-10">
+			<div class="lg:w-1/2 w-full flex flex-col gap-10">
 
 				<div v-motion-fade-visible-once v-for="(service, i) in services" :key="i"
 					class="ball bg-golden-three bg-opacity-5 hover:bg-opacity-20 transition-all duration-[1s] ease-in-out flex flex-col items-center w-full h-fit border border-golden-three">
@@ -55,8 +54,9 @@
 import type { CSSProperties } from 'vue';
 
 const { $gsap: gsap } = useNuxtApp();
+const if_sm = inject('if_sm', true)
 
-onMounted(() => {
+function animate() {
 	const container_height = document.querySelector('.image_container')!.clientHeight
 	gsap.to('.image1', {
 		scrollTrigger: {
@@ -69,6 +69,9 @@ onMounted(() => {
 			immediateRender: true
 		}
 	})
+}
+onMounted(() => {
+	if (!if_sm) animate()
 })
 
 const target = ref()

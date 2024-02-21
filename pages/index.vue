@@ -1,5 +1,5 @@
 <template>
-	<div class="w-full h-full relative overflow-x-hidden">
+	<div class="w-full h-full relative overflow-hidden">
 		<div :class="['relative video-content w-full h-screen border-golden-three border-t lg:border-l']">
 			<!-- background graphics -->
 			<div class="h-screen w-full opacity-90">
@@ -62,7 +62,7 @@
 					</a>
 				</section>
 
-				<section
+				<section @click="goToContact"
 					class="grid place-items-center px-4 text-golden-three font-bold cursor-pointer active:bg-golden-three select-none active:text-black border-l border-golden-three whitespace-nowrap bg-black">
 					Contact Us</section>
 			</div>
@@ -88,19 +88,19 @@
 		</div>
 
 		<!-- mission statement -->
-		<div class="text-white w-full flex flex-col px-10 pt-40 border-l border-golden-three pb-36">
+		<div class="text-white w-full flex flex-col lg:px-10 px-4 lg:pt-40 pt-32 lg:border-l border-golden-three pb-36">
 			<h1 v-motion-slide-visible-bottom class="the-container text-center w-full font-bold font-Outfit text-2xl mb-6">
 				Welcome to
 				<span class="text-golden-three">EagleEye</span>,
 			</h1>
-			<p v-motion-slide-visible-bottom class="text-[30px] text-center w-[90%] mx-auto">
+			<p v-motion-slide-visible-bottom class="lg:text-[30px] text-[28px] text-center w-full lg:w-[90%] mx-auto">
 				EagleEye strives to identify and sign gifted athletes and expand its networks by thinking out of the box. Our goal
 				is to give value to professional sport organizations by utilizing our global network and a contemporary approach
 				to the beautiful game. In order to enhance player value, we run a cutting-edge sports consultancy and agency on
 				behalf of teams and athletes.
 			</p>
 
-			<div v-motion-fade-visible class="text-white w-full flex flex-col px-10 pb-6">
+			<div v-motion-fade-visible class="text-white w-full flex flex-col px-4 lg:px-10 pb-6">
 				<div
 					class="bg-golden-three bg-opacity-20 max-w-[1000px] mx-auto mt-10 min-h-[500px] w-full relative -translate-x-4 -translate-y-4 border border-golden-three">
 					<div ref="target"
@@ -113,12 +113,12 @@
 
 			</div>
 
-			<h1 class="text-center w-full font-semibold text-4xl pt-4 pb-3">
+			<h1 class="text-center w-full font-semibold lg:text-4xl text-3xl pt-4 pb-3">
 				<span class="text-golden-three">//</span>
 				Mission Statement
 			</h1>
 
-			<p class=" text-2xl text-center w-4/5 mx-auto tracking-wide font-Outfit">
+			<p class="text-xl lg:text-2xl text-center w-4/5 mx-auto tracking-wide font-Outfit">
 				To empower athletes, sports organizations and businesses in the sports industry to achieve their full potential.
 				Our dedication to the excellence, integrity and client-centric approach ensures that we deliver tailored
 				strategies and actionable insights to maximum performance, enhance competitiveness and unlock new opportunities
@@ -130,7 +130,7 @@
 		<Services />
 
 		<div
-			class="border-golden-three bg-golden-three bg-opacity-5 border-t w-full min-h-[600px] flex flex-col border-l gap-5 text-black relative justify-center items-center py-20 overflow-hidden">
+			class="border-golden-three bg-golden-three bg-opacity-5 border-t w-full min-h-[600px] flex flex-col lg:border-l gap-5 text-black relative justify-center items-center py-20 overflow-hidden">
 			<NewsCarousel />
 		</div>
 
@@ -142,6 +142,7 @@
 <script setup lang="ts">
 import type { CSSProperties } from 'vue';
 import { useTitle } from '@vueuse/core'
+import appStore from '~/stores/app'
 
 const target = ref()
 const parallax = reactive(useParallax(target))
@@ -171,6 +172,13 @@ onMounted(() => {
 		})
 	})
 })
+
+function goToContact() {
+	appStore().toggleContact(true)
+	setTimeout(() => {
+		window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+	}, 600)
+}
 
 </script>
 
