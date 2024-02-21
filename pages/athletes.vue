@@ -1,7 +1,7 @@
 <template>
-	<div class="w-full h-full relative flex flex-col">
+	<div class="w-full h-full relative flex flex-col overflow-hidden">
 		<!-- head -->
-		<div ref="target" class="border-t border-l border-golden-three w-full h-screen relative">
+		<div ref="target" class="border-t lg:border-l border-golden-three w-full h-screen relative">
 
 			<div class="w-full h-full bg-black flex overflow-hidden image perspectiv">
 				<img :style="layer3" src="https://live.staticflickr.com/65535/53541058015_a62d10d291_o.jpg"
@@ -9,10 +9,12 @@
 				<div class="absolute inset-0 bg-black bg-opacity-30"></div>
 			</div>
 
-			<Logo />
+			<Logo v-if="!if_sm" />
 
-			<get-in-touch></get-in-touch>
-			<socials />
+			<get-in-touch v-if="!if_sm"></get-in-touch>
+			<socials v-if="!if_sm" />
+
+			<TopNaviMobile />
 
 			<div class="absolute bottom-1/2 translate-y-2/3 right-10 text-white w-[40%] h-fit flex flex-col gap-5">
 				<span class="font-bold text-4xl drop-shadow-xl text-right">
@@ -31,23 +33,23 @@
 			</div>
 		</div>
 
-		<div id="athletes" class="w-full h-full border-l border-golden-three py-32 px-20">
+		<div id="athletes" class="w-full h-full lg:border-l border-golden-three py-32 px-4 lg:px-20">
 
 			<h1 v-motion-slide-visible-once-bottom class="text-4xl text-white mb-6 font-semibold"><span
 					class="text-golden-three pr-4">//</span>Featured Athletes</h1>
 
-			<div class="grid grid-cols-3 gap-14">
+			<div class="grid grid-cols-2 lg:grid-cols-3 gap-14">
 
 				<div class="players flex flex-col gap-4 items-center">
 					<img src="~/assets/P1.png" alt=""
-						class="hover:png-shadow transition-all duration-150 ease-out object-contain w-[300px] h-[400px] hover:scale-105" />
+						class="hover:png-shadow transition-all duration-150 ease-out object-contain w-[300px] h-[400px] hover:scale-105 scale-150 lg:scale-100" />
 
 					<span class="text-white mx-auto font-semibold text-xl tracking-wide">Michael Ofori</span>
 				</div>
 
 				<div class="players flex flex-col gap-4 items-center">
 					<img src="~/assets/P4.png" alt=""
-						class="hover:png-shadow transition-all duration-150 ease-out object-contain w-[300px] h-[400px] hover:scale-105" />
+						class="hover:png-shadow transition-all duration-150 ease-out object-contain w-[300px] h-[400px] hover:scale-105 scale-90 lg:scale-100" />
 
 					<span class="text-white mx-auto font-semibold text-xl tracking-wide">Samuel Lartey</span>
 				</div>
@@ -59,7 +61,7 @@
 					<span class="text-white mx-auto font-semibold text-xl tracking-wide">Christopher Okonkwo</span>
 				</div>
 
-				<div class="players flex flex-col gap-4 items-center col-span-3">
+				<div class="players flex flex-col gap-4 items-center lg:col-span-3">
 					<img src="~/assets/P3.png" alt=""
 						class="hover:png-shadow transition-all duration-150 ease-out object-contain w-[300px] h-[400px] hover:scale-100 scale-90" />
 
@@ -79,6 +81,7 @@
 import type { CSSProperties } from 'vue';
 import { useTitle } from '@vueuse/core'
 
+const if_sm = inject('if_sm', true)
 onMounted(() => {
 	useTitle('EagleEye Sports Consults | Athletes')
 })

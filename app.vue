@@ -13,13 +13,19 @@ import navStore from './stores/nav'
 import { useBreakpoints, breakpointsTailwind } from '@vueuse/core'
 
 const { curr_nav } = storeToRefs(navStore())
-const if_loading = ref(false)
+const if_loading = ref(true)
 const breakpoints = useBreakpoints(breakpointsTailwind)
 const if_sm = breakpoints.smaller('lg')
 const if_md = breakpoints.smaller('md')
 
 provide('if_sm', if_sm)
 provide('if_md', if_md)
+
+onMounted(() => {
+	setTimeout(() => {
+		if_loading.value = false
+	}, 2000)
+})
 
 watchEffect(() => {
 	if (if_sm.value) {
@@ -38,8 +44,6 @@ watch(curr_nav, () => {
 })
 
 useServerSeoMeta({
-	title: 'EagleEye Sports Consults',
-	ogTitle: 'EagleEye Sports Consults',
 	description: 'Your Pathway to Sporting Greatness',
 	ogDescription: 'Your Pathway to Sporting Greatness',
 })
