@@ -1,5 +1,5 @@
 <template>
-	<div class="border-golden-three w-full hfit flex flex-col border-l grad border-b relative">
+	<div class="border-golden-three w-full hfit flex flex-col lg:border-l grad border-b relative">
 
 		<div class="w-full h-[400px] border-t border-golden-three flex flex-col">
 			<div class="w-full h-fit flex items-center justify-center">
@@ -12,7 +12,8 @@
 					<span class="tracking-wider drop-shadow-md">Sports Consults</span>
 				</a>
 			</div>
-			<div class="w-full h-full text-white flex items-center justify-center gap-14 text-[2rem]">
+			<div
+				class="w-full h-fit my-auto lg:h-full text-white flex items-center justify-center gap-2 lg:gap-14 text-[2rem] flex-wrap lg:flex-nowrap">
 				<NuxtLink @click="onNavClick()" v-motion-fade-visible to="/"
 					class="linkzz homE outline outline-2 outline-transparent hover:outline-golden-three px-4 transition-all duration-150 ease-in-out cursor-pointer">
 					HOME</NuxtLink>
@@ -44,7 +45,7 @@
 				</div>
 			</h1>
 
-			<div class="w-full flex items-center justify-center">
+			<div class="w-full flex lg:flex-row flex-col items-center justify-center">
 				<div class="w-full h-full flex flex-col gap-5">
 					<iframe class="w-full h-full outline-2 outline-golden-three"
 						src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3970.5325469549957!2d-0.0996213!3d5.6357886!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf8471a2f4a3dd%3A0x2809a7daebd9bf40!2s53L%20Beech%20St%2C%20Tema!5e0!3m2!1sen!2sgh!4v1708093866899!5m2!1sen!2sgh"
@@ -70,7 +71,7 @@
 				</div>
 
 				<div class="w-full h-full">
-					<div class="px-10 h-full text-white flex flex-col gap-2 justify-center items-center">
+					<div class="px-10 pt-10 lg:pt-0 h-full text-white flex flex-col gap-2 justify-center items-center">
 						<p class="w-full text-xl">Send Us A Message</p>
 
 						<div class="w-full h-10 bg-neutral-900 border border-golden-three flex gap-[2px] p-[2px]">
@@ -174,6 +175,7 @@ import navStore from '~/stores/nav';
 const { $gsap: gsap } = useNuxtApp();
 const { opened, if_contact } = storeToRefs(appStore())
 const { curr_nav } = storeToRefs(navStore())
+const if_sm = inject('if_sm', true)
 
 function onNavClick(bool: boolean = false) {
 	setTimeout(() => {
@@ -190,11 +192,19 @@ function onNavClick(bool: boolean = false) {
 const toggleContact = () => {
 	appStore().$patch({ if_contact: !if_contact.value })
 	if (if_contact.value) {
-		gsap.to('#contact', {
-			height: '450px',
-			duration: 0.5,
-			ease: 'power4.out'
-		})
+		if (if_sm) {
+			gsap.to('#contact', {
+				height: '850px',
+				duration: 0.5,
+				ease: 'power4.out'
+			})
+		} else {
+			gsap.to('#contact', {
+				height: '450px',
+				duration: 0.5,
+				ease: 'power4.out'
+			})
+		}
 	} else {
 		gsap.to('#contact', {
 			height: '100px',

@@ -1,4 +1,9 @@
+import { useBreakpoints, breakpointsTailwind } from '@vueuse/core'
+
 const appStore = defineStore('app', () => {
+  const breakpoints = useBreakpoints(breakpointsTailwind)
+  const if_sm = breakpoints.smaller('lg')
+  const if_md = breakpoints.smaller('md')
   const showNav = ref(false)
   const ifShowNav = ref(false)
   const open_nav = ref(false)
@@ -51,19 +56,35 @@ const appStore = defineStore('app', () => {
 
   const toggleContact = (bool?: boolean) => {
     if (bool) {
-      return gsap.to('#contact', {
-        height: '450px',
-        duration: 0.5,
-        ease: 'power4.out',
-      })
-    } else {
-      if_contact.value = !if_contact.value
-      if (if_contact.value) {
-        gsap.to('#contact', {
+      if (if_sm) {
+        return gsap.to('#contact', {
+          height: '750px',
+          duration: 0.5,
+          ease: 'power4.out',
+        })
+      } else {
+        return gsap.to('#contact', {
           height: '450px',
           duration: 0.5,
           ease: 'power4.out',
         })
+      }
+    } else {
+      if_contact.value = !if_contact.value
+      if (if_contact.value) {
+        if (if_sm) {
+          gsap.to('#contact', {
+            height: '750px',
+            duration: 0.5,
+            ease: 'power4.out',
+          })
+        } else {
+          gsap.to('#contact', {
+            height: '450px',
+            duration: 0.5,
+            ease: 'power4.out',
+          })
+        }
       } else {
         gsap.to('#contact', {
           height: '100px',
