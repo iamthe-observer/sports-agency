@@ -1,5 +1,5 @@
 <template>
-	<div class="w-full h-full relative">
+	<div class="w-full h-full relative overflow-x-hidden">
 		<div
 			:class="['relative video-content w-full h-screen border-golden-three', if_sm ? 'border-t' : 'border-t border-l']">
 			<!-- background graphics -->
