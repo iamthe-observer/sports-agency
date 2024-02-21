@@ -3,7 +3,9 @@
 		class="absolute top-0 left-0 w-[calc(100%-80px)] h-[49px] backdrop-blur-md border-b border-l border-golden-three flex">
 		<!-- logo -->
 		<section class="w-24 grid place-items-center px-2 bg-black">
-			<img src="/iconLogo.png" alt="" class="h-10 w-10 items-contain">
+			<NuxtLink to="/">
+				<img src="/iconLogo.png" alt="" class="h-10 w-10 items-contain">
+			</NuxtLink>
 		</section>
 
 		<section class="flex bg-golden-three bg-opacity-10 w-full text-white">
