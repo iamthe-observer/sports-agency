@@ -1,7 +1,6 @@
 <template>
 	<div class="w-full h-full relative overflow-x-hidden">
-		<div
-			:class="['relative video-content w-full h-screen border-golden-three', if_sm ? 'border-t' : 'border-t border-l']">
+		<div :class="['relative video-content w-full h-screen border-golden-three border-t lg:border-l']">
 			<!-- background graphics -->
 			<div class="h-screen w-full opacity-90">
 				<video playsinline autoplay loop muted key="video" id="avatarVideo" src="/vid1.mp4"
@@ -15,10 +14,10 @@
 			<Socials v-if="!if_sm" />
 
 			<!-- for mobile -->
-			<div v-else
+			<div v-if="if_sm"
 				class="absolute top-0 left-0 w-[calc(100%-80px)] h-[49px] backdrop-blur-md border-b border-l border-golden-three flex">
 				<!-- logo -->
-				<section class="w-24 grid place-items-center px-2 bg-black">
+				<section class="w-24 grid place-items-center px-2 bg-black border-l border-golden-three">
 					<img src="/iconLogo.png" alt="" class="h-10 w-10 items-contain">
 				</section>
 
