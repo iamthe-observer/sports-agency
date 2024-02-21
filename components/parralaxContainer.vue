@@ -92,12 +92,7 @@ const cardStyle = computed(() => ({
 			<div :style="containerStyle">
 				<div :style="cardStyle">
 					<div :style="cardWindowStyle">
-						<!-- <img :style="layer0" src="https://jaromvogel.com/images/design/jumping_rabbit/page2layer0.png" alt="">s -->
-						<!-- <img :style="layer1" src="https://jaromvogel.com/images/design/jumping_rabbit/page2layer1.png" alt=""> -->
-						<!-- <img :style="layer2" src="https://jaromvogel.com/images/design/jumping_rabbit/page2layer2.png" alt=""> -->
 						<NuxtImg :style="layer3" src="/united.jpg" class="w-full h-full border border-black" alt="" />
-						<!-- <img :style="layer4" src="../assets/imgs/united.jpg" alt=""> -->
-						<!-- <img :style="layer4" src="https://jaromvogel.com/images/design/jumping_rabbit/page2layer4.png" alt=""> -->
 					</div>
 				</div>
 			</div>

@@ -1,22 +1,32 @@
 <template>
 	<div class="">
-		<!-- <MouseEffect /> -->
-		<!-- <Intro @complete="intro = true" v-if="!intro" /> -->
-
 		<Loading v-if="if_loading" />
 
 		<NuxtLayout>
 			<NuxtPage />
-			<!-- <NuxtPage v-if="intro" /> -->
 		</NuxtLayout>
 	</div>
 </template>
 
 <script setup lang="ts">
 import navStore from './stores/nav'
+import { useBreakpoints, breakpointsTailwind } from '@vueuse/core'
 
 const { curr_nav } = storeToRefs(navStore())
 const if_loading = ref(false)
+const breakpoints = useBreakpoints(breakpointsTailwind)
+const if_sm = breakpoints.smaller('lg')
+const if_md = breakpoints.smaller('md')
+
+provide('if_sm', if_sm)
+provide('if_md', if_md)
+
+watchEffect(() => {
+	if (if_sm.value) {
+		console.log('smool')
+	}
+})
+
 
 watch(curr_nav, () => {
 	if_loading.value = true

@@ -10,12 +10,6 @@
 				<span class="w-full h-[2px] bg-golden-three"></span>
 			</div>
 
-			<!-- <img src="../assets/imgs/united2.jpg"
-				class="absolute w-full h-full object-cover z-[-5] opacity-0 group-hover:opacity-30 transition-all duration-500 ease-in-out" /> -->
-			<!-- <div
-				class="absolute w-full h-full bg-golden-three group-hover:opacity-0 opacity-0 transition-all duration-500 ease-in-out">
-			</div> -->
-
 			<video playsinline autoplay loop muted key="video" id="avatarVideo" src="~/assets/vid2.mp4"
 				class="object-cover w-full h-full bg-black absolute opacity-0 group-hover:opacity-40 transition-all duration-150 ease-in-out">
 			</video>
@@ -34,7 +28,6 @@
 
 				<!-- graphics -->
 				<section class="w-full">
-					<!-- <img src="../assets/imgs/gloves.JPG" alt="" class="object-cover w-full h-full"> -->
 					<video src="/eagle.mp4" class="w-full h-full object-cover bg-black" playsinline autoplay loop muted></video>
 				</section>
 
@@ -136,8 +129,6 @@ import navStore from '~/stores/nav';
 const { $gsap: gsap } = useNuxtApp();
 const { opened } = storeToRefs(appStore())
 const { curr_nav } = storeToRefs(navStore())
-const nav_target = ref()
-const parallax = reactive(useParallax(nav_target))
 
 onMounted(() => {
 	function removeClass() {
@@ -207,5 +198,9 @@ const toggleNav = () => {
 <style>
 .selectedLink {
 	@apply text-golden-three bg-golden-three bg-opacity-10 border border-golden-three;
+}
+
+.selectedLinkM {
+	@apply text-white bg-white bg-opacity-10 border border-white;
 }
 </style>

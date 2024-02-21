@@ -1,6 +1,6 @@
 <template>
 	<div class="w-full h-full relative flex flex-col">
-		<GetInTouch class="z-[500]" />
+		<GetInTouch class="z-[100]" />
 		<Socials />
 
 		<div
