@@ -57,6 +57,7 @@ const { $gsap: gsap } = useNuxtApp();
 const if_sm = inject('if_sm', true)
 
 function animate() {
+	if (document.querySelector('.image_container') === null) return
 	const container_height = document.querySelector('.image_container')!.clientHeight
 	gsap.to('.image1', {
 		scrollTrigger: {
