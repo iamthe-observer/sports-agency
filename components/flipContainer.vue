@@ -7,7 +7,8 @@ const props = defineProps({
 </script>
 
 <template>
-	<div class="card text-inherit w-[calc(35%-1rem)] min-w-[calc(33% - 1rem)] min-h-[500px] perspectiv relative group"
+	<div
+		class="card text-inherit lg:w-[calc(35%-1rem)] w-full lg:min-w-[calc(33% - 1rem)] min-h-[500px] perspectiv relative group"
 		href="#!">
 		<div
 			class="front flex justify-center items-center absolute w-full h-full back-face-v overflow-hidden border border-golden-three">

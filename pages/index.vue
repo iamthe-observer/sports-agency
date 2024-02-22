@@ -90,7 +90,6 @@
 <script setup lang="ts">
 import type { CSSProperties } from 'vue';
 import { useTitle } from '@vueuse/core'
-import appStore from '~/stores/app'
 
 const target = ref()
 const parallax = reactive(useParallax(target))
