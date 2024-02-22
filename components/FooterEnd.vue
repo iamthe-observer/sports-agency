@@ -101,7 +101,7 @@
 	</div>
 
 	<div
-		class="w-full lg:h-[100px] lg:py-0 py-2 h-[150px] lg:border-b lg:border-l lg:border-golden-three flex lg:flex-row flex-col items-center gap-2 text-white">
+		class="w-full lg:h-[100px] lg:py-0 py-2 h-[200px] lg:border-b lg:border-l lg:border-golden-three flex lg:flex-row flex-col items-center gap-2 text-white">
 
 		<p class="w-full h-full flex justify-center items-center gap-3">
 			<svg v-if="!if_sm" xmlns="http://www.w3.org/2000/svg" class="w-8 aspect-square" viewBox="0 0 24 24">
