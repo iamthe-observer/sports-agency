@@ -4,7 +4,7 @@
 		<div class="w-full h-[400px] border-t border-golden-three flex flex-col">
 			<div class="w-full h-fit flex items-center justify-center">
 
-				<a class="text-white border-x border-b border-golden-three px-10 py-6 text-center text-3xl group hover:text-black hover:bg-golden-three transition-all duration-150 ease-in-out cursor-pointer"
+				<a class="text-white border-x border-b border-golden-three px-10 py-6 text-center text-xl lg:text-3xl group hover:text-black hover:bg-golden-three transition-all duration-150 ease-in-out cursor-pointer"
 					@click="toScreenTop">
 					<span
 						class="text-golden-three font-semibold tracking-wider group-hover:text-black transition-all duration-150 ease-in-out">EagleEye</span>
@@ -13,7 +13,7 @@
 				</a>
 			</div>
 			<div
-				class="w-full h-fit my-auto lg:h-full text-white flex items-center justify-center gap-2 lg:gap-14 text-[2rem] flex-wrap lg:flex-nowrap">
+				class="w-full h-fit my-auto lg:h-full text-white flex items-center justify-center gap-2 lg:gap-14 text-[1.5rem] font-semibold lg:text-[2rem] flex-wrap lg:flex-nowrap">
 				<NuxtLink @click="onNavClick()" v-motion-fade-visible to="/"
 					class="linkzz homE outline outline-2 outline-transparent hover:outline-golden-three px-4 transition-all duration-150 ease-in-out cursor-pointer">
 					HOME</NuxtLink>
@@ -35,7 +35,7 @@
 		<div id="contact"
 			class="h-[100px] w-full text-white flex flex-col items-center overflow-hidden px-8 border-golden-three border-t hover:bg-golden-three hover:bg-opacity-10">
 			<h1 @click="appStore().toggleContact(false)"
-				class="text-3xl font-normal w-full min-h-[100px] grid place-items-center cursor-pointer relative text-center">
+				class="text-3xl font-semibold w-full min-h-[100px] grid place-items-center cursor-pointer relative text-center">
 				Contact Us
 				<div class="iconexpand absolute top-1/2 -translate-y-1/2 right-0 w-10 aspect-square">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -108,12 +108,12 @@
 				<path fill="currentColor"
 					d="M11 11L3 6v10h10v2H1V2h20v7h-2V6zm0-2l8-5H3zm8 13q-1.65 0-2.825-1.175T15 18v-4.5q0-1.05.725-1.775T17.5 11q1.05 0 1.775.725T20 13.5V18h-2v-4.5q0-.2-.15-.35T17.5 13q-.2 0-.35.15t-.15.35V18q0 .825.588 1.413T19 20q.825 0 1.413-.587T21 18v-4h2v4q0 1.65-1.175 2.825T19 22M3 6V4v12z" />
 			</svg>
-			<span class="-translate-y-1 lg:text-xl text-2xl text-white tracking-wider">
+			<span class="-translate-y-1 text-xl text-white tracking-wider">
 				eagleeyespc@gmail.com
 			</span>
 		</p>
 
-		<p class="w-full h-full flex lg:border-none border-y border-golden-three">
+		<p class="w-full h-full flex lg:border-none border-y border-golden-three bg-golden-three bg-opacity-20 lg:bg-none">
 			<a target="_blank" href="https://www.facebook.com/profile.php?id=61556099897439&mibextid=PtKPJ9"
 				class="cursor-pointer lg:py-0 py-5 hover:text-black hover:bg-golden-three transition-all duration-150 ease-in-out w-full h-full lg:border-x border-r border-golden-three grid place-items-center">
 				<svg class="drop-shadow-lg" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
@@ -153,15 +153,15 @@
 			</a>
 		</p>
 
-		<p class="w-full h-full flex items-center justify-center gap-3 pb-3">
+		<p class="w-full h-full flex items-center justify-center gap-3 pb-0">
 			<svg v-if="!if_sm" xmlns="http://www.w3.org/2000/svg" class="w-8 aspect-square" viewBox="0 0 24 24">
 				<path fill="currentColor"
 					d="M18.95 22q-3.125 0-6.187-1.35T7.2 16.8q-2.5-2.5-3.85-5.55T2 5.05V4h5.9l.925 5.025l-2.85 2.875q.55.975 1.225 1.85t1.45 1.625q.725.725 1.588 1.388T12.1 18l2.9-2.9l5 1.025V22zM5.025 10l1.65-1.65L6.25 6H4.025q.125 1.125.375 2.113T5.025 10m8.95 8.95q1 .425 2.013.675T18 19.95v-2.2l-2.35-.475zM12 4V2h10v2zm0 4V6h10v2zm0 4v-2h10v2z" />
 			</svg>
 
-			<span v-if="if_sm" class="text- tracking-wider">+491745969531</span>
-			<span v-if="if_sm" class="text- tracking-wider">+4915216434754</span>
-			<span v-if="if_sm" class="text- tracking-wider">+233537804885</span>
+			<span v-if="if_sm" class="text-[.9rem] font-semibold tracking-wider">+491745969531</span>
+			<span v-if="if_sm" class="text-[.9rem] font-semibold tracking-wider">+4915216434754</span>
+			<span v-if="if_sm" class="text-[.9rem] font-semibold tracking-wider">+233537804885</span>
 
 			<span v-if="!if_sm" class="text-xl tracking-wider">
 				+491745969531<br />

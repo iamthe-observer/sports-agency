@@ -33,9 +33,9 @@
 			</div>
 		</div>
 
-		<div id="athletes" class="w-full h-full lg:border-l border-golden-three py-32 px-4 lg:px-20">
+		<div id="athletes" class="w-full h-full lg:border-l border-golden-three pb-32 py-20 lg:py-32 px-4 lg:px-20">
 
-			<h1 v-motion-slide-visible-once-bottom class="text-4xl text-white mb-6 font-semibold"><span
+			<h1 v-motion-slide-visible-once-bottom class="lg:text-4xl text-2xl text-white mb-6 font-semibold"><span
 					class="text-golden-three pr-4">//</span>Featured Athletes</h1>
 
 			<div class="grid grid-cols-2 lg:grid-cols-3 gap-14">

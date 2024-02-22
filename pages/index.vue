@@ -18,16 +18,19 @@
 
 			<div v-motion-fade class="absolute right-0 top-1/2 -translate-y-[30%] w-4/5 flex flex-col gap-5 pr-10">
 				<div class="h-fit w-full bg-opacity-20 text-right flex flex-col items-end justify-center">
-					<p class="font-semibold text-[60px] text-  droping text-golden-three">EagleEye Sports Consults</p>
-					<p class="font- tracking-wide text-3xl text-white droping italic font-Satisfy">Your Pathway to Sporting
+					<p class="font-semibold text-[3rem] lg:text-[60px] droping text-golden-three flex flex-col">
+					  <span class="">EagleEye</span>
+					  <span class="block whitespace-nowrap">Sports Consults</span>
+					  </p>
+					<p class="tracking-wide text-[1.5rem] lg:text-3xl text-white droping italic font-Satisfy">Your Pathway to Sporting
 						Greatness</p>
 				</div>
 
 				<div class="w-full flex justify-end gap-5">
-					<BoxContainer link="/about" class="text-white tracking-wide text-xl"><span class="drop-shadow-md">About
+					<BoxContainer link="/about" class="text-white tracking-wide text-[1.1rem] lg:text-xl"><span class="drop-shadow-md">About
 							Us</span>
 					</BoxContainer>
-					<BoxContainer link="/athletes" class="text-white tracking-wide text-xl"><span class="drop-shadow-md">Our
+					<BoxContainer link="/athletes" class="text-white tracking-wide text-[1.1rem] lg:text-xl"><span class="drop-shadow-md">Our
 							Athletes</span>
 					</BoxContainer>
 
@@ -41,7 +44,7 @@
 				Welcome to
 				<span class="text-golden-three">EagleEye</span>,
 			</h1>
-			<p v-motion-slide-visible-once-bottom class="lg:text-[30px] text-[28px] text-center w-full lg:w-[90%] mx-auto">
+			<p v-motion-slide-visible-once-bottom class="lg:text-[30px] text-[1.4rem] text-center w-full lg:w-[90%] mx-auto">
 				EagleEye strives to identify and sign gifted athletes and expand its networks by thinking out of the box. Our goal
 				is to give value to professional sport organizations by utilizing our global network and a contemporary approach
 				to the beautiful game. In order to enhance player value, we run a cutting-edge sports consultancy and agency on
@@ -61,12 +64,12 @@
 
 			</div>
 
-			<h1 class="text-center w-full font-semibold lg:text-4xl text-3xl pt-4 pb-3">
+			<h1 class="text-center w-full font-semibold lg:text-4xl text-2xl pt-4 pb-3">
 				<span class="text-golden-three">//</span>
 				Mission Statement
 			</h1>
 
-			<p class="text-xl lg:text-2xl text-center w-4/5 mx-auto tracking-wide font-Outfit">
+			<p class="text-[1.2rem] lg:text-2xl text-center w-[90%] mx-auto tracking-wide font-Outfit">
 				To empower athletes, sports organizations and businesses in the sports industry to achieve their full potential.
 				Our dedication to the excellence, integrity and client-centric approach ensures that we deliver tailored
 				strategies and actionable insights to maximum performance, enhance competitiveness and unlock new opportunities
