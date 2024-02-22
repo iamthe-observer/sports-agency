@@ -27,13 +27,6 @@ onMounted(() => {
 	}, 2000)
 })
 
-watchEffect(() => {
-	if (if_sm.value) {
-		console.log('smool')
-	}
-})
-
-
 watch(curr_nav, () => {
 	if_loading.value = true
 	document.body.style.overflow = "hidden";

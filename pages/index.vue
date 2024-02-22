@@ -37,7 +37,7 @@
 
 		<!-- mission statement -->
 		<div class="text-white w-full flex flex-col lg:px-10 px-4 lg:pt-40 pt-32 lg:border-l border-golden-three pb-36">
-			<h1 v-motion-slide-visible-bottom class="the-container text-center w-full font-bold font-Outfit text-2xl mb-6">
+			<h1 v-motion-slide-visible-once-bottom class="the-container text-center w-full font-bold font-Outfit text-2xl mb-6">
 				Welcome to
 				<span class="text-golden-three">EagleEye</span>,
 			</h1>
