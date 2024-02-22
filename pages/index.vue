@@ -41,7 +41,7 @@
 				Welcome to
 				<span class="text-golden-three">EagleEye</span>,
 			</h1>
-			<p v-motion-slide-visible-bottom class="lg:text-[30px] text-[28px] text-center w-full lg:w-[90%] mx-auto">
+			<p v-motion-slide-visible-once-bottom class="lg:text-[30px] text-[28px] text-center w-full lg:w-[90%] mx-auto">
 				EagleEye strives to identify and sign gifted athletes and expand its networks by thinking out of the box. Our goal
 				is to give value to professional sport organizations by utilizing our global network and a contemporary approach
 				to the beautiful game. In order to enhance player value, we run a cutting-edge sports consultancy and agency on

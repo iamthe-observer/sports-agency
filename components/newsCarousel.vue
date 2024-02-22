@@ -262,7 +262,7 @@ function horizontalLoop(items: any, config: any) {
 			<!-- <button class="btn" >open modal</button> -->
 			<dialog id="modal0" class="modal">
 				<div
-					class="modal-box bg-black rounded-none border border-golden-three relative text-white w-[40%] lg:w-[80%] min-h-[80%] max-w-full">
+					class="modal-box bg-black rounded-none border border-golden-three relative text-white w-[95%] h-[80%] lg:w-[50%] lg:min-h-[80%] max-w-full">
 					<form method="dialog">
 						<button class="fixed right-2 top-2 text-golden-three">✕</button>
 					</form>

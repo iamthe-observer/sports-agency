@@ -21,10 +21,10 @@
 	</nav>
 
 	<section id="nav-content-M"
-		class="fixed w-screen h-screen bg-black border border-golden-three translate-x-full z-[1000] overflow-y-scroll overflow-x-hidden">
+		class="fixed w-screen h-screen bg-black border border-golden-three translate-x-full z-[1000] overflow-x-hidden">
 
 		<div
-			class="flex flex-col w-full h-full items-center justify-center gap-4 text-center text-white font-semibold tracking-wide text-4xl">
+			class="flex flex-col w-full min-h-[80%] items-center justify-center gap-4 text-center text-white font-semibold tracking-wide text-4xl">
 			<NuxtLink @click="onNavClick(false)" to="/" class="w-fit px-2 py-1 text-golden-three active:text-white linkzM home">
 				HOME</NuxtLink>
 			<NuxtLink @click="onNavClick(true)" to="/"
@@ -82,7 +82,7 @@
 				</a>
 			</div>
 
-			<div class="flex-1 flex flex-col justify-center items-center gap-3">
+			<div class="w-full h-full flex flex-col justify-center items-center gap-24">
 				<span class="text-neutral-500 text-xl relative">
 					<svg xmlns="http://www.w3.org/2000/svg" class="w-8 aspect-square absolute -left-10 top-1/2 -translate-y-1/2"
 						viewBox="0 0 24 24">
