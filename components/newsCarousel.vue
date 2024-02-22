@@ -262,7 +262,7 @@ function horizontalLoop(items: any, config: any) {
 			<!-- <button class="btn" >open modal</button> -->
 			<dialog id="modal0" class="modal">
 				<div
-					class="modal-box bg-black rounded-none border border-golden-three relative text-white w-[90%] lg:w-[80%] min-h-[80%] max-w-full">
+					class="modal-box bg-black rounded-none border border-golden-three relative text-white w-[40%] lg:w-[80%] min-h-[80%] max-w-full">
 					<form method="dialog">
 						<button class="fixed right-2 top-2 text-golden-three">✕</button>
 					</form>
@@ -272,7 +272,7 @@ function horizontalLoop(items: any, config: any) {
 					</h3>
 
 					<div class="flex gap-4 lg:flex-row flex-col">
-						<p class=" flex-1 py-4 lg:px-6 px-2 text-justify lg:text-lg text:md font-Outfit">
+						<p class=" flex-1 py-4 lg:px-6 px-2 text-justify lg:text-lg font-Outfit">
 							{{ curr_news.content ? curr_news.content : "..." }}
 						</p>
 						<p class="flex-1 text-justify flex flex-col text-lg font-Outfit">

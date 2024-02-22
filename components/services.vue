@@ -70,8 +70,22 @@ function animate() {
 		}
 	})
 }
+
+let idx = ref(0)
+
+watchEffect(() => {
+	if (!if_sm && idx.value > 0) {
+		animate()
+		++idx.value
+	}
+})
+
 onMounted(() => {
-	if (!if_sm) animate()
+	// if (!if_sm) {
+	animate()
+	// } else {
+	// 	return
+	// }
 })
 
 const target = ref()
