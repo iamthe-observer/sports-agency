@@ -89,19 +89,19 @@
 				<span class="text-xl">Affiliates</span>
 			</div>
 			<div
-				class="transition-all duration-150 ease-in-out lg:hover:w-[calc(125%)] lg:hover:bg-golden-three active:scale-105 active:shadow-lg bg-golden-three bg-opacity-10 hover:bg-opacity-100 w-full h-full border-golden-three flex justify-center items-center flex-col text-center font-bold uppercase hover:text-black">
+				class="transition-all duration-150 ease-in-out lg:hover:w-[calc(125%)] lg:hover:bg-golden-three active:scale-105 active:shadow-lg bg-golden-three bg-opacity-10 hover:bg-opacity-100 w-full h-full border-golden-three flex justify-center items-center flex-col text-center font-bold uppercase hover:text-black lg:pb-0 pb-2">
 				<span class="text-[4rem]">1k+</span>
 				<span class="text-xl">active members</span>
 			</div>
 			<div
-				class="transition-all duration-150 ease-in-out lg:hover:w-[calc(125%)] lg:hover:bg-golden-three active:scale-105 active:shadow-lg bg-golden-three bg-opacity-10 hover:bg-opacity-100 w-full h-full border-golden-three flex justify-center items-center flex-col text-center font-bold uppercase hover:text-black">
+				class="transition-all duration-150 ease-in-out lg:hover:w-[calc(125%)] lg:hover:bg-golden-three active:scale-105 active:shadow-lg bg-golden-three bg-opacity-10 hover:bg-opacity-100 w-full h-full border-golden-three flex justify-center items-center flex-col text-center font-bold uppercase hover:text-black lg:pb-0 pb-2">
 				<span class="text-[4rem]">2024</span>
 				<span class="text-xl">SINCE</span>
 			</div>
 		</div>
 
 		<!-- owners -->
-		<div class="text-white relative w-full border-l border-golden-three flex flex-col px-10 py-20">
+		<div class="text-white relative w-full lg:border-l border-golden-three flex flex-col px-4 lg:px-10 py-20">
 			<h2 v-motion-fade-visible class="text-[4rem] font-bold">
 				<span class="pr-1 text-golden-three">//</span>
 				Our Team
@@ -128,7 +128,7 @@
 					text1="CHURCHILL CARLOS MASHETI" />
 			</div>
 
-			<div v-if="if_sm" v-motion-fade-visible-once class="grid grid-cols-2 gap-10 pt-10">
+			<div v-if="if_sm" v-motion-fade-visible-once class="grid grid-cols-2 gap-4 pt-10">
 				<FlipContainer src="https://live.staticflickr.com/65535/53541056275_bd04f734bd_o.jpg"
 					text2="Co-Founder / Player Agent" text1="NANA A. K. LARBI" />
 				<FlipContainer src="https://live.staticflickr.com/65535/53540633426_f94b2cc16c_o.jpg"
