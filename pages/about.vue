@@ -137,8 +137,8 @@
 					text1="LARBI RANSFORD" />
 				<FlipContainer src="https://live.staticflickr.com/65535/53540959629_ecaa9285ac_o.jpg" text2="Chief Scout (Ghana)"
 					text1="YAW OWUSU BANAHENE" />
-				<FlipContainer src="https://live.staticflickr.com/65535/53541056280_c9558276c5_o.jpg" text2="Scout (Kenya)"
-					text1="CHURCHILL CARLOS MASHETI" />
+				<FlipContainer class="col-span-full w-[250px]" src="https://live.staticflickr.com/65535/53546674051_51dd25c0de_z.jpg" text2="Scout (Kenya)"
+					text1="CHURCHILL CARLOS MASHETI" classImg=""/>
 			</div>
 
 		</div>

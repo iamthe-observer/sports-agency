@@ -1,20 +1,21 @@
 <script setup lang="ts">
-const props = defineProps({
-	src: String,
-	text1: String,
-	text2: String
-})
+const props = defineProps<{
+  src: string,
+  text1: string,
+  text2: string,
+  classImg: string
+}>()
 </script>
 
 <template>
 	<div
-		class="card text-inherit lg:w-[calc(35%-1rem)] w-full lg:min-w-[calc(33% - 1rem)] min-h-[500px] perspectiv relative group"
+		class="card text-inherit lg:w-[calc(35%-1rem)] mx-auto w-full lg:min-w-[calc(33% - 1rem)] h-[300px] lg:h-[500px] perspectiv relative group"
 		href="#!">
 		<div
 			class="front flex justify-center items-center absolute w-full h-full back-face-v overflow-hidden border border-golden-three">
-			<div class="w-full h-full p-1">
+			<div class="w-full h-full lg:p-1 overflow-hidden">
 				<img :src="src"
-					class="object-cover w-full h-full opacity-100 gradiento transition-all duration-300 ease-in-out grayscale-0" />
+					:class="['object-cover w-full h-full opacity-100 gradiento transition-all duration-300 ease-in-out grayscale-0', classImg]" />
 			</div>
 		</div>
 
@@ -22,9 +23,9 @@ const props = defineProps({
 			class="back border-golden-three flex justify-center items-center absolute w-full h-full back-face-v bg-golden-three bg-opacity-5">
 			<div
 				class="absolute inset-0 w-full h-full  grid place-items-center translateZ transition-all duration-300 ease-in-out opacity-0">
-				<p class="text-[2.8rem] text-center font-bold text-golden-three flex flex-col gap-2">
-					<span class="">{{ text1 }}</span>
-					<span class="font-normal text-[1.5rem]">{{ text2 }}</span>
+				<p class="text-center font-bold text-golden-three flex flex-col gap-2">
+					<span class="droping text-[1.9rem] lg:text-[2.8rem]">{{ text1 }}</span>
+					<span class="droping font-normal lg:text-[1.5rem] text-[1rem] font-Outfit">{{ text2 }}</span>
 				</p>
 				<!-- <p class="text-[1.5rem] text-center text-golden-three">{{ text2 }}</p> -->
 			</div>
