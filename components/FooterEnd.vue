@@ -175,6 +175,12 @@
 		</p>
 
 	</div>
+	
+<div
+		class="w-full lg:h-[20px] lg:py-0 py-2 min-h-[20px] lg:border-b lg:border-l border-golden-three border-t flex lg:flex-row flex-col items-center gap-2 text-white justify-center text-xs">
+  <span>Copyright &copy; 2024 EagleEye Sports Consults. All rights reserved.</span>
+  <span>Web design & development by <span class="text-golden-three">BIGBIGBIG</span></span>
+  </div>
 </template>
 
 <script setup lang="ts">
