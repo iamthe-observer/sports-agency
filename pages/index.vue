@@ -18,16 +18,16 @@
 
 			<div v-motion-fade class="absolute right-0 top-1/2 -translate-y-[30%] w-4/5 flex flex-col gap-5 pr-10">
 				<div class="h-fit w-full bg-opacity-20 text-right flex flex-col items-end justify-center">
-					<p class="font-semibold text-[2.4rem] lg:text-[60px] droping text-golden-three flex flex-col">
+					<p class="font-semibold text-[8vw] lg:text-[60px] droping text-golden-three flex flex-col">
 					  <span class="">EagleEye</span>
 					  <span class="block whitespace-nowrap">Sports Consults</span>
 					  </p>
-					<p class="tracking-wide text-[1rem] lg:text-3xl text-white droping italic font-Satisfy">Your Pathway to Sporting
+					<p class="tracking-wide text-[4vw] lg:text-3xl text-white droping italic font-Satisfy whitespace-nowrap">Your Pathway to Sporting
 						Greatness</p>
 				</div>
 
 				<div class="w-full flex justify-end gap-5">
-					<BoxContainer link="/about" class="text-white tracking-wide text-[.8rem] lg:text-xl"><span class="drop-shadow-md">About
+					<BoxContainer link="/about" class="text-white tracking-wide text-[3vw] lg:text-xl"><span class="drop-shadow-md">About
 							Us</span>
 					</BoxContainer>
 					<BoxContainer link="/athletes" class="text-white tracking-wide text-[.8rem] lg:text-xl"><span class="drop-shadow-md">Our
@@ -44,9 +44,9 @@
 				Welcome to
 				<span class="text-golden-three">EagleEye</span>,
 			</h1>
-			<p v-motion-slide-visible-once-bottom class="lg:text-[30px] text-[1.4rem] text-center w-full lg:w-[90%] mx-auto">
+			<p v-motion-slide-visible-once-bottom class="lg:text-[30px] text-[5vw] text-center w-full lg:w-[90%] mx-auto">
 				EagleEye strives to identify and sign gifted athletes and expand its networks by thinking out of the box. Our goal
-				is to give value to professional sport organizations by utilizing our global network and a contemporary approach
+				is to give value to professional sports organizations by utilizing our global network and a contemporary approach
 				to the beautiful game. In order to enhance player value, we run a cutting-edge sports consultancy and agency on
 				behalf of teams and athletes.
 			</p>
