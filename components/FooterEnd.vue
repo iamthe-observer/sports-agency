@@ -13,7 +13,7 @@
 				</a>
 			</div>
 			<div
-				class="w-full h-fit my-auto lg:h-full text-white flex items-center justify-center gap-2 lg:gap-14 text-[4vw] font-semibold lg:text-[2rem] flex-wrap lg:flex-nowrap">
+				class="w-full h-fit my-auto lg:h-full text-white flex items-center justify-center gap-2 lg:gap-14 text-[4vw] font-semibold lg:text-[1.4rem] flex-wrap lg:flex-nowrap">
 				<NuxtLink @click="onNavClick()" v-motion-fade-visible to="/"
 					class="linkzz homE outline outline-2 outline-transparent hover:outline-golden-three px-4 transition-all duration-150 ease-in-out cursor-pointer">
 					HOME</NuxtLink>
@@ -41,7 +41,7 @@
 				class="text-3xl font-semibold w-full min-h-[100px] grid place-items-center cursor-pointer relative text-center text-[5vw] lg:text-3xl">
 				Contact Us
 				<div class="iconexpand absolute top-1/2 -translate-y-1/2 right-0 w-10 grid place-items-center aspect-square">
-					<svg xmlns="http://www.w3.org/2000/svg" class="w-[8vw]" viewBox="0 0 24 24">
+					<svg xmlns="http://www.w3.org/2000/svg" class="w-[8vw] lg:w-10" viewBox="0 0 24 24">
 						<path fill="currentColor"
 							d="m19.25 21l-1.4-1.4l1.575-1.6H15.25v-2h4.175l-1.575-1.6l1.4-1.4l4 4zM10 15q1.4 0 2.525-.687T14.3 12.5q-.875-.725-1.975-1.112T10 11q-1.225 0-2.325.388T5.7 12.5q.65 1.125 1.775 1.813T10 15m0-5q.825 0 1.413-.587T12 8q0-.825-.587-1.412T10 6q-.825 0-1.412.588T8 8q0 .825.588 1.413T10 10m0 12q-4.025-3.425-6.012-6.362T2 10.2q0-3.75 2.413-5.975T10 2q3.175 0 5.588 2.225T18 10.2q0 .225-.012.463t-.063.487H15.9q.05-.25.075-.488T16 10.2q0-2.725-1.737-4.462T10 4Q7.475 4 5.738 5.738T4 10.2q0 1.775 1.475 4.063T10 19.35q.575-.5 1.063-1t.937-.975l.225.225l.488.488q.262.262.475.487l.212.225q-.725.775-1.575 1.575T10 22" />
 					</svg>
