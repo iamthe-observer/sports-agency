@@ -36,10 +36,11 @@ onMounted(() => {
 	boxes.forEach((box, i) => box.addEventListener("click", () => loop.toIndex(i, { duration: .4, ease: "power4.inOut" })));
 
 	document.querySelector(".toggle")?.addEventListener("click", () => wrapper?.classList.toggle("show-overflow"));
-	document.querySelector(".next")?.addEventListener("click", () => { loop.next({ duration: 0.4, ease: "power4.inOut" })
+	document.querySelector(".next")?.addEventListener("click", () => {
+		loop.next({ duration: 0.4, ease: "power4.inOut" })
 	});
 	document.querySelector(".prev")?.addEventListener("click", () => {
-	  loop.previous({ duration: 0.4, ease: "power4.inOut" })
+		loop.previous({ duration: 0.4, ease: "power4.inOut" })
 	});
 
 })
@@ -232,14 +233,18 @@ function horizontalLoop(items: any, config: any) {
 <template>
 	<div class="flex flex-col w-full items-center gap-20">
 
-		<h1 class="w-full flex flex-col px-10 text-white font-bold">
-			<span class="text-lg"> <span class="font-bold pr-2 text-golden-three">//</span>LATEST NEWS</span>
-			<span class="text-4xl">Top insights and the</span>
-			<span class="text-4xl">latest news from EagleEye</span>
+		<h1 class="w-full flex flex-col px-10 text-white">
+			<span class="pb-1 text-[4vw] font-bold lg:text-lg">
+				<span class="font-bold pr-2 text-golden-three">//</span>
+				LATEST NEWS
+			</span>
+			<span class="text-[5vw] lg:text-4xl">Top insights and the</span>
+			<span class="text-[5vw] lg:text-4xl">latest news from EagleEye</span>
 		</h1>
 
 		<div class="wrapper overflow-hidden">
-			<div onclick="modal0.showModal()" v-for="(n, i) in news" :key="i" class="box" @click="curr_news = n">
+			<div onclick="modal0.showModal()" v-for="(n, i) in news" :key="i" class="box lg:w-[40%] w-[80%]"
+				@click="curr_news = n">
 				<div class="w-[85%] h-full mx-auto flex flex-col text-white group">
 
 					<div
@@ -250,7 +255,7 @@ function horizontalLoop(items: any, config: any) {
 								class="object-cover w-full h-full group-hover:scale-110 transition-all duration-300 ease-in-out" />
 						</div>
 						<div
-							class="absolute top-0 left-0 w-fit bg-golden-three  translate-x-3 translate-y-3 shadow-lg text-black font-bold px-3">
+							class="absolute top-0 left-0 w-fit bg-golden-three translate-x-3 translate-y-3 shadow-lg text-black font-bold px-3">
 							{{ n.date ? n.date : "..." }}
 						</div>
 					</div>
@@ -340,7 +345,7 @@ function horizontalLoop(items: any, config: any) {
 .box {
 	box-sizing: border-box;
 	height: 100%;
-	width: 80%;
+	/* width: 80%; */
 	margin: 0;
 	padding-top: 20px;
 	position: relative;

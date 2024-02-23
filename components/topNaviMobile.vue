@@ -50,7 +50,7 @@
 		</section>
 
 		<section @click="goToContact"
-			class="grid place-items-center px-4 text-golden-three font-bold cursor-pointer active:bg-golden-three select-none active:text-black border-l border-golden-three whitespace-nowrap bg-black">
+			class="grid place-items-center px-4 text-golden-three font-bold cursor-pointer active:bg-golden-three select-none active:text-black border-l border-golden-three whitespace-nowrap bg-black text-[3.2vw]">
 			Contact Us</section>
 	</div>
 </template>

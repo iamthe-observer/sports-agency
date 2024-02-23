@@ -19,19 +19,20 @@
 			<div v-motion-fade class="absolute right-0 top-1/2 -translate-y-[30%] w-4/5 flex flex-col gap-5 pr-10">
 				<div class="h-fit w-full bg-opacity-20 text-right flex flex-col items-end justify-center">
 					<p class="font-semibold text-[8vw] lg:text-[60px] droping text-golden-three flex flex-col">
-					  <span class="">EagleEye</span>
-					  <span class="block whitespace-nowrap">Sports Consults</span>
-					  </p>
-					<p class="tracking-wide text-[4vw] lg:text-3xl text-white droping italic font-Satisfy whitespace-nowrap">Your Pathway to Sporting
+						<span class="">EagleEye</span>
+						<span class="block whitespace-nowrap">Sports Consults</span>
+					</p>
+					<p class="tracking-wide text-[4vw] lg:text-3xl text-white droping italic font-Satisfy whitespace-nowrap">Your
+						Pathway to Sporting
 						Greatness</p>
 				</div>
 
 				<div class="w-full flex justify-end gap-5">
-					<BoxContainer link="/about" class="text-white tracking-wide text-[3vw] lg:text-xl"><span class="drop-shadow-md">About
-							Us</span>
+					<BoxContainer link="/about" class="text-white tracking-wide text-[3vw] lg:text-xl">
+						<span class="drop-shadow-md">About Us</span>
 					</BoxContainer>
-					<BoxContainer link="/athletes" class="text-white tracking-wide text-[.8rem] lg:text-xl"><span class="drop-shadow-md">Our
-							Athletes</span>
+					<BoxContainer link="/athletes" class="text-white tracking-wide text-[3vw] lg:text-xl">
+						<span class="drop-shadow-md">Our Athletes</span>
 					</BoxContainer>
 
 				</div>
@@ -69,7 +70,7 @@
 				Mission Statement
 			</h1>
 
-			<p class="text-[1.2rem] lg:text-2xl text-center w-[90%] mx-auto tracking-wide font-Outfit">
+			<p class="text-[4.4vw] lg:text-2xl text-center w-[90%] mx-auto tracking-wide font-Outfit">
 				To empower athletes, sports organizations and businesses in the sports industry to achieve their full potential.
 				Our dedication to the excellence, integrity and client-centric approach ensures that we deliver tailored
 				strategies and actionable insights to maximum performance, enhance competitiveness and unlock new opportunities
