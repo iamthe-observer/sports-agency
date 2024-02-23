@@ -17,7 +17,7 @@
 
 			<div
 				class="absolute bottom-1/2 translate-y-1/2 lg:translate-y-2/3 lg:right-10 right-1/2 translate-x-1/2 lg:translate-x-0 text-white lg:w-[40%] w-[90%] h-fit flex flex-col gap-5 visi">
-				<span class="font-bold text-4xl drop-shadow-xl">
+				<span class="font-bold lg:text-4xl text-[8vw] drop-shadow-xl">
 					ABOUT US
 				</span>
 				<span class="lg:text-[1.3rem] text-[3.5vw] drop-shadow-xl font-Outfit">
@@ -29,7 +29,8 @@
 					Consulting, Athlete Representation.
 				</span>
 
-				<BoxContainer @click="scrollTo" class="w-fit self-end font-semibold tracking-wider text-xl">Learn More
+				<BoxContainer @click="scrollTo" class="w-fit self-end font-semibold tracking-wider lg:text-xl text-[4vw]">Learn
+					More
 				</BoxContainer>
 			</div>
 
@@ -43,7 +44,7 @@
 				<img v-motion-roll-visible-once-bottom src="/iconLogo.png" alt="" class="mx-auto w-20 aspect-square" />
 			</div>
 
-			<h2 v-motion-fade-visible class="text-center text-white w-full h-full font-semibold text-4xl">
+			<h2 v-motion-fade-visible class="text-center text-white w-full h-full font-semibold lg:text-4xl text-[5.5vw]">
 				<span class="text-golden-three font-semibold pr-2">//</span>Our Mission
 			</h2>
 			<p v-motion-slide-visible-once-bottom
@@ -54,7 +55,7 @@
 				for our clients.
 			</p>
 
-			<h2 v-motion-fade-visible class="text-center text-white w-full h-full font-semibold text-4xl">
+			<h2 v-motion-fade-visible class="text-center text-white w-full h-full font-semibold lg:text-4xl text-[5.5vw]">
 				<span class="text-golden-three font-semibold pr-2">//</span>Our Vision
 			</h2>
 
