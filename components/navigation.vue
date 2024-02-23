@@ -83,21 +83,24 @@
 						class="w-full h-24 border-b border-golden-three group-hover:bg-golden-three group-hover:bg-opacity-15 transition-all duration-150 ease-in-out">
 					</div>
 					<div class="flex flex-col h-full w-full pl-10 justify-center font-semibold text-[2.7rem] gap-5 group">
-						<NuxtLink @click="onNavClick(false)" to="/"
+						<NuxtLink @click="onNavClick()" to="/"
 							class="hover:text-golden-three linkz home border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">
 							HOME</NuxtLink>
-						<NuxtLink @click="onNavClick(true)" to="/"
+						<NuxtLink @click="onNavClick('services')" to="/"
 							class="hover:text-golden-three linkz home border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">
 							SERVICES</NuxtLink>
-						<NuxtLink @click="onNavClick(false)" to="/about"
+						<NuxtLink @click="onNavClick()" to="/about"
 							class="hover:text-golden-three linkz about border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">
 							ABOUT US</NuxtLink>
-						<NuxtLink @click="onNavClick(false)" to="/athletes"
+						<NuxtLink @click="onNavClick()" to="/athletes"
 							class="hover:text-golden-three linkz athletes border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">
 							OUR ATHLETES</NuxtLink>
-						<NuxtLink @click="onNavClick(false)" to="/gallery"
+						<NuxtLink @click="onNavClick()" to="/gallery"
 							class="hover:text-golden-three linkz gallery border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">
 							GALLERY</NuxtLink>
+						<NuxtLink @click="onNavClick('news')" to="/"
+							class="hover:text-golden-three linkz gallery border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">
+							NEWS</NuxtLink>
 						<!-- <NuxtLink @click="()=>{setTimeout(toggleNav(),1000)}" to="/"
 							class=" hover:text-golden-three border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">Projects</NuxtLink> -->
 					</div>
@@ -157,7 +160,7 @@ onMounted(() => {
 
 })
 
-function onNavClick(bool?: boolean) {
+function onNavClick(text?: string) {
 	setTimeout(() => {
 		if (!opened.value) {
 			gsap.to(window, { duration: 1, scrollTo: { y: 0 }, ease: 'power2.inOut' })
@@ -165,13 +168,19 @@ function onNavClick(bool?: boolean) {
 		toggleNav()
 	}, 300)
 
-	if (bool) {
+	if (text == 'services') {
 		setTimeout(goToServices, 400)
-	} else { }
+	} else if (text == 'news') {
+		setTimeout(goToNews, 400)
+	}
 }
 
 function goToServices() {
 	gsap.to(window, { duration: 1, scrollTo: '.services', ease: 'power2.inOut' })
+}
+
+function goToNews() {
+	gsap.to(window, { duration: 1, scrollTo: '.news', ease: 'power2.inOut' })
 }
 
 const toggleNav = () => {

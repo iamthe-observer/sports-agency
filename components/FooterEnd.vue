@@ -13,11 +13,11 @@
 				</a>
 			</div>
 			<div
-				class="w-full h-fit my-auto lg:h-full text-white flex items-center justify-center gap-2 lg:gap-14 text-[1.5rem] font-semibold lg:text-[2rem] flex-wrap lg:flex-nowrap">
+				class="w-full h-fit my-auto lg:h-full text-white flex items-center justify-center gap-2 lg:gap-14 text-[4vw] font-semibold lg:text-[2rem] flex-wrap lg:flex-nowrap">
 				<NuxtLink @click="onNavClick()" v-motion-fade-visible to="/"
 					class="linkzz homE outline outline-2 outline-transparent hover:outline-golden-three px-4 transition-all duration-150 ease-in-out cursor-pointer">
 					HOME</NuxtLink>
-				<NuxtLink @click="onNavClick(true)" v-motion-fade-visible to="/"
+				<NuxtLink @click="onNavClick('services')" v-motion-fade-visible to="/"
 					class="linkzz serviceS outline outline-2 outline-transparent hover:outline-golden-three px-4 transition-all duration-150 ease-in-out cursor-pointer">
 					SERVICES</NuxtLink>
 				<NuxtLink @click="onNavClick()" v-motion-fade-visible to="/about"
@@ -29,16 +29,19 @@
 				<NuxtLink @click="onNavClick()" v-motion-fade-visible to="/gallery"
 					class="linkzz gallerY outline outline-2 outline-transparent hover:outline-golden-three px-4 transition-all duration-150 ease-in-out cursor-pointer">
 					GALLERY</NuxtLink>
+				<NuxtLink @click="onNavClick('news')" v-motion-fade-visible to="/"
+					class="linkzz gallerY outline outline-2 outline-transparent hover:outline-golden-three px-4 transition-all duration-150 ease-in-out cursor-pointer">
+					NEWS</NuxtLink>
 			</div>
 		</div>
 
 		<div id="contact"
 			class="h-[100px] w-full text-white flex flex-col items-center overflow-hidden px-8 border-golden-three border-t hover:bg-golden-three hover:bg-opacity-10">
 			<h1 @click="appStore().toggleContact(false)"
-				class="text-3xl font-semibold w-full min-h-[100px] grid place-items-center cursor-pointer relative text-center">
+				class="text-3xl font-semibold w-full min-h-[100px] grid place-items-center cursor-pointer relative text-center text-[5vw] lg:text-3xl">
 				Contact Us
-				<div class="iconexpand absolute top-1/2 -translate-y-1/2 right-0 w-10 aspect-square">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+				<div class="iconexpand absolute top-1/2 -translate-y-1/2 right-0 w-10 grid place-items-center aspect-square">
+					<svg xmlns="http://www.w3.org/2000/svg" class="w-[8vw]" viewBox="0 0 24 24">
 						<path fill="currentColor"
 							d="m19.25 21l-1.4-1.4l1.575-1.6H15.25v-2h4.175l-1.575-1.6l1.4-1.4l4 4zM10 15q1.4 0 2.525-.687T14.3 12.5q-.875-.725-1.975-1.112T10 11q-1.225 0-2.325.388T5.7 12.5q.65 1.125 1.775 1.813T10 15m0-5q.825 0 1.413-.587T12 8q0-.825-.587-1.412T10 6q-.825 0-1.412.588T8 8q0 .825.588 1.413T10 10m0 12q-4.025-3.425-6.012-6.362T2 10.2q0-3.75 2.413-5.975T10 2q3.175 0 5.588 2.225T18 10.2q0 .225-.012.463t-.063.487H15.9q.05-.25.075-.488T16 10.2q0-2.725-1.737-4.462T10 4Q7.475 4 5.738 5.738T4 10.2q0 1.775 1.475 4.063T10 19.35q.575-.5 1.063-1t.937-.975l.225.225l.488.488q.262.262.475.487l.212.225q-.725.775-1.575 1.575T10 22" />
 					</svg>
@@ -108,7 +111,7 @@
 				<path fill="currentColor"
 					d="M11 11L3 6v10h10v2H1V2h20v7h-2V6zm0-2l8-5H3zm8 13q-1.65 0-2.825-1.175T15 18v-4.5q0-1.05.725-1.775T17.5 11q1.05 0 1.775.725T20 13.5V18h-2v-4.5q0-.2-.15-.35T17.5 13q-.2 0-.35.15t-.15.35V18q0 .825.588 1.413T19 20q.825 0 1.413-.587T21 18v-4h2v4q0 1.65-1.175 2.825T19 22M3 6V4v12z" />
 			</svg>
-			<span class="-translate-y-1 text-xl text-white tracking-wider">
+			<span class="-translate-y-1 text-white tracking-wider text-[4vw] lg:text-xl">
 				eagleeyespc@gmail.com
 			</span>
 		</p>
@@ -159,9 +162,9 @@
 					d="M18.95 22q-3.125 0-6.187-1.35T7.2 16.8q-2.5-2.5-3.85-5.55T2 5.05V4h5.9l.925 5.025l-2.85 2.875q.55.975 1.225 1.85t1.45 1.625q.725.725 1.588 1.388T12.1 18l2.9-2.9l5 1.025V22zM5.025 10l1.65-1.65L6.25 6H4.025q.125 1.125.375 2.113T5.025 10m8.95 8.95q1 .425 2.013.675T18 19.95v-2.2l-2.35-.475zM12 4V2h10v2zm0 4V6h10v2zm0 4v-2h10v2z" />
 			</svg>
 
-			<span v-if="if_sm" class="text-[.9rem] font-semibold tracking-wider">+491745969531</span>
-			<span v-if="if_sm" class="text-[.9rem] font-semibold tracking-wider">+4915216434754</span>
-			<span v-if="if_sm" class="text-[.9rem] font-semibold tracking-wider">+233537804885</span>
+			<span v-if="if_sm" class="text-[3vw] font-semibold tracking-wider">+491745969531</span>
+			<span v-if="if_sm" class="text-[3vw] font-semibold tracking-wider">+4915216434754</span>
+			<span v-if="if_sm" class="text-[3vw] font-semibold tracking-wider">+233537804885</span>
 
 			<span v-if="!if_sm" class="text-xl tracking-wider">
 				+491745969531<br />
@@ -183,16 +186,27 @@ const { opened, if_contact } = storeToRefs(appStore())
 const { curr_nav } = storeToRefs(navStore())
 const if_sm = inject('if_sm', true)
 
-function onNavClick(bool: boolean = false) {
+function onNavClick(text?: string) {
 	setTimeout(() => {
 		if (!opened.value) {
 			gsap.to(window, { duration: 1, scrollTo: { y: 0 }, ease: 'power2.inOut' })
 		}
-	}, 100)
+		// toggleNav()
+	}, 300)
 
-	if (bool) {
-		gsap.to(window, { duration: 1, scrollTo: '.services', ease: 'power2.inOut' })
-	} else { }
+	if (text == 'services') {
+		setTimeout(goToServices, 400)
+	} else if (text == 'news') {
+		setTimeout(goToNews, 400)
+	}
+}
+
+function goToServices() {
+	gsap.to(window, { duration: 1, scrollTo: '.services', ease: 'power2.inOut' })
+}
+
+function goToNews() {
+	gsap.to(window, { duration: 1, scrollTo: '.news', ease: 'power2.inOut' })
 }
 
 const toggleContact = () => {

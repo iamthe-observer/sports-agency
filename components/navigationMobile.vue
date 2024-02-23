@@ -25,17 +25,19 @@
 
 		<div
 			class="flex flex-col w-full min-h-[80%] items-center justify-center gap-4 text-center text-white font-semibold tracking-wide text-4xl">
-			<NuxtLink @click="onNavClick(false)" to="/" class="w-fit px-2 py-1 text-golden-three active:text-white linkzM home">
+			<NuxtLink @click="onNavClick()" to="/" class="w-fit px-2 py-1 text-golden-three active:text-white linkzM home">
 				HOME</NuxtLink>
-			<NuxtLink @click="onNavClick(true)" to="/"
+			<NuxtLink @click="onNavClick('services')" to="/"
 				class="w-fit px-2 py-1 text-golden-three active:text-white linkzM services">SERVICES</NuxtLink>
-			<NuxtLink @click="onNavClick(false)" to="/about"
+			<NuxtLink @click="onNavClick()" to="/about"
 				class="w-fit px-2 py-1 text-golden-three active:text-white linkzM about">ABOUT US</NuxtLink>
-			<NuxtLink @click="onNavClick(false)" to="/athletes"
+			<NuxtLink @click="onNavClick()" to="/athletes"
 				class="w-fit px-2 py-1 text-golden-three active:text-white linkzM athletes">OUR ATHLETES
 			</NuxtLink>
-			<NuxtLink @click="onNavClick(false)" to="/gallery"
+			<NuxtLink @click="onNavClick()" to="/gallery"
 				class="w-fit px-2 py-1 text-golden-three active:text-white linkzM gallery">GALLERY</NuxtLink>
+			<NuxtLink @click="onNavClick('news')" to="/"
+				class="w-fit px-2 py-1 text-golden-three active:text-white linkzM gallery">NEWS</NuxtLink>
 		</div>
 
 		<div
@@ -170,7 +172,7 @@ const toggleNav = () => {
 	appStore().$patch(() => opened.value = !opened.value)
 }
 
-function onNavClick(bool: boolean = false) {
+function onNavClick(text?: string) {
 	setTimeout(() => {
 		if (!opened.value) {
 			gsap.to(window, { duration: 1, scrollTo: { y: 0 }, ease: 'power2.inOut' })
@@ -178,13 +180,19 @@ function onNavClick(bool: boolean = false) {
 		toggleNav()
 	}, 300)
 
-	if (bool) {
+	if (text == 'services') {
 		setTimeout(goToServices, 400)
-	} else { }
+	} else if (text == 'news') {
+		setTimeout(goToNews, 400)
+	}
 }
 
 function goToServices() {
 	gsap.to(window, { duration: 1, scrollTo: '.services', ease: 'power2.inOut' })
+}
+
+function goToNews() {
+	gsap.to(window, { duration: 1, scrollTo: '.news', ease: 'power2.inOut' })
 }
 
 </script>

@@ -255,14 +255,14 @@ function horizontalLoop(items: any, config: any) {
 								class="object-cover w-full h-full group-hover:scale-110 transition-all duration-300 ease-in-out" />
 						</div>
 						<div
-							class="absolute top-0 left-0 w-fit bg-golden-three translate-x-3 translate-y-3 shadow-lg text-black font-bold px-3">
+							class="absolute top-0 left-0 w-fit bg-golden-three translate-x-3 translate-y-3 shadow-lg text-black font-bold px-3 text-[3vw] lg:text-xl">
 							{{ n.date ? n.date : "..." }}
 						</div>
 					</div>
 
 
-					<p class="font-bold font-Outfit pt-6 h-full w-full">
-						<span class="italic font-bold pr-1 text-golden-three font-">HEADLINE:</span>
+					<p class="font-bold font-Outfit pt-6 h-full w-full lg:text-xl text-[3vw]">
+						<span class="italic font-bold pr-1 text-golden-three lg:text-xl text-[3vw]">HEADLINE:</span>
 						{{ n.headline ? n.headline : "..." }}
 					</p>
 				</div>
@@ -305,14 +305,14 @@ function horizontalLoop(items: any, config: any) {
 
 		<div class="relative flex gap-5 w-full justify-center items-center">
 			<button
-				class="prev border hover:bg-golden-three hover:text-black transition-all duration-150 ease-in-out border-golden-three bg-black">prev</button>
+				class="prev border hover:bg-golden-three hover:text-black transition-all duration-150 ease-in-out border-golden-three bg-black lg:text-xl text-[2vw]">prev</button>
 
 			<!-- <button
 				class="text-white font-bold text-xl border border-golden-three bg-black hover:bg-golden-three hover:text-black transition-all duration-150 ease-in-out">View
 				All</button> -->
 
 			<button
-				class="next border hover:bg-golden-three hover:text-black transition-all duration-150 ease-in-out border-golden-three bg-black">next</button>
+				class="next border hover:bg-golden-three hover:text-black transition-all duration-150 ease-in-out border-golden-three bg-black lg:text-xl text-[2vw]">next</button>
 			<!-- <button class="toggle">toggle overflow</button> -->
 		</div>
 	</div>

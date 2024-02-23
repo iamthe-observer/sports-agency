@@ -20,7 +20,7 @@
 				<span class="font-bold text-4xl drop-shadow-xl">
 					ABOUT US
 				</span>
-				<span class="text-lg drop-shadow-xl font-Outfit">
+				<span class="lg:text-[1.3rem] text-[3.5vw] drop-shadow-xl font-Outfit">
 					In February 2024, EagleEye Sports Consults was founded as a company that represents athletes and provides them
 					with comprehensive management. Our goal is to help athletes achieve their personal and athletic goals by
 					designing their professional careers. Additionally, we provide our clients with a staff of professionals who are
@@ -47,7 +47,7 @@
 				<span class="text-golden-three font-semibold pr-2">//</span>Our Mission
 			</h2>
 			<p v-motion-slide-visible-once-bottom
-				class="text-[1.5rem] pt-4 text-white lg:w-4/5 w-full px-3 lg:px-0 text-center pb-12 font-Outfit">
+				class="text-[3.5vw] lg:text-2xl pt-4 text-white lg:w-4/5 w-full px-1 lg:px-0 text-center pb-12 font-Outfit">
 				To empower athletes, sports organizations and businesses in the sports industry to achieve their full potential.
 				Our dedication to the excellence, integrity and client-centric approach ensures that we deliver tailored
 				strategies and actionable insights to maximum performance, enhance competitiveness and unlock new opportunities
@@ -58,7 +58,8 @@
 				<span class="text-golden-three font-semibold pr-2">//</span>Our Vision
 			</h2>
 
-			<p v-motion-slide-visible-once-bottom class="text-xl pt-4 text-white lg:w-3/5 w-full text-center font-Outfit">
+			<p v-motion-slide-visible-once-bottom
+				class="text-[3.5vw] lg:text-2xl pt-4 text-white lg:w-3/5 w-full text-center font-Outfit">
 				To rise to the position of premier industry leader as a result of the sports community's increasing demand for
 				representation.
 			</p>
@@ -80,33 +81,33 @@
 			class="relative w-full border-y lg:border-l border-golden-three h-fit lg:h-[200px] lg:flex lg:items-center grid grid-cols-2 text-white">
 			<div
 				class="transition-all duration-150 ease-in-out lg:hover:w-[calc(125%)] lg:hover:bg-golden-three active:scale-105 active:shadow-lg bg-golden-three bg-opacity-10 hover:bg-opacity-100 w-full h-full border-golden-three flex justify-center items-center flex-col text-center font-bold uppercase hover:text-black">
-				<span class="text-[4rem]">12+</span>
+				<span class="lg:text-[4rem] text-[12vw]">12+</span>
 				<span class="text-xl">Athletes</span>
 			</div>
 			<div
 				class="transition-all duration-150 ease-in-out lg:hover:w-[calc(125%)] lg:hover:bg-golden-three active:scale-105 active:shadow-lg bg-golden-three bg-opacity-10 hover:bg-opacity-100 w-full h-full border-golden-three flex justify-center items-center flex-col text-center font-bold uppercase hover:text-black">
-				<span class="text-[4rem]">24+</span>
+				<span class="lg:text-[4rem] text-[12vw]">24+</span>
 				<span class="text-xl">Affiliates</span>
 			</div>
 			<div
 				class="transition-all duration-150 ease-in-out lg:hover:w-[calc(125%)] lg:hover:bg-golden-three active:scale-105 active:shadow-lg bg-golden-three bg-opacity-10 hover:bg-opacity-100 w-full h-full border-golden-three flex justify-center items-center flex-col text-center font-bold uppercase hover:text-black lg:pb-0 pb-2">
-				<span class="text-[4rem]">1k+</span>
+				<span class="lg:text-[4rem] text-[12vw]">1k+</span>
 				<span class="text-xl">active members</span>
 			</div>
 			<div
 				class="transition-all duration-150 ease-in-out lg:hover:w-[calc(125%)] lg:hover:bg-golden-three active:scale-105 active:shadow-lg bg-golden-three bg-opacity-10 hover:bg-opacity-100 w-full h-full border-golden-three flex justify-center items-center flex-col text-center font-bold uppercase hover:text-black lg:pb-0 pb-2">
-				<span class="text-[4rem]">2024</span>
+				<span class="lg:text-[4rem] text-[12vw]">2024</span>
 				<span class="text-xl">SINCE</span>
 			</div>
 		</div>
 
 		<!-- owners -->
 		<div class="text-white relative w-full lg:border-l border-golden-three flex flex-col px-4 lg:px-10 py-20">
-			<h2 v-motion-fade-visible class="text-[4rem] font-bold">
+			<h2 v-motion-fade-visible class="text-[8vw] lg:text-[4rem] font-bold">
 				<span class="pr-1 text-golden-three">//</span>
 				Our Team
 			</h2>
-			<p v-motion-slide-visible-once-bottom class="text-xl mb-14 font-Outfit">
+			<p v-motion-slide-visible-once-bottom class="lg:text-xl text=[3.5vw] mb-8 font-Outfit">
 				Meet the faces of EagleEye Sports Consults' corporate executive group, providing leadership to our teams and
 				events around
 				the world.

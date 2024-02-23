@@ -12,8 +12,8 @@
 			<div class="absolute inset-0">
 				<img src="/playerStand.jpg" alt="" class="object-cover w-full h-full opacity-25 image z-0">
 			</div>
-			<span class="text-[3rem] text-white z-[100] droping">Gallery</span>
-			<span class="text-2xl text-golden-three z-[100] droping">Coming Soon...</span>
+			<span class="lg:text-[3rem] text-[8vw] text-white z-[100] droping">Gallery</span>
+			<span class="lg:text-2xl text-[3vw] text-golden-three z-[100] droping">Coming Soon...</span>
 		</div>
 
 		<FooterEnd />

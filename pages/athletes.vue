@@ -17,14 +17,14 @@
 			<TopNaviMobile />
 
 			<div class="absolute bottom-1/2 translate-y-2/3 right-10 text-white w-fit h-fit flex flex-col gap-5">
-				<span class="font-bold text-[2rem] lg:text-4xl drop-shadow-xl text-right whitespace-nowrap">
+				<span class="font-bold text-[8vw] lg:text-4xl drop-shadow-xl text-right whitespace-nowrap">
 					Our Athletes</span>
-				<span class="text-lg drop-shadow-xl font-Outfit text-right whitespace-nowrap">
+				<span class="text-[4vw] lg:text-lg drop-shadow-xl font-Outfit text-right whitespace-nowrap">
 					Sports agency for talented people.
 				</span>
 
 				<BoxContainer @click="scrollTo"
-					class="w-fit self-end font-semibold tracking-wider text-xl flex items-center gap-2 hover:gap-0">
+					class="w-fit self-end font-semibold tracking-wider lg:text-xl text-[3.2vw] flex items-center gap-2 hover:gap-0">
 					Featured
 					<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24">
 						<path fill="currentColor" d="M11 4v12.175l-5.6-5.6L4 12l8 8l8-8l-1.4-1.425l-5.6 5.6V4z" />
@@ -35,7 +35,7 @@
 
 		<div id="athletes" class="w-full h-full lg:border-l border-golden-three pb-32 py-20 lg:py-32 px-4 lg:px-20">
 
-			<h1 v-motion-slide-visible-once-bottom class="lg:text-4xl text-2xl text-white mb-6 font-semibold"><span
+			<h1 v-motion-slide-visible-once-bottom class="lg:text-4xl text-[6vw] text-white mb-6 font-semibold"><span
 					class="text-golden-three pr-4">//</span>Featured Athletes</h1>
 
 			<div class="grid grid-cols-2 lg:grid-cols-3 gap-14">
@@ -44,28 +44,33 @@
 					<img src="~/assets/P1.png" alt=""
 						class="hover:png-shadow transition-all duration-150 ease-out object-contain w-[300px] h-[400px] hover:scale-105 scale-150 lg:scale-100" />
 
-					<span class="text-white mx-auto font-semibold text-xl tracking-wide w-full text-center">Michael Ofori</span>
+					<span class="text-white mx-auto font-semibold lg:text-xl text-[4vw] tracking-wide w-full text-center">Michael
+						Ofori</span>
 				</div>
 
 				<div class="players flex flex-col gap-4 items-center">
 					<img src="~/assets/P4.png" alt=""
 						class="hover:png-shadow transition-all duration-150 ease-out object-contain w-[300px] h-[400px] hover:scale-105 scale-90 lg:scale-100" />
 
-					<span class="text-white mx-auto font-semibold text-xl tracking-wide w-full text-center">Samuel Lartey</span>
+					<span class="text-white mx-auto font-semibold lg:text-xl text-[4vw] tracking-wide w-full text-center">Samuel
+						Lartey</span>
 				</div>
 
 				<div class="players flex flex-col gap-4 items-center">
 					<img src="~/assets/P2.png" alt=""
 						class="hover:png-shadow transition-all duration-150 ease-out object-contain w-[300px] h-[400px] hover:scale-100 scale-90" />
 
-					<span class="text-white mx-auto font-semibold text-xl tracking-wide w-full text-center">Christopher Okonkwo</span>
+					<span
+						class="text-white mx-auto font-semibold lg:text-xl text-[4vw] tracking-wide w-full text-center">Christopher
+						Okonkwo</span>
 				</div>
 
 				<div class="players flex flex-col gap-4 items-center lg:col-span-3">
 					<img src="~/assets/P3.png" alt=""
 						class="hover:png-shadow transition-all duration-150 ease-out object-contain w-[300px] h-[400px] hover:scale-100 scale-90" />
 
-					<span class="text-white mx-auto font-semibold text-xl tracking-wide w-full text-center">Abubakar Sadick</span>
+					<span class="text-white mx-auto font-semibold lg:text-xl text-[4vw] tracking-wide w-full text-center">Abubakar
+						Sadick</span>
 				</div>
 
 			</div>

@@ -29,10 +29,10 @@
 
 				<div class="w-full flex justify-end gap-5">
 					<BoxContainer link="/about" class="text-white tracking-wide text-[3vw] lg:text-xl">
-						<span class="drop-shadow-md">About Us</span>
+						<span class="drop-shadow-md whitespace-nowrap">About Us</span>
 					</BoxContainer>
 					<BoxContainer link="/athletes" class="text-white tracking-wide text-[3vw] lg:text-xl">
-						<span class="drop-shadow-md">Our Athletes</span>
+						<span class="drop-shadow-md whitespace-nowrap">Our Athletes</span>
 					</BoxContainer>
 
 				</div>
@@ -45,7 +45,7 @@
 				Welcome to
 				<span class="text-golden-three">EagleEye</span>,
 			</h1>
-			<p v-motion-slide-visible-once-bottom class="lg:text-[30px] text-[5vw] text-center w-full lg:w-[90%] mx-auto">
+			<p v-motion-slide-visible-once-bottom class="lg:text-[30px] text-[4vw] text-center w-full lg:w-[90%] mx-auto">
 				EagleEye strives to identify and sign gifted athletes and expand its networks by thinking out of the box. Our goal
 				is to give value to professional sports organizations by utilizing our global network and a contemporary approach
 				to the beautiful game. In order to enhance player value, we run a cutting-edge sports consultancy and agency on
@@ -82,7 +82,7 @@
 		<Services />
 
 		<div
-			class="border-golden-three bg-golden-three bg-opacity-5 border-t w-full min-h-[600px] flex flex-col lg:border-l gap-5 text-black relative justify-center items-center py-20 overflow-hidden">
+			class="border-golden-three bg-golden-three bg-opacity-5 border-t w-full min-h-[600px] flex flex-col lg:border-l gap-5 text-black relative justify-center items-center py-20 overflow-hidden news">
 			<NewsCarousel />
 		</div>
 
