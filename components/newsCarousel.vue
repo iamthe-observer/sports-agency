@@ -11,6 +11,8 @@ const curr_news = ref<{ headline: string, src: string, content: string, date: st
 	date: ""
 })
 
+const if_clicked = ref(false)
+
 onMounted(() => {
 	const wrapper = document.querySelector<HTMLElement>(".wrapper");
 	const colors = ["#f38630", "#6fb936", "#ccc", "#6fb936"];
@@ -34,8 +36,11 @@ onMounted(() => {
 	boxes.forEach((box, i) => box.addEventListener("click", () => loop.toIndex(i, { duration: .4, ease: "power4.inOut" })));
 
 	document.querySelector(".toggle")?.addEventListener("click", () => wrapper?.classList.toggle("show-overflow"));
-	document.querySelector(".next")?.addEventListener("click", () => loop.next({ duration: 0.4, ease: "power4.inOut" }));
-	document.querySelector(".prev")?.addEventListener("click", () => loop.previous({ duration: 0.4, ease: "power4.inOut" }));
+	document.querySelector(".next")?.addEventListener("click", () => { loop.next({ duration: 0.4, ease: "power4.inOut" })
+	});
+	document.querySelector(".prev")?.addEventListener("click", () => {
+	  loop.previous({ duration: 0.4, ease: "power4.inOut" })
+	});
 
 })
 

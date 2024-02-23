@@ -44,28 +44,28 @@
 					<img src="~/assets/P1.png" alt=""
 						class="hover:png-shadow transition-all duration-150 ease-out object-contain w-[300px] h-[400px] hover:scale-105 scale-150 lg:scale-100" />
 
-					<span class="text-white mx-auto font-semibold text-xl tracking-wide">Michael Ofori</span>
+					<span class="text-white mx-auto font-semibold text-xl tracking-wide w-full text-center">Michael Ofori</span>
 				</div>
 
 				<div class="players flex flex-col gap-4 items-center">
 					<img src="~/assets/P4.png" alt=""
 						class="hover:png-shadow transition-all duration-150 ease-out object-contain w-[300px] h-[400px] hover:scale-105 scale-90 lg:scale-100" />
 
-					<span class="text-white mx-auto font-semibold text-xl tracking-wide">Samuel Lartey</span>
+					<span class="text-white mx-auto font-semibold text-xl tracking-wide w-full text-center">Samuel Lartey</span>
 				</div>
 
 				<div class="players flex flex-col gap-4 items-center">
 					<img src="~/assets/P2.png" alt=""
 						class="hover:png-shadow transition-all duration-150 ease-out object-contain w-[300px] h-[400px] hover:scale-100 scale-90" />
 
-					<span class="text-white mx-auto font-semibold text-xl tracking-wide">Christopher Okonkwo</span>
+					<span class="text-white mx-auto font-semibold text-xl tracking-wide w-full text-center">Christopher Okonkwo</span>
 				</div>
 
 				<div class="players flex flex-col gap-4 items-center lg:col-span-3">
 					<img src="~/assets/P3.png" alt=""
 						class="hover:png-shadow transition-all duration-150 ease-out object-contain w-[300px] h-[400px] hover:scale-100 scale-90" />
 
-					<span class="text-white mx-auto font-semibold text-xl tracking-wide">Abubakar Sadick</span>
+					<span class="text-white mx-auto font-semibold text-xl tracking-wide w-full text-center">Abubakar Sadick</span>
 				</div>
 
 			</div>
