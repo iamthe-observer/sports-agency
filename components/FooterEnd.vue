@@ -1,10 +1,9 @@
 <template>
 	<div class="border-golden-three w-full hfit flex flex-col lg:border-l grad border-b relative">
 
-		<div class="w-full h-[400px] border-t border-golden-three flex flex-col">
+		<div class="w-full lg:h-[400px] border-t border-golden-three flex flex-col">
 			<div class="w-full h-fit flex items-center justify-center">
-
-				<a class="text-white border-x border-b border-golden-three px-10 py-6 text-center text-xl lg:text-3xl group hover:text-black hover:bg-golden-three transition-all duration-150 ease-in-out cursor-pointer"
+				<a class="text-white border-x border-b border-golden-three px-5 lg:px-10 py-3 lg:py-6 text-center text-[4vw] lg:text-3xl group hover:text-black hover:bg-golden-three transition-all duration-150 ease-in-out cursor-pointer"
 					@click="toScreenTop">
 					<span
 						class="text-golden-three font-semibold tracking-wider group-hover:text-black transition-all duration-150 ease-in-out">EagleEye</span>
@@ -12,8 +11,9 @@
 					<span class="tracking-wider drop-shadow-md">Sports Consults</span>
 				</a>
 			</div>
+
 			<div
-				class="w-full h-fit my-auto lg:h-full text-white flex items-center justify-center gap-2 lg:gap-14 text-[4vw] font-semibold lg:text-[1.4rem] flex-wrap lg:flex-nowrap">
+				class="w-full h-fit py-12 lg:py-0 my-auto lg:h-full text-white flex items-center justify-center gap-2 lg:gap-14 text-[4vw] font-semibold lg:text-[2vw] text-center flex-wrap lg:flex-nowrap">
 				<NuxtLink @click="onNavClick()" v-motion-fade-visible to="/"
 					class="linkzz homE outline outline-2 outline-transparent hover:outline-golden-three px-4 transition-all duration-150 ease-in-out cursor-pointer">
 					HOME</NuxtLink>
@@ -175,12 +175,12 @@
 		</p>
 
 	</div>
-	
-<div
-		class="w-full lg:h-[20px] lg:py-0 py-2 min-h-[20px] lg:border-b lg:border-l border-golden-three border-t flex lg:flex-row flex-col items-center lg:gap-2 text-white justify-center lg:justify-evenly text-[2vw] lg:text-xs">
-  <span>Copyright &copy; 2024 EagleEye Sports Consults. All rights reserved.</span>
-  <span>Web design & development by <span class="text-golden-three">BIGBIGBIG</span></span>
-  </div>
+
+	<div
+		class="w-full lg:h-[20px] lg:py-0 lg:py-8 min-h-[20px] lg:border-b lg:border-l border-golden-three border-t flex lg:flex-row flex-col items-center lg:gap-2 text-white justify-center lg:justify-evenly text-[2vw] lg:text-xs py-6">
+		<span>Copyright &copy; 2024 EagleEye Sports Consults. All rights reserved.</span>
+		<span>Web design & development by <span class="text-golden-three cursor-pointer">THE OBSERVER</span></span>
+	</div>
 </template>
 
 <script setup lang="ts">
