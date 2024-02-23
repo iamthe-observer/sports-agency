@@ -58,12 +58,12 @@
 
 						<!-- <button class="mt-2 w-full h-10 bg-golden-three">Send Message</button> -->
 						<BoxContainer class="mt-2 text-xl tracking-wide">Send Message</BoxContainer>
-						<div class="italic text-xl font-Outfit pt-3 text-white hover:text-golden-three font-semibold">
+						<div class="text-xl pt-3 text-white hover:text-golden-three font-semibold">
 							eagleeyespc@gmail.com
 						</div>
 
 						<NuxtLink href="https://maps.app.goo.gl/6H1wYmEfxw5DFBQV7"
-							class="italic text-xs font-Outfit pt-3 text-golden-one hover:text-golden-three font-semibold cursor-pointer">
+							class="text-xs pt-3 text-golden-one hover:text-golden-three font-semibold cursor-pointer">
 							Find Our
 							Location</NuxtLink>
 					</div>
@@ -82,7 +82,7 @@
 					<div
 						class="w-full h-24 border-b border-golden-three group-hover:bg-golden-three group-hover:bg-opacity-15 transition-all duration-150 ease-in-out">
 					</div>
-					<div class="flex flex-col h-full w-full pl-10 justify-center font-semibold text-[2.7rem] gap-5 group">
+					<div class="flex flex-col h-full w-full pl-10 justify-center font-semibold text-[1.8rem] gap-5 group">
 						<NuxtLink @click="onNavClick()" to="/"
 							class="hover:text-golden-three linkz home border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">
 							HOME</NuxtLink>
