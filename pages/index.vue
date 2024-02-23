@@ -27,10 +27,10 @@
 				</div>
 
 				<div class="w-full flex justify-end gap-5">
-					<BoxContainer link="/about" class="text-white tracking-wide text-[1.1rem] lg:text-xl"><span class="drop-shadow-md">About
+					<BoxContainer link="/about" class="text-white tracking-wide text-[.8rem] lg:text-xl"><span class="drop-shadow-md">About
 							Us</span>
 					</BoxContainer>
-					<BoxContainer link="/athletes" class="text-white tracking-wide text-[1.1rem] lg:text-xl"><span class="drop-shadow-md">Our
+					<BoxContainer link="/athletes" class="text-white tracking-wide text-[.8rem] lg:text-xl"><span class="drop-shadow-md">Our
 							Athletes</span>
 					</BoxContainer>
 
