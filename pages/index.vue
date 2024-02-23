@@ -18,7 +18,7 @@
 
 			<div v-motion-fade class="absolute right-0 top-1/2 -translate-y-[30%] w-4/5 flex flex-col gap-5 pr-10">
 				<div class="h-fit w-full bg-opacity-20 text-right flex flex-col items-end justify-center">
-					<p class="font-semibold text-[3rem] lg:text-[60px] droping text-golden-three flex flex-col">
+					<p class="font-semibold text-[2.4rem] lg:text-[60px] droping text-golden-three flex flex-col">
 					  <span class="">EagleEye</span>
 					  <span class="block whitespace-nowrap">Sports Consults</span>
 					  </p>
