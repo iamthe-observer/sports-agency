@@ -16,10 +16,10 @@
 
 			<TopNaviMobile />
 
-			<div class="absolute bottom-1/2 translate-y-2/3 right-10 text-white w-[40%] h-fit flex flex-col gap-5">
-				<span class="font-bold text-4xl drop-shadow-xl text-right">
+			<div class="absolute bottom-1/2 translate-y-2/3 right-10 text-white w-fit h-fit flex flex-col gap-5">
+				<span class="font-bold text-[2rem] lg:text-4xl drop-shadow-xl text-right whitespace-nowrap">
 					Our Athletes</span>
-				<span class="text-lg drop-shadow-xl font-Outfit text-right">
+				<span class="text-lg drop-shadow-xl font-Outfit text-right whitespace-nowrap">
 					Sports agency for talented people.
 				</span>
 
