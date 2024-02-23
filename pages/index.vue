@@ -22,7 +22,7 @@
 					  <span class="">EagleEye</span>
 					  <span class="block whitespace-nowrap">Sports Consults</span>
 					  </p>
-					<p class="tracking-wide text-[1.5rem] lg:text-3xl text-white droping italic font-Satisfy">Your Pathway to Sporting
+					<p class="tracking-wide text-[1rem] lg:text-3xl text-white droping italic font-Satisfy">Your Pathway to Sporting
 						Greatness</p>
 				</div>
 
