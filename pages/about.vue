@@ -87,7 +87,8 @@
 			</div>
 			<div
 				class="transition-all duration-150 ease-in-out lg:hover:w-[calc(125%)] lg:hover:bg-golden-three active:scale-105 active:shadow-lg bg-golden-three bg-opacity-10 hover:bg-opacity-100 w-full h-full border-golden-three flex justify-center items-center flex-col text-center font-bold uppercase hover:text-black">
-				<span class="lg:text-[4rem] text-[12vw]">24+</span>
+				<span class="lg:text-[4rem] text-[12vw]">
+				  <span class="data">24</span>+</span>
 				<span class="text-xl">Affiliates</span>
 			</div>
 			<div
@@ -104,7 +105,7 @@
 
 		<!-- owners -->
 		<div class="text-white relative w-full lg:border-l border-golden-three flex flex-col px-4 lg:px-10 py-20">
-			<h2 v-motion-fade-visible class="text-[8vw] lg:text-[4rem] font-bold">
+			<h2 v-motion-fade-visible class="text-[8vw] lg:text-4xl font-bold">
 				<span class="pr-1 text-golden-three">//</span>
 				Our Team
 			</h2>
@@ -157,6 +158,29 @@ const if_sm = inject('if_sm', true)
 
 onMounted(() => {
 	useTitle('EagleEye Sports Consults | About Us')
+
+const items = document.querySelectorAll(".data");
+
+gsap.from(items, {
+  textContent: 0,
+  duration: 1,
+  ease: "power1.in",
+  ScrollTrigger:{
+    trigger: "data",
+    start: "top 6%",
+  },
+  snap: { textContent: 1 },
+  stagger: {
+    each: 1.0,
+    onUpdate: function() {
+      this.targets()[0].innerHTML = numberWithCommas(Math.ceil(this.targets()[0].textContent));
+    },
+  }
+});
+
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
 	gsap.fromTo('.visi', { opacity: 0 }, { opacity: 1, duration: 1, delay: 3 })
 })
