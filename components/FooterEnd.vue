@@ -104,7 +104,7 @@
 	</div>
 
 	<div
-		class="w-full lg:h-[100px] lg:py-0 py-2 h-[200px] lg:border-b lg:border-l lg:border-golden-three flex lg:flex-row flex-col items-center gap-2 text-white">
+		class="w-full lg:h-[100px] lg:py-0 py-2 h-[200px] lg:border-l lg:border-golden-three flex lg:flex-row flex-col items-center gap-2 text-white">
 
 		<p class="w-full h-full flex justify-center items-center gap-3">
 			<svg v-if="!if_sm" xmlns="http://www.w3.org/2000/svg" class="w-8 aspect-square" viewBox="0 0 24 24">
@@ -177,7 +177,7 @@
 	</div>
 	
 <div
-		class="w-full lg:h-[20px] lg:py-0 py-2 min-h-[20px] lg:border-b lg:border-l border-golden-three border-t flex lg:flex-row flex-col items-center gap-2 text-white justify-center text-xs">
+		class="w-full lg:h-[20px] lg:py-0 py-2 min-h-[20px] lg:border-b lg:border-l border-golden-three border-t flex lg:flex-row flex-col items-center lg:gap-2 text-white justify-center lg:justify-evenly text-[2vw] lg:text-xs">
   <span>Copyright &copy; 2024 EagleEye Sports Consults. All rights reserved.</span>
   <span>Web design & development by <span class="text-golden-three">BIGBIGBIG</span></span>
   </div>
