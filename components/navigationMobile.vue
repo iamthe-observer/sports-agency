@@ -154,16 +154,14 @@ const toggleNav = () => {
 		gsap.to(nav_content, {
 			x: '100%',
 			duration: 1,
-			ease: 'ease-in-out',
-			onComplete: () => {
-			}
+			ease: 'power4.inOut',
 		})
 	} else {
 		document.body.style.overflow = 'hidden'
 		gsap.to(nav_content, {
 			x: 0,
 			duration: 1,
-			ease: 'ease-in-out',
+			ease: 'power4.inOut',
 			onComplete: () => {
 				if_close_button.value = false
 			}

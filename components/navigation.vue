@@ -189,13 +189,13 @@ const toggleNav = () => {
 		gsap.to(nav_content, {
 			x: '100%',
 			duration: 1,
-			ease: 'ease-in-out'
+			ease: 'power4.inOut'
 		})
 	} else {
 		gsap.to(nav_content, {
 			x: 0,
 			duration: 1,
-			ease: 'ease-in-out'
+			ease: 'power4.inOut'
 		})
 	}
 	appStore().$patch(() => opened.value = !opened.value)

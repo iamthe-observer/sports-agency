@@ -79,10 +79,11 @@
 		</div>
 
 		<div
-			class="relative w-full border-y lg:border-l border-golden-three h-fit lg:h-[200px] lg:flex lg:items-center grid grid-cols-2 text-white">
+			class="statz relative w-full border-y lg:border-l border-golden-three h-fit lg:h-[200px] lg:flex lg:items-center grid grid-cols-2 text-white">
 			<div
 				class="transition-all duration-150 ease-in-out lg:hover:w-[calc(125%)] lg:hover:bg-golden-three active:scale-105 active:shadow-lg bg-golden-three bg-opacity-10 hover:bg-opacity-100 w-full h-full border-golden-three flex justify-center items-center flex-col text-center font-bold uppercase hover:text-black">
-				<span class="lg:text-[4rem] text-[12vw]">12+</span>
+				<span class="lg:text-[4rem] text-[12vw]">
+				  <span class="data">12</span>+</span>
 				<span class="text-xl">Athletes</span>
 			</div>
 			<div
@@ -93,12 +94,12 @@
 			</div>
 			<div
 				class="transition-all duration-150 ease-in-out lg:hover:w-[calc(125%)] lg:hover:bg-golden-three active:scale-105 active:shadow-lg bg-golden-three bg-opacity-10 hover:bg-opacity-100 w-full h-full border-golden-three flex justify-center items-center flex-col text-center font-bold uppercase hover:text-black lg:pb-0 pb-2">
-				<span class="lg:text-[4rem] text-[12vw]">1k+</span>
+				<span class="lg:text-[4rem] text-[12vw]"><span class="data">60</span>+</span>
 				<span class="text-xl">active members</span>
 			</div>
 			<div
 				class="transition-all duration-150 ease-in-out lg:hover:w-[calc(125%)] lg:hover:bg-golden-three active:scale-105 active:shadow-lg bg-golden-three bg-opacity-10 hover:bg-opacity-100 w-full h-full border-golden-three flex justify-center items-center flex-col text-center font-bold uppercase hover:text-black lg:pb-0 pb-2">
-				<span class="lg:text-[4rem] text-[12vw]">2024</span>
+				<span class="lg:text-[4rem] text-[12vw]"><span class="data">2024</span></span>
 				<span class="text-xl">SINCE</span>
 			</div>
 		</div>
@@ -155,6 +156,11 @@ import type { CSSProperties } from 'vue';
 import { useTitle } from '@vueuse/core'
 
 const if_sm = inject('if_sm', true)
+const { $gsap: gsap } = useNuxtApp()
+const target = ref()
+const target2 = ref()
+const parallax = reactive(useParallax(target))
+const parallax2 = reactive(useParallax(target2))
 
 onMounted(() => {
 	useTitle('EagleEye Sports Consults | About Us')
@@ -165,31 +171,18 @@ gsap.from(items, {
   textContent: 0,
   duration: 1,
   ease: "power1.in",
-  ScrollTrigger:{
-    trigger: "data",
-    start: "top 6%",
+  scrollTrigger: {
+			trigger: ".statz",
+			start: "top 80%",
   },
   snap: { textContent: 1 },
   stagger: {
-    each: 1.0,
-    onUpdate: function() {
-      this.targets()[0].innerHTML = numberWithCommas(Math.ceil(this.targets()[0].textContent));
-    },
+    each: .5,
   }
 });
 
-function numberWithCommas(x) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
-
 	gsap.fromTo('.visi', { opacity: 0 }, { opacity: 1, duration: 1, delay: 3 })
 })
-
-const { $gsap: gsap } = useNuxtApp()
-const target = ref()
-const target2 = ref()
-const parallax = reactive(useParallax(target))
-const parallax2 = reactive(useParallax(target2))
 
 const layer3 = computed<CSSProperties>(() => ({
 	// ...layerBase,
