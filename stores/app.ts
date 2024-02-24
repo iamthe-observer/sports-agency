@@ -10,6 +10,7 @@ const appStore = defineStore('app', () => {
   const opened = ref(true)
   const footer_open = ref(false)
   const if_contact = ref(false)
+  const if_loading = ref(true)
   const { $gsap: gsap } = useNuxtApp()
 
   const news_data = ref([
@@ -104,6 +105,7 @@ const appStore = defineStore('app', () => {
     news_data,
     if_contact,
     toggleContact,
+    if_loading,
   }
 })
 

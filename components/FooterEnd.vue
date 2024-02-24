@@ -2,13 +2,14 @@
 	<div class="border-golden-three w-full hfit flex flex-col lg:border-l grad border-b relative">
 
 		<div class="w-full lg:h-[400px] border-t border-golden-three flex flex-col">
+
 			<div class="w-full h-fit flex items-center justify-center">
 				<a class="text-white border-x border-b border-golden-three px-5 lg:px-10 py-3 lg:py-6 text-center text-[4vw] lg:text-3xl group hover:text-black hover:bg-golden-three transition-all duration-150 ease-in-out cursor-pointer"
-					@click="toScreenTop">
+					@click="++counter_login">
 					<span
-						class="text-golden-three font-semibold tracking-wider group-hover:text-black transition-all duration-150 ease-in-out">EagleEye</span>
+						class="text-golden-three font-semibold tracking-wider group-hover:text-black transition-all duration-150 ease-in-out select-none">EagleEye</span>
 					<br />
-					<span class="tracking-wider drop-shadow-md">Sports Consults</span>
+					<span class="tracking-wider drop-shadow-md select-none">Sports Consults</span>
 				</a>
 			</div>
 
@@ -177,7 +178,7 @@
 	</div>
 
 	<div
-		class="w-full lg:h-[20px] lg:py-8 min-h-[20px] lg:border-b lg:border-l border-golden-three border-t flex lg:flex-row flex-col items-center lg:gap-2 text-white justify-center lg:justify-evenly text-[2vw] lg:text-xs py-6">
+		class="w-full lg:h-[20px] lg:py-8 min-h-[20px] lg:border-b lg:border-l border-golden-three border-t flex lg:flex-row flex-col items-center lg:gap-2 text-white justify-center lg:justify-evenly text-[2vw] lg:text-xs py-6 tracking-wide">
 		<span>Copyright &copy; 2024 EagleEye Sports Consults. All rights reserved.</span>
 		<span>Web design & development by <span class="text-golden-three cursor-pointer">THE OBSERVER</span></span>
 	</div>
@@ -191,6 +192,15 @@ const { $gsap: gsap } = useNuxtApp();
 const { opened, if_contact } = storeToRefs(appStore())
 const { curr_nav } = storeToRefs(navStore())
 const if_sm = inject('if_sm', true)
+const counter_login = ref(0)
+
+watchEffect(() => {
+	if (counter_login.value >= 5) {
+		appStore().$patch({ if_loading: true })
+		counter_login.value = 0
+	}
+
+})
 
 function onNavClick(text?: string) {
 	setTimeout(() => {
