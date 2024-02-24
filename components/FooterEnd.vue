@@ -225,31 +225,6 @@ function goToNews() {
 	gsap.to(window, { duration: 1, scrollTo: '.news', ease: 'power2.inOut' })
 }
 
-const toggleContact = () => {
-	appStore().$patch({ if_contact: !if_contact.value })
-	if (if_contact.value) {
-		if (if_sm) {
-			gsap.to('#contact', {
-				height: '850px',
-				duration: 0.5,
-				ease: 'power4.out'
-			})
-		} else {
-			gsap.to('#contact', {
-				height: '450px',
-				duration: 0.5,
-				ease: 'power4.out'
-			})
-		}
-	} else {
-		gsap.to('#contact', {
-			height: '100px',
-			duration: 0.5,
-			ease: 'power4.out'
-		})
-	}
-}
-
 function toScreenTop() {
 	window.scrollTo({ top: 0, behavior: 'smooth' });
 }

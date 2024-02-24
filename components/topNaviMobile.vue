@@ -58,11 +58,13 @@
 <script setup lang="ts">
 import appStore from '~/stores/app';
 
+const { $gsap: gsap } = useNuxtApp()
+
 const if_sm = inject('if_sm', true)
 function goToContact() {
 	appStore().toggleContact(true)
 	setTimeout(() => {
-		window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+		gsap.to(window, { duration: 1, scrollTo: '#contact', ease: 'power4.inOut' })
 	}, 600)
 }
 </script>

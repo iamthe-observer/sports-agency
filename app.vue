@@ -40,11 +40,11 @@ provide('if_sm', if_sm)
 provide('if_md', if_md)
 provide('data', data)
 
-onMounted(() => {
-	setTimeout(async () => {
-		await getAppData()
+onMounted(async () => {
+	setTimeout(() => {
 		appStore().$patch({ if_loading: false })
 	}, 2000)
+	await getAppData()
 })
 
 watch(curr_nav, () => {

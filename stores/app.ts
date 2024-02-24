@@ -57,7 +57,7 @@ const appStore = defineStore('app', () => {
 
   const toggleContact = (bool?: boolean) => {
     if (bool) {
-      if (if_sm) {
+      if (if_sm.value) {
         return gsap.to('#contact', {
           height: '750px',
           duration: 0.5,
