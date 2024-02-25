@@ -38,7 +38,7 @@
 
 		<div id="contact"
 			class="h-[100px] w-full text-white flex flex-col items-center overflow-hidden px-8 border-golden-three border-t hover:bg-golden-three hover:bg-opacity-10">
-			<h1 @click="appStore().toggleContact(false)"
+			<h1 @click="!if_sm ? toggleContact() : toggleContactMobile()"
 				class="text-3xl font-semibold w-full min-h-[100px] grid place-items-center cursor-pointer relative text-center text-[5vw] lg:text-3xl">
 				Contact Us
 				<div class="iconexpand absolute top-1/2 -translate-y-1/2 right-0 w-10 grid place-items-center aspect-square">
@@ -191,16 +191,43 @@ import navStore from '~/stores/nav';
 const { $gsap: gsap } = useNuxtApp();
 const { opened, if_contact } = storeToRefs(appStore())
 const { curr_nav } = storeToRefs(navStore())
-const if_sm = inject('if_sm', true)
+const if_sm = inject('if_sm', false)
 const counter_login = ref(0)
+// const if_contact = ref(false)
 
-watchEffect(() => {
-	if (counter_login.value >= 5) {
-		appStore().$patch({ if_loading: true })
-		counter_login.value = 0
+const toggleContact = () => {
+	if_contact.value = !if_contact.value
+	if (if_contact.value) {
+		gsap.to('#contact', {
+			duration: 1,
+			height: '450px',
+			ease: 'power4.inOut',
+		})
+	} else {
+		gsap.to('#contact', {
+			duration: 1,
+			height: '100px',
+			ease: 'power4.inOut',
+		})
 	}
+}
 
-})
+const toggleContactMobile = () => {
+	if_contact.value = !if_contact.value
+	if (if_contact.value) {
+		gsap.to('#contact', {
+			duration: 1,
+			height: '750px',
+			ease: 'power4.inOut',
+		})
+	} else {
+		gsap.to('#contact', {
+			duration: 1,
+			height: '100px',
+			ease: 'power4.inOut',
+		})
+	}
+}
 
 function onNavClick(text?: string) {
 	setTimeout(() => {

@@ -19,7 +19,7 @@ const data = ref()
 
 async function getAppData() {
 	try {
-		const { data: dataz, error } = await supabase.from('eagleeyespc').select().single()
+		const { data: dataz, error } = await supabase.from('eagleeyespc').select()
 		if (error) throw error
 		data.value = dataz
 	} catch (error) {
