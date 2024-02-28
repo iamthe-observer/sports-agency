@@ -9,7 +9,7 @@ const props = defineProps<{
 
 <template>
 	<div
-		class="card text-inherit lg:w-[calc(35%-1rem)] mx-auto w-full lg:min-w-[calc(33% - 1rem)] h-[300px] lg:h-[500px] perspectiv relative group"
+		class="card text-inherit lg:w-full mx-auto w-full lg:min-w-[calc(33% - 1rem)] h-[300px] lg:h-[500px] perspectiv relative group"
 		href="#!">
 		<div
 			class="front flex justify-center items-center absolute w-full h-full back-face-v overflow-hidden border border-golden-three">
