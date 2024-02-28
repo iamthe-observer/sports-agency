@@ -408,7 +408,7 @@
 						<tr v-for="(msg, i) in messages" @click="curr_msg = msg" :key="i" :data-data="msg"
 							onclick="my_modal_2.showModal()" class="hover hover:text-white cursor-pointer itemx relative">
 							<th>{{ i + 1 }}</th>
-							<td>{{ msg.name }}</td>
+							<td class="whitespace-nowrap">{{ msg.name }}</td>
 							<td>{{ msg.email }}</td>
 							<td>{{ formatDate(new Date(msg.created_at)) }}</td>
 							<td class="truncate whitespace-nowrap max-w-[200px]">{{ msg.msg }}</td>
