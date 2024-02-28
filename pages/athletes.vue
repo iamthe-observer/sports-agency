@@ -117,8 +117,8 @@ const layer3 = computed<CSSProperties>(() => ({
 
 onMounted(() => {
 	const players = document.querySelectorAll('.players')
-	gsap.from(players, {
-		opacity: 0,
+	gsap.to(players, {
+		opacity: 1,
 		duration: 1,
 		stagger: 0.5,
 		scrollTrigger: {
@@ -131,4 +131,8 @@ onMounted(() => {
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+.players {
+	@apply opacity-0;
+}
+</style>
