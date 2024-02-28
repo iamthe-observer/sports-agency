@@ -28,17 +28,7 @@ export default defineNuxtConfig({
       ],
     },
   },
-  modules: [
-    '@vueuse/nuxt',
-    '@tresjs/nuxt',
-    '@pinia/nuxt',
-    '@nuxtjs/cloudinary',
-    '@nuxt/image',
-    '@vueuse/motion/nuxt',
-  ],
-  cloudinary: {
-    cloudName: 'dzscjmbnp',
-  },
+  modules: ['@vueuse/nuxt', '@pinia/nuxt', '@vueuse/motion/nuxt'],
   devtools: { enabled: false },
   css: ['~/main.css'],
   postcss: {

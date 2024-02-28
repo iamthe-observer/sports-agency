@@ -5,7 +5,7 @@
 
 			<div class="w-full h-fit flex items-center justify-center">
 				<a class="text-white border-x border-b border-golden-three px-5 lg:px-10 py-3 lg:py-6 text-center text-[4vw] lg:text-3xl group hover:text-black hover:bg-golden-three transition-all duration-150 ease-in-out cursor-pointer"
-					@click="++counter_login">
+					@click="toDash">
 					<span
 						class="text-golden-three font-semibold tracking-wider group-hover:text-black transition-all duration-150 ease-in-out select-none">EagleEye</span>
 					<br />
@@ -61,7 +61,7 @@
 							<span class="text-golden-three italic font-Outfit font-bold">Ghana, Accra:</span> <br />
 							L3 COASTAL ESTATES <br />
 							SK DTD 4040<br />
-							SPINTEX ROAD, ACCRA
+							SK DTD 4040
 						</p>
 						<p class="text-xs uppercase font-Outfit">
 							<span class="text-golden-three italic font-Outfit font-bold">Germany, Bremen:</span> <br />
@@ -81,22 +81,45 @@
 						<div class="w-full h-10 bg-neutral-900 border border-golden-three flex gap-[2px] p-[2px]">
 							<label for="Name" class="w-20 h-full flex justify-center items-center px-2 py-2 bg-golden-three"><span
 									class="drop-shadow-xl font-semibold tracking-wider">Name</span></label>
-							<input id="Name" type="text" class="w-full bg-transparent pl-5 focus:outline-none">
+							<input v-model="message.name" id="Name" type="text" class="w-full bg-transparent pl-5 focus:outline-none">
 						</div>
 
 						<div class="w-full h-10 bg-neutral-900 border border-golden-three flex gap-[2px] p-[2px]">
 							<label for="Email" class="w-20 h-full flex justify-center items-center px-2 py-2 bg-golden-three"><span
 									class="drop-shadow-xl font-semibold tracking-wider">Email</span></label>
-							<input id="Email" type="text" class="w-full bg-transparent pl-5 focus:outline-none">
+							<input v-model="message.email" id="Email" type="text" class="w-full bg-transparent pl-5 focus:outline-none">
 						</div>
 
 						<div
 							class="mt-4 w-full min-h-[40px] bg-neutral-900 border border-golden-three gap-[2px] p-[2px] flex flex-col">
 							<label for="Message" class="text-golden-three text-right w-full px-2">Message</label>
-							<textarea id="Message" class="w-full bg-transparent pl-5 focus:outline-none" />
+							<textarea v-model="message.msg" id="Message" class="w-full bg-transparent pl-5 focus:outline-none" />
 						</div>
 
-						<BoxContainer class="mt-2 text-xl tracking-wide">Send Message</BoxContainer>
+						<BoxContainer @click="sendMsg" class="mt-2 text-xl tracking-wide flex gap-3 items-center">
+							<svg v-if="loading" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+								<circle cx="12" cy="3.5" r="1.5" fill="currentColor" opacity="0">
+									<animateTransform attributeName="transform" calcMode="discrete" dur="2.4s" repeatCount="indefinite"
+										type="rotate" values="0 12 12;90 12 12;180 12 12;270 12 12" />
+									<animate attributeName="opacity" dur="0.6s" keyTimes="0;0.5;1" repeatCount="indefinite"
+										values="1;1;0" />
+								</circle>
+								<circle cx="12" cy="3.5" r="1.5" fill="currentColor" opacity="0">
+									<animateTransform attributeName="transform" begin="0.2s" calcMode="discrete" dur="2.4s"
+										repeatCount="indefinite" type="rotate" values="30 12 12;120 12 12;210 12 12;300 12 12" />
+									<animate attributeName="opacity" begin="0.2s" dur="0.6s" keyTimes="0;0.5;1" repeatCount="indefinite"
+										values="1;1;0" />
+								</circle>
+								<circle cx="12" cy="3.5" r="1.5" fill="currentColor" opacity="0">
+									<animateTransform attributeName="transform" begin="0.4s" calcMode="discrete" dur="2.4s"
+										repeatCount="indefinite" type="rotate" values="60 12 12;150 12 12;240 12 12;330 12 12" />
+									<animate attributeName="opacity" begin="0.4s" dur="0.6s" keyTimes="0;0.5;1" repeatCount="indefinite"
+										values="1;1;0" />
+								</circle>
+							</svg>
+
+							Send Message
+						</BoxContainer>
 					</div>
 				</div>
 			</div>
@@ -185,15 +208,54 @@
 </template>
 
 <script setup lang="ts">
+import { createClient } from '@supabase/supabase-js';
 import appStore from '~/stores/app';
 import navStore from '~/stores/nav';
 
+const supabase = createClient('https://dblmoqabperngqprlrjw.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRibG1vcWFicGVybmdxcHJscmp3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDkwMTA3NzAsImV4cCI6MjAyNDU4Njc3MH0.YdYbtgmpXMxTfzpJkN6353d781hQ-e6pId8OdWe8Kjo')
+
 const { $gsap: gsap } = useNuxtApp();
-const { opened, if_contact } = storeToRefs(appStore())
+const { opened, if_contact, if_loading } = storeToRefs(appStore())
 const { curr_nav } = storeToRefs(navStore())
 const if_sm = inject('if_sm', false)
 const counter_login = ref(0)
-// const if_contact = ref(false)
+const message = reactive({
+	name: '',
+	email: '',
+	msg: '',
+})
+
+const loading = ref(false)
+async function sendMsg() {
+	loading.value = true
+	if (!message.name || !message.email || !message.msg) {
+		loading.value = false
+		alert('Please fill in all fields')
+		return
+	}
+	try {
+		let { error } = await supabase.from('msg').insert([
+			{ name: message.name, email: message.email, msg: message.msg }
+		])
+		if (error) throw error
+		loading.value = false
+		alert('Message sent!')
+		message.name = ''
+		message.email = ''
+		message.msg = ''
+	} catch (error) {
+		alert(`An Error Occurred: ${error}`)
+		loading.value = false
+	}
+}
+
+function toDash() {
+	++counter_login.value
+	if (counter_login.value >= 5) {
+		appStore().$patch({ if_loading: true })
+		counter_login.value = 0
+	}
+}
 
 const toggleContact = () => {
 	if_contact.value = !if_contact.value

@@ -2,7 +2,7 @@
 	<div class="">
 		<Loading v-if="if_loading" />
 		<NuxtLayout>
-			<NuxtPage />
+			<NuxtPage v-if="!if_loading" />
 		</NuxtLayout>
 	</div>
 </template>
@@ -13,38 +13,46 @@ import appStore from './stores/app'
 import { useBreakpoints, breakpointsTailwind } from '@vueuse/core'
 import { createClient } from '@supabase/supabase-js'
 
-const supabase = createClient('https://wepsovihexcnzicbdmst.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndlcHNvdmloZXhjbnppY2JkbXN0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODg2MjM5MDUsImV4cCI6MjAwNDE5OTkwNX0.iLAnYWIPS-lYtt5lQXObuUFRw91E4BTh8iY5qJ5nANs')
-
-const data = ref()
-
-async function getAppData() {
-	try {
-		const { data: dataz, error } = await supabase.from('eagleeyespc').select()
-		if (error) throw error
-		data.value = dataz
-	} catch (error) {
-		console.log(error);
-	}
-}
-
+const supabase = createClient('https://dblmoqabperngqprlrjw.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRibG1vcWFicGVybmdxcHJscmp3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDkwMTA3NzAsImV4cCI6MjAyNDU4Njc3MH0.YdYbtgmpXMxTfzpJkN6353d781hQ-e6pId8OdWe8Kjo')
 
 const { curr_nav } = storeToRefs(navStore())
 const { if_loading } = storeToRefs(appStore())
 
-// const if_loading = ref(true)
 const breakpoints = useBreakpoints(breakpointsTailwind)
 const if_sm = breakpoints.smaller('lg')
 const if_md = breakpoints.smaller('md')
 
 provide('if_sm', if_sm)
 provide('if_md', if_md)
-provide('data', data)
 
-onMounted(async () => {
+async function getAppData() {
+	try {
+
+		const { data: dataz, error } = await supabase
+			.from('info')
+			.select('data')
+			.order('created_at', { ascending: false }) // Descending order
+			.limit(1)
+		if (error) throw error
+		console.log(dataz[0]);
+		// @ts-ignore
+		appStore().$patch({ data: dataz[0].data })
+	} catch (error) {
+		console.log(error);
+	}
+}
+
+supabase.auth.onAuthStateChange((event: string) => {
+	if (event === 'SIGNED_OUT') {
+		useNuxtApp().$router.push('/')
+	}
+})
+
+onBeforeMount(async () => {
+	await getAppData()
 	setTimeout(() => {
 		appStore().$patch({ if_loading: false })
 	}, 2000)
-	await getAppData()
 })
 
 watch(curr_nav, () => {

@@ -4,8 +4,7 @@
 		<div ref="target" class="border-t lg:border-l border-golden-three w-full h-screen relative">
 
 			<div class="w-full h-full bg-black flex overflow-hidden image perspectiv">
-				<img :style="layer3" src="https://live.staticflickr.com/65535/53541058015_a62d10d291_o.jpg"
-					class="object-cover flex-1 image scale-150" alt="" />
+				<img :style="layer3" :src="athletes?._src" class="object-cover flex-1 image scale-150" alt="" />
 				<div class="absolute inset-0 bg-black bg-opacity-30"></div>
 			</div>
 
@@ -18,9 +17,9 @@
 
 			<div class="absolute bottom-1/2 translate-y-2/3 right-10 text-white w-fit h-fit flex flex-col gap-5">
 				<span class="font-bold text-[8vw] lg:text-4xl drop-shadow-xl text-right whitespace-nowrap">
-					Our Athletes</span>
+					{{ athletes?.title }}</span>
 				<span class="text-[4vw] lg:text-lg drop-shadow-xl font-Outfit text-right whitespace-nowrap">
-					Sports agency for talented people.
+					{{ athletes?.athl_txt }}
 				</span>
 
 				<BoxContainer @click="scrollTo"
@@ -47,6 +46,13 @@
 					<span class="text-white mx-auto font-semibold lg:text-xl text-[4vw] tracking-wide w-full text-center">Michael
 						Ofori</span>
 				</div>
+				<!-- <div v-for="(athl, i) in athletes?.athl_src" :key="i" class="players flex flex-col gap-4 items-center">
+					<img :src="athl.src ? athl.src : ''" alt=""
+						class="hover:png-shadow transition-all duration-150 ease-out object-contain w-[300px] h-[400px] hover:scale-105 scale-150 lg:scale-100" />
+
+					<span class="text-white mx-auto font-semibold lg:text-xl text-[4vw] tracking-wide w-full text-center">{{
+						athl.name }}</span>
+				</div> -->
 
 				<div class="players flex flex-col gap-4 items-center">
 					<img src="~/assets/P4.png" alt=""
@@ -85,12 +91,15 @@
 <script setup lang="ts">
 import type { CSSProperties } from 'vue';
 import { useTitle } from '@vueuse/core'
+import appStore from '~/stores/app';
 
 const if_sm = inject('if_sm', true)
 onMounted(() => {
 	useTitle('EagleEye Sports Consults | Athletes')
 })
 
+const { data } = storeToRefs(appStore())
+const athletes = computed(() => data.value?.routes.athletes)
 const { $gsap: gsap } = useNuxtApp()
 const target = ref()
 const parallax = reactive(useParallax(target))

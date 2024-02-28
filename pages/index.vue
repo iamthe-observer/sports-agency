@@ -22,9 +22,8 @@
 						<span class="">EagleEye</span>
 						<span class="block whitespace-nowrap">Sports Consults</span>
 					</p>
-					<p class="tracking-wide text-[4vw] lg:text-3xl text-white droping italic font-Satisfy whitespace-nowrap">Your
-						Pathway to Sporting
-						Greatness</p>
+					<p class="tracking-wide text-[4vw] lg:text-3xl text-white droping italic font-Satisfy whitespace-nowrap">{{
+						home?.slogan }}</p>
 				</div>
 
 				<div class="w-full flex justify-end gap-5">
@@ -46,10 +45,7 @@
 				<span class="text-golden-three">EagleEye</span>,
 			</h1>
 			<p v-motion-slide-visible-once-bottom class="lg:text-[30px] text-[4vw] text-center w-full lg:w-[90%] mx-auto">
-				EagleEye strives to identify and sign gifted athletes and expand its networks by thinking out of the box. Our goal
-				is to give value to professional sports organizations by utilizing our global network and a contemporary approach
-				to the beautiful game. In order to enhance player value, we run a cutting-edge sports consultancy and agency on
-				behalf of teams and athletes.
+				{{ home?.opening.opener }}
 			</p>
 
 			<div v-motion-fade-visible class="text-white w-full flex flex-col px-4 lg:px-10 pb-6">
@@ -57,7 +53,7 @@
 					class="bg-golden-three bg-opacity-20 max-w-[1000px] mx-auto mt-10 min-h-[500px] w-full relative -translate-x-4 -translate-y-4 border border-golden-three">
 					<div ref="target"
 						class="w-full h-full absolute top-0 left-0 overflow-hidden translate-x-4 translate-y-4 border border-golden-three perspectiv">
-						<img :style="layer3" src="https://live.staticflickr.com/65535/53534456724_916713d4ee_o.jpg" alt=""
+						<img :style="layer3" :src="home?.opening.src ? home?.opening.src : ''" alt=""
 							class="object-cover w-full h-full" />
 						<div class="absolute bg-black opacity-40 translate-x- translate-y- top-0 left-0 w-full h-full"></div>
 					</div>
@@ -71,10 +67,7 @@
 			</h1>
 
 			<p class="text-[4.4vw] lg:text-2xl text-center w-[90%] mx-auto tracking-wide font-Outfit">
-				To empower athletes, sports organizations and businesses in the sports industry to achieve their full potential.
-				Our dedication to the excellence, integrity and client-centric approach ensures that we deliver tailored
-				strategies and actionable insights to maximum performance, enhance competitiveness and unlock new opportunities
-				for our clients.
+				{{ home?.opening.mission_statement }}
 			</p>
 		</div>
 
@@ -83,7 +76,7 @@
 
 		<div
 			class="border-golden-three bg-golden-three bg-opacity-5 border-t w-full min-h-[600px] flex flex-col lg:border-l gap-5 text-black relative justify-center items-center py-20 overflow-hidden news">
-			<NewsCarousel />
+			<NewsCarousel :news="data?.routes.home.news" />
 		</div>
 
 		<FooterEnd />
@@ -94,10 +87,14 @@
 <script setup lang="ts">
 import type { CSSProperties } from 'vue';
 import { useTitle } from '@vueuse/core'
+import appStore from '~/stores/app';
 
 const target = ref()
 const parallax = reactive(useParallax(target))
 const if_sm = inject('if_sm', true)
+
+const { data } = storeToRefs(appStore())
+const home = computed(() => data.value?.routes.home)
 
 const layer3 = computed<CSSProperties>(() => ({
 	// ...layerBase,

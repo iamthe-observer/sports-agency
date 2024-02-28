@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-const checked = ref(true)
+const checked = ref(false)
 </script>
 
 <style scoped></style>

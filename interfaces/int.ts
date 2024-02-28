@@ -1,4 +1,4 @@
-export default interface Data {
+export interface Data {
   email: string[]
   phone: string[]
   address: {
@@ -47,7 +47,11 @@ export default interface Data {
       img_src?: string
       stats: number[]
       team_desc: string
-      team_src?: string[]
+      team_src?: {
+        name: string
+        src: string
+        pos: string
+      }[]
     }
 
     athletes: {
@@ -59,5 +63,11 @@ export default interface Data {
         src: string
       }[]
     }
+
+    messages: {
+      name: string
+      msg: string
+      date: string
+    }[]
   }
 }

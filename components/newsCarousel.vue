@@ -2,7 +2,11 @@
 // @ts-nocheck
 import appStore from '~/stores/app';
 
-const { news_data: news } = storeToRefs(appStore())
+const { data } = storeToRefs(appStore())
+const news = computed(() => {
+	return data.value ? data.value?.routes.home.news : 5
+})
+
 const { $gsap: gsap } = useNuxtApp()
 const curr_news = ref<{ headline: string, src: string, content: string, date: string }>({
 	headline: "",
@@ -11,11 +15,9 @@ const curr_news = ref<{ headline: string, src: string, content: string, date: st
 	date: ""
 })
 
-const if_clicked = ref(false)
 
 onMounted(() => {
 	const wrapper = document.querySelector<HTMLElement>(".wrapper");
-	const colors = ["#f38630", "#6fb936", "#ccc", "#6fb936"];
 	const boxes: HTMLElement[] = gsap.utils.toArray(".box");
 	// gsap.set(boxes, {
 	// 	backgroundColor: gsap.utils.wrap(colors)
