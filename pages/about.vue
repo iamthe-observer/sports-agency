@@ -5,7 +5,8 @@
 		<div ref="target2" class="relative w-full h-screen border-t lg:border-l border-golden-three">
 
 			<div class="h-screen w-full overflow-hidden perspectiv opacity-50 image">
-				<img :style="layer4" :src="about?._src ? about?._src : ''" alt="" class="image object-cover w-full h-full" />
+				<img :style="layer4" :src="about?._src ? `${$link}${about?._src}` : ''" alt=""
+					class="image object-cover w-full h-full" />
 			</div>
 
 			<!-- logo and contact us -->
@@ -15,16 +16,20 @@
 			<TopNaviMobile />
 
 			<div
-				class="absolute bottom-1/2 translate-y-1/2 lg:translate-y-2/3 lg:right-10 right-1/2 translate-x-1/2 lg:translate-x-0 text-white lg:w-[40%] w-[90%] h-fit flex flex-col gap-5 visi">
-				<span class="font-bold lg:text-4xl text-[8vw] drop-shadow-xl">
+				class="absolute bottom-1/2 translate-y-1/2 lg:translate-y-2/3 lg:right-10 right-1/2 translate-x-1/2 lg:translate-x-0 text-white lg:w-[40%] w-[90%] h-fit flex flex-col gap-2 visi">
+				<span class="font-bold lg:text-[2rem] text-[8vw] drop-shadow-xl">
 					{{ about?.title }}
 				</span>
-				<span class="lg:text-[1.3rem] text-[3.5vw] drop-shadow-xl font-Outfit">
+				<span class="lg:text-[1.1rem] text-[3.5vw] drop-shadow-xl font-Outfit">
 					{{ about?.about_txt }}
 				</span>
 
-				<BoxContainer @click="scrollTo" class="w-fit self-end font-semibold tracking-wider lg:text-xl text-[4vw]">Learn
-					More
+				<BoxContainer @click="scrollTo"
+					class="w-fit self-end font-semibold tracking-wider lg:text-sm text-[4vw] flex gap-2 hover:gap-0 items-center">
+					Learn More
+					<svg xmlns="http://www.w3.org/2000/svg" class="w-5 aspect-square" viewBox="0 0 24 24">
+						<path fill="currentColor" d="m12 18l-6-6l1.4-1.4l3.6 3.6V5h2v9.2l3.6-3.6L18 12z" />
+					</svg>
 				</BoxContainer>
 			</div>
 
@@ -60,7 +65,8 @@
 					class="bg-golden-three bg-opacity-20 max-w-[1000px] min-h-[500px] w-full relative -translate-x-4 -translate-y-4 border border-golden-three">
 					<div
 						class="w-full h-full absolute top-0 left-0 overflow-hidden translate-x-4 translate-y-4 border border-golden-three perspectiv">
-						<img :style="layer3" :src="about?.img_src ? about?.img_src : ''" alt="" class="object-cover w-full h-full" />
+						<img :style="layer3" :src="about?.img_src ? `${$link}${about?.img_src}` : ''" alt=""
+							class="object-cover w-full h-full" />
 					</div>
 				</div>
 			</div>
