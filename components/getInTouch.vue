@@ -1,7 +1,7 @@
 <template>
 	<div class="absolute right-0 top-0">
 		<BoxContainer @click="goToContact" v-motion-fade
-			class="droping absolute top-6 right-6 tracking-wide text-white text-xl">
+			class="droping absolute top-6 right-6 tracking-wide text-white text-sm">
 			<span class="drop-shadow-md">Contact Us
 			</span>
 		</BoxContainer>

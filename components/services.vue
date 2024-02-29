@@ -15,7 +15,7 @@
 					class="bg-golden-three bg-opacity-20 max-w-[1000px] mx-auto mt-4 h-[80vh] w-full relative -translate-x-4 -translate-y-4 border border-golden-three">
 					<div
 						class="w-full h-full absolute top-0 left-0 overflow-hidden translate-x-4 translate-y-4 border border-golden-three perspectiv">
-						<img :style="layer3" :src="services.left.src ? services.left.src : ''" alt=""
+						<img :style="layer3" :src="services.left.src ? `${$link}${services.left.src}` : ''" alt=""
 							class="object-cover w-full h-full image1" />
 					</div>
 				</div>
@@ -25,11 +25,11 @@
 
 				<div v-motion-fade-visible-once v-for="(service, i) in services.right.serv" :key="i"
 					class="ball bg-golden-three bg-opacity-5 hover:bg-opacity-20 transition-all duration-[1s] ease-in-out flex flex-col items-center w-full h-fit border border-golden-three">
-					<h1 class="border-b border-golden-three w-full text-center text-[5vw] lg:text-4xl py-2 px-2 font-bold">
+					<h1 class="border-b border-golden-three w-full text-center text-[5vw] lg:text-[25px] py-2 px-2 font-bold">
 						{{ service.title }}
 					</h1>
-					<div class="flex flex-col items-center w-full p-4 lg:p-10 gap-10">
-						<span class="text-center text-[3.5vw] lg:text-xl font-Outfit">
+					<div class="flex flex-col items-center w-full p-4 lg:p-6 gap-10">
+						<span class="text-center text-[3.5vw] lg:text-lg font-Outfit">
 							{{ service.content }}
 						</span>
 

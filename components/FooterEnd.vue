@@ -135,7 +135,7 @@
 				<path fill="currentColor"
 					d="M11 11L3 6v10h10v2H1V2h20v7h-2V6zm0-2l8-5H3zm8 13q-1.65 0-2.825-1.175T15 18v-4.5q0-1.05.725-1.775T17.5 11q1.05 0 1.775.725T20 13.5V18h-2v-4.5q0-.2-.15-.35T17.5 13q-.2 0-.35.15t-.15.35V18q0 .825.588 1.413T19 20q.825 0 1.413-.587T21 18v-4h2v4q0 1.65-1.175 2.825T19 22M3 6V4v12z" />
 			</svg>
-			<span class="-translate-y-1 text-white tracking-wider text-[4vw] lg:text-xl">
+			<span class="-translate-y-1 text-white tracking-wider text-[4vw] lg:text-lg font-semibold">
 				eagleeyespc@gmail.com
 			</span>
 		</p>
@@ -190,7 +190,7 @@
 			<span v-if="if_sm" class="text-[3vw] font-semibold tracking-wider">+4915216434754</span>
 			<span v-if="if_sm" class="text-[3vw] font-semibold tracking-wider">+233537804885</span>
 
-			<span v-if="!if_sm" class="text-xl tracking-wider">
+			<span v-if="!if_sm" class="text-sm tracking-wider font-semibold">
 				+491745969531<br />
 				+4915216434754<br />
 				+233537804885

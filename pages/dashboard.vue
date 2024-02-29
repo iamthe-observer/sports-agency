@@ -1,9 +1,17 @@
 <template>
 	<div class="w-full h-screen p-2 relative overflow-y-auto flex flex-col items-center">
 
-		<h1 class="pb-2 text-3xl font-semibold text-golden-three uppercase relative w-full text-center">
-			Dashboard
-			<div class="absolute top-1/2 right-0 -translate-y-[55%] flex gap-4">
+		<h1
+			class="pb-2 text-3xl font-semibold text-golden-three uppercase relative w-full text-center flex items-center justify-between">
+			<div class="flex items-center justify-between gap-2">
+				<input ref="file" type="file"
+					class="file-input file-input-bordered file-input-warning w-full max-w-xs h-8 rounded-none bg-black border-golden-three" />
+				<span @click="async () => await sendFile()"
+					class="border border-golden-three text-lg cursor-pointer hover:text-black hover:bg-golden-three px-2">Send</span>
+			</div>
+
+			<div class="flex gap-4">
+				<span class="">Dashboard</span>
 				<svg v-if="loading" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
 					<circle cx="12" cy="3.5" r="1.5" fill="currentColor" opacity="0">
 						<animateTransform attributeName="transform" calcMode="discrete" dur="2.4s" repeatCount="indefinite"
@@ -162,6 +170,13 @@
 								<!-- Services -->
 								<div class="flex flex-col gap-5 uppercase py-2 border-t border-neutral-900 w-full">
 									<h2 class="font-normal w-full text-center mt-10">Services</h2>
+									<div class="flex gap-2 items-center w-full">
+										<label class="whitespace-nowrap">LEFT IMG</label>
+
+										<input v-model="home.services.left.src" type="text" name="" id=""
+											class="w-full bg-neutral-900 text-white p-2 tracking-wide">
+									</div>
+
 									<p class="">add Services</p>
 
 									<div class="flex flex-col gap-2">
@@ -381,6 +396,7 @@
 						</div>
 					</template>
 				</DashSection>
+
 			</div>
 		</div>
 
@@ -453,6 +469,7 @@ const loading = ref(false)
 const home = computed(() => info.value!.routes.home)
 const about = computed(() => info.value!.routes.about)
 const athletes = computed(() => info.value!.routes.athletes)
+const file = ref<HTMLInputElement>()
 const messages = ref<{
 	name: string,
 	email: string,
@@ -470,6 +487,27 @@ const curr_msg = ref<{
 	msg: '',
 	created_at: '',
 })
+
+async function getFileFromInput(inputElement: HTMLInputElement): Promise<File | null> {
+	if (inputElement.files && inputElement.files.length > 0) {
+		return inputElement.files[0];
+	}
+	return null;
+}
+
+
+
+async function sendFile(file: File = document.querySelector<HTMLInputElement>('input[type="file"]')!.files![0]) {
+	// let item = document.querySelector<HTMLInputElement>('input[type="file"]')!.files![0]
+	const file_name = file.name
+	try {
+		const { data, error } = await supabase.storage.from('images').upload(file_name, file)
+		if (error) throw error
+		logger(data)
+	} catch (error) {
+		console.log(error)
+	}
+}
 
 
 function formatDate(date: Date) {

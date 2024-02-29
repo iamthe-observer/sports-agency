@@ -3,9 +3,12 @@
 		<div :class="['relative video-content w-full h-screen border-golden-three border-t lg:border-l']">
 			<!-- background graphics -->
 			<div class="h-screen w-full opacity-90">
-				<video playsinline autoplay loop muted key="video" id="avatarVideo" src="/vid1.mp4"
-					class="object-cover w-full h-full bg-black image">
+				<video playsinline autoplay loop muted key="video" id="avatarVideo"
+					:src="home?.vid_src ? `${$link}${home?.vid_src}` : ''" class="object-cover w-full h-full bg-black image">
 				</video>
+				<!-- <video playsinline autoplay loop muted key="video" id="avatarVideo" src="/vid1.mp4"
+					class="object-cover w-full h-full bg-black image">
+				</video> -->
 			</div>
 
 			<!-- logo and socials -->
@@ -18,19 +21,21 @@
 
 			<div v-motion-fade class="absolute right-0 top-1/2 -translate-y-[30%] w-4/5 flex flex-col gap-5 pr-10">
 				<div class="h-fit w-full bg-opacity-20 text-right flex flex-col items-end justify-center">
-					<p class="font-semibold text-[8vw] lg:text-[60px] droping text-golden-three flex flex-col">
-						<span class="">EagleEye</span>
-						<span class="block whitespace-nowrap">Sports Consults</span>
+					<p class="font-semibold text-[8vw] lg:text-[40px] droping text-golden-three flex flex-col">
+						<!-- <span class="">EagleEye</span>
+						<span class="block whitespace-nowrap">Sports Consults</span> -->
+						<span class="">{{ home?.title }}</span>
 					</p>
-					<p class="tracking-wide text-[4vw] lg:text-3xl text-white droping italic font-Satisfy whitespace-nowrap">{{
-						home?.slogan }}</p>
+					<p class="tracking-wide text-[4vw] lg:text-2xl text-white droping italic font-Satisfy whitespace-nowrap">
+						{{
+							home?.slogan }}</p>
 				</div>
 
 				<div class="w-full flex justify-end gap-5">
-					<BoxContainer link="/about" class="text-white tracking-wide text-[3vw] lg:text-xl">
+					<BoxContainer link="/about" class="text-white tracking-wide text-[3vw] lg:text-sm droping">
 						<span class="drop-shadow-md whitespace-nowrap">About Us</span>
 					</BoxContainer>
-					<BoxContainer link="/athletes" class="text-white tracking-wide text-[3vw] lg:text-xl">
+					<BoxContainer link="/athletes" class="text-white tracking-wide text-[3vw] lg:text-sm droping">
 						<span class="drop-shadow-md whitespace-nowrap">Our Athletes</span>
 					</BoxContainer>
 
@@ -39,21 +44,22 @@
 		</div>
 
 		<!-- mission statement -->
-		<div class="text-white w-full flex flex-col lg:px-10 px-4 lg:pt-40 pt-32 lg:border-l border-golden-three pb-36">
+		<div ref="target"
+			class="text-white w-full flex flex-col lg:px-10 px-4 lg:pt-40 pt-32 lg:border-l border-golden-three pb-36">
 			<h1 v-motion-slide-visible-once-bottom class="the-container text-center w-full font-bold font-Outfit text-2xl mb-6">
 				Welcome to
 				<span class="text-golden-three">EagleEye</span>,
 			</h1>
-			<p v-motion-slide-visible-once-bottom class="lg:text-[30px] text-[4vw] text-center w-full lg:w-[90%] mx-auto">
+			<p v-motion-slide-visible-once-bottom class="lg:text-[25px] text-[4vw] text-center w-full lg:w-[90%] mx-auto">
 				{{ home?.opening.opener }}
 			</p>
 
 			<div v-motion-fade-visible class="text-white w-full flex flex-col px-4 lg:px-10 pb-6">
 				<div
 					class="bg-golden-three bg-opacity-20 max-w-[1000px] mx-auto mt-10 min-h-[500px] w-full relative -translate-x-4 -translate-y-4 border border-golden-three">
-					<div ref="target"
+					<div
 						class="w-full h-full absolute top-0 left-0 overflow-hidden translate-x-4 translate-y-4 border border-golden-three perspectiv">
-						<img :style="layer3" :src="home?.opening.src ? home?.opening.src : ''" alt=""
+						<img :style="layer3" :src="home?.opening.src ? `${$link}${home?.opening.src}` : ''" alt=""
 							class="object-cover w-full h-full" />
 						<div class="absolute bg-black opacity-40 translate-x- translate-y- top-0 left-0 w-full h-full"></div>
 					</div>
@@ -66,7 +72,7 @@
 				Mission Statement
 			</h1>
 
-			<p class="text-[4.4vw] lg:text-2xl text-center w-[90%] mx-auto tracking-wide font-Outfit">
+			<p class="text-[4.4vw] lg:text-[22px] text-center w-[90%] mx-auto tracking-wide font-Outfit">
 				{{ home?.opening.mission_statement }}
 			</p>
 		</div>
@@ -97,9 +103,8 @@ const { data } = storeToRefs(appStore())
 const home = computed(() => data.value?.routes.home)
 
 const layer3 = computed<CSSProperties>(() => ({
-	// ...layerBase,
-	transform: `translateX(${parallax.tilt * 20}px) translateY(${parallax.roll * 20
-		}px) scale(1.33) rotateX(${parallax.roll * 20}deg) rotateY(${parallax.tilt * 20
+	transform: `translateX(${parallax.tilt * 40}px) translateY(${parallax.roll * 30
+		}px) scale(1.19) rotateX(${parallax.roll * 30}deg) rotateY(${parallax.tilt * 20
 		}deg)`,
 	transition: 'all .7s ease-out',
 }))
@@ -108,7 +113,6 @@ onMounted(() => {
 	useTitle('EagleEye Sports Consults | Home')
 
 	let card_container = document.querySelectorAll('.card-container')
-	// let flipcard = document.querySelectorAll('.flipcard')
 	card_container.forEach((card) => {
 		card.addEventListener('mouseenter', () => {
 			// @ts-ignore

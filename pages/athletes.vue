@@ -4,7 +4,7 @@
 		<div ref="target" class="border-t lg:border-l border-golden-three w-full h-screen relative">
 
 			<div class="w-full h-full bg-black flex overflow-hidden image perspectiv">
-				<img :style="layer3" :src="athletes?._src" class="object-cover flex-1 image scale-150" alt="" />
+				<img :style="layer3" :src="`${$link}${athletes?._src}`" class="object-cover flex-1 image scale-150" alt="" />
 				<div class="absolute inset-0 bg-black bg-opacity-30"></div>
 			</div>
 
@@ -15,15 +15,15 @@
 
 			<TopNaviMobile />
 
-			<div class="absolute bottom-1/2 translate-y-2/3 right-10 text-white w-fit h-fit flex flex-col gap-5">
-				<span class="font-bold text-[8vw] lg:text-4xl drop-shadow-xl text-right whitespace-nowrap">
+			<div class="absolute bottom-1/2 translate-y-2/3 right-10 text-white w-fit h-fit flex flex-col gap-2">
+				<span class="font-bold w-full text-left text-[8vw] lg:text-4xl drop-shadow-xl whitespace-nowrap">
 					{{ athletes?.title }}</span>
-				<span class="text-[4vw] lg:text-lg drop-shadow-xl font-Outfit text-right whitespace-nowrap">
+				<span class="text-[4vw] lg:text-lg drop-shadow-xl font-Outfit text-right whitespace-nowrap pb-5">
 					{{ athletes?.athl_txt }}
 				</span>
 
 				<BoxContainer @click="scrollTo"
-					class="w-fit self-end font-semibold tracking-wider lg:text-xl text-[3.2vw] flex items-center gap-2 hover:gap-0">
+					class="w-fit self-end font-semibold tracking-wider lg:text-sm text-[3.2vw] flex items-center gap-2 hover:gap-0">
 					Featured
 					<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24">
 						<path fill="currentColor" d="M11 4v12.175l-5.6-5.6L4 12l8 8l8-8l-1.4-1.425l-5.6 5.6V4z" />
