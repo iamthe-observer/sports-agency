@@ -252,7 +252,9 @@ async function sendMsg() {
 function toDash() {
 	++counter_login.value
 	if (counter_login.value >= 5) {
-		appStore().$patch({ if_loading: true })
+		appStore().$patch(
+		 { if_loading: true, if_pass:true }
+		 )
 		counter_login.value = 0
 	}
 }

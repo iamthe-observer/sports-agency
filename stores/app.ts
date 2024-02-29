@@ -16,6 +16,7 @@ const appStore = defineStore('app', () => {
   const footer_open = ref(false)
   const if_contact = ref(false)
   const if_loading = ref(true)
+  const if_pass = ref(false)
   const appData = ref<Data>()
   const { $gsap: gsap } = useNuxtApp()
 
@@ -279,6 +280,7 @@ const appStore = defineStore('app', () => {
     if_loading,
     data: appData,
     getAppData,
+    if_pass
   }
 })
 

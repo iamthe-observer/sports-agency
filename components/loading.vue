@@ -3,12 +3,12 @@
 		class="loader-container fixed z-[100000] w-full h-screen bg-black pointer-events-auto select-none inset-0 flex flex-col justify-center items-center">
 		<img src="/iconLogo.png" alt="" class="w-[80px] aspect-auto loader">
 
-		<span @click="if_pass = true" v-if="!if_pass" class="pt-5 font-semibold text-lg tracking-wide text-golden-three">
+		<span v-if="!if_pass" class="pt-5 font-semibold text-lg tracking-wide text-golden-three">
 			LOADING...
 		</span>
 
 		<span class="mt-5 font-semibold text-lg flex items-center gap-2 tracking-wide text-golden-three font-Outfit" v-else>
-			<span @click="appStore().$patch({ if_loading: false })" class="">
+			<span @click="appStore().$patch({ if_loading: false, if_pass: false })" class="">
 				<div class="w-5 aspect-square flex flex-col justify-between relative">
 					<div
 						class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-45 w-full h-[2px] bg-golden-three">
@@ -18,9 +18,11 @@
 					</div>
 				</div>
 			</span>
-			<input @dblclick="if_pass = false" type="password" v-model="pass"
+			<input type="password" v-model="pass"
 				class="text-center focus:outline-none bg-golden-three text-black">
-			<button @click="goToDash" class="hover:bg-golden-three hover:text-black px-1">ENTER</button>
+			<button @click="goToDash" class="hover:bg-golden-three hover:text-black px-1">
+			  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M11 19v-6H2v-2h9V5l11 7zm2-3.65L18.275 12L13 8.65zM13 12"/></svg>
+			</button>
 		</span>
 	</div>
 </template>
@@ -30,7 +32,7 @@ import appStore from '~/stores/app'
 import { createClient } from '@supabase/supabase-js'
 
 const { $gsap: gsap } = useNuxtApp()
-const if_pass = ref(false)
+const {if_pass} = storeToRefs(appStore())
 const pass = ref('')
 const supabase = createClient('https://dblmoqabperngqprlrjw.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRibG1vcWFicGVybmdxcHJscmp3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDkwMTA3NzAsImV4cCI6MjAyNDU4Njc3MH0.YdYbtgmpXMxTfzpJkN6353d781hQ-e6pId8OdWe8Kjo')
 
