@@ -37,7 +37,7 @@
 							class="bg-golden-three bg-opacity-20 mx-auto mb-7 min-h-[250px] w-[90%] lg:w-4/5 relative -translate-x-3 -translate-y-4 border border-golden-three">
 							<div
 								class="w-full mx-auto h-full absolute top-0 left-0 overflow-hidden translate-x-4 translate-y-4 border border-golden-three perspectiv">
-								<img :style="layer3" :src="service.src" alt="" class="object-cover w-full h-full" />
+								<img :style="layer3" :src="`${$link}${service.src}`" alt="" class="object-cover w-full h-full" />
 							</div>
 						</div>
 					</div>

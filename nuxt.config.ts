@@ -28,7 +28,15 @@ export default defineNuxtConfig({
       ],
     },
   },
-  modules: ['@vueuse/nuxt', '@pinia/nuxt', '@vueuse/motion/nuxt'],
+  modules: [
+    '@vueuse/nuxt',
+    '@pinia/nuxt',
+    '@vueuse/motion/nuxt',
+    'nuxt-primevue',
+  ],
+  primevue: {
+    /* Options */
+  },
   devtools: { enabled: false },
   css: ['~/main.css'],
   postcss: {

@@ -1,17 +1,67 @@
 <template>
 	<div class="w-full h-screen p-2 relative overflow-y-auto flex flex-col items-center">
+		<!-- alerts -->
+		<Teleport to="body">
+			<div role="alert" id="success"
+				class="alert alert-success rounded-none border-2 border-success fixed bottom-0 mb-4 w-[96%] translate-y-20 right-1/2 translate-x-1/2 z-[1000]">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+						d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+				</svg>
+				<span>{{ msg }}</span>
+			</div>
+			<div role="alert" id="error"
+				class="alert alert-error rounded-none border-2 border-error fixed bottom-0 mb-4 w-[96%] translate-y-20 right-1/2 translate-x-1/2 z-[1000]">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+						d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+				</svg>
+				<span>{{ msg }}</span>
+			</div>
+		</Teleport>
 
 		<h1
 			class="pb-2 text-3xl font-semibold text-golden-three uppercase relative w-full text-center flex items-center justify-between">
 			<div class="flex items-center justify-between gap-2">
+				<div class="tooltip tooltip-right tooltip-error" :data-tip="`GALLERY [Media: ${file_names?.length}]`">
+					<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+						<path fill="currentColor"
+							d="M1 19V5h14v14zm16-8V5h6v6zm2-2h2V7h-2zM3 17h10V7H3zm1-2h8l-2.625-3.5L7.5 14l-1.375-1.825zm13 4v-6h6v6zm2-2h2v-2h-2zM3 17V7zm16-8V7zm0 8v-2z" />
+					</svg>
+				</div>
 				<input ref="file" type="file"
 					class="file-input file-input-bordered file-input-warning w-full max-w-xs h-8 rounded-none bg-black border-golden-three" />
 				<span @click="async () => await sendFile()"
-					class="border border-golden-three text-lg cursor-pointer hover:text-black hover:bg-golden-three px-2">Send</span>
+					class="border border-golden-three text-lg cursor-pointer hover:text-black hover:bg-golden-three px-2 grid place-items-center">
+					<span v-if="!img_sending">Send</span>
+					<svg v-else xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+						<circle cx="12" cy="3.5" r="1.5" fill="currentColor" opacity="0">
+							<animateTransform attributeName="transform" calcMode="discrete" dur="2.4s" repeatCount="indefinite"
+								type="rotate" values="0 12 12;90 12 12;180 12 12;270 12 12" />
+							<animate attributeName="opacity" dur="0.6s" keyTimes="0;0.5;1" repeatCount="indefinite" values="1;1;0" />
+						</circle>
+						<circle cx="12" cy="3.5" r="1.5" fill="currentColor" opacity="0">
+							<animateTransform attributeName="transform" begin="0.2s" calcMode="discrete" dur="2.4s"
+								repeatCount="indefinite" type="rotate" values="30 12 12;120 12 12;210 12 12;300 12 12" />
+							<animate attributeName="opacity" begin="0.2s" dur="0.6s" keyTimes="0;0.5;1" repeatCount="indefinite"
+								values="1;1;0" />
+						</circle>
+						<circle cx="12" cy="3.5" r="1.5" fill="currentColor" opacity="0">
+							<animateTransform attributeName="transform" begin="0.4s" calcMode="discrete" dur="2.4s"
+								repeatCount="indefinite" type="rotate" values="60 12 12;150 12 12;240 12 12;330 12 12" />
+							<animate attributeName="opacity" begin="0.4s" dur="0.6s" keyTimes="0;0.5;1" repeatCount="indefinite"
+								values="1;1;0" />
+						</circle>
+					</svg>
+				</span>
 			</div>
 
-			<div class="flex gap-4">
+			<div class="flex gap-4 items-center">
 				<span class="">Dashboard</span>
+				<svg xmlns="http://www.w3.org/2000/svg" class="hover:animate-spin" width="32" height="32" viewBox="0 0 24 24">
+					<path fill="currentColor"
+						d="M4 20v-2h2.75l-.4-.35q-1.225-1.225-1.787-2.662T4 12.05q0-2.775 1.663-4.937T10 4.25v2.1Q8.2 7 7.1 8.563T6 12.05q0 1.125.425 2.188T7.75 16.2l.25.25V14h2v6zm10-.25v-2.1q1.8-.65 2.9-2.212T18 11.95q0-1.125-.425-2.187T16.25 7.8L16 7.55V10h-2V4h6v2h-2.75l.4.35q1.225 1.225 1.788 2.663T20 11.95q0 2.775-1.662 4.938T14 19.75" />
+				</svg>
 				<svg v-if="loading" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
 					<circle cx="12" cy="3.5" r="1.5" fill="currentColor" opacity="0">
 						<animateTransform attributeName="transform" calcMode="discrete" dur="2.4s" repeatCount="indefinite"
@@ -33,7 +83,7 @@
 				</svg>
 
 				<svg v-else @click="SaveData()" xmlns="http://www.w3.org/2000/svg"
-					class="w-7 aspect-square cursor-pointer hover:text-white" viewBox="0 0 512 512">
+					class="w-7 aspect-square cursor-pointer hover:text-white hover:animate-pulse" viewBox="0 0 512 512">
 					<path d="M272 64h-16c-4.4 0-8 3.6-8 8v72c0 4.4 7.6 8 12 8h12c4.4 0 8-3.6 8-8V72c0-4.4-3.6-8-8-8z"
 						fill="currentColor" />
 					<path
@@ -41,7 +91,7 @@
 						fill="currentColor" />
 				</svg>
 				<svg @click="logOut()" xmlns=" http://www.w3.org/2000/svg"
-					class="w-8 aspect-square cursor-pointer hover:text-white" viewBox="0 0 24 24">
+					class="w-8 aspect-square cursor-pointer hover:text-white hover:animate-bounce" viewBox="0 0 24 24">
 					<path fill="currentColor"
 						d="M5 20v-9.15L2.2 13L1 11.4L12 3l4 3.05V4h3v4.35l4 3.05l-1.2 1.6l-2.8-2.15V20h-6v-6h-2v6zm2-2h2v-6h6v6h2V9.325l-5-3.8l-5 3.8zm3-7.975h4q0-.8-.6-1.313T12 8.2q-.8 0-1.4.513t-.6 1.312M9 18v-6h6v6v-6H9z" />
 				</svg>
@@ -59,7 +109,7 @@
 					</template>
 
 					<template #content>
-						<div class="grid grid-cols-2 gap-10 uppercase py-2 border-t border-neutral-900">
+						<div class="grid grid-cols-2 gap-10  py-2 border-t border-neutral-900">
 							<div class="flex gap-2 items-center w-full">
 								<label class="whitespace-nowrap">Email</label>
 								<input v-model="info!.email" type="text" name="" id=""
@@ -84,7 +134,7 @@
 						</div>
 
 						<h2 class="pt-10 text-golden-three">Socials</h2>
-						<div class="flex flex-row gap-10 uppercase py-2 border-t border-neutral-900">
+						<div class="flex flex-row gap-10  py-2 border-t border-neutral-900">
 							<div class="flex gap-2 items-center w-full">
 								<label class="whitespace-nowrap">Facebook</label>
 								<input v-model="info!.socials.facebook" type="text" name="" id=""
@@ -114,6 +164,7 @@
 
 				<!-- Home -->
 				<DashSection>
+
 					<template #title>
 						<span class="">Home</span>
 					</template>
@@ -121,11 +172,10 @@
 					<template #content>
 						<div class="flex flex-col">
 							<div class="flex gap-5 w-full">
-								<div class="flex flex-col gap-10 uppercase py-2 border-t border-neutral-900 w-full">
+								<div class="flex flex-col gap-10 py-2 border-t border-neutral-900 w-full">
 									<div class="flex gap-2 items-center w-full">
 										<label class="whitespace-nowrap">Video Src</label>
-										<input v-model="home.vid_src" type="text" name="" id=""
-											class="w-full bg-neutral-900 text-white p-2 tracking-wide">
+										<DropDown v-model="info!.routes.home.vid_src" class="w-full" :names="file_names!" />
 									</div>
 
 									<div class="flex gap-2 items-center w-full">
@@ -142,12 +192,11 @@
 
 									<div class="flex gap-2 items-center w-full">
 										<label class="whitespace-nowrap">Image Src</label>
-										<input v-model="home.opening.src" type="text" name="" id=""
-											class="w-full bg-neutral-900 text-white p-2 tracking-wide">
+										<DropDown v-model="info!.routes.home.opening.src" class="w-full" :names="file_names!" />
 									</div>
 								</div>
 
-								<div class="flex flex-col gap-10 uppercase py-2 border-t border-neutral-900 w-full">
+								<div class="flex flex-col gap-10  py-2 border-t border-neutral-900 w-full">
 									<h2 class="font-normal w-full text-center">Introduction</h2>
 									<div class="flex gap-2 items-center w-full">
 										<label class="whitespace-nowrap">Opening text</label>
@@ -156,7 +205,7 @@
 									</div>
 
 									<div class="flex gap-2 items-center w-full">
-										<label class="">mission statement</label>
+										<label class="">Mission Statement</label>
 										<textarea v-model="home.opening.mission_statement" type="text" name="" id=""
 											class="w-full bg-neutral-900 text-white p-2 tracking-wide max-h-[200px]"></textarea>
 									</div>
@@ -168,66 +217,212 @@
 							<div class="flex gap-5">
 
 								<!-- Services -->
-								<div class="flex flex-col gap-5 uppercase py-2 border-t border-neutral-900 w-full">
-									<h2 class="font-normal w-full text-center mt-10">Services</h2>
+								<div class="flex flex-col gap-5 py-2 border-t border-neutral-900 w-full">
+									<h2 class="font-normal w-full text-center mt-10">Services [{{ home.services.right.serv.length }}]</h2>
 									<div class="flex gap-2 items-center w-full">
-										<label class="whitespace-nowrap">LEFT IMG</label>
-
-										<input v-model="home.services.left.src" type="text" name="" id=""
-											class="w-full bg-neutral-900 text-white p-2 tracking-wide">
+										<label class="whitespace-nowrap">Left Image</label>
+										<DropDown v-model="info!.routes.home.services.left.src" class="w-full" :names="file_names!" />
 									</div>
 
-									<p class="">add Services</p>
+									<p class="text-neutral-600">Add Services</p>
 
 									<div class="flex flex-col gap-2">
 										<div class="flex gap-2 items-center w-full">
+											<label class="whitespace-nowrap">Src</label>
+											<DropDown v-model="new_service.src" class="w-full" :names="file_names!" />
+										</div>
+										<div class="flex gap-2 items-center w-full">
 											<label class="whitespace-nowrap">Title</label>
-											<input type="text" name="" id="" class="w-full bg-neutral-900 text-white p-2 tracking-wide">
+											<input v-model="new_service.title" type="text" name="" id=""
+												class="w-full bg-neutral-900 text-white p-2 tracking-wide">
 										</div>
 										<div class="flex gap-2 items-center w-full">
 											<label class="whitespace-nowrap">Content</label>
-											<textarea type="text" name="" id=""
+											<textarea v-model="new_service.content" type="text" name="" id=""
 												class="w-full bg-neutral-900 text-white p-2 tracking-wide max-h-[200px]" />
-										</div>
-										<div class="flex gap-2 items-center w-full">
-											<label class="whitespace-nowrap">Src</label>
-											<input type="text" name="" id="" class="w-full bg-neutral-900 text-white p-2 tracking-wide">
 										</div>
 									</div>
 
-									<span class="bg-golden-three text-black text-center w-[10rem] px-2 mx-auto">Save</span>
-									<span class="bg-golden-three text-black text-center w-[10rem] px-2 mx-auto">View All</span>
+									<span @click="addServices()"
+										class="font-semibold hover:bg-opacity-70 cursor-pointer bg-golden-three text-black text-center w-[10rem] px-2 mx-auto">Add</span>
+									<span onclick="servq.showModal()"
+										class="font-semibold hover:bg-opacity-70 cursor-pointer bg-golden-three text-black text-center w-[10rem] px-2 mx-auto">View
+										All</span>
+
+									<Teleport to="body">
+										<dialog id="servq" class="modal">
+											<div class="modal-box w-3/5 max-w-5xl border border-golden-three bg-black rounded-none">
+												<MyOrderList :item="new_service" :items="info?.routes.home.services.right.serv"
+													:head="'Total Services'">
+													<template #item="{ item, idx, moveUp, moveDown }">
+
+														<dialog id="item2" class="modal">
+															<div
+																class="modal-box w-4/5 min-h-2/3 max-w-5xl bg-black rounded-none border border-golden-three flex flex-col gap-3">
+																<DropDown v-model="info!.routes.home.services.right.serv[serv_idx!].src" class="w-full"
+																	:names="file_names!" :title="'Src'" />
+																<label
+																	class="input text-neutral-600 rounded-none border border-neutral-800 bg-neutral-900 flex items-center gap-2">
+																	Headline
+																	<input v-model="info!.routes.home.services.right.serv[serv_idx!].title" type="text"
+																		class="grow text-white" />
+																</label>
+																<textarea v-model="info!.routes.home.services.right.serv[serv_idx!].content"
+																	class="textarea rounded-none border border-neutral-800 bg-neutral-900 text-white"
+																	placeholder="Content"></textarea>
+															</div>
+															<form method="dialog" class="modal-backdrop bg-black bg-opacity-60">
+																<button>close</button>
+															</form>
+														</dialog>
+
+														<li @click="selected_service = item"
+															class='flex w-full mb-1 bg-neutral-900 items-center justify-between'>
+															<!-- remove -->
+															<!-- content -->
+															<div class="pl-2 flex items-center gap-2">
+																<div @dblclick="removeService(idx)" class="group cursor-pointer">
+																	<svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 group-hover:text-red-500"
+																		viewBox="0 0 24 24">
+																		<path fill="currentColor"
+																			d="M5 21V6H4V4h5V3h6v1h5v2h-1v15zm2-2h10V6H7zm2-2h2V8H9zm4 0h2V8h-2zM7 6v13z" />
+																	</svg>
+																</div>
+																<div class="w-[100px] h-[70px]">
+																	<img :src="`${$link}${item.src}`" alt="Service image"
+																		class="w-full h-full object-cover" />
+																</div>
+																<h3 class="cursor-pointer truncate w-[10rem] h-full lg:w-[30rem]"
+																	onclick="item2.showModal()" @click="serv_idx = idx">{{ item.title }}</h3>
+															</div>
+															<!-- actions -->
+															<div class="w-14 flex items-center justify-center">
+																<button class="group" v-if="idx > 0" @click="moveUp(idx)">
+																	<svg xmlns="http://www.w3.org/2000/svg"
+																		class="w-6 h-6 group-hover:text-golden-three rotate-90" viewBox="0 0 24 24">
+																		<path fill="currentColor"
+																			d="M13 19L2 12l11-7v6h9v2h-9zm-2-3.65v-6.7L5.725 12zM11 12" />
+																	</svg>
+																</button>
+																<button class="group" v-if="idx < info!.routes.home.services.right.serv!.length - 1"
+																	@click="moveDown(idx)">
+																	<svg xmlns="http://www.w3.org/2000/svg"
+																		class="w-6 h-6 group-hover:text-golden-three -rotate-90" viewBox="0 0 24 24">
+																		<path fill="currentColor"
+																			d="M13 19L2 12l11-7v6h9v2h-9zm-2-3.65v-6.7L5.725 12zM11 12" />
+																	</svg>
+																</button>
+															</div>
+														</li>
+													</template>
+												</MyOrderList>
+											</div>
+											<form method="dialog" class="modal-backdrop">
+												<button>close</button>
+											</form>
+										</dialog>
+									</Teleport>
+
 
 
 								</div>
 
 								<!-- News -->
-								<div class="flex flex-col gap-5 uppercase py-2 border-t border-neutral-900 w-full">
-									<h2 class="font-normal w-full text-center mt-10">News</h2>
-									<p class="">add News</p>
+								<div class="flex flex-col gap-5  py-2 border-t border-neutral-900 w-full">
+									<h2 class="font-normal w-full text-center mt-10">News [{{ home.news.length }}]</h2>
+									<p class="text-neutral-600">Add News</p>
 
 									<div class="flex flex-col gap-2">
 										<div class="flex gap-2 items-center w-full">
-											<label class="whitespace-nowrap">headline</label>
-											<input type="text" name="" id="" class="w-full bg-neutral-900 text-white p-2 tracking-wide">
+											<label class="whitespace-nowrap">Src</label>
+											<DropDown v-model="new_news.src" class="w-full" :names="file_names!" />
+										</div>
+										<div class="flex gap-2 items-center w-full">
+											<label class="whitespace-nowrap">Headline</label>
+											<input v-model="new_news.headline" type="text" name="" id=""
+												class="w-full bg-neutral-900 text-white p-2 tracking-wide">
 										</div>
 										<div class="flex gap-2 items-center w-full">
 											<label class="whitespace-nowrap">Content</label>
-											<textarea type="text" name="" id=""
+											<textarea v-model="new_news.content" type="text" name="" id=""
 												class="w-full bg-neutral-900 text-white p-2 tracking-wide max-h-[200px]" />
 										</div>
 										<div class="flex gap-2 items-center w-full">
 											<label class="whitespace-nowrap">Date</label>
-											<input type="text" name="" id="" class="w-full bg-neutral-900 text-white p-2 tracking-wide">
-										</div>
-										<div class="flex gap-2 items-center w-full">
-											<label class="whitespace-nowrap">Src</label>
-											<input type="text" name="" id="" class="w-full bg-neutral-900 text-white p-2 tracking-wide">
+											<input v-model="new_news.date" type="text" name="" id=""
+												class="w-full bg-neutral-900 text-white p-2 tracking-wide">
 										</div>
 									</div>
 
-									<span class="bg-golden-three text-black text-center w-[10rem] px-2 mx-auto">Save</span>
-									<span class="bg-golden-three text-black text-center w-[10rem] px-2 mx-auto">View All</span>
+									<span @click="addNews()"
+										class="font-semibold hover:bg-opacity-70 cursor-pointer bg-golden-three text-black text-center w-[10rem] px-2 mx-auto">Add</span>
+									<span onclick="newsq.showModal()"
+										class="font-semibold hover:bg-opacity-70 cursor-pointer bg-golden-three text-black text-center w-[10rem] px-2 mx-auto">View
+										All</span>
+
+									<Teleport to="body">
+										<dialog id="newsq" class="modal">
+											<div class="modal-box w-3/5 max-w-5xl border border-golden-three bg-black rounded-none">
+												<MyOrderList :item="new_news" :items="sortByDateDesc(info!.routes.home.news)"
+													:head="'Total News'">
+
+													<template #item="{ item, idx }">
+														<dialog id="item1" class="modal">
+															<div
+																class="modal-box w-4/5 min-h-2/3 max-w-5xl bg-black rounded-none border border-golden-three flex flex-col gap-3">
+																<DropDown v-model="sortByDateDesc(info!.routes.home.news)[news_idx!].src" class="w-full"
+																	:names="file_names!" :title="'Src'" />
+																<label
+																	class="input text-neutral-600 rounded-none border border-neutral-800 bg-neutral-900 flex items-center gap-2">
+																	Headline
+																	<input v-model="sortByDateDesc(info!.routes.home.news)[news_idx!].headline"
+																		type="text" class="grow text-white" />
+																</label>
+																<textarea v-model="sortByDateDesc(info!.routes.home.news)[news_idx!].content"
+																	class="textarea rounded-none border border-neutral-800 bg-neutral-900 text-white"
+																	placeholder="Content"></textarea>
+																<label
+																	class="input text-neutral-600 rounded-none border border-neutral-800 bg-neutral-900 flex items-center gap-2">
+																	Date
+																	<input v-model="sortByDateDesc(info!.routes.home.news)[news_idx!].date" type="text"
+																		class="grow text-white" />
+																</label>
+															</div>
+															<form method="dialog" class="modal-backdrop bg-black bg-opacity-60">
+																<button>close</button>
+															</form>
+														</dialog>
+														<li @click="selected_news = item"
+															class='flex w-full mb-1 bg-neutral-900 items-center justify-between'>
+															<!-- content -->
+															<div class="pl-2 flex items-center gap-2">
+																<!-- remove -->
+																<div @dblclick="removeNews(idx, item.headline)" class="group cursor-pointer">
+																	<svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 group-hover:text-red-500"
+																		viewBox="0 0 24 24">
+																		<path fill="currentColor"
+																			d="M5 21V6H4V4h5V3h6v1h5v2h-1v15zm2-2h10V6H7zm2-2h2V8H9zm4 0h2V8h-2zM7 6v13z" />
+																	</svg>
+																</div>
+																<div class="w-[100px] h-[70px]">
+																	<img :src="`${$link}${item.src}`" alt="Service image"
+																		class="w-full h-full object-cover" />
+																</div>
+																<h3 onclick="item1.showModal()" @click="news_idx = idx"
+																	class="cursor-pointer truncate w-[10rem] h-full lg:w-[30rem]">{{
+																	item.headline }}
+																</h3>
+															</div>
+															<span class="pr-8 text-neutral-700 text-sm">{{ item.date }}</span>
+														</li>
+													</template>
+												</MyOrderList>
+											</div>
+											<form method="dialog" class="modal-backdrop">
+												<button>close</button>
+											</form>
+										</dialog>
+									</Teleport>
 								</div>
 
 							</div>
@@ -238,18 +433,18 @@
 
 				<!-- About -->
 				<DashSection>
+
 					<template #title>
 						<span class="">About</span>
 					</template>
 
 					<template #content>
-						<div class="flex flex-col">
+						<div class="flex flex-col pb-10">
 							<div class="flex gap-5 w-full">
-								<div class="flex flex-col gap-10 uppercase py-2 border-t border-neutral-900 w-full">
+								<div class="flex flex-col gap-10  py-2 border-t border-neutral-900 w-full">
 									<div class="flex gap-2 items-center w-full">
 										<label class="whitespace-nowrap">Page Src</label>
-										<input v-model="about._src" type="text" name="" id=""
-											class="w-full bg-neutral-900 text-white p-2 tracking-wide">
+										<DropDown v-model="info!.routes.about._src" class="w-full" :names="file_names!" />
 									</div>
 
 									<div class="flex gap-2 items-center w-full">
@@ -266,12 +461,11 @@
 
 									<div class="flex gap-2 items-center w-full">
 										<label class="whitespace-nowrap">Image Src</label>
-										<input v-model="about.img_src" type="text" name="" id=""
-											class="w-full bg-neutral-900 text-white p-2 tracking-wide">
+										<DropDown v-model="info!.routes.about.img_src" class="w-full" :names="file_names!" />
 									</div>
 								</div>
 
-								<div class="flex flex-col gap-10 uppercase py-2 border-t border-neutral-900 w-full">
+								<div class="flex flex-col gap-10  py-2 border-t border-neutral-900 w-full">
 									<h2 class="font-normal w-full text-center">More Info</h2>
 									<div class="flex gap-2 items-center w-full">
 										<label class="whitespace-nowrap">Mission</label>
@@ -289,9 +483,8 @@
 							</div>
 
 							<!-- Stats -->
-							<div class="flex flex-col gap-5 uppercase py-2 border-t border-neutral-900 w-full">
+							<div class="flex flex-col gap-5  py-2 border-t border-neutral-900 w-full">
 								<h2 class="font-normal w-full text-center mt-10">Stats</h2>
-								<!-- <p class="">add Services</p> -->
 
 								<div class="flex flex-row gap-2">
 									<div class="flex gap-2 items-center w-full">
@@ -318,27 +511,106 @@
 							</div>
 
 							<!-- Team -->
-							<div class="flex flex-col gap-5 uppercase py-2 border-t border-neutral-900 w-full lg:w-3/5 lg:mx-auto">
-								<h2 class="font-normal w-full text-center mt-10">Team</h2>
-								<p class="">add Team Members</p>
+							<div class="flex flex-col gap-5 py-2 border-t border-neutral-900 w-full">
+								<h2 class="font-normal w-full text-center mt-10">Team [{{ about.team_src!.length }}]</h2>
+								<p class="text-neutral-600">Add Team Members</p>
 
 								<div class="flex flex-col gap-2">
 									<div class="flex gap-2 items-center w-full">
-										<label class="whitespace-nowrap">Name</label>
-										<input type="text" name="" id="" class="w-full bg-neutral-900 text-white p-2 tracking-wide">
-									</div>
-									<div class="flex gap-2 items-center w-full">
-										<label class="whitespace-nowrap">Role</label>
-										<input type="text" name="" id="" class="w-full bg-neutral-900 text-white p-2 tracking-wide">
-									</div>
-									<div class="flex gap-2 items-center w-full">
 										<label class="whitespace-nowrap">Src</label>
-										<input type="text" name="" id="" class="w-full bg-neutral-900 text-white p-2 tracking-wide">
+										<DropDown v-model="new_team.src" class="w-full" :names="file_names!" />
+									</div>
+									<div class="flex gap-2 items-center w-full">
+										<label class="whitespace-nowrap">Title</label>
+										<input v-model="new_team.name" type="text" name="" id=""
+											class="w-full bg-neutral-900 text-white p-2 tracking-wide">
+									</div>
+									<div class="flex gap-2 items-center w-full">
+										<label class="whitespace-nowrap">Content</label>
+										<textarea v-model="new_team.pos" type="text" name="" id=""
+											class="w-full bg-neutral-900 text-white p-2 tracking-wide max-h-[200px]" />
 									</div>
 								</div>
 
-								<span class="bg-golden-three text-black text-center w-[10rem] px-2 mx-auto">Save</span>
-								<span class="bg-golden-three text-black text-center w-[10rem] px-2 mx-auto">View All</span>
+								<span @click="addTeamMember()"
+									class="font-semibold hover:bg-opacity-70 cursor-pointer bg-golden-three text-black text-center w-[10rem] px-2 mx-auto">Add</span>
+								<span onclick="teamq.showModal()"
+									class="font-semibold hover:bg-opacity-70 cursor-pointer bg-golden-three text-black text-center w-[10rem] px-2 mx-auto">View
+									All</span>
+
+								<Teleport to="body">
+									<dialog id="teamq" class="modal">
+										<div class="modal-box w-3/5 max-w-5xl border border-golden-three bg-black rounded-none">
+											<MyOrderList :item="new_team" :items="info?.routes.about.team_src!" :head="'Total Team Members'">
+												<template #item="{ item, idx, moveUp, moveDown }">
+
+													<dialog id="item3" class="modal">
+														<div
+															class="modal-box w-4/5 max-w-5xl bg-black rounded-none border border-golden-three flex flex-col gap-3">
+															<DropDown v-model="info!.routes.about.team_src![team_idx!].src" class="w-full"
+																:names="file_names!" :title="'Src'" />
+															<label
+																class="input text-neutral-600 rounded-none border border-neutral-800 bg-neutral-900 flex items-center gap-2">
+																Headline
+																<input v-model="info!.routes.about.team_src![team_idx!].name" type="text"
+																	class="grow text-white" />
+															</label>
+															<textarea v-model="info!.routes.about.team_src![team_idx!].pos"
+																class="textarea rounded-none border border-neutral-800 bg-neutral-900 text-white"
+																placeholder="Content"></textarea>
+														</div>
+														<form method="dialog" class="modal-backdrop bg-black bg-opacity-60">
+															<button>close</button>
+														</form>
+													</dialog>
+
+													<li @click="selected_team = item"
+														class='flex w-full mb-1 bg-neutral-900 items-center justify-between'>
+														<!-- remove -->
+														<!-- content -->
+														<div class="pl-2 flex items-center gap-2">
+															<div @dblclick="removeTeam(idx)" class="group cursor-pointer">
+																<svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 group-hover:text-red-500"
+																	viewBox="0 0 24 24">
+																	<path fill="currentColor"
+																		d="M5 21V6H4V4h5V3h6v1h5v2h-1v15zm2-2h10V6H7zm2-2h2V8H9zm4 0h2V8h-2zM7 6v13z" />
+																</svg>
+															</div>
+															<div class="w-[100px] h-[70px]">
+																<img :src="`${$link}${item.src}`" alt="Service image"
+																	class="w-full h-full object-cover" />
+															</div>
+															<h3 class="cursor-pointer truncate w-[10rem] h-full lg:w-[30rem]"
+																onclick="item3.showModal()" @click="team_idx = idx">{{ item.name }}</h3>
+														</div>
+														<!-- actions -->
+														<div class="w-14 flex items-center justify-center">
+															<button class="group" v-if="idx > 0" @click="moveUp(idx)">
+																<svg xmlns="http://www.w3.org/2000/svg"
+																	class="w-6 h-6 group-hover:text-golden-three rotate-90" viewBox="0 0 24 24">
+																	<path fill="currentColor"
+																		d="M13 19L2 12l11-7v6h9v2h-9zm-2-3.65v-6.7L5.725 12zM11 12" />
+																</svg>
+															</button>
+															<button class="group" v-if="idx < info!.routes.about.team_src!.length - 1"
+																@click="moveDown(idx)">
+																<svg xmlns="http://www.w3.org/2000/svg"
+																	class="w-6 h-6 group-hover:text-golden-three -rotate-90" viewBox="0 0 24 24">
+																	<path fill="currentColor"
+																		d="M13 19L2 12l11-7v6h9v2h-9zm-2-3.65v-6.7L5.725 12zM11 12" />
+																</svg>
+															</button>
+														</div>
+													</li>
+												</template>
+											</MyOrderList>
+										</div>
+										<form method="dialog" class="modal-backdrop">
+											<button>close</button>
+										</form>
+									</dialog>
+								</Teleport>
+
 							</div>
 
 
@@ -348,17 +620,17 @@
 
 				<!-- Athletes -->
 				<DashSection>
+
 					<template #title>
 						<span class="">Our Athletes</span>
 					</template>
 
 					<template #content>
-						<div class="flex gap-10">
-							<div class="flex flex-col gap-10 uppercase py-2 border-t border-neutral-900 w-full">
+						<div class="flex gap-10 pb-10">
+							<div class="flex flex-col gap-10  py-2 border-t border-neutral-900 w-full">
 								<div class="flex gap-2 items-center w-full">
 									<label class="whitespace-nowrap">Page Src</label>
-									<input v-model="athletes._src" type="text" name="" id=""
-										class="w-full bg-neutral-900 text-white p-2 tracking-wide">
+									<DropDown v-model="info!.routes.athletes._src" class="w-full" :names="file_names!" />
 								</div>
 
 								<div class="flex gap-2 items-center w-full">
@@ -374,23 +646,99 @@
 								</div>
 							</div>
 
-							<!-- Team -->
-							<div class="flex flex-col gap-5 uppercase py-2 border-t border-neutral-900 w-full lg:w-3/5 lg:mx-auto">
-								<p class="">add Athletes</p>
+							<!-- Players -->
+							<div class="flex flex-col gap-5 py-2 border-t border-neutral-900 w-full">
+								<h2 class="font-normal w-full text-center mt-10">Players [{{ athletes.athl_src!.length }}]</h2>
+								<p class="text-neutral-600">Add Players</p>
 
 								<div class="flex flex-col gap-2">
 									<div class="flex gap-2 items-center w-full">
-										<label class="whitespace-nowrap">Name</label>
-										<input type="text" name="" id="" class="w-full bg-neutral-900 text-white p-2 tracking-wide">
+										<label class="whitespace-nowrap">Src</label>
+										<DropDown v-model="new_player.src" class="w-full" :names="file_names!" />
 									</div>
 									<div class="flex gap-2 items-center w-full">
-										<label class="whitespace-nowrap">Src</label>
-										<input type="text" name="" id="" class="w-full bg-neutral-900 text-white p-2 tracking-wide">
+										<label class="whitespace-nowrap">Name</label>
+										<input v-model="new_player.name" type="text" name="" id=""
+											class="w-full bg-neutral-900 text-white p-2 tracking-wide">
 									</div>
 								</div>
 
-								<span class="bg-golden-three text-black text-center w-[10rem] px-2 mx-auto">Save</span>
-								<span class="bg-golden-three text-black text-center w-[10rem] px-2 mx-auto">View All</span>
+								<span @click="addPlayer()"
+									class="font-semibold hover:bg-opacity-70 cursor-pointer bg-golden-three text-black text-center w-[10rem] px-2 mx-auto">Add</span>
+								<span onclick="plyrq.showModal()"
+									class="font-semibold hover:bg-opacity-70 cursor-pointer bg-golden-three text-black text-center w-[10rem] px-2 mx-auto">View
+									All</span>
+
+								<Teleport to="body">
+									<dialog id="plyrq" class="modal">
+										<div class="modal-box w-3/5 max-w-5xl border border-golden-three bg-black rounded-none">
+											<MyOrderList :item="new_player" :items="info?.routes.athletes.athl_src!" :head="'Total Players'">
+												<template #item="{ item, idx, moveUp, moveDown }">
+
+													<dialog id="item4" class="modal">
+														<div
+															class="modal-box w-4/5 max-w-5xl bg-black rounded-none border border-golden-three flex flex-col gap-3">
+															<DropDown v-model="info!.routes.athletes.athl_src![player_idx!].src" class="w-full"
+																:names="file_names!" :title="'Src'" />
+															<label
+																class="input text-neutral-600 rounded-none border border-neutral-800 bg-neutral-900 flex items-center gap-2">
+																Name
+																<input v-model="info!.routes.athletes.athl_src![player_idx!].name" type="text"
+																	class="grow text-white" />
+															</label>
+														</div>
+														<form method="dialog" class="modal-backdrop bg-black bg-opacity-60">
+															<button>close</button>
+														</form>
+													</dialog>
+
+													<li @click="selected_player = item"
+														class='flex w-full mb-1 bg-neutral-900 items-center justify-between'>
+														<!-- remove -->
+														<!-- content -->
+														<div class="pl-2 flex items-center gap-2">
+															<div @dblclick="removePlayer(idx)" class="group cursor-pointer">
+																<svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 group-hover:text-red-500"
+																	viewBox="0 0 24 24">
+																	<path fill="currentColor"
+																		d="M5 21V6H4V4h5V3h6v1h5v2h-1v15zm2-2h10V6H7zm2-2h2V8H9zm4 0h2V8h-2zM7 6v13z" />
+																</svg>
+															</div>
+															<div class="w-[100px] h-[70px]">
+																<img :src="`${$link}${item.src}`" alt="Service image"
+																	class="w-full h-full object-cover" />
+															</div>
+															<h3 class="cursor-pointer truncate w-[10rem] h-full lg:w-[30rem]"
+																onclick="item4.showModal()" @click="player_idx = idx">{{ item.name }}</h3>
+														</div>
+														<!-- actions -->
+														<div class="w-14 flex items-center justify-center">
+															<button class="group" v-if="idx > 0" @click="moveUp(idx)">
+																<svg xmlns="http://www.w3.org/2000/svg"
+																	class="w-6 h-6 group-hover:text-golden-three rotate-90" viewBox="0 0 24 24">
+																	<path fill="currentColor"
+																		d="M13 19L2 12l11-7v6h9v2h-9zm-2-3.65v-6.7L5.725 12zM11 12" />
+																</svg>
+															</button>
+															<button class="group" v-if="idx < info!.routes.athletes.athl_src!.length - 1"
+																@click="moveDown(idx)">
+																<svg xmlns="http://www.w3.org/2000/svg"
+																	class="w-6 h-6 group-hover:text-golden-three -rotate-90" viewBox="0 0 24 24">
+																	<path fill="currentColor"
+																		d="M13 19L2 12l11-7v6h9v2h-9zm-2-3.65v-6.7L5.725 12zM11 12" />
+																</svg>
+															</button>
+														</div>
+													</li>
+												</template>
+											</MyOrderList>
+										</div>
+										<form method="dialog" class="modal-backdrop">
+											<button>close</button>
+										</form>
+									</dialog>
+								</Teleport>
+
 							</div>
 
 						</div>
@@ -404,7 +752,7 @@
 		<div class="w-full mb-10">
 			<h1 class="w-full mb-4 text-white font-bold text-4xl flex items-center">Messages <span
 					class="ml-6 text-golden-three">[{{
-						messages.length
+					messages.length
 					}}]</span></h1>
 
 			<div class="overflow-x-auto outline outline-1 outline-golden-three">
@@ -460,16 +808,65 @@ import { createClient } from '@supabase/supabase-js'
 import appStore from '~/stores/app';
 import type { Data } from '~/interfaces/int'
 
+type Serv = {
+	title: string,
+	content: string,
+	src?: string,
+}
+
+type News = {
+	headline: string,
+	content: string,
+	date: string,
+	src?: string,
+}
+
+type Team = {
+	name: string,
+	pos: string,
+	src: string,
+}
+
+type Player = {
+	name: string,
+	src: string,
+}
+
 const supabase = createClient('https://dblmoqabperngqprlrjw.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRibG1vcWFicGVybmdxcHJscmp3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDkwMTA3NzAsImV4cCI6MjAyNDU4Njc3MH0.YdYbtgmpXMxTfzpJkN6353d781hQ-e6pId8OdWe8Kjo')
 
-const { $gsap: gsap } = useNuxtApp()
 const { data } = storeToRefs(appStore())
 const info = ref<Data>()
+setTimeout
+const { $gsap: gsap } = useNuxtApp()
+provide('data', info)
+
 const loading = ref(false)
+const img_sending = ref(false)
 const home = computed(() => info.value!.routes.home)
 const about = computed(() => info.value!.routes.about)
 const athletes = computed(() => info.value!.routes.athletes)
 const file = ref<HTMLInputElement>()
+const msg = ref('welcome message')
+const new_service = ref<Serv>({
+	title: '',
+	content: '',
+	src: '',
+})
+const new_news = ref<News>({
+	headline: '',
+	content: '',
+	date: '',
+	src: '',
+})
+const new_team = ref<Team>({
+	name: '',
+	pos: '',
+	src: '',
+})
+const new_player = ref<Player>({
+	name: '',
+	src: '',
+})
 const messages = ref<{
 	name: string,
 	email: string,
@@ -487,24 +884,130 @@ const curr_msg = ref<{
 	msg: '',
 	created_at: '',
 })
+const selected_news = ref<News & { idx?: number }>({
+	headline: '',
+	content: '',
+	date: '',
+	src: '',
+	idx: undefined
+})
+const selected_service = ref<Serv & { idx?: number }>({
+	title: '',
+	content: '',
+	src: '',
+	idx: undefined
+})
+const selected_team = ref<Team & { idx?: number }>({
+	name: '',
+	pos: '',
+	src: '',
+	idx: undefined
+})
+const selected_player = ref<Player & { idx?: number }>({
+	name: '',
+	src: '',
+	idx: undefined
+})
+const serv_idx = ref<number>(0)
+const news_idx = ref<number>(0)
+const team_idx = ref<number>(0)
+const player_idx = ref<number>(0)
 
-async function getFileFromInput(inputElement: HTMLInputElement): Promise<File | null> {
-	if (inputElement.files && inputElement.files.length > 0) {
-		return inputElement.files[0];
-	}
-	return null;
+function addNews() {
+	if (new_news.value.headline.length <= 0 || new_news.value.content.length <= 0 || new_news.value.date.length <= 0) return
+	info.value!.routes.home.news.push(new_news.value)
+	successMsg(`Added News: ${new_news.value.headline}`, .8)
+	new_news.value = { headline: '', src: '', content: '', date: '' }
+}
+function addServices() {
+	if (new_service.value.title.length <= 0 || new_service.value.content.length <= 0 || new_service.value.src!.length <= 0) return
+	info.value!.routes.home.services.right.serv.push(new_service.value)
+	successMsg(`Added Service: ${new_service.value.title}`, .8)
+	new_service.value = { title: '', src: '', content: '' }
+}
+function addTeamMember() {
+	if (new_team.value.name.length <= 0 || new_team.value.pos.length <= 0 || new_team.value.src.length <= 0) return
+	info.value!.routes.about.team_src!.push(new_team.value)
+	successMsg(`Added Team Member: ${new_team.value.name}`, .8)
+	new_team.value = { name: '', src: '', pos: '' }
+}
+function addPlayer() {
+	if (new_player.value.name.length <= 0 || new_player.value.src.length <= 0) return
+	info.value!.routes.athletes.athl_src!.push(new_player.value)
+	successMsg(`Added Player: ${new_player.value.name}`, .8)
+	new_player.value = { name: '', src: '' }
+}
+function removeNews(idx: number, headline?: string) {
+	let arr = info.value!.routes.home.news
+	let filtered_arr = arr.filter(x => x.headline !== headline)
+	info.value!.routes.home.news = filtered_arr
+	successMsg(`Removed News`, .8)
+}
+function removeService(idx: number) {
+	console.log(idx);
+	console.log(info.value!.routes.home.services.right.serv[idx]);
+	info.value!.routes.home.services.right.serv.splice(idx, 1);
+	successMsg(`Removed Service: ${info.value!.routes.home.services.right.serv[idx].title}`, .8)
+}
+function removeTeam(idx: number) {
+	console.log(idx);
+	console.log(info.value!.routes.about.team_src![idx]);
+	info.value!.routes.about.team_src!.splice(idx, 1);
+	successMsg(`Removed Team Member: ${info.value!.routes.about.team_src![idx].name}`, .8)
+}
+function removePlayer(idx: number) {
+	console.log(idx);
+	console.log(info.value!.routes.athletes.athl_src![idx]);
+	info.value!.routes.athletes.athl_src!.splice(idx, 1);
+	successMsg(`Removed Player: ${info.value!.routes.athletes.athl_src![idx].name}`, .8)
 }
 
 
+function sortByDateDesc(array: any) {
+	return array.sort((a: any, b: any) => {
+		const dateA: any = new Date(a.date.split("/").reverse().join("-"));
+		const dateB: any = new Date(b.date.split("/").reverse().join("-"));
+		return dateB - dateA; // Descending order
+	});
+}
+
+const file_names = ref<string[]>()
 
 async function sendFile(file: File = document.querySelector<HTMLInputElement>('input[type="file"]')!.files![0]) {
-	// let item = document.querySelector<HTMLInputElement>('input[type="file"]')!.files![0]
+	let item = document.querySelector<HTMLInputElement>('input[type="file"]')!.files![0]
+	if (!item) return errorMsg('No file selected!', 1)
+
+	img_sending.value = true
 	const file_name = file.name
 	try {
-		const { data, error } = await supabase.storage.from('images').upload(file_name, file)
+		const { data, error } = await supabase.storage.from('images').upload(file_name, file, {
+			cacheControl: '3600',
+			upsert: true
+		})
 		if (error) throw error
-		logger(data)
-	} catch (error) {
+
+		img_sending.value = false
+		successMsg('Your image has been uploaded!')
+	} catch (error: any) {
+		errorMsg('Your image has not been uploaded!: ' + error.message)
+		img_sending.value = false
+	}
+}
+
+const getFileNames = async () => {
+	try {
+		const { data, error } = await supabase
+			.storage
+			.from('images')
+			.list('', {
+				limit: 100,
+				offset: 0,
+				sortBy: { column: 'name', order: 'asc' },
+			})
+		if (error) throw error
+		return data.map(item => item.name)
+	}
+	catch (error) {
 		console.log(error)
 	}
 }
@@ -525,9 +1028,9 @@ async function SaveData() {
 		let { data, error } = await supabase.from('info').insert([{ data: info.value }]).select()
 		if (error) throw error
 		loading.value = false
-		logger(data)
-	} catch (error) {
-		console.log(error)
+		successMsg('Your data has been saved!')
+	} catch (error: any) {
+		errorMsg(`Error Status: ${error.message}`, 6)
 		loading.value = false
 	}
 }
@@ -546,6 +1049,7 @@ onMounted(async () => {
 		if (currentSession.data.session == null) {
 			throw currentSession.error;
 		}
+		logger(currentSession.data.session)
 
 		let { data: msg, error: error2 } = await supabase
 			.from('msg')
@@ -554,9 +1058,15 @@ onMounted(async () => {
 		console.log(msg)
 		if (error2) throw error2
 		messages.value = msg!
+
+		file_names.value = await getFileNames()
+
+		successMsg('Loaded Data', 1)
 	} catch (error) {
-		alert(`Bad Login: ${error}`);
-		useNuxtApp().$router.push('/')
+		errorMsg(`Bad Request: ${error}`)
+		setTimeout(() => {
+			useNuxtApp().$router.push('/')
+		}, 3000)
 	}
 })
 
@@ -564,13 +1074,48 @@ async function logOut() {
 	try {
 		let { error } = await supabase.auth.signOut()
 		if (error) throw error
+		setTimeout
 		useNuxtApp().$router.push('/')
 		setTimeout(() => {
 			location.reload()
 		}, 500)
-	} catch (err) {
-		alert(`Bad Logout: ${err}`);
+	} catch (err: any) {
+		errorMsg(`Bad Logout: ${err.message}`, 6)
 	}
+}
+
+function successMsg(message: string, delay: number = 3) {
+	let success = document.getElementById('success')
+	msg.value = message
+	let tl = gsap.timeline()
+
+	tl.to(success, {
+		y: 0,
+		duration: .7,
+		ease: 'power4.inOut',
+	}).to(success, {
+		delay,
+		y: '80px',
+		duration: .7,
+		ease: 'power4.inOut',
+	})
+}
+
+function errorMsg(message: string, delay: number = 3) {
+	let error = document.getElementById('error')
+	msg.value = message
+	let tl = gsap.timeline()
+
+	tl.to(error, {
+		y: 0,
+		duration: .7,
+		ease: 'power4.inOut',
+	}).to(error, {
+		delay,
+		y: '80px',
+		duration: .7,
+		ease: 'power4.inOut',
+	})
 }
 
 definePageMeta({

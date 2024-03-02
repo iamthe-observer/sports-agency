@@ -253,8 +253,9 @@ function horizontalLoop(items: any, config: any) {
 						class="transition-all duration-150 ease-in-out group-hover:bg-golden-three h-[200px] w-full relative -translate-x-3 -translate-y-3 border border-golden-three">
 						<div ref="target"
 							class="w-full h-full absolute top-0 left-0 overflow-hidden translate-x-3 translate-y-3 border border-golden-three perspectiv">
-							<img :src="n.src ? n.src : 'https://live.staticflickr.com/65535/53534142101_68648c04e4_o.jpg'" alt=""
-								class="object-cover w-full h-full group-hover:scale-110 transition-all duration-300 ease-in-out" />
+							<img
+								:src="n.src ? `https://dblmoqabperngqprlrjw.supabase.co/storage/v1/object/public/images/${n.src}` : 'https://live.staticflickr.com/65535/53534142101_68648c04e4_o.jpg'"
+								alt="" class="object-cover w-full h-full group-hover:scale-110 transition-all duration-300 ease-in-out" />
 						</div>
 						<div
 							class="absolute top-0 left-0 w-fit bg-golden-three translate-x-3 translate-y-3 shadow-lg text-black font-bold px-3 text-[3vw] lg:text-xl">

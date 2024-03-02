@@ -27,7 +27,8 @@
 				<BoxContainer @click="scrollTo"
 					class="w-fit self-end font-semibold tracking-wider lg:text-sm text-[4vw] flex gap-2 hover:gap-0 items-center">
 					Learn More
-					<svg xmlns="http://www.w3.org/2000/svg" class="w-5 aspect-square" viewBox="0 0 24 24">
+					<svg xmlns="http://www.w3.org/2000/svg" class="w-5 aspect-square animate-bounce translate-y-8"
+						viewBox="0 0 24 24">
 						<path fill="currentColor" d="m12 18l-6-6l1.4-1.4l3.6 3.6V5h2v9.2l3.6-3.6L18 12z" />
 					</svg>
 				</BoxContainer>
@@ -99,7 +100,7 @@
 			</div>
 		</div>
 
-		<!-- owners -->
+		<!-- Team Members -->
 		<div class="text-white relative w-full lg:border-l border-golden-three flex flex-col px-4 lg:px-6 py-20">
 			<h2 v-motion-fade-visible class="text-[8vw] lg:text-4xl font-bold">
 				<span class="pr-1 text-golden-three">//</span>
@@ -110,8 +111,8 @@
 			</p>
 
 			<div v-if="!if_sm" v-motion-fade-visible-once class="grid grid-cols-3 gap-10 w-4/5 mx-auto mt-10">
-				<FlipContainer v-for="(team, i) in about?.team_src" :key="i" class="w-full select-none" :src="team.src"
-					:text2="team.pos" :text1="team.name" />
+				<FlipContainer v-for="(team, i) in about?.team_src" :key="i" class="w-full select-none"
+					:src="team.src ? `${$link}${team.src}` : ''" :text2="team.pos" :text1="team.name" />
 			</div>
 
 			<div v-if="if_sm" v-motion-fade-visible-once class="grid grid-cols-2 gap-4 pt-10">

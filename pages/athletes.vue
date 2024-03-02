@@ -38,47 +38,13 @@
 					class="text-golden-three pr-4">//</span>Featured Athletes</h1>
 
 			<div class="grid grid-cols-2 lg:grid-cols-3 gap-14">
-
-				<div class="players flex flex-col gap-4 items-center">
-					<img src="~/assets/P1.png" alt=""
-						class="hover:png-shadow transition-all duration-150 ease-out object-contain w-[300px] h-[400px] hover:scale-105 scale-150 lg:scale-100" />
-
-					<span class="text-white mx-auto font-semibold lg:text-xl text-[4vw] tracking-wide w-full text-center">Michael
-						Ofori</span>
-				</div>
-				<!-- <div v-for="(athl, i) in athletes?.athl_src" :key="i" class="players flex flex-col gap-4 items-center">
-					<img :src="athl.src ? athl.src : ''" alt=""
-						class="hover:png-shadow transition-all duration-150 ease-out object-contain w-[300px] h-[400px] hover:scale-105 scale-150 lg:scale-100" />
+				<div v-for="(athl, i) in athletes?.athl_src" :key="i" class="players flex flex-col gap-4 items-center">
+					<img :src="athl.src ? `${$link}${athl.src}` : ''" alt=""
+						:class="`hover:png-shadow transition-all duration-150 ease-out object-contain w-[300px] h-[400px] hover:scale-105 scale-150 lg:scale-100`" />
 
 					<span class="text-white mx-auto font-semibold lg:text-xl text-[4vw] tracking-wide w-full text-center">{{
-						athl.name }}</span>
-				</div> -->
-
-				<div class="players flex flex-col gap-4 items-center">
-					<img src="~/assets/P4.png" alt=""
-						class="hover:png-shadow transition-all duration-150 ease-out object-contain w-[300px] h-[400px] hover:scale-105 scale-90 lg:scale-100" />
-
-					<span class="text-white mx-auto font-semibold lg:text-xl text-[4vw] tracking-wide w-full text-center">Samuel
-						Lartey</span>
+					athl.name }}</span>
 				</div>
-
-				<div class="players flex flex-col gap-4 items-center">
-					<img src="~/assets/P2.png" alt=""
-						class="hover:png-shadow transition-all duration-150 ease-out object-contain w-[300px] h-[400px] hover:scale-100 scale-90" />
-
-					<span
-						class="text-white mx-auto font-semibold lg:text-xl text-[4vw] tracking-wide w-full text-center">Christopher
-						Okonkwo</span>
-				</div>
-
-				<div class="players flex flex-col gap-4 items-center lg:col-span-3">
-					<img src="~/assets/P3.png" alt=""
-						class="hover:png-shadow transition-all duration-150 ease-out object-contain w-[300px] h-[400px] hover:scale-100 scale-90" />
-
-					<span class="text-white mx-auto font-semibold lg:text-xl text-[4vw] tracking-wide w-full text-center">Abubakar
-						Sadick</span>
-				</div>
-
 			</div>
 
 		</div>
