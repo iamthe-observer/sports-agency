@@ -19,6 +19,8 @@ const appStore = defineStore('app', () => {
   const if_pass = ref(false)
   const appData = ref<Data>()
   const { $gsap: gsap } = useNuxtApp()
+  const serv_toggle = ref(false)
+  const news_toggle = ref(false)
 
   async function getAppData() {
     try {
@@ -280,7 +282,9 @@ const appStore = defineStore('app', () => {
     if_loading,
     data: appData,
     getAppData,
-    if_pass
+    if_pass,
+    serv_toggle,
+    news_toggle,
   }
 })
 

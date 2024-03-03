@@ -62,7 +62,7 @@ watch(curr_nav, () => {
 		// if_loading.value = false
 		appStore().$patch({ if_loading: false })
 		document.body.style.overflow = "auto";
-	}, Math.floor(Math.random() * (3000 - 1000 + 1) + 1000))
+	}, Math.floor(Math.random() * (1500 - 1000 + 1) + 1000))
 })
 
 useServerSeoMeta({

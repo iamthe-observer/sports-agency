@@ -1,6 +1,7 @@
 <template>
 	<div ref="target"
-		class="border-golden-three text-white w-full flex flex-col lg:border-l py-5 pb-20 lg:py-20 services overflow-y-hidden">
+		class="border-golden-three text-white w-full flex flex-col lg:border-l py-5 pb-20 lg:py-20 overflow-y-hidden"
+		id="serv">
 
 		<h2 class="text-center w-full h-full font-bold mx-auto mb-5 lg:mb-20">
 			<!-- <span class="">Our Services</span> -->

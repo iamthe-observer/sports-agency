@@ -41,7 +41,8 @@
 			<h1 @click="!if_sm ? toggleContact() : toggleContactMobile()"
 				class="text-3xl font-semibold w-full min-h-[100px] grid place-items-center cursor-pointer relative text-center text-[5vw] lg:text-3xl">
 				Contact Us
-				<div class="iconexpand absolute top-1/2 -translate-y-1/2 right-0 w-10 grid place-items-center aspect-square">
+				<div
+					class="iconexpand absolute top-1/2 -translate-y-1/2 right-0 w-10 grid place-items-center aspect-square">
 					<svg xmlns="http://www.w3.org/2000/svg" class="w-[8vw] lg:w-10" viewBox="0 0 24 24">
 						<path fill="currentColor"
 							d="m19.25 21l-1.4-1.4l1.575-1.6H15.25v-2h4.175l-1.575-1.6l1.4-1.4l4 4zM10 15q1.4 0 2.525-.687T14.3 12.5q-.875-.725-1.975-1.112T10 11q-1.225 0-2.325.388T5.7 12.5q.65 1.125 1.775 1.813T10 15m0-5q.825 0 1.413-.587T12 8q0-.825-.587-1.412T10 6q-.825 0-1.412.588T8 8q0 .825.588 1.413T10 10m0 12q-4.025-3.425-6.012-6.362T2 10.2q0-3.75 2.413-5.975T10 2q3.175 0 5.588 2.225T18 10.2q0 .225-.012.463t-.063.487H15.9q.05-.25.075-.488T16 10.2q0-2.725-1.737-4.462T10 4Q7.475 4 5.738 5.738T4 10.2q0 1.775 1.475 4.063T10 19.35q.575-.5 1.063-1t.937-.975l.225.225l.488.488q.262.262.475.487l.212.225q-.725.775-1.575 1.575T10 22" />
@@ -79,42 +80,51 @@
 						<p class="w-full text-xl">Send Us A Message</p>
 
 						<div class="w-full h-10 bg-neutral-900 border border-golden-three flex gap-[2px] p-[2px]">
-							<label for="Name" class="w-20 h-full flex justify-center items-center px-2 py-2 bg-golden-three"><span
+							<label for="Name"
+								class="w-20 h-full flex justify-center items-center px-2 py-2 bg-golden-three"><span
 									class="drop-shadow-xl font-semibold tracking-wider">Name</span></label>
-							<input v-model="message.name" id="Name" type="text" class="w-full bg-transparent pl-5 focus:outline-none">
+							<input v-model="message.name" id="Name" type="text"
+								class="w-full bg-transparent pl-5 focus:outline-none">
 						</div>
 
 						<div class="w-full h-10 bg-neutral-900 border border-golden-three flex gap-[2px] p-[2px]">
-							<label for="Email" class="w-20 h-full flex justify-center items-center px-2 py-2 bg-golden-three"><span
+							<label for="Email"
+								class="w-20 h-full flex justify-center items-center px-2 py-2 bg-golden-three"><span
 									class="drop-shadow-xl font-semibold tracking-wider">Email</span></label>
-							<input v-model="message.email" id="Email" type="text" class="w-full bg-transparent pl-5 focus:outline-none">
+							<input v-model="message.email" id="Email" type="text"
+								class="w-full bg-transparent pl-5 focus:outline-none">
 						</div>
 
 						<div
 							class="mt-4 w-full min-h-[40px] bg-neutral-900 border border-golden-three gap-[2px] p-[2px] flex flex-col">
 							<label for="Message" class="text-golden-three text-right w-full px-2">Message</label>
-							<textarea v-model="message.msg" id="Message" class="w-full bg-transparent pl-5 focus:outline-none" />
+							<textarea v-model="message.msg" id="Message"
+								class="w-full bg-transparent pl-5 focus:outline-none" />
 						</div>
 
 						<BoxContainer @click="sendMsg" class="mt-2 text-xl tracking-wide flex gap-3 items-center">
-							<svg v-if="loading" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+							<svg v-if="loading" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+								viewBox="0 0 24 24">
 								<circle cx="12" cy="3.5" r="1.5" fill="currentColor" opacity="0">
-									<animateTransform attributeName="transform" calcMode="discrete" dur="2.4s" repeatCount="indefinite"
-										type="rotate" values="0 12 12;90 12 12;180 12 12;270 12 12" />
-									<animate attributeName="opacity" dur="0.6s" keyTimes="0;0.5;1" repeatCount="indefinite"
-										values="1;1;0" />
+									<animateTransform attributeName="transform" calcMode="discrete" dur="2.4s"
+										repeatCount="indefinite" type="rotate"
+										values="0 12 12;90 12 12;180 12 12;270 12 12" />
+									<animate attributeName="opacity" dur="0.6s" keyTimes="0;0.5;1"
+										repeatCount="indefinite" values="1;1;0" />
 								</circle>
 								<circle cx="12" cy="3.5" r="1.5" fill="currentColor" opacity="0">
-									<animateTransform attributeName="transform" begin="0.2s" calcMode="discrete" dur="2.4s"
-										repeatCount="indefinite" type="rotate" values="30 12 12;120 12 12;210 12 12;300 12 12" />
-									<animate attributeName="opacity" begin="0.2s" dur="0.6s" keyTimes="0;0.5;1" repeatCount="indefinite"
-										values="1;1;0" />
+									<animateTransform attributeName="transform" begin="0.2s" calcMode="discrete"
+										dur="2.4s" repeatCount="indefinite" type="rotate"
+										values="30 12 12;120 12 12;210 12 12;300 12 12" />
+									<animate attributeName="opacity" begin="0.2s" dur="0.6s" keyTimes="0;0.5;1"
+										repeatCount="indefinite" values="1;1;0" />
 								</circle>
 								<circle cx="12" cy="3.5" r="1.5" fill="currentColor" opacity="0">
-									<animateTransform attributeName="transform" begin="0.4s" calcMode="discrete" dur="2.4s"
-										repeatCount="indefinite" type="rotate" values="60 12 12;150 12 12;240 12 12;330 12 12" />
-									<animate attributeName="opacity" begin="0.4s" dur="0.6s" keyTimes="0;0.5;1" repeatCount="indefinite"
-										values="1;1;0" />
+									<animateTransform attributeName="transform" begin="0.4s" calcMode="discrete"
+										dur="2.4s" repeatCount="indefinite" type="rotate"
+										values="60 12 12;150 12 12;240 12 12;330 12 12" />
+									<animate attributeName="opacity" begin="0.4s" dur="0.6s" keyTimes="0;0.5;1"
+										repeatCount="indefinite" values="1;1;0" />
 								</circle>
 							</svg>
 
@@ -140,20 +150,25 @@
 			</span>
 		</p>
 
-		<p class="w-full h-full flex lg:border-none border-y border-golden-three bg-golden-three bg-opacity-20 lg:bg-none">
+		<p
+			class="w-full h-full flex lg:border-none border-y border-golden-three bg-golden-three bg-opacity-20 lg:bg-none">
 			<a target="_blank" href="https://www.facebook.com/profile.php?id=61556099897439&mibextid=PtKPJ9"
 				class="cursor-pointer lg:py-0 py-5 hover:text-black hover:bg-golden-three transition-all duration-150 ease-in-out w-full h-full lg:border-x border-r border-golden-three grid place-items-center">
-				<svg class="drop-shadow-lg" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+				<svg class="drop-shadow-lg" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+					viewBox="0 0 24 24">
 					<path fill="currentColor"
 						d="M20.9 2H3.1A1.1 1.1 0 0 0 2 3.1v17.8A1.1 1.1 0 0 0 3.1 22h9.58v-7.75h-2.6v-3h2.6V9a3.64 3.64 0 0 1 3.88-4a20.26 20.26 0 0 1 2.33.12v2.7H17.3c-1.26 0-1.5.6-1.5 1.47v1.93h3l-.39 3H15.8V22h5.1a1.1 1.1 0 0 0 1.1-1.1V3.1A1.1 1.1 0 0 0 20.9 2" />
 				</svg>
 			</a>
 
-			<a target="_blank" href="https://www.instagram.com/eagleeye_sports_consults?igsh=cWl0aTM0bGJicXZt&utm_source=qr"
+			<a target="_blank"
+				href="https://www.instagram.com/eagleeye_sports_consults?igsh=cWl0aTM0bGJicXZt&utm_source=qr"
 				class="cursor-pointer lg:py-0 py-5 hover:text-black hover:bg-golden-three transition-all duration-150 ease-in-out w-full h-full grid place-items-center">
-				<svg class="drop-shadow-lg" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+				<svg class="drop-shadow-lg" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+					viewBox="0 0 24 24">
 					<g fill="currentColor">
-						<path fill-rule="evenodd" d="M12 7a5 5 0 1 0 0 10a5 5 0 0 0 0-10m-3 5a3 3 0 1 0 6 0a3 3 0 0 0-6 0"
+						<path fill-rule="evenodd"
+							d="M12 7a5 5 0 1 0 0 10a5 5 0 0 0 0-10m-3 5a3 3 0 1 0 6 0a3 3 0 0 0-6 0"
 							clip-rule="evenodd" />
 						<path d="M18 5a1 1 0 1 0 0 2a1 1 0 0 0 0-2" />
 						<path fill-rule="evenodd"
@@ -165,7 +180,8 @@
 
 			<a target="_blank" href="https://twitter.com/EagleEyeSpC"
 				class="cursor-pointer lg:py-0 py-5 hover:text-black hover:bg-golden-three transition-all duration-150 ease-in-out w-full h-full border-l border-golden-three grid place-items-center">
-				<svg class="drop-shadow-lg" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
+				<svg class="drop-shadow-lg" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+					viewBox="0 0 512 512">
 					<path fill="currentColor"
 						d="M389.2 48h70.6L305.6 224.2L487 464H345L233.7 318.6L106.5 464H35.8l164.9-188.5L26.8 48h145.6l100.5 132.9zm-24.8 373.8h39.1L151.1 88h-42z" />
 				</svg>
@@ -253,8 +269,8 @@ function toDash() {
 	++counter_login.value
 	if (counter_login.value >= 5) {
 		appStore().$patch(
-		 { if_loading: true, if_pass:true }
-		 )
+			{ if_loading: true, if_pass: true }
+		)
 		counter_login.value = 0
 	}
 }
@@ -294,30 +310,27 @@ const toggleContactMobile = () => {
 }
 
 function onNavClick(text?: string) {
-	setTimeout(() => {
-		if (!opened.value) {
-			gsap.to(window, { duration: 1, scrollTo: { y: 0 }, ease: 'power2.inOut' })
-		}
-		// toggleNav()
-	}, 300)
-
-	if (text == 'services') {
-		setTimeout(goToServices, 400)
-	} else if (text == 'news') {
-		setTimeout(goToNews, 400)
+	if (useNuxtApp()._route.path == '/') {
+		if (text == 'services') {
+			setTimeout(goToServices, 100)
+		} else if (text == 'news') {
+			setTimeout(goToNews, 100)
+		} else return
+	} else {
+		if (text == 'services') {
+			appStore().$patch({ serv_toggle: true })
+		} else if (text == 'news') {
+			appStore().$patch({ news_toggle: true })
+		} else return
 	}
 }
 
 function goToServices() {
-	gsap.to(window, { duration: 1, scrollTo: '.services', ease: 'power2.inOut' })
+	gsap.to(window, { duration: 1, scrollTo: '#serv', ease: 'power2.inOut' })
 }
 
 function goToNews() {
-	gsap.to(window, { duration: 1, scrollTo: '.news', ease: 'power2.inOut' })
-}
-
-function toScreenTop() {
-	window.scrollTo({ top: 0, behavior: 'smooth' });
+	gsap.to(window, { duration: 1, scrollTo: '#newz', ease: 'power2.inOut' })
 }
 
 onMounted(() => {

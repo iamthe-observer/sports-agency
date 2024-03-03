@@ -37,7 +37,13 @@ export default defineNuxtConfig({
   primevue: {
     /* Options */
   },
-  devtools: { enabled: false },
+  devtools: {
+    enabled: true,
+
+    timeline: {
+      enabled: true,
+    },
+  },
   css: ['~/main.css'],
   postcss: {
     plugins: {

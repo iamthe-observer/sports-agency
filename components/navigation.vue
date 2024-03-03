@@ -19,7 +19,8 @@
 	</div>
 
 	<!-- navigation content -->
-	<div id="nav-content" class="fixed w-screen h-screen bg-black border border-golden-three translate-x-full z-[10000]">
+	<div id="nav-content"
+		class="fixed w-screen h-screen bg-black border border-golden-three translate-x-full z-[10000]">
 
 		<div class="w-full h-full flex relative">
 
@@ -28,24 +29,28 @@
 
 				<!-- graphics -->
 				<section class="w-full">
-					<video src="/eagle.mp4" class="w-full h-full object-cover bg-black" playsinline autoplay loop muted></video>
+					<video src="/eagle.mp4" class="w-full h-full object-cover bg-black" playsinline autoplay loop
+						muted></video>
 				</section>
 
 				<!-- contact us -->
-				<section class="w-[1000px] border-l border-golden-three flex flex-col justify-center items-center group">
+				<section
+					class="w-[1000px] border-l border-golden-three flex flex-col justify-center items-center group">
 
 					<div class="px-10 h-full text-white flex flex-col gap-2 justify-center items-center">
 						<h1 class="text-white w-full text-[2rem] font-semibold">Contact Us</h1>
 						<p class="w-full text-xl">Send Us A Message</p>
 
 						<div class="w-full h-10 bg-neutral-900 border border-golden-three flex gap-[2px] p-[2px]">
-							<label for="Name" class="w-20 h-full flex justify-center items-center px-2 py-2 bg-golden-three"><span
+							<label for="Name"
+								class="w-20 h-full flex justify-center items-center px-2 py-2 bg-golden-three"><span
 									class="drop-shadow-xl font-bold tracking-wider">Name</span></label>
 							<input id="Name" type="text" class="w-full bg-transparent pl-5 focus:outline-none">
 						</div>
 
 						<div class="w-full h-10 bg-neutral-900 border border-golden-three flex gap-[2px] p-[2px]">
-							<label for="Email" class="w-20 h-full flex justify-center items-center px-2 py-2 bg-golden-three"><span
+							<label for="Email"
+								class="w-20 h-full flex justify-center items-center px-2 py-2 bg-golden-three"><span
 									class="drop-shadow-xl font-bold tracking-wider">Email</span></label>
 							<input id="Email" type="text" class="w-full bg-transparent pl-5 focus:outline-none">
 						</div>
@@ -82,7 +87,8 @@
 					<div
 						class="w-full h-24 border-b border-golden-three group-hover:bg-golden-three group-hover:bg-opacity-15 transition-all duration-150 ease-in-out">
 					</div>
-					<div class="flex flex-col h-full w-full pl-10 justify-center font-semibold text-[1.8rem] gap-5 group">
+					<div
+						class="flex flex-col h-full w-full pl-10 justify-center font-semibold text-[1.8rem] gap-5 group">
 						<NuxtLink @click="onNavClick()" to="/"
 							class="hover:text-golden-three linkz home border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">
 							HOME</NuxtLink>
@@ -108,8 +114,7 @@
 			</div>
 
 			<!-- close nav -->
-			<div
-				class="w-[100px] h-full grid place-items-center border-l border-golden-three absolute right-0 top-0 hover:bg-golden-three hover:bg-opacity-10 transition-all duration-500 ease-in-out "
+			<div class="w-[100px] h-full grid place-items-center border-l border-golden-three absolute right-0 top-0 hover:bg-golden-three hover:bg-opacity-10 transition-all duration-500 ease-in-out "
 				@click="toggleNav">
 				<div class="w-5 aspect-square flex flex-col justify-between relative -translate-x-2">
 					<div
@@ -160,28 +165,60 @@ onMounted(() => {
 
 })
 
+// function onNavClick(text?: string) {
+// 	setTimeout(() => {
+// 		if (!opened.value) {
+// 			gsap.to(window, { duration: 1, scrollTo: { y: 0 }, ease: 'power2.inOut' })
+// 		}
+// 		toggleNav()
+// 	}, 300)
+
+// 	if (text == 'services') {
+// 		setTimeout(goToServices, 400)
+// 	} else if (text == 'news') {
+// 		setTimeout(goToNews, 400)
+// 	}
+// }
+
+// function goToServices() {
+// 	gsap.to(window, { duration: 1, scrollTo: '.services', ease: 'power2.inOut' })
+// }
+
+// function goToNews() {
+// 	gsap.to(window, { duration: 1, scrollTo: '.news', ease: 'power2.inOut' })
+// }
+
 function onNavClick(text?: string) {
 	setTimeout(() => {
-		if (!opened.value) {
-			gsap.to(window, { duration: 1, scrollTo: { y: 0 }, ease: 'power2.inOut' })
-		}
+		// if (!opened.value) {
+		// 	gsap.to(window, { duration: 1, scrollTo: { y: 0 }, ease: 'power2.inOut' })
+		// }
 		toggleNav()
 	}, 300)
 
-	if (text == 'services') {
-		setTimeout(goToServices, 400)
-	} else if (text == 'news') {
-		setTimeout(goToNews, 400)
+	if (useNuxtApp()._route.path == '/') {
+		if (text == 'services') {
+			setTimeout(goToServices, 100)
+		} else if (text == 'news') {
+			setTimeout(goToNews, 100)
+		} else return
+	} else {
+		if (text == 'services') {
+			appStore().$patch({ serv_toggle: true })
+		} else if (text == 'news') {
+			appStore().$patch({ news_toggle: true })
+		} else return
 	}
 }
 
 function goToServices() {
-	gsap.to(window, { duration: 1, scrollTo: '.services', ease: 'power2.inOut' })
+	gsap.to(window, { duration: 1, scrollTo: '#serv', ease: 'power2.inOut' })
 }
 
 function goToNews() {
-	gsap.to(window, { duration: 1, scrollTo: '.news', ease: 'power2.inOut' })
+	gsap.to(window, { duration: 1, scrollTo: '#newz', ease: 'power2.inOut' })
 }
+
 
 const toggleNav = () => {
 	const nav_content = document.getElementById('nav-content')!;

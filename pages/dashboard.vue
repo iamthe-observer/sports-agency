@@ -4,7 +4,8 @@
 		<Teleport to="body">
 			<div role="alert" id="success"
 				class="alert alert-success rounded-none border-2 border-success fixed bottom-0 mb-4 w-[96%] translate-y-20 right-1/2 translate-x-1/2 z-[1000]">
-				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+					class="stroke-current shrink-0 w-6 h-6">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
 						d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
 				</svg>
@@ -12,7 +13,8 @@
 			</div>
 			<div role="alert" id="error"
 				class="alert alert-error rounded-none border-2 border-error fixed bottom-0 mb-4 w-[96%] translate-y-20 right-1/2 translate-x-1/2 z-[1000]">
-				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+					class="stroke-current shrink-0 w-6 h-6">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
 						d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
 				</svg>
@@ -36,21 +38,24 @@
 					<span v-if="!img_sending">Send</span>
 					<svg v-else xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
 						<circle cx="12" cy="3.5" r="1.5" fill="currentColor" opacity="0">
-							<animateTransform attributeName="transform" calcMode="discrete" dur="2.4s" repeatCount="indefinite"
-								type="rotate" values="0 12 12;90 12 12;180 12 12;270 12 12" />
-							<animate attributeName="opacity" dur="0.6s" keyTimes="0;0.5;1" repeatCount="indefinite" values="1;1;0" />
+							<animateTransform attributeName="transform" calcMode="discrete" dur="2.4s"
+								repeatCount="indefinite" type="rotate" values="0 12 12;90 12 12;180 12 12;270 12 12" />
+							<animate attributeName="opacity" dur="0.6s" keyTimes="0;0.5;1" repeatCount="indefinite"
+								values="1;1;0" />
 						</circle>
 						<circle cx="12" cy="3.5" r="1.5" fill="currentColor" opacity="0">
 							<animateTransform attributeName="transform" begin="0.2s" calcMode="discrete" dur="2.4s"
-								repeatCount="indefinite" type="rotate" values="30 12 12;120 12 12;210 12 12;300 12 12" />
-							<animate attributeName="opacity" begin="0.2s" dur="0.6s" keyTimes="0;0.5;1" repeatCount="indefinite"
-								values="1;1;0" />
+								repeatCount="indefinite" type="rotate"
+								values="30 12 12;120 12 12;210 12 12;300 12 12" />
+							<animate attributeName="opacity" begin="0.2s" dur="0.6s" keyTimes="0;0.5;1"
+								repeatCount="indefinite" values="1;1;0" />
 						</circle>
 						<circle cx="12" cy="3.5" r="1.5" fill="currentColor" opacity="0">
 							<animateTransform attributeName="transform" begin="0.4s" calcMode="discrete" dur="2.4s"
-								repeatCount="indefinite" type="rotate" values="60 12 12;150 12 12;240 12 12;330 12 12" />
-							<animate attributeName="opacity" begin="0.4s" dur="0.6s" keyTimes="0;0.5;1" repeatCount="indefinite"
-								values="1;1;0" />
+								repeatCount="indefinite" type="rotate"
+								values="60 12 12;150 12 12;240 12 12;330 12 12" />
+							<animate attributeName="opacity" begin="0.4s" dur="0.6s" keyTimes="0;0.5;1"
+								repeatCount="indefinite" values="1;1;0" />
 						</circle>
 					</svg>
 				</span>
@@ -60,21 +65,22 @@
 				<span class="">Dashboard</span>
 				<svg v-if="loading" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
 					<circle cx="12" cy="3.5" r="1.5" fill="currentColor" opacity="0">
-						<animateTransform attributeName="transform" calcMode="discrete" dur="2.4s" repeatCount="indefinite"
-							type="rotate" values="0 12 12;90 12 12;180 12 12;270 12 12" />
-						<animate attributeName="opacity" dur="0.6s" keyTimes="0;0.5;1" repeatCount="indefinite" values="1;1;0" />
+						<animateTransform attributeName="transform" calcMode="discrete" dur="2.4s"
+							repeatCount="indefinite" type="rotate" values="0 12 12;90 12 12;180 12 12;270 12 12" />
+						<animate attributeName="opacity" dur="0.6s" keyTimes="0;0.5;1" repeatCount="indefinite"
+							values="1;1;0" />
 					</circle>
 					<circle cx="12" cy="3.5" r="1.5" fill="currentColor" opacity="0">
 						<animateTransform attributeName="transform" begin="0.2s" calcMode="discrete" dur="2.4s"
 							repeatCount="indefinite" type="rotate" values="30 12 12;120 12 12;210 12 12;300 12 12" />
-						<animate attributeName="opacity" begin="0.2s" dur="0.6s" keyTimes="0;0.5;1" repeatCount="indefinite"
-							values="1;1;0" />
+						<animate attributeName="opacity" begin="0.2s" dur="0.6s" keyTimes="0;0.5;1"
+							repeatCount="indefinite" values="1;1;0" />
 					</circle>
 					<circle cx="12" cy="3.5" r="1.5" fill="currentColor" opacity="0">
 						<animateTransform attributeName="transform" begin="0.4s" calcMode="discrete" dur="2.4s"
 							repeatCount="indefinite" type="rotate" values="60 12 12;150 12 12;240 12 12;330 12 12" />
-						<animate attributeName="opacity" begin="0.4s" dur="0.6s" keyTimes="0;0.5;1" repeatCount="indefinite"
-							values="1;1;0" />
+						<animate attributeName="opacity" begin="0.4s" dur="0.6s" keyTimes="0;0.5;1"
+							repeatCount="indefinite" values="1;1;0" />
 					</circle>
 				</svg>
 
@@ -171,7 +177,8 @@
 								<div class="flex flex-col gap-10 py-2 border-t border-neutral-900 w-full">
 									<div class="flex gap-2 items-center w-full">
 										<label class="whitespace-nowrap">Video Src</label>
-										<DropDown v-model="info!.routes.home.vid_src" class="w-full" :names="file_names!" />
+										<DropDown v-model="info!.routes.home.vid_src" class="w-full"
+											:names="file_names!" />
 									</div>
 
 									<div class="flex gap-2 items-center w-full">
@@ -188,7 +195,8 @@
 
 									<div class="flex gap-2 items-center w-full">
 										<label class="whitespace-nowrap">Image Src</label>
-										<DropDown v-model="info!.routes.home.opening.src" class="w-full" :names="file_names!" />
+										<DropDown v-model="info!.routes.home.opening.src" class="w-full"
+											:names="file_names!" />
 									</div>
 								</div>
 
@@ -214,10 +222,12 @@
 
 								<!-- Services -->
 								<div class="flex flex-col gap-5 py-2 border-t border-neutral-900 w-full">
-									<h2 class="font-normal w-full text-center mt-10">Services [{{ home.services.right.serv.length }}]</h2>
+									<h2 class="font-normal w-full text-center mt-10">Services [{{
+					home.services.right.serv.length }}]</h2>
 									<div class="flex gap-2 items-center w-full">
 										<label class="whitespace-nowrap">Left Image</label>
-										<DropDown v-model="info!.routes.home.services.left.src" class="w-full" :names="file_names!" />
+										<DropDown v-model="info!.routes.home.services.left.src" class="w-full"
+											:names="file_names!" />
 									</div>
 
 									<p class="text-neutral-600">Add Services</p>
@@ -247,27 +257,34 @@
 
 									<Teleport to="body">
 										<dialog id="servq" class="modal">
-											<div class="modal-box w-3/5 max-w-5xl border border-golden-three bg-black rounded-none">
-												<MyOrderList :item="new_service" :items="info?.routes.home.services.right.serv"
+											<div
+												class="modal-box w-3/5 max-w-5xl border border-golden-three bg-black rounded-none">
+												<MyOrderList :item="new_service"
+													:items="info?.routes.home.services.right.serv"
 													:head="'Total Services'">
 													<template #item="{ item, idx, moveUp, moveDown }">
 
 														<dialog id="item2" class="modal">
 															<div
 																class="modal-box w-4/5 min-h-2/3 max-w-5xl bg-black rounded-none border border-golden-three flex flex-col gap-3">
-																<DropDown v-model="info!.routes.home.services.right.serv[serv_idx!].src" class="w-full"
-																	:names="file_names!" :title="'Src'" />
+																<DropDown
+																	v-model="info!.routes.home.services.right.serv[serv_idx!].src"
+																	class="w-full" :names="file_names!"
+																	:title="'Src'" />
 																<label
 																	class="input text-neutral-600 rounded-none border border-neutral-800 bg-neutral-900 flex items-center gap-2">
 																	Headline
-																	<input v-model="info!.routes.home.services.right.serv[serv_idx!].title" type="text"
-																		class="grow text-white" />
+																	<input
+																		v-model="info!.routes.home.services.right.serv[serv_idx!].title"
+																		type="text" class="grow text-white" />
 																</label>
-																<textarea v-model="info!.routes.home.services.right.serv[serv_idx!].content"
+																<textarea
+																	v-model="info!.routes.home.services.right.serv[serv_idx!].content"
 																	class="textarea rounded-none border border-neutral-800 bg-neutral-900 text-white"
 																	placeholder="Content"></textarea>
 															</div>
-															<form method="dialog" class="modal-backdrop bg-black bg-opacity-60">
+															<form method="dialog"
+																class="modal-backdrop backdrop-blur-md transition-all duration-500 ease-in-out bg-black bg-opacity-60">
 																<button>close</button>
 															</form>
 														</dialog>
@@ -277,33 +294,41 @@
 															<!-- remove -->
 															<!-- content -->
 															<div class="pl-2 flex items-center gap-2">
-																<div @dblclick="removeService(idx)" class="group cursor-pointer">
-																	<svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 group-hover:text-red-500"
+																<div @dblclick="removeService(idx)"
+																	class="group cursor-pointer">
+																	<svg xmlns="http://www.w3.org/2000/svg"
+																		class="w-7 h-7 group-hover:text-red-500"
 																		viewBox="0 0 24 24">
 																		<path fill="currentColor"
 																			d="M5 21V6H4V4h5V3h6v1h5v2h-1v15zm2-2h10V6H7zm2-2h2V8H9zm4 0h2V8h-2zM7 6v13z" />
 																	</svg>
 																</div>
 																<div class="w-[100px] h-[70px]">
-																	<img :src="`${$link}${item.src}`" alt="Service image"
+																	<img :src="`${$link}${item.src}`"
+																		alt="Service image"
 																		class="w-full h-full object-cover" />
 																</div>
 																<h3 class="cursor-pointer truncate w-[10rem] h-full lg:w-[30rem]"
-																	onclick="item2.showModal()" @click="serv_idx = idx">{{ item.title }}</h3>
+																	onclick="item2.showModal()" @click="serv_idx = idx">
+																	{{ item.title }}</h3>
 															</div>
 															<!-- actions -->
 															<div class="w-14 flex items-center justify-center">
-																<button class="group" v-if="idx > 0" @click="moveUp(idx)">
+																<button class="group" v-if="idx > 0"
+																	@click="moveUp(idx)">
 																	<svg xmlns="http://www.w3.org/2000/svg"
-																		class="w-6 h-6 group-hover:text-golden-three rotate-90" viewBox="0 0 24 24">
+																		class="w-6 h-6 group-hover:text-golden-three rotate-90"
+																		viewBox="0 0 24 24">
 																		<path fill="currentColor"
 																			d="M13 19L2 12l11-7v6h9v2h-9zm-2-3.65v-6.7L5.725 12zM11 12" />
 																	</svg>
 																</button>
-																<button class="group" v-if="idx < info!.routes.home.services.right.serv!.length - 1"
+																<button class="group"
+																	v-if="idx < info!.routes.home.services.right.serv!.length - 1"
 																	@click="moveDown(idx)">
 																	<svg xmlns="http://www.w3.org/2000/svg"
-																		class="w-6 h-6 group-hover:text-golden-three -rotate-90" viewBox="0 0 24 24">
+																		class="w-6 h-6 group-hover:text-golden-three -rotate-90"
+																		viewBox="0 0 24 24">
 																		<path fill="currentColor"
 																			d="M13 19L2 12l11-7v6h9v2h-9zm-2-3.65v-6.7L5.725 12zM11 12" />
 																	</svg>
@@ -313,7 +338,8 @@
 													</template>
 												</MyOrderList>
 											</div>
-											<form method="dialog" class="modal-backdrop">
+											<form method="dialog"
+												class="modal-backdrop backdrop-blur-md transition-all duration-500 ease-in-out">
 												<button>close</button>
 											</form>
 										</dialog>
@@ -358,33 +384,41 @@
 
 									<Teleport to="body">
 										<dialog id="newsq" class="modal">
-											<div class="modal-box w-3/5 max-w-5xl border border-golden-three bg-black rounded-none">
-												<MyOrderList :item="new_news" :items="sortByDateDesc(info!.routes.home.news)"
+											<div
+												class="modal-box w-3/5 max-w-5xl border border-golden-three bg-black rounded-none">
+												<MyOrderList :item="new_news"
+													:items="sortByDateDesc(info!.routes.home.news)"
 													:head="'Total News'">
 
 													<template #item="{ item, idx }">
 														<dialog id="item1" class="modal">
 															<div
 																class="modal-box w-4/5 min-h-2/3 max-w-5xl bg-black rounded-none border border-golden-three flex flex-col gap-3">
-																<DropDown v-model="sortByDateDesc(info!.routes.home.news)[news_idx!].src" class="w-full"
-																	:names="file_names!" :title="'Src'" />
+																<DropDown
+																	v-model="sortByDateDesc(info!.routes.home.news)[news_idx!].src"
+																	class="w-full" :names="file_names!"
+																	:title="'Src'" />
 																<label
 																	class="input text-neutral-600 rounded-none border border-neutral-800 bg-neutral-900 flex items-center gap-2">
 																	Headline
-																	<input v-model="sortByDateDesc(info!.routes.home.news)[news_idx!].headline"
+																	<input
+																		v-model="sortByDateDesc(info!.routes.home.news)[news_idx!].headline"
 																		type="text" class="grow text-white" />
 																</label>
-																<textarea v-model="sortByDateDesc(info!.routes.home.news)[news_idx!].content"
+																<textarea
+																	v-model="sortByDateDesc(info!.routes.home.news)[news_idx!].content"
 																	class="textarea rounded-none border border-neutral-800 bg-neutral-900 text-white"
 																	placeholder="Content"></textarea>
 																<label
 																	class="input text-neutral-600 rounded-none border border-neutral-800 bg-neutral-900 flex items-center gap-2">
 																	Date
-																	<input v-model="sortByDateDesc(info!.routes.home.news)[news_idx!].date" type="text"
-																		class="grow text-white" />
+																	<input
+																		v-model="sortByDateDesc(info!.routes.home.news)[news_idx!].date"
+																		type="text" class="grow text-white" />
 																</label>
 															</div>
-															<form method="dialog" class="modal-backdrop bg-black bg-opacity-60">
+															<form method="dialog"
+																class="modal-backdrop backdrop-blur-md transition-all duration-500 ease-in-out bg-black bg-opacity-60">
 																<button>close</button>
 															</form>
 														</dialog>
@@ -393,28 +427,34 @@
 															<!-- content -->
 															<div class="pl-2 flex items-center gap-2">
 																<!-- remove -->
-																<div @dblclick="removeNews(idx, item.headline)" class="group cursor-pointer">
-																	<svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 group-hover:text-red-500"
+																<div @dblclick="removeNews(idx, item.headline)"
+																	class="group cursor-pointer">
+																	<svg xmlns="http://www.w3.org/2000/svg"
+																		class="w-7 h-7 group-hover:text-red-500"
 																		viewBox="0 0 24 24">
 																		<path fill="currentColor"
 																			d="M5 21V6H4V4h5V3h6v1h5v2h-1v15zm2-2h10V6H7zm2-2h2V8H9zm4 0h2V8h-2zM7 6v13z" />
 																	</svg>
 																</div>
 																<div class="w-[100px] h-[70px]">
-																	<img :src="`${$link}${item.src}`" alt="Service image"
+																	<img :src="`${$link}${item.src}`"
+																		alt="Service image"
 																		class="w-full h-full object-cover" />
 																</div>
 																<h3 onclick="item1.showModal()" @click="news_idx = idx"
-																	class="cursor-pointer truncate w-[10rem] h-full lg:w-[30rem]">{{
-																	item.headline }}
+																	class="cursor-pointer truncate w-[10rem] h-full lg:w-[30rem]">
+																	{{
+					item.headline }}
 																</h3>
 															</div>
-															<span class="pr-8 text-neutral-700 text-sm">{{ item.date }}</span>
+															<span class="pr-8 text-neutral-700 text-sm">{{ item.date
+																}}</span>
 														</li>
 													</template>
 												</MyOrderList>
 											</div>
-											<form method="dialog" class="modal-backdrop">
+											<form method="dialog"
+												class="modal-backdrop backdrop-blur-md transition-all duration-500 ease-in-out">
 												<button>close</button>
 											</form>
 										</dialog>
@@ -440,7 +480,8 @@
 								<div class="flex flex-col gap-10  py-2 border-t border-neutral-900 w-full">
 									<div class="flex gap-2 items-center w-full">
 										<label class="whitespace-nowrap">Page Src</label>
-										<DropDown v-model="info!.routes.about._src" class="w-full" :names="file_names!" />
+										<DropDown v-model="info!.routes.about._src" class="w-full"
+											:names="file_names!" />
 									</div>
 
 									<div class="flex gap-2 items-center w-full">
@@ -457,7 +498,8 @@
 
 									<div class="flex gap-2 items-center w-full">
 										<label class="whitespace-nowrap">Image Src</label>
-										<DropDown v-model="info!.routes.about.img_src" class="w-full" :names="file_names!" />
+										<DropDown v-model="info!.routes.about.img_src" class="w-full"
+											:names="file_names!" />
 									</div>
 								</div>
 
@@ -508,7 +550,8 @@
 
 							<!-- Team -->
 							<div class="flex flex-col gap-5 py-2 border-t border-neutral-900 w-full">
-								<h2 class="font-normal w-full text-center mt-10">Team [{{ about.team_src!.length }}]</h2>
+								<h2 class="font-normal w-full text-center mt-10">Team [{{ about.team_src!.length }}]
+								</h2>
 								<p class="text-neutral-600">Add Team Members</p>
 
 								<div class="flex flex-col gap-2">
@@ -536,26 +579,32 @@
 
 								<Teleport to="body">
 									<dialog id="teamq" class="modal">
-										<div class="modal-box w-3/5 max-w-5xl border border-golden-three bg-black rounded-none">
-											<MyOrderList :item="new_team" :items="info?.routes.about.team_src!" :head="'Total Team Members'">
+										<div
+											class="modal-box w-3/5 max-w-5xl border border-golden-three bg-black rounded-none">
+											<MyOrderList :item="new_team" :items="info?.routes.about.team_src!"
+												:head="'Total Team Members'">
 												<template #item="{ item, idx, moveUp, moveDown }">
 
 													<dialog id="item3" class="modal">
 														<div
 															class="modal-box w-4/5 max-w-5xl bg-black rounded-none border border-golden-three flex flex-col gap-3">
-															<DropDown v-model="info!.routes.about.team_src![team_idx!].src" class="w-full"
-																:names="file_names!" :title="'Src'" />
+															<DropDown
+																v-model="info!.routes.about.team_src![team_idx!].src"
+																class="w-full" :names="file_names!" :title="'Src'" />
 															<label
 																class="input text-neutral-600 rounded-none border border-neutral-800 bg-neutral-900 flex items-center gap-2">
 																Headline
-																<input v-model="info!.routes.about.team_src![team_idx!].name" type="text"
-																	class="grow text-white" />
+																<input
+																	v-model="info!.routes.about.team_src![team_idx!].name"
+																	type="text" class="grow text-white" />
 															</label>
-															<textarea v-model="info!.routes.about.team_src![team_idx!].pos"
+															<textarea
+																v-model="info!.routes.about.team_src![team_idx!].pos"
 																class="textarea rounded-none border border-neutral-800 bg-neutral-900 text-white"
 																placeholder="Content"></textarea>
 														</div>
-														<form method="dialog" class="modal-backdrop bg-black bg-opacity-60">
+														<form method="dialog"
+															class="modal-backdrop backdrop-blur-md transition-all duration-500 ease-in-out bg-black bg-opacity-60">
 															<button>close</button>
 														</form>
 													</dialog>
@@ -565,8 +614,10 @@
 														<!-- remove -->
 														<!-- content -->
 														<div class="pl-2 flex items-center gap-2">
-															<div @dblclick="removeTeam(idx)" class="group cursor-pointer">
-																<svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 group-hover:text-red-500"
+															<div @dblclick="removeTeam(idx)"
+																class="group cursor-pointer">
+																<svg xmlns="http://www.w3.org/2000/svg"
+																	class="w-7 h-7 group-hover:text-red-500"
 																	viewBox="0 0 24 24">
 																	<path fill="currentColor"
 																		d="M5 21V6H4V4h5V3h6v1h5v2h-1v15zm2-2h10V6H7zm2-2h2V8H9zm4 0h2V8h-2zM7 6v13z" />
@@ -577,21 +628,25 @@
 																	class="w-full h-full object-cover" />
 															</div>
 															<h3 class="cursor-pointer truncate w-[10rem] h-full lg:w-[30rem]"
-																onclick="item3.showModal()" @click="team_idx = idx">{{ item.name }}</h3>
+																onclick="item3.showModal()" @click="team_idx = idx">{{
+					item.name }}</h3>
 														</div>
 														<!-- actions -->
 														<div class="w-14 flex items-center justify-center">
 															<button class="group" v-if="idx > 0" @click="moveUp(idx)">
 																<svg xmlns="http://www.w3.org/2000/svg"
-																	class="w-6 h-6 group-hover:text-golden-three rotate-90" viewBox="0 0 24 24">
+																	class="w-6 h-6 group-hover:text-golden-three rotate-90"
+																	viewBox="0 0 24 24">
 																	<path fill="currentColor"
 																		d="M13 19L2 12l11-7v6h9v2h-9zm-2-3.65v-6.7L5.725 12zM11 12" />
 																</svg>
 															</button>
-															<button class="group" v-if="idx < info!.routes.about.team_src!.length - 1"
+															<button class="group"
+																v-if="idx < info!.routes.about.team_src!.length - 1"
 																@click="moveDown(idx)">
 																<svg xmlns="http://www.w3.org/2000/svg"
-																	class="w-6 h-6 group-hover:text-golden-three -rotate-90" viewBox="0 0 24 24">
+																	class="w-6 h-6 group-hover:text-golden-three -rotate-90"
+																	viewBox="0 0 24 24">
 																	<path fill="currentColor"
 																		d="M13 19L2 12l11-7v6h9v2h-9zm-2-3.65v-6.7L5.725 12zM11 12" />
 																</svg>
@@ -601,7 +656,8 @@
 												</template>
 											</MyOrderList>
 										</div>
-										<form method="dialog" class="modal-backdrop">
+										<form method="dialog"
+											class="modal-backdrop backdrop-blur-md transition-all duration-500 ease-in-out">
 											<button>close</button>
 										</form>
 									</dialog>
@@ -626,7 +682,8 @@
 							<div class="flex flex-col gap-10  py-2 border-t border-neutral-900 w-full">
 								<div class="flex gap-2 items-center w-full">
 									<label class="whitespace-nowrap">Page Src</label>
-									<DropDown v-model="info!.routes.athletes._src" class="w-full" :names="file_names!" />
+									<DropDown v-model="info!.routes.athletes._src" class="w-full"
+										:names="file_names!" />
 								</div>
 
 								<div class="flex gap-2 items-center w-full">
@@ -644,7 +701,8 @@
 
 							<!-- Players -->
 							<div class="flex flex-col gap-5 py-2 border-t border-neutral-900 w-full">
-								<h2 class="font-normal w-full text-center mt-10">Players [{{ athletes.athl_src!.length }}]</h2>
+								<h2 class="font-normal w-full text-center mt-10">Players [{{ athletes.athl_src!.length
+									}}]</h2>
 								<p class="text-neutral-600">Add Players</p>
 
 								<div class="flex flex-col gap-2">
@@ -667,23 +725,28 @@
 
 								<Teleport to="body">
 									<dialog id="plyrq" class="modal">
-										<div class="modal-box w-3/5 max-w-5xl border border-golden-three bg-black rounded-none">
-											<MyOrderList :item="new_player" :items="info?.routes.athletes.athl_src!" :head="'Total Players'">
+										<div
+											class="modal-box w-3/5 max-w-5xl border border-golden-three bg-black rounded-none">
+											<MyOrderList :item="new_player" :items="info?.routes.athletes.athl_src!"
+												:head="'Total Players'">
 												<template #item="{ item, idx, moveUp, moveDown }">
 
 													<dialog id="item4" class="modal">
 														<div
 															class="modal-box w-4/5 max-w-5xl bg-black rounded-none border border-golden-three flex flex-col gap-3">
-															<DropDown v-model="info!.routes.athletes.athl_src![player_idx!].src" class="w-full"
-																:names="file_names!" :title="'Src'" />
+															<DropDown
+																v-model="info!.routes.athletes.athl_src![player_idx!].src"
+																class="w-full" :names="file_names!" :title="'Src'" />
 															<label
 																class="input text-neutral-600 rounded-none border border-neutral-800 bg-neutral-900 flex items-center gap-2">
 																Name
-																<input v-model="info!.routes.athletes.athl_src![player_idx!].name" type="text"
-																	class="grow text-white" />
+																<input
+																	v-model="info!.routes.athletes.athl_src![player_idx!].name"
+																	type="text" class="grow text-white" />
 															</label>
 														</div>
-														<form method="dialog" class="modal-backdrop bg-black bg-opacity-60">
+														<form method="dialog"
+															class="modal-backdrop backdrop-blur-md transition-all duration-500 ease-in-out bg-black bg-opacity-60">
 															<button>close</button>
 														</form>
 													</dialog>
@@ -693,8 +756,10 @@
 														<!-- remove -->
 														<!-- content -->
 														<div class="pl-2 flex items-center gap-2">
-															<div @dblclick="removePlayer(idx)" class="group cursor-pointer">
-																<svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 group-hover:text-red-500"
+															<div @dblclick="removePlayer(idx)"
+																class="group cursor-pointer">
+																<svg xmlns="http://www.w3.org/2000/svg"
+																	class="w-7 h-7 group-hover:text-red-500"
 																	viewBox="0 0 24 24">
 																	<path fill="currentColor"
 																		d="M5 21V6H4V4h5V3h6v1h5v2h-1v15zm2-2h10V6H7zm2-2h2V8H9zm4 0h2V8h-2zM7 6v13z" />
@@ -705,21 +770,25 @@
 																	class="w-full h-full object-cover" />
 															</div>
 															<h3 class="cursor-pointer truncate w-[10rem] h-full lg:w-[30rem]"
-																onclick="item4.showModal()" @click="player_idx = idx">{{ item.name }}</h3>
+																onclick="item4.showModal()" @click="player_idx = idx">{{
+					item.name }}</h3>
 														</div>
 														<!-- actions -->
 														<div class="w-14 flex items-center justify-center">
 															<button class="group" v-if="idx > 0" @click="moveUp(idx)">
 																<svg xmlns="http://www.w3.org/2000/svg"
-																	class="w-6 h-6 group-hover:text-golden-three rotate-90" viewBox="0 0 24 24">
+																	class="w-6 h-6 group-hover:text-golden-three rotate-90"
+																	viewBox="0 0 24 24">
 																	<path fill="currentColor"
 																		d="M13 19L2 12l11-7v6h9v2h-9zm-2-3.65v-6.7L5.725 12zM11 12" />
 																</svg>
 															</button>
-															<button class="group" v-if="idx < info!.routes.athletes.athl_src!.length - 1"
+															<button class="group"
+																v-if="idx < info!.routes.athletes.athl_src!.length - 1"
 																@click="moveDown(idx)">
 																<svg xmlns="http://www.w3.org/2000/svg"
-																	class="w-6 h-6 group-hover:text-golden-three -rotate-90" viewBox="0 0 24 24">
+																	class="w-6 h-6 group-hover:text-golden-three -rotate-90"
+																	viewBox="0 0 24 24">
 																	<path fill="currentColor"
 																		d="M13 19L2 12l11-7v6h9v2h-9zm-2-3.65v-6.7L5.725 12zM11 12" />
 																</svg>
@@ -729,7 +798,8 @@
 												</template>
 											</MyOrderList>
 										</div>
-										<form method="dialog" class="modal-backdrop">
+										<form method="dialog"
+											class="modal-backdrop backdrop-blur-md transition-all duration-500 ease-in-out">
 											<button>close</button>
 										</form>
 									</dialog>
@@ -749,7 +819,7 @@
 			<h1 class="w-full mb-4 text-white font-bold text-4xl flex items-center">Messages <span
 					class="ml-6 text-golden-three">[{{
 					messages.length
-					}}]</span></h1>
+				}}]</span></h1>
 
 			<div class="overflow-x-auto outline outline-1 outline-golden-three">
 				<table class="table">
@@ -766,7 +836,8 @@
 					<tbody>
 
 						<tr v-for="(msg, i) in messages" @click="curr_msg = msg" :key="i" :data-data="msg"
-							onclick="my_modal_2.showModal()" class="hover hover:text-white cursor-pointer itemx relative">
+							onclick="my_modal_2.showModal()"
+							class="hover hover:text-white cursor-pointer itemx relative">
 							<th>{{ i + 1 }}</th>
 							<td class="whitespace-nowrap">{{ msg.name }}</td>
 							<td>{{ msg.email }}</td>
@@ -780,14 +851,17 @@
 					<div class="modal-box bg-black rounded-none border text-white border-golden-three">
 						<h3 class="font-semibold text-lg flex justify-between items-center">
 							<span class="">{{ curr_msg!.name ? curr_msg!.name : 'No Name' }}</span>
-							<span class="">{{ curr_msg!.created_at ? formatDate(new Date(curr_msg!.created_at)) : 'No Date' }}</span>
+							<span class="">
+								{{ curr_msg!.created_at ? formatDate(new Date(curr_msg!.created_at)) : "No Date" }}
+							</span>
 						</h3>
 						<h4 class="font-semibold w-full border-b border-neutral-900 pb-2">
 							{{ curr_msg!.email ? curr_msg!.email : 'No Email' }}
 						</h4>
 						<p class="py-4">{{ curr_msg!.msg ? curr_msg!.msg : 'No Message' }}</p>
 					</div>
-					<form method="dialog" class="modal-backdrop">
+					<form method="dialog"
+						class="modal-backdrop backdrop-blur-md transition-all duration-500 ease-in-out">
 						<button>close</button>
 					</form>
 				</dialog>

@@ -4,7 +4,8 @@
 			<!-- background graphics -->
 			<div class="h-screen w-full opacity-90">
 				<video playsinline autoplay loop muted key="video" id="avatarVideo"
-					:src="home?.vid_src ? `${$link}${home?.vid_src}` : ''" class="object-cover w-full h-full bg-black image">
+					:src="home?.vid_src ? `${$link}${home?.vid_src}` : ''"
+					class="object-cover w-full h-full bg-black image">
 				</video>
 				<!-- <video playsinline autoplay loop muted key="video" id="avatarVideo" src="/vid1.mp4"
 					class="object-cover w-full h-full bg-black image">
@@ -26,9 +27,10 @@
 						<span class="block whitespace-nowrap">Sports Consults</span> -->
 						<span class="">{{ home?.title }}</span>
 					</p>
-					<p class="tracking-wide text-[4vw] lg:text-2xl text-white droping italic font-Satisfy whitespace-nowrap">
+					<p
+						class="tracking-wide text-[4vw] lg:text-2xl text-white droping italic font-Satisfy whitespace-nowrap">
 						{{
-							home?.slogan }}</p>
+			home?.slogan }}</p>
 				</div>
 
 				<div class="w-full flex justify-end gap-5">
@@ -46,11 +48,13 @@
 		<!-- mission statement -->
 		<div ref="target"
 			class="text-white w-full flex flex-col lg:px-10 px-4 lg:pt-40 pt-32 lg:border-l border-golden-three pb-36">
-			<h1 v-motion-slide-visible-once-bottom class="the-container text-center w-full font-bold font-Outfit text-2xl mb-6">
+			<h1 v-motion-slide-visible-once-bottom
+				class="the-container text-center w-full font-bold font-Outfit text-2xl mb-6">
 				Welcome to
 				<span class="text-golden-three">EagleEye</span>,
 			</h1>
-			<p v-motion-slide-visible-once-bottom class="lg:text-[25px] text-[4vw] text-center w-full lg:w-[90%] mx-auto">
+			<p v-motion-slide-visible-once-bottom
+				class="lg:text-[25px] text-[4vw] text-center w-full lg:w-[90%] mx-auto">
 				{{ home?.opening.opener }}
 			</p>
 
@@ -61,7 +65,8 @@
 						class="w-full h-full absolute top-0 left-0 overflow-hidden translate-x-4 translate-y-4 border border-golden-three perspectiv">
 						<img :style="layer3" :src="home?.opening.src ? `${$link}${home?.opening.src}` : ''" alt=""
 							class="object-cover w-full h-full" />
-						<div class="absolute bg-black opacity-40 translate-x- translate-y- top-0 left-0 w-full h-full"></div>
+						<div class="absolute bg-black opacity-40 translate-x- translate-y- top-0 left-0 w-full h-full">
+						</div>
 					</div>
 				</div>
 
@@ -80,8 +85,8 @@
 		<!-- services -->
 		<Services />
 
-		<div
-			class="border-golden-three bg-golden-three bg-opacity-5 border-t w-full min-h-[600px] flex flex-col lg:border-l gap-5 text-black relative justify-center items-center py-20 overflow-hidden news">
+		<div class="border-golden-three bg-golden-three bg-opacity-5 border-t w-full min-h-[600px] flex flex-col lg:border-l gap-5 text-black relative justify-center items-center py-20 overflow-hidden"
+			id="newz">
 			<NewsCarousel :news="data?.routes.home.news" />
 		</div>
 
@@ -99,7 +104,8 @@ const target = ref()
 const parallax = reactive(useParallax(target))
 const if_sm = inject('if_sm', true)
 
-const { data } = storeToRefs(appStore())
+const { data, news_toggle, serv_toggle } = storeToRefs(appStore())
+const { $gsap: gsap } = useNuxtApp()
 const home = computed(() => data.value?.routes.home)
 
 const layer3 = computed<CSSProperties>(() => ({
@@ -109,20 +115,39 @@ const layer3 = computed<CSSProperties>(() => ({
 	transition: 'all .7s ease-out',
 }))
 
+function goToServices() {
+	gsap.to(window, {
+		duration: 1, scrollTo: '#serv', ease: 'power2.inOut', onComplete: () => {
+			appStore().$patch({ serv_toggle: false })
+		}
+	})
+}
+
+function goToNews() {
+	gsap.to(window, {
+		duration: 1, scrollTo: '#newz', ease: 'power2.inOut', onComplete: () => {
+			appStore().$patch({ news_toggle: false })
+		}
+	})
+}
+function toScreenTop() {
+	window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
 onMounted(() => {
+	toScreenTop()
+
+	setTimeout(() => {
+		if (news_toggle.value) {
+			goToNews()
+		}
+		if (serv_toggle.value) {
+			goToServices()
+		}
+	}, 2000);
+
 	useTitle('EagleEye Sports Consults | Home')
 
-	let card_container = document.querySelectorAll('.card-container')
-	card_container.forEach((card) => {
-		card.addEventListener('mouseenter', () => {
-			// @ts-ignore
-			card.firstChild!.classList.add('flipped')
-		})
-		card.addEventListener('mouseleave', () => {
-			// @ts-ignore
-			card.firstChild!.classList.remove('flipped')
-		})
-	})
 })
 
 </script>
