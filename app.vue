@@ -35,7 +35,7 @@ async function getAppData() {
 			.order('created_at', { ascending: false }) // Descending order
 			.limit(1)
 		if (error) throw error
-		console.log(dataz[0]);
+		console.log(`data loaded`);
 		// @ts-ignore
 		appStore().$patch({ data: dataz[0].data })
 	} catch (error) {
