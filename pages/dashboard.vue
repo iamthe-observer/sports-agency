@@ -259,35 +259,38 @@
 										<dialog id="servq" class="modal">
 											<div
 												class="modal-box w-3/5 max-w-5xl border border-golden-three bg-black rounded-none">
-												<MyOrderList :item="new_service"
+
+												<div v-if="editMode" class="flex flex-col gap-3 relative">
+													<div class="fixed animate-pulse top-2 right-2 w-8 aspect-square z-[1000] grid place-items-center text-white"
+														@click="editMode = false">
+														<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+															viewBox="0 0 24 24">
+															<path fill="currentColor"
+																d="M6.4 19L5 17.6l5.6-5.6L5 6.4L6.4 5l5.6 5.6L17.6 5L19 6.4L13.4 12l5.6 5.6l-1.4 1.4l-5.6-5.6z" />
+														</svg>
+													</div>
+
+													<DropDown
+														v-model="info!.routes.home.services.right.serv[serv_idx!].src"
+														class="w-full" :names="file_names!" :title="'Src'" />
+													<label
+														class="input text-neutral-600 rounded-none border border-neutral-800 bg-neutral-900 flex items-center gap-2">
+														Headline
+														<input
+															v-model="info!.routes.home.services.right.serv[serv_idx!].title"
+															type="text" class="grow text-white" />
+													</label>
+													<textarea
+														v-model="info!.routes.home.services.right.serv[serv_idx!].content"
+														class="textarea rounded-none border border-neutral-800 bg-neutral-900 text-white"
+														placeholder="Content"></textarea>
+												</div>
+
+												<MyOrderList v-else :item="new_service"
 													:items="info?.routes.home.services.right.serv"
 													:head="'Total Services'">
 													<template #item="{ item, idx, moveUp, moveDown }">
 
-														<dialog id="item2" class="modal">
-															<div
-																class="modal-box w-4/5 min-h-2/3 max-w-5xl bg-black rounded-none border border-golden-three flex flex-col gap-3">
-																<DropDown
-																	v-model="info!.routes.home.services.right.serv[serv_idx!].src"
-																	class="w-full" :names="file_names!"
-																	:title="'Src'" />
-																<label
-																	class="input text-neutral-600 rounded-none border border-neutral-800 bg-neutral-900 flex items-center gap-2">
-																	Headline
-																	<input
-																		v-model="info!.routes.home.services.right.serv[serv_idx!].title"
-																		type="text" class="grow text-white" />
-																</label>
-																<textarea
-																	v-model="info!.routes.home.services.right.serv[serv_idx!].content"
-																	class="textarea rounded-none border border-neutral-800 bg-neutral-900 text-white"
-																	placeholder="Content"></textarea>
-															</div>
-															<form method="dialog"
-																class="modal-backdrop backdrop-blur-md transition-all duration-500 ease-in-out bg-black bg-opacity-60">
-																<button>close</button>
-															</form>
-														</dialog>
 
 														<li @click="selected_service = item"
 															class='flex w-full mb-1 bg-neutral-900 items-center justify-between'>
@@ -309,7 +312,7 @@
 																		class="w-full h-full object-cover" />
 																</div>
 																<h3 class="cursor-pointer truncate w-[10rem] h-full lg:w-[30rem]"
-																	onclick="item2.showModal()" @click="serv_idx = idx">
+																	@click="serv_idx = idx, editMode = true">
 																	{{ item.title }}</h3>
 															</div>
 															<!-- actions -->
@@ -339,7 +342,8 @@
 												</MyOrderList>
 											</div>
 											<form method="dialog"
-												class="modal-backdrop backdrop-blur-md transition-all duration-500 ease-in-out">
+												class="modal-backdrop backdrop-blur-md transition-all duration-500 ease-in-out"
+												@click="editMode = false">
 												<button>close</button>
 											</form>
 										</dialog>
@@ -369,10 +373,12 @@
 											<textarea v-model="new_news.content" type="text" name="" id=""
 												class="w-full bg-neutral-900 text-white p-2 tracking-wide max-h-[200px]" />
 										</div>
-										<div class="flex gap-2 items-center w-full">
+										<div class="flex gap-2 items-center w-full px-10">
 											<label class="whitespace-nowrap">Date</label>
-											<input v-model="new_news.date" type="text" name="" id=""
-												class="w-full bg-neutral-900 text-white p-2 tracking-wide">
+											<!-- <input v-model="new_news.date" type="text" name="" id=""
+												class="w-full bg-neutral-900 text-white p-2 tracking-wide"> -->
+											<VDatePicker expanded borderless isDark :color="'yellow'" transparent
+												v-model="new_news.date" mode="date" class="my-calendar" />
 										</div>
 									</div>
 
@@ -386,42 +392,41 @@
 										<dialog id="newsq" class="modal">
 											<div
 												class="modal-box w-3/5 max-w-5xl border border-golden-three bg-black rounded-none">
-												<MyOrderList :item="new_news"
+
+												<div v-if="editMode" class="relative flex flex-col gap-3">
+													<div class="fixed animate-pulse top-2 right-2 w-8 aspect-square z-[1000] grid place-items-center text-white"
+														@click="setSelected">
+														<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+															viewBox="0 0 24 24">
+															<path fill="currentColor"
+																d="M6.4 19L5 17.6l5.6-5.6L5 6.4L6.4 5l5.6 5.6L17.6 5L19 6.4L13.4 12l5.6 5.6l-1.4 1.4l-5.6-5.6z" />
+														</svg>
+													</div>
+
+													<DropDown v-model="selected_news.src" class="w-full"
+														:names="file_names!" :title="'Src'" />
+													<label
+														class="input text-neutral-600 rounded-none border border-neutral-800 bg-neutral-900 flex items-center gap-2">
+														Headline
+														<input v-model="selected_news.headline" type="text"
+															class="grow text-white" />
+													</label>
+													<textarea v-model="selected_news.content"
+														class="textarea rounded-none border border-neutral-800 bg-neutral-900 text-white"
+														placeholder="Content"></textarea>
+													<label
+														class="input text-neutral-600 rounded-none border border-neutral-800 bg-neutral-900 flex items-center gap-2">
+														Date
+														<input v-model="selected_news.date" type="text"
+															class="grow text-white" />
+													</label>
+												</div>
+
+												<MyOrderList v-else :item="new_news"
 													:items="sortByDateDesc(info!.routes.home.news)"
 													:head="'Total News'">
 
 													<template #item="{ item, idx }">
-														<dialog id="item1" class="modal">
-															<div
-																class="modal-box w-4/5 min-h-2/3 max-w-5xl bg-black rounded-none border border-golden-three flex flex-col gap-3">
-																<DropDown
-																	v-model="sortByDateDesc(info!.routes.home.news)[news_idx!].src"
-																	class="w-full" :names="file_names!"
-																	:title="'Src'" />
-																<label
-																	class="input text-neutral-600 rounded-none border border-neutral-800 bg-neutral-900 flex items-center gap-2">
-																	Headline
-																	<input
-																		v-model="sortByDateDesc(info!.routes.home.news)[news_idx!].headline"
-																		type="text" class="grow text-white" />
-																</label>
-																<textarea
-																	v-model="sortByDateDesc(info!.routes.home.news)[news_idx!].content"
-																	class="textarea rounded-none border border-neutral-800 bg-neutral-900 text-white"
-																	placeholder="Content"></textarea>
-																<label
-																	class="input text-neutral-600 rounded-none border border-neutral-800 bg-neutral-900 flex items-center gap-2">
-																	Date
-																	<input
-																		v-model="sortByDateDesc(info!.routes.home.news)[news_idx!].date"
-																		type="text" class="grow text-white" />
-																</label>
-															</div>
-															<form method="dialog"
-																class="modal-backdrop backdrop-blur-md transition-all duration-500 ease-in-out bg-black bg-opacity-60">
-																<button>close</button>
-															</form>
-														</dialog>
 														<li @click="selected_news = item"
 															class='flex w-full mb-1 bg-neutral-900 items-center justify-between'>
 															<!-- content -->
@@ -441,7 +446,7 @@
 																		alt="Service image"
 																		class="w-full h-full object-cover" />
 																</div>
-																<h3 onclick="item1.showModal()" @click="news_idx = idx"
+																<h3 @click="news_idx = idx, editMode = true"
 																	class="cursor-pointer truncate w-[10rem] h-full lg:w-[30rem]">
 																	{{
 					item.headline }}
@@ -454,7 +459,8 @@
 												</MyOrderList>
 											</div>
 											<form method="dialog"
-												class="modal-backdrop backdrop-blur-md transition-all duration-500 ease-in-out">
+												class="modal-backdrop backdrop-blur-md transition-all duration-500 ease-in-out"
+												@click="setSelected">
 												<button>close</button>
 											</form>
 										</dialog>
@@ -580,35 +586,34 @@
 								<Teleport to="body">
 									<dialog id="teamq" class="modal">
 										<div
-											class="modal-box w-3/5 max-w-5xl border border-golden-three bg-black rounded-none">
-											<MyOrderList :item="new_team" :items="info?.routes.about.team_src!"
+											class="modal-box w-3/5 max-w-5xl border border-golden-three bg-black rounded-none relative">
+
+											<div v-if="editMode" class="flex flex-col gap-3">
+												<div class="fixed animate-pulse top-2 right-2 w-8 aspect-square z-[1000] grid place-items-center text-white"
+													@click="editMode = false">
+													<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+														viewBox="0 0 24 24">
+														<path fill="currentColor"
+															d="M6.4 19L5 17.6l5.6-5.6L5 6.4L6.4 5l5.6 5.6L17.6 5L19 6.4L13.4 12l5.6 5.6l-1.4 1.4l-5.6-5.6z" />
+													</svg>
+												</div>
+
+												<DropDown v-model="info!.routes.about.team_src![team_idx!].src"
+													class="w-full" :names="file_names!" :title="'Src'" />
+												<label
+													class="input text-neutral-600 rounded-none border border-neutral-800 bg-neutral-900 flex items-center gap-2">
+													Headline
+													<input v-model="info!.routes.about.team_src![team_idx!].name"
+														type="text" class="grow text-white" />
+												</label>
+												<textarea v-model="info!.routes.about.team_src![team_idx!].pos"
+													class="textarea rounded-none border border-neutral-800 bg-neutral-900 text-white"
+													placeholder="Content"></textarea>
+											</div>
+
+											<MyOrderList v-else :item="new_team" :items="info?.routes.about.team_src!"
 												:head="'Total Team Members'">
 												<template #item="{ item, idx, moveUp, moveDown }">
-
-													<dialog id="item3" class="modal">
-														<div
-															class="modal-box w-4/5 max-w-5xl bg-black rounded-none border border-golden-three flex flex-col gap-3">
-															<DropDown
-																v-model="info!.routes.about.team_src![team_idx!].src"
-																class="w-full" :names="file_names!" :title="'Src'" />
-															<label
-																class="input text-neutral-600 rounded-none border border-neutral-800 bg-neutral-900 flex items-center gap-2">
-																Headline
-																<input
-																	v-model="info!.routes.about.team_src![team_idx!].name"
-																	type="text" class="grow text-white" />
-															</label>
-															<textarea
-																v-model="info!.routes.about.team_src![team_idx!].pos"
-																class="textarea rounded-none border border-neutral-800 bg-neutral-900 text-white"
-																placeholder="Content"></textarea>
-														</div>
-														<form method="dialog"
-															class="modal-backdrop backdrop-blur-md transition-all duration-500 ease-in-out bg-black bg-opacity-60">
-															<button>close</button>
-														</form>
-													</dialog>
-
 													<li @click="selected_team = item"
 														class='flex w-full mb-1 bg-neutral-900 items-center justify-between'>
 														<!-- remove -->
@@ -628,7 +633,7 @@
 																	class="w-full h-full object-cover" />
 															</div>
 															<h3 class="cursor-pointer truncate w-[10rem] h-full lg:w-[30rem]"
-																onclick="item3.showModal()" @click="team_idx = idx">{{
+																@click="team_idx = idx, editMode = true">{{
 					item.name }}</h3>
 														</div>
 														<!-- actions -->
@@ -657,7 +662,8 @@
 											</MyOrderList>
 										</div>
 										<form method="dialog"
-											class="modal-backdrop backdrop-blur-md transition-all duration-500 ease-in-out">
+											class="modal-backdrop backdrop-blur-md transition-all duration-500 ease-in-out"
+											@click="editMode = false">
 											<button>close</button>
 										</form>
 									</dialog>
@@ -727,29 +733,29 @@
 									<dialog id="plyrq" class="modal">
 										<div
 											class="modal-box w-3/5 max-w-5xl border border-golden-three bg-black rounded-none">
-											<MyOrderList :item="new_player" :items="info?.routes.athletes.athl_src!"
-												:head="'Total Players'">
-												<template #item="{ item, idx, moveUp, moveDown }">
+											<div v-if="editMode" class="relative flex flex-col gap-3">
+												<div class="fixed animate-pulse top-2 right-2 w-8 aspect-square z-[1000] grid place-items-center text-white"
+													@click="editMode = false">
+													<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+														viewBox="0 0 24 24">
+														<path fill="currentColor"
+															d="M6.4 19L5 17.6l5.6-5.6L5 6.4L6.4 5l5.6 5.6L17.6 5L19 6.4L13.4 12l5.6 5.6l-1.4 1.4l-5.6-5.6z" />
+													</svg>
+												</div>
 
-													<dialog id="item4" class="modal">
-														<div
-															class="modal-box w-4/5 max-w-5xl bg-black rounded-none border border-golden-three flex flex-col gap-3">
-															<DropDown
-																v-model="info!.routes.athletes.athl_src![player_idx!].src"
-																class="w-full" :names="file_names!" :title="'Src'" />
-															<label
-																class="input text-neutral-600 rounded-none border border-neutral-800 bg-neutral-900 flex items-center gap-2">
-																Name
-																<input
-																	v-model="info!.routes.athletes.athl_src![player_idx!].name"
-																	type="text" class="grow text-white" />
-															</label>
-														</div>
-														<form method="dialog"
-															class="modal-backdrop backdrop-blur-md transition-all duration-500 ease-in-out bg-black bg-opacity-60">
-															<button>close</button>
-														</form>
-													</dialog>
+												<DropDown v-model="info!.routes.athletes.athl_src![player_idx!].src"
+													class="w-full" :names="file_names!" :title="'Src'" />
+												<label
+													class="input text-neutral-600 rounded-none border border-neutral-800 bg-neutral-900 flex items-center gap-2">
+													Name
+													<input v-model="info!.routes.athletes.athl_src![player_idx!].name"
+														type="text" class="grow text-white" />
+												</label>
+											</div>
+
+											<MyOrderList v-else :item="new_player"
+												:items="info?.routes.athletes.athl_src!" :head="'Total Players'">
+												<template #item="{ item, idx, moveUp, moveDown }">
 
 													<li @click="selected_player = item"
 														class='flex w-full mb-1 bg-neutral-900 items-center justify-between'>
@@ -770,7 +776,7 @@
 																	class="w-full h-full object-cover" />
 															</div>
 															<h3 class="cursor-pointer truncate w-[10rem] h-full lg:w-[30rem]"
-																onclick="item4.showModal()" @click="player_idx = idx">{{
+																@click="player_idx = idx, editMode = true">{{
 					item.name }}</h3>
 														</div>
 														<!-- actions -->
@@ -799,7 +805,8 @@
 											</MyOrderList>
 										</div>
 										<form method="dialog"
-											class="modal-backdrop backdrop-blur-md transition-all duration-500 ease-in-out">
+											class="modal-backdrop backdrop-blur-md transition-all duration-500 ease-in-out"
+											@click="editMode = false">
 											<button>close</button>
 										</form>
 									</dialog>
@@ -906,7 +913,6 @@ const supabase = createClient('https://dblmoqabperngqprlrjw.supabase.co', 'eyJhb
 
 const { data } = storeToRefs(appStore())
 const info = ref<Data>()
-setTimeout
 const { $gsap: gsap } = useNuxtApp()
 provide('data', info)
 
@@ -916,6 +922,7 @@ const home = computed(() => info.value!.routes.home)
 const about = computed(() => info.value!.routes.about)
 const athletes = computed(() => info.value!.routes.athletes)
 const file = ref<HTMLInputElement>()
+const editMode = ref(false)
 const msg = ref('welcome message')
 const new_service = ref<Serv>({
 	title: '',
@@ -925,9 +932,11 @@ const new_service = ref<Serv>({
 const new_news = ref<News>({
 	headline: '',
 	content: '',
-	date: '',
+	date: new Date(),
 	src: '',
 })
+watchEffect(() => console.log(new_news.value.date));
+
 const new_team = ref<Team>({
 	name: '',
 	pos: '',
@@ -983,8 +992,22 @@ const news_idx = ref<number>(0)
 const team_idx = ref<number>(0)
 const player_idx = ref<number>(0)
 
+function setSelected() {
+	if (!selected_news.value.src || !selected_news.value.headline || !selected_news.value.content) return
+
+	const filtered = info.value!.routes.home.news.filter(x => x.src !== selected_news.value.src)
+
+	info.value!.routes.home.news = filtered
+
+	info.value!.routes.home.news.push(selected_news.value)
+
+	editMode.value = false
+}
+
 function addNews() {
 	if (new_news.value.headline.length <= 0 || new_news.value.content.length <= 0 || new_news.value.date.length <= 0) return
+	let date = new_news.value.date
+	new_news.value.date = formatDate(date)
 	info.value!.routes.home.news.push(new_news.value)
 	successMsg(`Added News: ${new_news.value.headline}`, .8)
 	new_news.value = { headline: '', src: '', content: '', date: '' }

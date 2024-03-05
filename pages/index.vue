@@ -23,9 +23,9 @@
 			<div v-motion-fade class="absolute right-0 top-1/2 -translate-y-[30%] w-4/5 flex flex-col gap-5 pr-10">
 				<div class="h-fit w-full bg-opacity-20 text-right flex flex-col items-end justify-center">
 					<p class="font-semibold text-[8vw] lg:text-[40px] droping text-golden-three flex flex-col">
-						<!-- <span class="">EagleEye</span>
-						<span class="block whitespace-nowrap">Sports Consults</span> -->
-						<span class="">{{ home?.title }}</span>
+						<span class="">EagleEye</span>
+						<span class="block whitespace-nowrap">Sports Consults</span>
+						<!-- <span class="">{{ home?.title }}</span> -->
 					</p>
 					<p
 						class="tracking-wide text-[4vw] lg:text-2xl text-white droping italic font-Satisfy whitespace-nowrap">

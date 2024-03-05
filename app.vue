@@ -24,6 +24,7 @@ const if_md = breakpoints.smaller('md')
 
 provide('if_sm', if_sm)
 provide('if_md', if_md)
+provide('supabase', supabase)
 
 async function getAppData() {
 	try {

@@ -44,7 +44,8 @@
 				<img v-motion-roll-visible-once-bottom src="/iconLogo.png" alt="" class="mx-auto w-20 aspect-square" />
 			</div>
 
-			<h2 v-motion-fade-visible class="text-center text-white w-full h-full font-semibold lg:text-4xl text-[5.5vw]">
+			<h2 v-motion-fade-visible
+				class="text-center text-white w-full h-full font-semibold lg:text-4xl text-[5.5vw]">
 				<span class="text-golden-three font-semibold pr-2">//</span>Our Mission
 			</h2>
 			<p v-motion-slide-visible-once-bottom
@@ -52,7 +53,8 @@
 				{{ about?.mission }}
 			</p>
 
-			<h2 v-motion-fade-visible class="text-center text-white w-full h-full font-semibold lg:text-4xl text-[5.5vw]">
+			<h2 v-motion-fade-visible
+				class="text-center text-white w-full h-full font-semibold lg:text-4xl text-[5.5vw]">
 				<span class="text-golden-three font-semibold pr-2">//</span>Our Vision
 			</h2>
 
@@ -116,8 +118,8 @@
 			</div>
 
 			<div v-if="if_sm" v-motion-fade-visible-once class="grid grid-cols-2 gap-4 pt-10">
-				<FlipContainer v-for="(team, i) in about?.team_src" :key="i" class="w-full select-none" :src="team.src"
-					:text2="team.pos" :text1="team.name" />
+				<FlipContainer v-for="(team, i) in about?.team_src" :key="i" class="w-full select-none"
+					:src="team.src ? `${$link}${team.src}` : ''" :text2="team.pos" :text1="team.name" />
 			</div>
 
 		</div>

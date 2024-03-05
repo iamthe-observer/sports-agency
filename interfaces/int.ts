@@ -1,5 +1,5 @@
 export interface Data {
-  email: string[]
+  email: string
   phone: string[]
   address: {
     addr: string[]

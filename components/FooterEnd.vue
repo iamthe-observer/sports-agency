@@ -62,7 +62,7 @@
 							<span class="text-golden-three italic font-Outfit font-bold">Ghana, Accra:</span> <br />
 							L3 COASTAL ESTATES <br />
 							SK DTD 4040<br />
-							SK DTD 4040
+							SAKUMONO - ACCRA
 						</p>
 						<p class="text-xs uppercase font-Outfit">
 							<span class="text-golden-three italic font-Outfit font-bold">Germany, Bremen:</span> <br />
@@ -146,7 +146,7 @@
 					d="M11 11L3 6v10h10v2H1V2h20v7h-2V6zm0-2l8-5H3zm8 13q-1.65 0-2.825-1.175T15 18v-4.5q0-1.05.725-1.775T17.5 11q1.05 0 1.775.725T20 13.5V18h-2v-4.5q0-.2-.15-.35T17.5 13q-.2 0-.35.15t-.15.35V18q0 .825.588 1.413T19 20q.825 0 1.413-.587T21 18v-4h2v4q0 1.65-1.175 2.825T19 22M3 6V4v12z" />
 			</svg>
 			<span class="-translate-y-1 text-white tracking-wider text-[4vw] lg:text-lg font-semibold">
-				eagleeyespc@gmail.com
+				{{ data?.email }}
 			</span>
 		</p>
 
@@ -202,14 +202,17 @@
 					d="M18.95 22q-3.125 0-6.187-1.35T7.2 16.8q-2.5-2.5-3.85-5.55T2 5.05V4h5.9l.925 5.025l-2.85 2.875q.55.975 1.225 1.85t1.45 1.625q.725.725 1.588 1.388T12.1 18l2.9-2.9l5 1.025V22zM5.025 10l1.65-1.65L6.25 6H4.025q.125 1.125.375 2.113T5.025 10m8.95 8.95q1 .425 2.013.675T18 19.95v-2.2l-2.35-.475zM12 4V2h10v2zm0 4V6h10v2zm0 4v-2h10v2z" />
 			</svg>
 
-			<span v-if="if_sm" class="text-[3vw] font-semibold tracking-wider">+491745969531</span>
-			<span v-if="if_sm" class="text-[3vw] font-semibold tracking-wider">+4915216434754</span>
-			<span v-if="if_sm" class="text-[3vw] font-semibold tracking-wider">+233537804885</span>
+			<span v-for="(num, i) in data?.phone" v-if="if_sm" class="text-[3vw] font-semibold tracking-wider">{{ num
+				}}</span>
+			<!-- class="text-[3vw] font-semibold tracking-wider">+491745969531</span> -->
+			<!-- <span v-if="if_sm" class="text-[3vw] font-semibold tracking-wider">+4915216434754</span>
+			<span v-if="if_sm" class="text-[3vw] font-semibold tracking-wider">+233537804885</span> -->
 
-			<span v-if="!if_sm" class="text-sm tracking-wider font-semibold">
-				+491745969531<br />
+			<span v-if="!if_sm" class="text-sm tracking-wider font-semibold flex flex-col">
+				<span v-for="(num, i) in data?.phone" class="">{{ num }}</span>
+				<!-- +491745969531<br />
 				+4915216434754<br />
-				+233537804885
+				+233537804885 -->
 			</span>
 
 		</p>
@@ -231,10 +234,11 @@ import navStore from '~/stores/nav';
 const supabase = createClient('https://dblmoqabperngqprlrjw.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRibG1vcWFicGVybmdxcHJscmp3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDkwMTA3NzAsImV4cCI6MjAyNDU4Njc3MH0.YdYbtgmpXMxTfzpJkN6353d781hQ-e6pId8OdWe8Kjo')
 
 const { $gsap: gsap } = useNuxtApp();
-const { opened, if_contact, if_loading } = storeToRefs(appStore())
+const { if_contact, data } = storeToRefs(appStore())
 const { curr_nav } = storeToRefs(navStore())
 const if_sm = inject('if_sm', false)
 const counter_login = ref(0)
+
 const message = reactive({
 	name: '',
 	email: '',

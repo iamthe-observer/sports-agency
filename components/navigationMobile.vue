@@ -99,7 +99,7 @@
 						<path fill="currentColor"
 							d="M11 11L3 6v10h10v2H1V2h20v7h-2V6zm0-2l8-5H3zm8 13q-1.65 0-2.825-1.175T15 18v-4.5q0-1.05.725-1.775T17.5 11q1.05 0 1.775.725T20 13.5V18h-2v-4.5q0-.2-.15-.35T17.5 13q-.2 0-.35.15t-.15.35V18q0 .825.588 1.413T19 20q.825 0 1.413-.587T21 18v-4h2v4q0 1.65-1.175 2.825T19 22M3 6V4v12z" />
 					</svg>
-					eagleeyespc@gmail.com</span>
+					{{ data?.email }}</span>
 
 				<span class="text-neutral-500 text-xl relative">
 					<svg xmlns="http://www.w3.org/2000/svg"
@@ -107,9 +107,12 @@
 						<path fill="currentColor"
 							d="M18.95 22q-3.125 0-6.187-1.35T7.2 16.8q-2.5-2.5-3.85-5.55T2 5.05V4h5.9l.925 5.025l-2.85 2.875q.55.975 1.225 1.85t1.45 1.625q.725.725 1.588 1.388T12.1 18l2.9-2.9l5 1.025V22zM5.025 10l1.65-1.65L6.25 6H4.025q.125 1.125.375 2.113T5.025 10m8.95 8.95q1 .425 2.013.675T18 19.95v-2.2l-2.35-.475zM12 4V2h10v2zm0 4V6h10v2zm0 4v-2h10v2z" />
 					</svg>
-					+491745969531<br />
+					<div class="flex flex-col">
+						<span v-for="num in data?.phone" class="">{{ num }}</span>
+					</div>
+					<!-- +491745969531<br />
 					+4915216434754<br />
-					+233537804885
+					+233537804885 -->
 				</span>
 			</div>
 
@@ -123,7 +126,7 @@ import appStore from '~/stores/app';
 import navStore from '~/stores/nav';
 
 const { $gsap: gsap } = useNuxtApp();
-const { opened } = storeToRefs(appStore())
+const { opened, data } = storeToRefs(appStore())
 const { curr_nav } = storeToRefs(navStore())
 const if_close_button = ref(true)
 
