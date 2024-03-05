@@ -935,8 +935,6 @@ const new_news = ref<News>({
 	date: new Date(),
 	src: '',
 })
-watchEffect(() => console.log(new_news.value.date));
-
 const new_team = ref<Team>({
 	name: '',
 	pos: '',
@@ -1037,20 +1035,14 @@ function removeNews(idx: number, headline?: string) {
 	successMsg(`Removed News`, .8)
 }
 function removeService(idx: number) {
-	console.log(idx);
-	console.log(info.value!.routes.home.services.right.serv[idx]);
 	info.value!.routes.home.services.right.serv.splice(idx, 1);
 	successMsg(`Removed Service: ${info.value!.routes.home.services.right.serv[idx].title}`, .8)
 }
 function removeTeam(idx: number) {
-	console.log(idx);
-	console.log(info.value!.routes.about.team_src![idx]);
 	info.value!.routes.about.team_src!.splice(idx, 1);
 	successMsg(`Removed Team Member: ${info.value!.routes.about.team_src![idx].name}`, .8)
 }
 function removePlayer(idx: number) {
-	console.log(idx);
-	console.log(info.value!.routes.athletes.athl_src![idx]);
 	info.value!.routes.athletes.athl_src!.splice(idx, 1);
 	successMsg(`Removed Player: ${info.value!.routes.athletes.athl_src![idx].name}`, .8)
 }
@@ -1117,7 +1109,7 @@ function formatDate(date: Date) {
 async function SaveData() {
 	loading.value = true
 	try {
-		logger(info.value!.address)
+
 		let { data, error } = await supabase.from('info').insert([{ data: info.value }]).select()
 		if (error) throw error
 		loading.value = false
@@ -1126,10 +1118,6 @@ async function SaveData() {
 		errorMsg(`Error Status: ${error.message}`, 6)
 		loading.value = false
 	}
-}
-
-function logger(d: any) {
-	console.log(d)
 }
 
 onBeforeMount(() => {
@@ -1142,7 +1130,6 @@ onMounted(async () => {
 		if (currentSession.data.session == null) {
 			throw currentSession.error;
 		}
-		logger(currentSession.data.session)
 
 		let { data: msg, error: error2 } = await supabase
 			.from('msg')
