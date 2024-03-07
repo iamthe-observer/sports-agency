@@ -1,6 +1,6 @@
 <template>
 	<div class="absolute right-1/2 translate-x-1/2 top-4 flex gap-4">
-		<BoxContainer target="_blank" :link="'https://www.facebook.com/profile.php?id=61556099897439&mibextid=PtKPJ9'"
+		<BoxContainer target="_blank" :link="data?.socials.facebook"
 			v-motion-fade class="droping tracking-wide text-white text-xl">
 			<span class="drop-shadow-md">
 				<svg class="drop-shadow-lg w-5 aspect-square" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -11,7 +11,7 @@
 		</BoxContainer>
 
 		<BoxContainer target="_blank"
-			:link="'https://www.instagram.com/eagleeye_sports_consults?igsh=cWl0aTM0bGJicXZt&utm_source=qr'" v-motion-fade
+			:link="data?.socials.instagram" v-motion-fade
 			class="droping tracking-wide text-white text-xl">
 			<span class="drop-shadow-md">
 				<svg class="drop-shadow-lg w-5 aspect-square" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -27,7 +27,7 @@
 			</span>
 		</BoxContainer>
 
-		<BoxContainer target="_blank" :link="'https://twitter.com/EagleEyeSpC'" v-motion-fade
+		<BoxContainer target="_blank" :link="data?.socials.twitter" v-motion-fade
 			class="droping tracking-wide text-white text-xl">
 			<span class="drop-shadow-md">
 				<svg class="drop-shadow-lg w-5 aspect-square" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -37,7 +37,7 @@
 			</span>
 		</BoxContainer>
 
-		<BoxContainer target="_blank" :link="'https://youtube.com/@EagleEyeSportsConsults?si=pTw90oZicIL3Mow_'" v-motion-fade
+		<BoxContainer target="_blank" :link="data?.socials.youtube" v-motion-fade
 			class="droping tracking-wide text-white text-xl">
 			<span class="drop-shadow-md">
 				<svg class="drop-shadow-lg w-5 aspect-square" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 14">
@@ -50,7 +50,9 @@
 </template>
 
 <script setup lang="ts">
+import appStore from '~/stores/app'
 
+const {data} = storeToRefs(appStore())
 </script>
 
 <style scoped></style>
