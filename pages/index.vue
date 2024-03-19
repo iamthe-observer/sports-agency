@@ -1,16 +1,19 @@
 <template>
 	<div class="w-full h-full relative overflow-hidden">
-		<div :class="['relative video-content w-full h-screen border-golden-three border-t lg:border-l']">
+		<div :class="['relative video-content w-full h-screen border-golden-three border-t lg:border-l bg-black']">
 			<!-- background graphics -->
 			<div class="h-screen w-full opacity-90">
 				<video playsinline autoplay loop muted key="video" id="avatarVideo"
 					:src="home?.vid_src ? `${$link}${home?.vid_src}` : ''"
+					class="object-cover w-full h-full bg-black image viddy">
+				</video>
+			</div>
+			<!-- <div class="h-screen w-full opacity-90">
+				<video playsinline autoplay loop muted key="video" id="avatarVideo"
+					:src="home?.vid_src ? `${$link}${home?.vid_src}` : ''"
 					class="object-cover w-full h-full bg-black image">
 				</video>
-				<!-- <video playsinline autoplay loop muted key="video" id="avatarVideo" src="/vid1.mp4"
-					class="object-cover w-full h-full bg-black image">
-				</video> -->
-			</div>
+			</div> -->
 
 			<!-- logo and socials -->
 			<Logo v-if="!if_sm" v-motion-fade />
@@ -134,8 +137,24 @@ function toScreenTop() {
 	window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+function animateVideo() {
+	const vid = document.querySelector('.viddy') as HTMLVideoElement
+	gsap.to(vid, {
+		scale: 1.5,
+		opacity: 0,
+		scrollTrigger: {
+			trigger: vid,
+			start: 'top top',
+			end: 'bottom top',
+			scrub: .2,
+			pin: true,
+		}
+	})
+}
+
 onMounted(() => {
 	toScreenTop()
+	animateVideo()
 
 	setTimeout(() => {
 		if (news_toggle.value) {
