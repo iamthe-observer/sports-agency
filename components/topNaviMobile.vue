@@ -10,7 +10,7 @@
 
 		<section class="flex bg-golden-three bg-opacity-10 w-full text-white">
 
-			<a target="_blank" href="https://www.facebook.com/profile.php?id=61556099897439&mibextid=PtKPJ9"
+			<a target="_blank" :href="data?.socials.facebook"
 				class="cursor-pointer hover:text-black hover:bg-golden-three active:text-black active:bg-golden-three transition-all duration-150 ease-in-out w-full h-full border-x border-golden-three grid place-items-center">
 				<svg class="w-5 aspect-square drop-shadow-lg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 					<path fill="currentColor"
@@ -18,7 +18,7 @@
 				</svg>
 			</a>
 
-			<a target="_blank" href="https://www.instagram.com/eagleeye_sports_consults?igsh=cWl0aTM0bGJicXZt&utm_source=qr"
+			<a target="_blank" :href="data?.socials.instagram"
 				class="cursor-pointer hover:text-black hover:bg-golden-three active:text-black active:bg-golden-three transition-all duration-150 ease-in-out w-full h-full grid place-items-center">
 				<svg class="w-5 aspect-square drop-shadow-lg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 					<g fill="currentColor">
@@ -32,7 +32,7 @@
 				</svg>
 			</a>
 
-			<a target="_blank" href="https://twitter.com/EagleEyeSpC"
+			<a target="_blank" :href="data?.socials.twitter"
 				class="cursor-pointer hover:text-black hover:bg-golden-three active:text-black active:bg-golden-three transition-all duration-150 ease-in-out w-full h-full border-l border-golden-three grid place-items-center">
 				<svg class="w-5 aspect-square drop-shadow-lg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
 					<path fill="currentColor"
@@ -40,7 +40,7 @@
 				</svg>
 			</a>
 
-			<a target="_blank" href="https://youtube.com/@EagleEyeSportsConsults?si=pTw90oZicIL3Mow_"
+			<a target="_blank" :href="data?.socials.youtube"
 				class="cursor-pointer hover:text-black hover:bg-golden-three active:text-black active:bg-golden-three transition-all duration-150 ease-in-out w-full h-full border-l border-golden-three grid place-items-center">
 				<svg class="w-5 aspect-square drop-shadow-lg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 14">
 					<path fill="currentColor"
@@ -58,6 +58,7 @@
 <script setup lang="ts">
 import appStore from '~/stores/app';
 
+const {data} = storeToRefs(appStore())
 const { $gsap: gsap } = useNuxtApp()
 
 const if_sm = inject('if_sm', true)

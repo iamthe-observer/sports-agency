@@ -48,7 +48,7 @@
 
 			<div class="h-20 w-full border-b border-golden-three flex bg-golden-three bg-opacity-10">
 
-				<a target="_blank" href="https://www.facebook.com/profile.php?id=61556099897439&mibextid=PtKPJ9"
+				<a target="_blank" :href="data?.socials.facebook"
 					class="cursor-pointer hover:text-black hover:bg-golden-three transition-all duration-150 ease-in-out w-full h-full border-x border-golden-three grid place-items-center">
 					<svg class="drop-shadow-lg" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
 						viewBox="0 0 24 24">
@@ -58,7 +58,7 @@
 				</a>
 
 				<a target="_blank"
-					href="https://www.instagram.com/eagleeye_sports_consults?igsh=cWl0aTM0bGJicXZt&utm_source=qr"
+					:href="data?.socials.instagram"
 					class="cursor-pointer hover:text-black hover:bg-golden-three transition-all duration-150 ease-in-out w-full h-full grid place-items-center">
 					<svg class="drop-shadow-lg" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
 						viewBox="0 0 24 24">
@@ -74,7 +74,7 @@
 					</svg>
 				</a>
 
-				<a target="_blank" href="https://twitter.com/EagleEyeSpC"
+				<a target="_blank" :href="data?.socials.twitter"
 					class="cursor-pointer hover:text-black hover:bg-golden-three transition-all duration-150 ease-in-out w-full h-full border-l border-golden-three grid place-items-center">
 					<svg class="drop-shadow-lg" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
 						viewBox="0 0 512 512">
@@ -83,7 +83,7 @@
 					</svg>
 				</a>
 
-				<a target="_blank" href="https://youtube.com/@EagleEyeSportsConsults?si=pTw90oZicIL3Mow_"
+				<a target="_blank" :href="data?.socials.youtube"
 					class="cursor-pointer hover:text-black hover:bg-golden-three transition-all duration-150 ease-in-out w-full h-full border-x border-golden-three grid place-items-center">
 					<svg xmlns="http://www.w3.org/2000/svg" width="36.58" height="32" viewBox="0 0 16 14">
 						<path fill="currentColor"
