@@ -129,7 +129,7 @@
 <script setup lang="ts">
 import appStore from '~/stores/app';
 import navStore from '~/stores/nav';
-import info from '~/assets/data/nav.json'
+import info from '~/assets/data/home.json'
 const lang = useCookie('lang')
 // lang data
 const _ = ref()
