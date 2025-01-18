@@ -1,0 +1,26 @@
+{
+  "en": {
+    "contact_head": "Contact Us",
+    "contact_text": "Send Us a Message",
+    "send": "Send",
+    "location": "Find Our Location"
+  },
+  "de": {
+    "contact_head": "Kontakt",
+    "contact_text": "Senden Sie uns eine Nachricht",
+    "send": "Senden",
+    "location": "Unseren Standort finden"
+  },
+  "fr": {
+    "contact_head": "Contact",
+    "contact_text": "Envoyez-nous un message",
+    "send": "Envoyer",
+    "location": "Trouvez notre emplacement"
+  },
+  "es": {
+    "contact_head": "Contacto",
+    "contact_text": "Envíenos un mensaje",
+    "send": "Enviar",
+    "location": "Encuentre nuestra ubicación"
+  }
+}

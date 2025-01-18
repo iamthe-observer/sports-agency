@@ -1,4 +1,6 @@
 <template>
+	<Lang class="fixed top-16 right-3 z-[100]" />
+
 	<!-- open -->
 	<nav v-if="if_close_button" @click="toggleNav"
 		class="fixed cursor-pointer w-[80px] h-[50px] bg-black top-0 right-0 z-[100] border border-golden-three flex items-center justify-center active:bg-golden-three group">
@@ -28,19 +30,23 @@
 		<div
 			class="flex flex-col w-full min-h-[80%] items-center justify-center gap-4 text-center text-white font-semibold tracking-wide text-4xl">
 			<NuxtLink @click="onNavClick()" to="/"
-				class="w-fit px-2 py-1 text-golden-three active:text-white linkzM home">
-				HOME</NuxtLink>
+				class="w-fit px-2 py-1 text-golden-three active:text-white linkzM uppercase home">
+				{{ _.links[0] }}</NuxtLink>
 			<NuxtLink @click="onNavClick('services')" to="/"
-				class="w-fit px-2 py-1 text-golden-three active:text-white linkzM services">SERVICES</NuxtLink>
+				class="w-fit px-2 py-1 text-golden-three active:text-white linkzM uppercase services">{{ _.links[1] }}
+			</NuxtLink>
 			<NuxtLink @click="onNavClick()" to="/about"
-				class="w-fit px-2 py-1 text-golden-three active:text-white linkzM about">ABOUT US</NuxtLink>
+				class="w-fit px-2 py-1 text-golden-three active:text-white linkzM uppercase about">{{ _.links[2] }}
+			</NuxtLink>
 			<NuxtLink @click="onNavClick()" to="/athletes"
-				class="w-fit px-2 py-1 text-golden-three active:text-white linkzM athletes">OUR ATHLETES
+				class="w-fit px-2 py-1 text-golden-three active:text-white linkzM uppercase athletes">{{ _.links[3] }}
 			</NuxtLink>
 			<NuxtLink @click="onNavClick()" to="/gallery"
-				class="w-fit px-2 py-1 text-golden-three active:text-white linkzM gallery">GALLERY</NuxtLink>
+				class="w-fit px-2 py-1 text-golden-three active:text-white linkzM uppercase gallery">{{ _.links[4] }}
+			</NuxtLink>
 			<NuxtLink @click="onNavClick('news')" to="/"
-				class="w-fit px-2 py-1 text-golden-three active:text-white linkzM gallery">NEWS</NuxtLink>
+				class="w-fit px-2 py-1 text-golden-three active:text-white linkzM uppercase gallery">{{ _.links[5] }}
+			</NuxtLink>
 		</div>
 
 		<div
@@ -57,8 +63,7 @@
 					</svg>
 				</a>
 
-				<a target="_blank"
-					:href="data?.socials.instagram"
+				<a target="_blank" :href="data?.socials.instagram"
 					class="cursor-pointer hover:text-black hover:bg-golden-three transition-all duration-150 ease-in-out w-full h-full grid place-items-center">
 					<svg class="drop-shadow-lg" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
 						viewBox="0 0 24 24">
@@ -124,6 +129,22 @@
 <script setup lang="ts">
 import appStore from '~/stores/app';
 import navStore from '~/stores/nav';
+import info from '~/assets/data/home.json'
+const lang = useCookie('lang')
+// lang data
+const _ = ref()
+watchEffect(() => {
+	if (lang.value === 'fr') {
+		_.value = info.fr
+	} else if (lang.value === 'es') {
+		_.value = info.es
+	} else if (lang.value === 'de') {
+		_.value = info.de
+	} else {
+		_.value = info.en
+	}
+})
+
 
 const { $gsap: gsap } = useNuxtApp();
 const { opened, data } = storeToRefs(appStore())

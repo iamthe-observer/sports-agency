@@ -4,7 +4,8 @@
 		<div ref="target" class="border-t lg:border-l border-golden-three w-full h-screen relative">
 
 			<div class="w-full h-full bg-black flex overflow-hidden image perspectiv">
-				<img :style="layer3" :src="`${$link}${athletes?._src}`" class="object-cover flex-1 image scale-150" alt="" />
+				<img :style="layer3" :src="`${$link}${athletes?._src}`" class="object-cover flex-1 image scale-150"
+					alt="" />
 				<div class="absolute inset-0 bg-black bg-opacity-30"></div>
 			</div>
 
@@ -24,7 +25,7 @@
 
 				<BoxContainer @click="scrollTo"
 					class="w-fit self-end font-semibold tracking-wider lg:text-sm text-[3.2vw] flex items-center gap-2 hover:gap-0">
-					Featured
+					{{ _.featured }}
 					<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24">
 						<path fill="currentColor" d="M11 4v12.175l-5.6-5.6L4 12l8 8l8-8l-1.4-1.425l-5.6 5.6V4z" />
 					</svg>
@@ -35,15 +36,16 @@
 		<div id="athletes" class="w-full h-full lg:border-l border-golden-three pb-32 py-20 lg:py-32 px-4 lg:px-20">
 
 			<h1 v-motion-slide-visible-once-bottom class="lg:text-4xl text-[6vw] text-white mb-6 font-semibold"><span
-					class="text-golden-three pr-4">//</span>Featured Athletes</h1>
+					class="text-golden-three pr-4">//</span>{{ _.featured_athletes }}</h1>
 
 			<div class="grid grid-cols-2 lg:grid-cols-3 gap-14">
 				<div v-for="(athl, i) in athletes?.athl_src" :key="i" class="players flex flex-col gap-4 items-center">
 					<img :src="athl.src ? `${$link}${athl.src}` : ''" alt=""
 						:class="`hover:png-shadow transition-all duration-150 ease-out object-contain w-[300px] h-[400px] hover:scale-105 scale-100 lg:scale-100`" />
 
-					<span class="text-white mx-auto font-semibold lg:text-xl text-[4vw] tracking-wide w-full text-center">{{
-					athl.name }}</span>
+					<span
+						class="text-white mx-auto font-semibold lg:text-xl text-[4vw] tracking-wide w-full text-center">{{
+							athl.name }}</span>
 				</div>
 			</div>
 
@@ -58,6 +60,22 @@
 import type { CSSProperties } from 'vue';
 import { useTitle } from '@vueuse/core'
 import appStore from '~/stores/app';
+import info from '~/assets/data/athletes.json'
+const lang = useCookie('lang')
+// lang data
+const _ = ref()
+watchEffect(() => {
+	if (lang.value === 'fr') {
+		_.value = info.fr
+	} else if (lang.value === 'es') {
+		_.value = info.es
+	} else if (lang.value === 'de') {
+		_.value = info.de
+	} else {
+		_.value = info.en
+	}
+})
+
 
 const if_sm = inject('if_sm', true)
 onMounted(() => {

@@ -1,0 +1,18 @@
+{
+  "en": {
+    "featured": "Featured",
+    "featured_athletes": "Featured Athletes"
+  },
+  "de": {
+    "featured": "Vorgestellt",
+    "featured_athletes": "Vorgestellte Athleten"
+  },
+  "fr": {
+    "featured": "En Vedette",
+    "featured_athletes": "Athlètes en Vedette"
+  },
+  "es": {
+    "featured": "Destacados",
+    "featured_athletes": "Atletas Destacados"
+  }
+}

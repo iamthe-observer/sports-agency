@@ -1,0 +1,18 @@
+{
+  "en": {
+    "gallery": "Gallery",
+    "coming_soon": "Coming soon"
+  },
+  "de": {
+    "gallery": "Galerie",
+    "coming_soon": "Kommt bald"
+  },
+  "fr": {
+    "gallery": "Galerie",
+    "coming_soon": "Bientôt disponible"
+  },
+  "es": {
+    "gallery": "Galería",
+    "coming_soon": "Próximamente"
+  }
+}

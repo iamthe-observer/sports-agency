@@ -17,6 +17,37 @@ const supabase = createClient('https://dblmoqabperngqprlrjw.supabase.co', 'eyJhb
 
 const { curr_nav } = storeToRefs(navStore())
 const { if_loading } = storeToRefs(appStore())
+const lang = useCookie('lang')
+lang.value = lang.value || 'en'
+
+onBeforeMount(async () => {
+	if (lang.value === 'en' || lang.value === undefined) {
+		await getAppDataEN()
+		setTimeout(() => {
+			appStore().$patch({ if_loading: false })
+		}, 2000)
+
+	} else if (lang.value === 'de') {
+		await getAppDataDE()
+		setTimeout(() => {
+			appStore().$patch({ if_loading: false })
+		}, 2000)
+
+	} else if (lang.value === 'es') {
+		await getAppDataES()
+		setTimeout(() => {
+			appStore().$patch({ if_loading: false })
+		}, 2000)
+
+	}
+	else if (lang.value === 'fr') {
+		await getAppDataFR()
+		setTimeout(() => {
+			appStore().$patch({ if_loading: false })
+		}, 2000)
+
+	}
+})
 
 const breakpoints = useBreakpoints(breakpointsTailwind)
 const if_sm = breakpoints.smaller('lg')
@@ -26,16 +57,61 @@ provide('if_sm', if_sm)
 provide('if_md', if_md)
 provide('supabase', supabase)
 
-async function getAppData() {
+async function getAppDataEN() {
 	try {
-
 		const { data: dataz, error } = await supabase
 			.from('info')
 			.select('data')
 			.order('created_at', { ascending: false }) // Descending order
 			.limit(1)
 		if (error) throw error
-		console.log(`data loaded`);
+		console.log(`data loaded english`);
+
+		// @ts-ignore
+		appStore().$patch({ data: dataz[0].data })
+	} catch (error) {
+		console.log(error);
+	}
+}
+async function getAppDataDE() {
+	try {
+		const { data: dataz, error } = await supabase
+			.from('info_de')
+			.select('data')
+			.order('created_at', { ascending: false }) // Descending order
+			.limit(1)
+		if (error) throw error
+		console.log(`data loaded german`);
+		// @ts-ignore
+		appStore().$patch({ data: dataz[0].data })
+	} catch (error) {
+		console.log(error);
+	}
+}
+async function getAppDataES() {
+	try {
+		const { data: dataz, error } = await supabase
+			.from('info_es')
+			.select('data')
+			.order('created_at', { ascending: false }) // Descending order
+			.limit(1)
+		if (error) throw error
+		console.log(`data loaded spanish`);
+		// @ts-ignore
+		appStore().$patch({ data: dataz[0].data })
+	} catch (error) {
+		console.log(error);
+	}
+}
+async function getAppDataFR() {
+	try {
+		const { data: dataz, error } = await supabase
+			.from('info_fr')
+			.select('data')
+			.order('created_at', { ascending: false }) // Descending order
+			.limit(1)
+		if (error) throw error
+		console.log(`data loaded french`);
 		// @ts-ignore
 		appStore().$patch({ data: dataz[0].data })
 	} catch (error) {
@@ -49,12 +125,12 @@ supabase.auth.onAuthStateChange((event: string) => {
 	}
 })
 
-onBeforeMount(async () => {
-	await getAppData()
-	setTimeout(() => {
-		appStore().$patch({ if_loading: false })
-	}, 2000)
-})
+// onBeforeMount(async () => {
+// await getAppData()
+// setTimeout(() => {
+// 	appStore().$patch({ if_loading: false })
+// }, 2000)
+// })
 
 watch(curr_nav, () => {
 	if_loading.value = true

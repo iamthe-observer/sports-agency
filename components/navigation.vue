@@ -2,7 +2,7 @@
   <div
     class="fixed w-[100px] hover:w-[200px] transition-all duration-500 ease-in-out bg-black h-screen right-0 border-l border-golden-three hover:drop-shadow-xl cursor-pointer z-[10000]">
 
-    <div class="w-full h-full grid place-items-center relative group " @click="toggleNav">
+    <div class="w-full h-full grid place-items-center relative group" @click="toggleNav">
 
       <div class="droping w-5 h-fit flex flex-col gap-[2px]">
         <span class="w-full h-[2px] bg-golden-three"></span>
@@ -35,8 +35,8 @@
         <section class="w-[1000px] border-l border-golden-three flex flex-col justify-center items-center group">
 
           <div class="px-10 h-full text-white flex flex-col gap-2 justify-center items-center">
-            <h1 class="text-white w-full text-[2rem] font-semibold">Contact Us</h1>
-            <p class="w-full text-xl">Send Us A Message</p>
+            <h1 class="text-white w-full text-[2rem] font-semibold">{{ _.contact_head }}</h1>
+            <p class="w-full text-xl">{{ _.contact_text }}</p>
 
             <div class="w-full h-10 bg-neutral-900 border border-golden-three flex gap-[2px] p-[2px]">
               <label for="Name" class="w-20 h-full flex justify-center items-center px-2 py-2 bg-golden-three"><span
@@ -57,7 +57,7 @@
               <textarea v-model="message.msg" id="Message" class="w-full bg-transparent pl-5 focus:outline-none" />
             </div>
 
-            <BoxContainer @click="sendMsg" class="mt-2 text-xl tracking-wide">Send Message</BoxContainer>
+            <BoxContainer @click="sendMsg" class="mt-2 text-xl tracking-wide">{{ _.send }}</BoxContainer>
 
             <div class="text-xl pt-3 text-white hover:text-golden-three font-semibold">
               {{ data?.email }}
@@ -65,8 +65,7 @@
 
             <NuxtLink href="https://maps.app.goo.gl/6H1wYmEfxw5DFBQV7"
               class="text-xs pt-3 text-golden-one hover:text-golden-three font-semibold cursor-pointer">
-              Find Our
-              Location</NuxtLink>
+              {{ _.location }}</NuxtLink>
           </div>
 
 
@@ -85,23 +84,23 @@
           </div>
           <div class="flex flex-col h-full w-full pl-10 justify-center font-semibold text-[1.8rem] gap-5 group">
             <NuxtLink @click="onNavClick()" to="/"
-              class="hover:text-golden-three linkz home border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">
-              HOME</NuxtLink>
+              class="hover:text-golden-three linkz home border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2 uppercase">
+              {{ links[0] }}</NuxtLink>
             <NuxtLink @click="onNavClick('services')" to="/"
-              class="hover:text-golden-three linkz home border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">
-              SERVICES</NuxtLink>
+              class="hover:text-golden-three linkz home border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2 uppercase">
+              {{ links[1] }}</NuxtLink>
             <NuxtLink @click="onNavClick()" to="/about"
-              class="hover:text-golden-three linkz about border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">
-              ABOUT US</NuxtLink>
+              class="hover:text-golden-three linkz about border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2 uppercase">
+              {{ links[2] }}</NuxtLink>
             <NuxtLink @click="onNavClick()" to="/athletes"
-              class="hover:text-golden-three linkz athletes border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">
-              OUR ATHLETES</NuxtLink>
+              class="hover:text-golden-three linkz athletes border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2 uppercase">
+              {{ links[3] }}</NuxtLink>
             <NuxtLink @click="onNavClick()" to="/gallery"
-              class="hover:text-golden-three linkz gallery border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">
-              GALLERY</NuxtLink>
+              class="hover:text-golden-three linkz gallery border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2 uppercase">
+              {{ links[4] }}</NuxtLink>
             <NuxtLink @click="onNavClick('news')" to="/"
-              class="hover:text-golden-three linkz gallery border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">
-              NEWS</NuxtLink>
+              class="hover:text-golden-three linkz gallery border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2 uppercase">
+              {{ links[5] }}</NuxtLink>
             <!-- <NuxtLink @click="()=>{setTimeout(toggleNav(),1000)}" to="/"
 							class=" hover:text-golden-three border border-transparent hover:border-golden-three transition-all duration-200 ease-in-out w-fit px-2">Projects</NuxtLink> -->
           </div>
@@ -129,11 +128,34 @@
 <script setup lang="ts">
 import appStore from '~/stores/app';
 import navStore from '~/stores/nav';
+import info from '~/assets/data/nav.json'
+import linkData from '~/assets/data/home.json'
 
 const { $gsap: gsap } = useNuxtApp();
 const { opened, data } = storeToRefs(appStore())
 const { curr_nav } = storeToRefs(navStore())
 const { $$b: supabase } = useNuxtApp()
+const lang = useCookie('lang')
+
+// lang data
+const _ = ref()
+const links = ref()
+
+watchEffect(() => {
+  if (lang.value === 'fr') {
+    _.value = info.fr
+    links.value = linkData.fr.links
+  } else if (lang.value === 'es') {
+    _.value = info.es
+    links.value = linkData.es.links
+  } else if (lang.value === 'de') {
+    _.value = info.de
+    links.value = linkData.de.links
+  } else {
+    _.value = info.en
+    links.value = linkData.en.links
+  }
+})
 
 const message = reactive({
   name: '',

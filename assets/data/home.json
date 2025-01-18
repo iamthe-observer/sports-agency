@@ -1,0 +1,82 @@
+{
+  "en": {
+    "loading": "Loading",
+    "intro_head": "Welcome to",
+    "mission_head": "Mission Statement",
+    "services_head": "Our Services",
+    "news_head": "Latest News",
+    "news_text": ["Top insights and the", "latest news from EagleEye"],
+    "news_button": ["PREV", "NEXT"],
+    "links": [
+      "Home",
+      "Services",
+      "About Us",
+      "Our Athletes",
+      "Gallery",
+      "News"
+    ],
+    "contact_head": "Contact Us",
+    "contact_text": "Send Us a Message",
+    "send": "Send"
+  },
+  "de": {
+    "loading": "Laden",
+    "intro_head": "Willkommen bei",
+    "mission_head": "Aufgabenstellung",
+    "services_head": "Unsere Dienstleistungen",
+    "news_head": "Letzte Nachrichten",
+    "news_text": "Top insights und die neuesten Nachrichten von EagleEye",
+    "news_button": ["PREV", "NEXT"],
+    "links": [
+      "Home",
+      "Services",
+      "Über uns",
+      "Unsere Athleten",
+      "Galerie",
+      "Nachrichten"
+    ],
+    "contact_head": "Kontakt",
+    "contact_text": "Senden Sie uns eine Nachricht",
+    "send": "Senden"
+  },
+  "es": {
+    "loading": "Cargando",
+    "intro_head": "Bienvenido a",
+    "mission_head": "Misión",
+    "services_head": "Nuestros Servicios",
+    "news_head": "Últimas Noticias",
+    "news_text": "Top insights y las últimas noticias de EagleEye",
+    "news_button": ["PREV", "NEXT"],
+    "links": [
+      "Casa",
+      "Servicios",
+      "Sobre nosotros",
+      "Nuestros Atletas",
+      "Galería",
+      "Noticias"
+    ],
+    "contact_head": "Contacto",
+    "contact_text": "Envíenos un mensaje",
+    "send": "Enviar"
+  },
+  "fr": {
+    "loading": "Chargement",
+    "intro_head": "Bienvenue sur",
+    "mission_head": "Déclaration de Mission",
+    "services_head": "Nos services",
+    "news_head": "Dernières nouvelles",
+    "news_text": "Top insights et les dernières nouvelles de EagleEye",
+    "news_button": ["PREV", "NEXT"],
+    "links": [
+      "Accueil",
+      "Services",
+      "A propos de nous",
+      "Nos athlètes",
+      "Galerie",
+      "Actualités"
+    ],
+    "contact_head": "Contactez-nous",
+    "contact_text": "Envoyez-nous un message",
+    "send": "Envoyer"
+  }
+}

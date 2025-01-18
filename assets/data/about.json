@@ -1,0 +1,30 @@
+{
+  "en": {
+    "learn_more": "Learn More",
+    "mission_head": "Our Mission",
+    "vision_head": "Our Vision",
+    "data": ["Athletes", "Affiliates", "Active Members", "Since"],
+    "team_head": "Our Team"
+  },
+  "de": {
+    "learn_more": "Mehr Erfahren",
+    "mission_head": "Unsere Mission",
+    "vision_head": "Unsere Vision",
+    "data": ["Athleten", "Affiliate", "Aktive Mitglieder", "Seit"],
+    "team_head": "Unsere Team"
+  },
+  "fr": {
+    "learn_more": "En Savoir Plus",
+    "mission_head": "Notre mission",
+    "vision_head": "Notre vision",
+    "data": ["Athlètes", "Affiliation", "Membres actifs", "Depuis"],
+    "team_head": "Notre Équipe"
+  },
+  "es": {
+    "learn_more": "Aprender Más",
+    "mission_head": "Nuestra Misión",
+    "vision_head": "Nuestra Visión",
+    "data": ["Atletas", "Afiliados", "Miembros Activos", "Desde"],
+    "team_head": "Nuestro Equipo"
+  }
+}

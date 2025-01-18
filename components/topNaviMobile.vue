@@ -22,7 +22,8 @@
 				class="cursor-pointer hover:text-black hover:bg-golden-three active:text-black active:bg-golden-three transition-all duration-150 ease-in-out w-full h-full grid place-items-center">
 				<svg class="w-5 aspect-square drop-shadow-lg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 					<g fill="currentColor">
-						<path fill-rule="evenodd" d="M12 7a5 5 0 1 0 0 10a5 5 0 0 0 0-10m-3 5a3 3 0 1 0 6 0a3 3 0 0 0-6 0"
+						<path fill-rule="evenodd"
+							d="M12 7a5 5 0 1 0 0 10a5 5 0 0 0 0-10m-3 5a3 3 0 1 0 6 0a3 3 0 0 0-6 0"
 							clip-rule="evenodd" />
 						<path d="M18 5a1 1 0 1 0 0 2a1 1 0 0 0 0-2" />
 						<path fill-rule="evenodd"
@@ -51,14 +52,30 @@
 
 		<section @click="goToContact"
 			class="grid place-items-center px-4 text-golden-three font-bold cursor-pointer active:bg-golden-three select-none active:text-black border-l border-golden-three whitespace-nowrap bg-black text-[3.2vw]">
-			Contact Us</section>
+			{{ _.contact_head }}</section>
 	</div>
 </template>
 
 <script setup lang="ts">
 import appStore from '~/stores/app';
+import info from '~/assets/data/home.json'
+const lang = useCookie('lang')
+// lang data
+const _ = ref()
+watchEffect(() => {
+	if (lang.value === 'fr') {
+		_.value = info.fr
+	} else if (lang.value === 'es') {
+		_.value = info.es
+	} else if (lang.value === 'de') {
+		_.value = info.de
+	} else {
+		_.value = info.en
+	}
+})
 
-const {data} = storeToRefs(appStore())
+
+const { data } = storeToRefs(appStore())
 const { $gsap: gsap } = useNuxtApp()
 
 const if_sm = inject('if_sm', true)

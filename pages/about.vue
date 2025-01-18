@@ -26,7 +26,7 @@
 
 				<BoxContainer @click="scrollTo"
 					class="w-fit self-end font-semibold tracking-wider lg:text-sm text-[4vw] flex gap-2 hover:gap-0 items-center">
-					Learn More
+					{{ _.learn_more }}
 					<svg xmlns="http://www.w3.org/2000/svg" class="w-5 aspect-square animate-bounce translate-y-8"
 						viewBox="0 0 24 24">
 						<path fill="currentColor" d="m12 18l-6-6l1.4-1.4l3.6 3.6V5h2v9.2l3.6-3.6L18 12z" />
@@ -46,7 +46,7 @@
 
 			<h2 v-motion-fade-visible
 				class="text-center text-white w-full h-full font-semibold lg:text-4xl text-[5.5vw]">
-				<span class="text-golden-three font-semibold pr-2">//</span>Our Mission
+				<span class="text-golden-three font-semibold pr-2">//</span>{{ _.mission_head }}
 			</h2>
 			<p v-motion-slide-visible-once-bottom
 				class="text-[3.5vw] lg:text-2xl pt-4 text-white lg:w-4/5 w-full px-1 lg:px-0 text-center pb-12 font-Outfit">
@@ -55,7 +55,7 @@
 
 			<h2 v-motion-fade-visible
 				class="text-center text-white w-full h-full font-semibold lg:text-4xl text-[5.5vw]">
-				<span class="text-golden-three font-semibold pr-2">//</span>Our Vision
+				<span class="text-golden-three font-semibold pr-2">//</span>{{ _.vision_head }}
 			</h2>
 
 			<p v-motion-slide-visible-once-bottom
@@ -82,23 +82,23 @@
 				class="transition-all duration-150 ease-in-out lg:hover:w-[calc(125%)] lg:hover:bg-golden-three active:scale-105 active:shadow-lg bg-golden-three bg-opacity-10 hover:bg-opacity-100 w-full h-full border-golden-three flex justify-center items-center flex-col text-center font-bold uppercase hover:text-black">
 				<span class="lg:text-[4rem] text-[12vw]">
 					<span class="data">{{ about?.stats[0] }}</span>+</span>
-				<span class="text-xl">Athletes</span>
+				<span class="text-xl">{{ _.data[0] }}</span>
 			</div>
 			<div
 				class="transition-all duration-150 ease-in-out lg:hover:w-[calc(125%)] lg:hover:bg-golden-three active:scale-105 active:shadow-lg bg-golden-three bg-opacity-10 hover:bg-opacity-100 w-full h-full border-golden-three flex justify-center items-center flex-col text-center font-bold uppercase hover:text-black">
 				<span class="lg:text-[4rem] text-[12vw]">
 					<span class="data">{{ about?.stats[1] }}</span>+</span>
-				<span class="text-xl">Affiliates</span>
+				<span class="text-xl">{{ _.data[1] }}</span>
 			</div>
 			<div
 				class="transition-all duration-150 ease-in-out lg:hover:w-[calc(125%)] lg:hover:bg-golden-three active:scale-105 active:shadow-lg bg-golden-three bg-opacity-10 hover:bg-opacity-100 w-full h-full border-golden-three flex justify-center items-center flex-col text-center font-bold uppercase hover:text-black lg:pb-0 pb-2">
 				<span class="lg:text-[4rem] text-[12vw]"><span class="data">{{ about?.stats[2] }}</span>+</span>
-				<span class="text-xl">active members</span>
+				<span class="text-xl">{{ _.data[2] }}</span>
 			</div>
 			<div
 				class="transition-all duration-150 ease-in-out lg:hover:w-[calc(125%)] lg:hover:bg-golden-three active:scale-105 active:shadow-lg bg-golden-three bg-opacity-10 hover:bg-opacity-100 w-full h-full border-golden-three flex justify-center items-center flex-col text-center font-bold uppercase hover:text-black lg:pb-0 pb-2">
 				<span class="lg:text-[4rem] text-[12vw]"><span class="data">{{ about?.stats[3] }}</span></span>
-				<span class="text-xl">SINCE</span>
+				<span class="text-xl">{{ _.data[3] }}</span>
 			</div>
 		</div>
 
@@ -106,7 +106,7 @@
 		<div class="text-white relative w-full lg:border-l border-golden-three flex flex-col px-4 lg:px-6 py-20">
 			<h2 v-motion-fade-visible class="text-[8vw] lg:text-4xl font-bold">
 				<span class="pr-1 text-golden-three">//</span>
-				Our Team
+				{{ _.team_head }}
 			</h2>
 			<p v-motion-slide-visible-once-bottom class="lg:text-xl text=[3.5vw] mb-8 font-Outfit">
 				{{ about?.team_desc }}
@@ -132,6 +132,22 @@
 import type { CSSProperties } from 'vue';
 import { useTitle } from '@vueuse/core'
 import appStore from '~/stores/app';
+import info from '~/assets/data/about.json'
+const lang = useCookie('lang')
+// lang data
+const _ = ref()
+watchEffect(() => {
+	if (lang.value === 'fr') {
+		_.value = info.fr
+	} else if (lang.value === 'es') {
+		_.value = info.es
+	} else if (lang.value === 'de') {
+		_.value = info.de
+	} else {
+		_.value = info.en
+	}
+})
+
 
 const { data } = storeToRefs(appStore())
 const about = computed(() => data.value?.routes.about)

@@ -33,15 +33,15 @@
 					<p
 						class="tracking-wide text-[4vw] lg:text-2xl text-white droping italic font-Satisfy whitespace-nowrap">
 						{{
-			home?.slogan }}</p>
+							home?.slogan }}</p>
 				</div>
 
 				<div class="w-full flex justify-end gap-5">
 					<BoxContainer link="/about" class="text-white tracking-wide text-[3vw] lg:text-sm droping">
-						<span class="drop-shadow-md whitespace-nowrap">About Us</span>
+						<span class="drop-shadow-md whitespace-nowrap">{{ _.links[2] }}</span>
 					</BoxContainer>
 					<BoxContainer link="/athletes" class="text-white tracking-wide text-[3vw] lg:text-sm droping">
-						<span class="drop-shadow-md whitespace-nowrap">Our Athletes</span>
+						<span class="drop-shadow-md whitespace-nowrap">{{ _.links[3] }}</span>
 					</BoxContainer>
 
 				</div>
@@ -53,7 +53,7 @@
 			class="text-white w-full flex flex-col lg:px-10 px-4 lg:pt-40 pt-32 lg:border-l border-golden-three pb-36">
 			<h1 v-motion-slide-visible-once-bottom
 				class="the-container text-center w-full font-bold font-Outfit text-2xl mb-6">
-				Welcome to
+				{{ _.intro_head }}
 				<span class="text-golden-three">EagleEye</span>,
 			</h1>
 			<p v-motion-slide-visible-once-bottom
@@ -77,7 +77,7 @@
 
 			<h1 class="text-center w-full font-semibold lg:text-4xl text-2xl pt-4 pb-3">
 				<span class="text-golden-three">//</span>
-				Mission Statement
+				{{ _.mission_head }}
 			</h1>
 
 			<p class="text-[4.4vw] lg:text-[22px] text-center w-[90%] mx-auto tracking-wide font-Outfit">
@@ -86,14 +86,14 @@
 		</div>
 
 		<!-- services -->
-		<Services />
+		<Services :head="_.services_head" />
 
 		<div class="border-golden-three bg-golden-three bg-opacity-5 border-t w-full min-h-[600px] flex flex-col lg:border-l gap-5 text-black relative justify-center items-center py-20 overflow-hidden"
 			id="newz">
-			<NewsCarousel :news="data?.routes.home.news" />
+			<NewsCarousel :_="_" :news="data?.routes.home.news" />
 		</div>
 
-		<FooterEnd />
+		<FooterEnd :lang_data="_" />
 
 	</div>
 </template>
@@ -102,6 +102,33 @@
 import type { CSSProperties } from 'vue';
 import { useTitle } from '@vueuse/core'
 import appStore from '~/stores/app';
+import info from '~/assets/data/home.json'
+const lang = useCookie('lang')
+// lang data
+const _ = ref()
+watchEffect(() => {
+	if (lang.value === 'fr') {
+		_.value = info.fr
+	} else if (lang.value === 'es') {
+		_.value = info.es
+	} else if (lang.value === 'de') {
+		_.value = info.de
+	} else {
+		_.value = info.en
+	}
+})
+
+
+interface LangData {
+	intro_head: string;
+	mission_head: string;
+	services_head: string;
+	news_head: string;
+	news_text: string[];
+	news_button: string[];
+	links: string[];
+	contact_head: string;
+}
 
 const target = ref()
 const parallax = reactive(useParallax(target))

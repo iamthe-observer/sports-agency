@@ -22,18 +22,19 @@ const appStore = defineStore('app', () => {
   const serv_toggle = ref(false)
   const news_toggle = ref(false)
 
-  async function getAppData() {
-    try {
-      const { data: dataz, error } = await supabase
-        .from('eagleeyespc')
-        .select('data')
-        .single()
-      if (error) throw error
-      return dataz.data
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  // async function getAppData() {
+  //   try {
+  //     const { data: dataz, error } = await supabase
+  //       .from('eagleeyespc')
+  //       .select('data')
+  //       .single()
+  //     if (error) throw error
+  //     console.log(`data loaded1`)
+  //     return dataz.data
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
 
   const toggleContact = (bool?: boolean) => {
     if (bool) {
@@ -86,7 +87,7 @@ const appStore = defineStore('app', () => {
     toggleContact,
     if_loading,
     data: appData,
-    getAppData,
+    // getAppData,
     if_pass,
     serv_toggle,
     news_toggle,

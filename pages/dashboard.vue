@@ -223,7 +223,7 @@
 								<!-- Services -->
 								<div class="flex flex-col gap-5 py-2 border-t border-neutral-900 w-full">
 									<h2 class="font-normal w-full text-center mt-10">Services [{{
-					home.services.right.serv.length }}]</h2>
+										home.services.right.serv.length }}]</h2>
 									<div class="flex gap-2 items-center w-full">
 										<label class="whitespace-nowrap">Left Image</label>
 										<DropDown v-model="info!.routes.home.services.left.src" class="w-full"
@@ -449,7 +449,7 @@
 																<h3 @click="news_idx = idx, editMode = true"
 																	class="cursor-pointer truncate w-[10rem] h-full lg:w-[30rem]">
 																	{{
-					item.headline }}
+																		item.headline }}
 																</h3>
 															</div>
 															<span class="pr-8 text-neutral-700 text-sm">{{ item.date
@@ -634,7 +634,7 @@
 															</div>
 															<h3 class="cursor-pointer truncate w-[10rem] h-full lg:w-[30rem]"
 																@click="team_idx = idx, editMode = true">{{
-					item.name }}</h3>
+																	item.name }}</h3>
 														</div>
 														<!-- actions -->
 														<div class="w-14 flex items-center justify-center">
@@ -777,7 +777,7 @@
 															</div>
 															<h3 class="cursor-pointer truncate w-[10rem] h-full lg:w-[30rem]"
 																@click="player_idx = idx, editMode = true">{{
-					item.name }}</h3>
+																	item.name }}</h3>
 														</div>
 														<!-- actions -->
 														<div class="w-14 flex items-center justify-center">
@@ -825,8 +825,8 @@
 		<div class="w-full mb-10">
 			<h1 class="w-full mb-4 text-white font-bold text-4xl flex items-center">Messages <span
 					class="ml-6 text-golden-three">[{{
-					messages.length
-				}}]</span></h1>
+						messages.length
+					}}]</span></h1>
 
 			<div class="overflow-x-auto outline outline-1 outline-golden-three">
 				<table class="table">

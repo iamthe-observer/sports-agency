@@ -1,3 +1,4 @@
+import { Loading } from './../.nuxt/components.d'
 export interface Data {
   email: string
   phone: string[]
@@ -70,4 +71,19 @@ export interface Data {
       date: string
     }[]
   }
+}
+
+export interface LangData {
+  Loading: string
+  intro_head: string
+  mission_head: string
+  services_head: string
+  news_head: string
+  news_text: string[]
+  headline: string[]
+  news_button: string[]
+  links: string[]
+  contact_head: string
+  contact_text: string
+  send: string
 }

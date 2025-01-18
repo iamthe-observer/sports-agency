@@ -22,6 +22,7 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
+      script: [],
       title: 'EagleEye Sports Consults',
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },

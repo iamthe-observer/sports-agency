@@ -3,6 +3,94 @@
 import appStore from '~/stores/app';
 
 const { data } = storeToRefs(appStore())
+const lang = useCookie('lang')
+const _ = ref({
+	en: {
+		"news_head": "Latest News",
+		"news_text": ["Top insights and the", "latest news from EagleEye"],
+		"headline": "HEADLINE",
+		btn: ["PREV", "NEXT"],
+	},
+	fr: {
+		"news_head": "Dernières nouvelles",
+		"news_text": ["Top insights et les", "dernières nouvelles de EagleEye"],
+		"headline": "TITRE",
+		btn: ["PRÉCÉDENT", "SUIVANT"],
+	},
+	de: {
+		"news_head": "Neueste Nachrichten",
+		"news_text": ["Top insights und die", "neuesten Nachrichten von EagleEye"],
+		"headline": "SCHLAGZEILE",
+		btn: ["VORHERIGE", "NÄCHSTE"],
+	},
+	es: {
+		"news_head": "Últimas noticias",
+		"news_text": ["Top insights y las", "últimas noticias de EagleEye"],
+		"headline": "TITULAR",
+		btn: ["ANTERIOR", "SIGUIENTE"],
+	}
+}
+)
+
+const head = computed(() => {
+	if (lang.value === 'fr') {
+		return _.value.fr.news_head
+	} else if (lang.value === 'es') {
+		return _.value.es.news_head
+	} else if (lang.value === 'de') {
+		return _.value.de.news_head
+	} else {
+		return _.value.en.news_head
+	}
+})
+
+const text = computed(() => {
+	if (lang.value === 'fr') {
+		return _.value.fr.news_text
+	} else if (lang.value === 'es') {
+		return _.value.es.news_text
+	} else if (lang.value === 'de') {
+		return _.value.de.news_text
+	} else {
+		return _.value.en.news_text
+	}
+})
+
+const headline = computed(() => {
+	if (lang.value === 'fr') {
+		return _.value.fr.headline
+	} else if (lang.value === 'es') {
+		return _.value.es.headline
+	} else if (lang.value === 'de') {
+		return _.value.de.headline
+	} else {
+		return _.value.en.headline
+	}
+})
+
+const prev = computed(() => {
+	if (lang.value === 'fr') {
+		return _.value.fr.btn[0]
+	} else if (lang.value === 'es') {
+		return _.value.es.btn[0]
+	} else if (lang.value === 'de') {
+		return _.value.de.btn[0]
+	} else {
+		return _.value.en.btn[0]
+	}
+})
+const next = computed(() => {
+	if (lang.value === 'fr') {
+		return _.value.fr.btn[1]
+	} else if (lang.value === 'es') {
+		return _.value.es.btn[1]
+	} else if (lang.value === 'de') {
+		return _.value.de.btn[1]
+	} else {
+		return _.value.en.btn[1]
+	}
+})
+
 const news = computed(() => {
 	return data.value ? data.value?.routes.home.news : 5
 })
@@ -248,10 +336,10 @@ function sortByDateDesc(array: any) {
 		<h1 class="w-full flex flex-col px-10 text-white">
 			<span class="pb-1 text-[4vw] font-bold lg:text-lg">
 				<span class="font-bold pr-2 text-golden-three">//</span>
-				LATEST NEWS
+				{{ head }}
 			</span>
-			<span class="text-[5vw] lg:text-4xl">Top insights and the</span>
-			<span class="text-[5vw] lg:text-4xl">latest news from EagleEye</span>
+			<span class="text-[5vw] lg:text-4xl">{{ text[0] }}</span>
+			<span class="text-[5vw] lg:text-4xl">{{ text[1] }}</span>
 		</h1>
 
 		<div class="wrapper overflow-hidden">
@@ -275,7 +363,8 @@ function sortByDateDesc(array: any) {
 
 
 					<p class="font-bold font-Outfit pt-6 h-full w-full lg:text-xl text-[3vw]">
-						<span class="italic font-bold pr-1 text-golden-three lg:text-xl text-[3vw]">HEADLINE:</span>
+						<span class="italic font-bold pr-1 text-golden-three lg:text-xl text-[3vw]">{{ headline
+							}}:</span>
 						{{ n.headline ? n.headline : "..." }}
 					</p>
 				</div>
@@ -317,14 +406,16 @@ function sortByDateDesc(array: any) {
 
 		<div class="relative flex gap-5 w-full justify-center items-center">
 			<button
-				class="prev border hover:bg-golden-three hover:text-black transition-all duration-150 ease-in-out border-golden-three bg-black lg:text-xl text-[2vw]">prev</button>
+				class="prev border hover:bg-golden-three hover:text-black transition-all duration-150 ease-in-out border-golden-three bg-black lg:text-xl text-[2vw]">{{ prev
+				}}</button>
 
 			<!-- <button
 				class="text-white font-bold text-xl border border-golden-three bg-black hover:bg-golden-three hover:text-black transition-all duration-150 ease-in-out">View
 				All</button> -->
 
 			<button
-				class="next border hover:bg-golden-three hover:text-black transition-all duration-150 ease-in-out border-golden-three bg-black lg:text-xl text-[2vw]">next</button>
+				class="next border hover:bg-golden-three hover:text-black transition-all duration-150 ease-in-out border-golden-three bg-black lg:text-xl text-[2vw]">{{
+					next }}</button>
 			<!-- <button class="toggle">toggle overflow</button> -->
 		</div>
 	</div>

@@ -16,23 +16,23 @@
 			<div
 				class="w-full h-fit py-12 lg:py-0 my-auto lg:h-full text-white flex items-center justify-center gap-2 lg:gap-14 text-[4vw] font-semibold lg:text-[2vw] text-center flex-wrap lg:flex-nowrap">
 				<NuxtLink @click="onNavClick()" v-motion-fade-visible to="/"
-					class="linkzz homE outline outline-2 outline-transparent hover:outline-golden-three px-4 transition-all duration-150 ease-in-out cursor-pointer">
-					HOME</NuxtLink>
+					class="linkzz homE outline outline-2 outline-transparent hover:outline-golden-three px-4 transition-all duration-150 ease-in-out cursor-pointer uppercase">
+					{{ _.links[0] }}</NuxtLink>
 				<NuxtLink @click="onNavClick('services')" v-motion-fade-visible to="/"
-					class="linkzz serviceS outline outline-2 outline-transparent hover:outline-golden-three px-4 transition-all duration-150 ease-in-out cursor-pointer">
-					SERVICES</NuxtLink>
+					class="linkzz serviceS outline outline-2 outline-transparent hover:outline-golden-three px-4 transition-all duration-150 ease-in-out cursor-pointer uppercase">
+					{{ _.links[1] }}</NuxtLink>
 				<NuxtLink @click="onNavClick()" v-motion-fade-visible to="/about"
-					class="linkzz abouT outline outline-2 outline-transparent hover:outline-golden-three px-4 transition-all duration-150 ease-in-out cursor-pointer">
-					ABOUT US</NuxtLink>
+					class="linkzz abouT outline outline-2 outline-transparent hover:outline-golden-three px-4 transition-all duration-150 ease-in-out cursor-pointer uppercase">
+					{{ _.links[2] }}</NuxtLink>
 				<NuxtLink @click="onNavClick()" v-motion-fade-visible to="/athletes"
-					class="linkzz athleteS outline outline-2 outline-transparent hover:outline-golden-three px-4 transition-all duration-150 ease-in-out cursor-pointer">
-					OUR ATHLETES</NuxtLink>
+					class="linkzz athleteS outline outline-2 outline-transparent hover:outline-golden-three px-4 transition-all duration-150 ease-in-out cursor-pointer uppercase">
+					{{ _.links[3] }}</NuxtLink>
 				<NuxtLink @click="onNavClick()" v-motion-fade-visible to="/gallery"
-					class="linkzz gallerY outline outline-2 outline-transparent hover:outline-golden-three px-4 transition-all duration-150 ease-in-out cursor-pointer">
-					GALLERY</NuxtLink>
+					class="linkzz gallerY outline outline-2 outline-transparent hover:outline-golden-three px-4 transition-all duration-150 ease-in-out cursor-pointer uppercase">
+					{{ _.links[4] }}</NuxtLink>
 				<NuxtLink @click="onNavClick('news')" v-motion-fade-visible to="/"
-					class="linkzz gallerY outline outline-2 outline-transparent hover:outline-golden-three px-4 transition-all duration-150 ease-in-out cursor-pointer">
-					NEWS</NuxtLink>
+					class="linkzz gallerY outline outline-2 outline-transparent hover:outline-golden-three px-4 transition-all duration-150 ease-in-out cursor-pointer uppercase">
+					{{ _.links[5] }}</NuxtLink>
 			</div>
 		</div>
 
@@ -40,7 +40,7 @@
 			class="h-[100px] w-full text-white flex flex-col items-center overflow-hidden px-8 border-golden-three border-t hover:bg-golden-three hover:bg-opacity-10">
 			<h1 @click="!if_sm ? toggleContact() : toggleContactMobile()"
 				class="text-3xl font-semibold w-full min-h-[100px] grid place-items-center cursor-pointer relative text-center text-[5vw] lg:text-3xl">
-				Contact Us
+				{{ _.contact_head }}
 				<div
 					class="iconexpand absolute top-1/2 -translate-y-1/2 right-0 w-10 grid place-items-center aspect-square">
 					<svg xmlns="http://www.w3.org/2000/svg" class="w-[8vw] lg:w-10" viewBox="0 0 24 24">
@@ -77,7 +77,7 @@
 
 				<div class="w-full h-full">
 					<div class="px-10 pt-10 lg:pt-0 h-full text-white flex flex-col gap-2 justify-center items-center">
-						<p class="w-full text-xl">Send Us A Message</p>
+						<p class="w-full text-xl">{{ _.contact_text }}</p>
 
 						<div class="w-full h-10 bg-neutral-900 border border-golden-three flex gap-[2px] p-[2px]">
 							<label for="Name"
@@ -128,7 +128,7 @@
 								</circle>
 							</svg>
 
-							Send Message
+							{{ _.send }}
 						</BoxContainer>
 					</div>
 				</div>
@@ -161,8 +161,7 @@
 				</svg>
 			</a>
 
-			<a target="_blank"
-				:href="data?.socials.instagram"
+			<a target="_blank" :href="data?.socials.instagram"
 				class="cursor-pointer lg:py-0 py-5 hover:text-black hover:bg-golden-three transition-all duration-150 ease-in-out w-full h-full grid place-items-center">
 				<svg class="drop-shadow-lg" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
 					viewBox="0 0 24 24">
@@ -230,6 +229,7 @@
 import { createClient } from '@supabase/supabase-js';
 import appStore from '~/stores/app';
 import navStore from '~/stores/nav';
+import info from '~/assets/data/home.json';
 
 const supabase = createClient('https://dblmoqabperngqprlrjw.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRibG1vcWFicGVybmdxcHJscmp3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDkwMTA3NzAsImV4cCI6MjAyNDU4Njc3MH0.YdYbtgmpXMxTfzpJkN6353d781hQ-e6pId8OdWe8Kjo')
 
@@ -238,6 +238,23 @@ const { if_contact, data } = storeToRefs(appStore())
 const { curr_nav } = storeToRefs(navStore())
 const if_sm = inject('if_sm', false)
 const counter_login = ref(0)
+
+const lang = useCookie('lang')
+
+// lang data
+const _ = ref()
+
+watchEffect(() => {
+	if (lang.value === 'fr') {
+		_.value = info.fr
+	} else if (lang.value === 'es') {
+		_.value = info.es
+	} else if (lang.value === 'de') {
+		_.value = info.de
+	} else {
+		_.value = info.en
+	}
+})
 
 const message = reactive({
 	name: '',

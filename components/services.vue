@@ -5,7 +5,7 @@
 
 		<h2 class="text-center w-full h-full font-bold mx-auto mb-5 lg:mb-20">
 			<!-- <span class="">Our Services</span> -->
-			<Marquee text="OUR SERVICES" />
+			<Marquee class="uppercase" :text="head" />
 		</h2>
 
 		<section
@@ -26,7 +26,8 @@
 
 				<div v-motion-fade-visible-once v-for="(service, i) in services.right.serv" :key="i"
 					class="ball bg-golden-three bg-opacity-5 hover:bg-opacity-20 transition-all duration-[1s] ease-in-out flex flex-col items-center w-full h-fit border border-golden-three">
-					<h1 class="border-b border-golden-three w-full text-center text-[5vw] lg:text-[25px] py-2 px-2 font-bold">
+					<h1
+						class="border-b border-golden-three w-full text-center text-[5vw] lg:text-[25px] py-2 px-2 font-bold">
 						{{ service.title }}
 					</h1>
 					<div class="flex flex-col items-center w-full p-4 lg:p-6 gap-10">
@@ -38,7 +39,8 @@
 							class="bg-golden-three bg-opacity-20 mx-auto mb-7 min-h-[250px] w-[90%] lg:w-4/5 relative -translate-x-3 -translate-y-4 border border-golden-three">
 							<div
 								class="w-full mx-auto h-full absolute top-0 left-0 overflow-hidden translate-x-4 translate-y-4 border border-golden-three perspectiv">
-								<img :style="layer3" :src="`${$link}${service.src}`" alt="" class="object-cover w-full h-full" />
+								<img :style="layer3" :src="`${$link}${service.src}`" alt=""
+									class="object-cover w-full h-full" />
 							</div>
 						</div>
 					</div>
@@ -59,6 +61,9 @@ const { $gsap: gsap } = useNuxtApp();
 const if_sm = inject('if_sm', true)
 const { data } = storeToRefs(appStore())
 const services = computed(() => data.value!.routes.home.services)
+const props = defineProps<{
+	head: string
+}>()
 
 function animate() {
 	if (document.querySelector('.image_container') === null) return
