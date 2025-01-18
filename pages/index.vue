@@ -93,7 +93,7 @@
 			<NewsCarousel :_="_" :news="data?.routes.home.news" />
 		</div>
 
-		<FooterEnd :lang_data="_" />
+		<FooterEnd />
 
 	</div>
 </template>
