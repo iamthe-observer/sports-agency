@@ -90,11 +90,11 @@
 			</svg>
 		</div>
 		<ul tabindex="0"
-			class="dropdown-content menu bg-black border border-amber-400 rounded-none z-[1] min-w-32 p-2 shadow">
+			class="dropdown-content menu bg-black border border-amber-400 rounded-none z-[1] min-w-32 p-2 shadow text-white">
 			<li><a @click="setLang('en')">English (EN)</a></li>
 			<li><a @click="setLang('fr')">French (FR)</a></li>
-			<li><a @click="setLang('es')">Spanish (ES)</a></li>
 			<li><a @click="setLang('de')">German (DE)</a></li>
+			<li><a @click="setLang('es')">Spanish (ES)</a></li>
 		</ul>
 	</div>
 </template>
