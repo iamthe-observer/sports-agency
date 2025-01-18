@@ -63,9 +63,9 @@
               {{ data?.email }}
             </div>
 
-            <NuxtLink href="https://maps.app.goo.gl/6H1wYmEfxw5DFBQV7"
+            <!-- <NuxtLink href="https://maps.app.goo.gl/6H1wYmEfxw5DFBQV7"
               class="text-xs pt-3 text-golden-one hover:text-golden-three font-semibold cursor-pointer">
-              {{ _.location }}</NuxtLink>
+              {{ _.location }}</NuxtLink> -->
           </div>
 
 
