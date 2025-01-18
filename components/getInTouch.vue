@@ -34,10 +34,6 @@ function goToContact() {
 	}, 600)
 }
 
-function setLang(language: string) {
-	lang.value = language
-	window.location.reload()
-}
 </script>
 
 <style scoped></style>

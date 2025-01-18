@@ -103,7 +103,7 @@
 const lang = useCookie('lang')
 function setLang(language: string) {
 	lang.value = language
-	window.location.reload()
+	location.reload()
 }
 </script>
 
