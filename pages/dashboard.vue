@@ -62,6 +62,7 @@
 			</div>
 
 			<div class="flex gap-4 items-center">
+				<Lang />
 				<span class="">Dashboard</span>
 				<svg v-if="loading" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
 					<circle cx="12" cy="3.5" r="1.5" fill="currentColor" opacity="0">
@@ -915,6 +916,13 @@ const { data } = storeToRefs(appStore())
 const info = ref<Data>()
 const { $gsap: gsap } = useNuxtApp()
 provide('data', info)
+const lang = useCookie('lang')
+const db_table = computed(() => {
+	if (lang.value === 'en') return 'info'
+	if (lang.value === 'fr') return 'info_fr'
+	if (lang.value === 'es') return 'info_es'
+	if (lang.value === 'de') return 'info_de'
+})
 
 const loading = ref(false)
 const img_sending = ref(false)
@@ -1110,7 +1118,7 @@ async function SaveData() {
 	loading.value = true
 	try {
 
-		let { data, error } = await supabase.from('info').insert([{ data: info.value }]).select()
+		let { data, error } = await supabase.from(db_table.value!).insert([{ data: info.value }]).select()
 		if (error) throw error
 		loading.value = false
 		successMsg('Your data has been saved!')
