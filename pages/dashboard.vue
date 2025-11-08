@@ -454,7 +454,7 @@
 																</h3>
 															</div>
 															<span class="pr-8 text-neutral-700 text-sm">{{ item.date
-																}}</span>
+															}}</span>
 														</li>
 													</template>
 												</MyOrderList>
@@ -709,7 +709,7 @@
 							<!-- Players -->
 							<div class="flex flex-col gap-5 py-2 border-t border-neutral-900 w-full">
 								<h2 class="font-normal w-full text-center mt-10">Players [{{ athletes.athl_src!.length
-									}}]</h2>
+								}}]</h2>
 								<p class="text-neutral-600">Add Players</p>
 
 								<div class="flex flex-col gap-2">
@@ -910,7 +910,10 @@ type Player = {
 	src: string,
 }
 
-const supabase = createClient('https://dblmoqabperngqprlrjw.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRibG1vcWFicGVybmdxcHJscmp3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDkwMTA3NzAsImV4cCI6MjAyNDU4Njc3MH0.YdYbtgmpXMxTfzpJkN6353d781hQ-e6pId8OdWe8Kjo')
+const supabase = createClient(
+	'https://roytgrkmdhudfbxqxigm.supabase.co',
+	'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJveXRncmttZGh1ZGZieHF4aWdtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI1NDQyNzAsImV4cCI6MjA3ODEyMDI3MH0.BirWS7ciJogIdXHeEtLpSsiDts6TzjsZGXnpbPCHOjo'
+)
 
 const { data } = storeToRefs(appStore())
 const info = ref<Data>()

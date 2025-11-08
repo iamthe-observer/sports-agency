@@ -202,7 +202,7 @@
 			</svg>
 
 			<span v-for="(num, i) in data?.phone" v-if="if_sm" class="text-[3vw] font-semibold tracking-wider">{{ num
-				}}</span>
+			}}</span>
 			<!-- class="text-[3vw] font-semibold tracking-wider">+491745969531</span> -->
 			<!-- <span v-if="if_sm" class="text-[3vw] font-semibold tracking-wider">+4915216434754</span>
 			<span v-if="if_sm" class="text-[3vw] font-semibold tracking-wider">+233537804885</span> -->
@@ -231,7 +231,10 @@ import appStore from '~/stores/app';
 import navStore from '~/stores/nav';
 import info from '~/assets/data/home.json';
 
-const supabase = createClient('https://dblmoqabperngqprlrjw.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRibG1vcWFicGVybmdxcHJscmp3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDkwMTA3NzAsImV4cCI6MjAyNDU4Njc3MH0.YdYbtgmpXMxTfzpJkN6353d781hQ-e6pId8OdWe8Kjo')
+const supabase = createClient(
+	'https://roytgrkmdhudfbxqxigm.supabase.co',
+	'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJveXRncmttZGh1ZGZieHF4aWdtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI1NDQyNzAsImV4cCI6MjA3ODEyMDI3MH0.BirWS7ciJogIdXHeEtLpSsiDts6TzjsZGXnpbPCHOjo'
+)
 
 const { $gsap: gsap } = useNuxtApp();
 const { if_contact, data } = storeToRefs(appStore())

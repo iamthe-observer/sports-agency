@@ -351,7 +351,7 @@ function sortByDateDesc(array: any) {
 						class="transition-all duration-150 ease-in-out group-hover:bg-golden-three h-[200px] w-full relative -translate-x-3 -translate-y-3 border border-golden-three">
 						<div ref="target"
 							class="w-full h-full absolute top-0 left-0 overflow-hidden translate-x-3 translate-y-3 border border-golden-three perspectiv">
-							<img :src="n.src ? `https://dblmoqabperngqprlrjw.supabase.co/storage/v1/object/public/images/${n.src}` : 'https://live.staticflickr.com/65535/53534142101_68648c04e4_o.jpg'"
+							<img :src="n.src ? `https://roytgrkmdhudfbxqxigm.supabase.co/storage/v1/object/public/images/${n.src}` : 'https://live.staticflickr.com/65535/53534142101_68648c04e4_o.jpg'"
 								alt=""
 								class="object-cover w-full h-full group-hover:scale-110 transition-all duration-300 ease-in-out" />
 						</div>
@@ -364,7 +364,7 @@ function sortByDateDesc(array: any) {
 
 					<p class="font-bold font-Outfit pt-6 h-full w-full lg:text-xl text-[3vw]">
 						<span class="italic font-bold pr-1 text-golden-three lg:text-xl text-[3vw]">{{ headline
-							}}:</span>
+						}}:</span>
 						{{ n.headline ? n.headline : "..." }}
 					</p>
 				</div>
@@ -406,7 +406,8 @@ function sortByDateDesc(array: any) {
 
 		<div class="relative flex gap-5 w-full justify-center items-center">
 			<button
-				class="prev border hover:bg-golden-three hover:text-black transition-all duration-150 ease-in-out border-golden-three bg-black lg:text-xl text-[2vw]">{{ prev
+				class="prev border hover:bg-golden-three hover:text-black transition-all duration-150 ease-in-out border-golden-three bg-black lg:text-xl text-[2vw]">{{
+					prev
 				}}</button>
 
 			<!-- <button

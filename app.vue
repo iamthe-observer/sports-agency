@@ -13,7 +13,10 @@ import appStore from './stores/app'
 import { useBreakpoints, breakpointsTailwind } from '@vueuse/core'
 import { createClient } from '@supabase/supabase-js'
 
-const supabase = createClient('https://dblmoqabperngqprlrjw.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRibG1vcWFicGVybmdxcHJscmp3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDkwMTA3NzAsImV4cCI6MjAyNDU4Njc3MH0.YdYbtgmpXMxTfzpJkN6353d781hQ-e6pId8OdWe8Kjo')
+const supabase = createClient(
+	'https://roytgrkmdhudfbxqxigm.supabase.co',
+	'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJveXRncmttZGh1ZGZieHF4aWdtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI1NDQyNzAsImV4cCI6MjA3ODEyMDI3MH0.BirWS7ciJogIdXHeEtLpSsiDts6TzjsZGXnpbPCHOjo'
+)
 
 const { curr_nav } = storeToRefs(navStore())
 const { if_loading } = storeToRefs(appStore())
@@ -60,12 +63,13 @@ provide('supabase', supabase)
 async function getAppDataEN() {
 	try {
 		const { data: dataz, error } = await supabase
-			.from('info')
+			.from('english')
 			.select('data')
 			.order('created_at', { ascending: false }) // Descending order
 			.limit(1)
 		if (error) throw error
 		console.log(`data loaded english`);
+		console.log(dataz);
 
 		// @ts-ignore
 		appStore().$patch({ data: dataz[0].data })
@@ -76,7 +80,7 @@ async function getAppDataEN() {
 async function getAppDataDE() {
 	try {
 		const { data: dataz, error } = await supabase
-			.from('info_de')
+			.from('german')
 			.select('data')
 			.order('created_at', { ascending: false }) // Descending order
 			.limit(1)
@@ -91,7 +95,7 @@ async function getAppDataDE() {
 async function getAppDataES() {
 	try {
 		const { data: dataz, error } = await supabase
-			.from('info_es')
+			.from('spanish')
 			.select('data')
 			.order('created_at', { ascending: false }) // Descending order
 			.limit(1)
@@ -106,7 +110,7 @@ async function getAppDataES() {
 async function getAppDataFR() {
 	try {
 		const { data: dataz, error } = await supabase
-			.from('info_fr')
+			.from('french')
 			.select('data')
 			.order('created_at', { ascending: false }) // Descending order
 			.limit(1)

@@ -177,7 +177,7 @@ onMounted(() => {
 		}
 	});
 
-	gsap.fromTo('.visi', { opacity: 0 }, { opacity: 1, duration: 1, delay: 3 })
+	gsap.fromTo('.visi', { opacity: 0 }, { opacity: 1, duration: 1, delay: 1 })
 })
 
 const layer3 = computed<CSSProperties>(() => ({
