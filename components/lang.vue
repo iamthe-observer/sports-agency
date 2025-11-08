@@ -94,7 +94,7 @@
 			<li><a @click="setLang('en')">English (EN)</a></li>
 			<li><a @click="setLang('fr')">French (FR)</a></li>
 			<li><a @click="setLang('de')">German (DE)</a></li>
-			<li><a @click="setLang('es')">Spanish (ES)</a></li>
+			<li v-if="false"><a @click="setLang('es')">Spanish (ES)</a></li>
 		</ul>
 	</div>
 </template>
