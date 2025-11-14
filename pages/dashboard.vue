@@ -884,7 +884,7 @@
 <script setup lang="ts">
 import { createClient } from '@supabase/supabase-js'
 import appStore from '~/stores/app';
-import type { Data } from '~/interfaces/int'
+import type { Data, Src } from '~/interfaces/int'
 
 type Serv = {
 	title: string,
@@ -915,16 +915,18 @@ const supabase = createClient(
 	'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJveXRncmttZGh1ZGZieHF4aWdtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI1NDQyNzAsImV4cCI6MjA3ODEyMDI3MH0.BirWS7ciJogIdXHeEtLpSsiDts6TzjsZGXnpbPCHOjo'
 )
 
-const { data } = storeToRefs(appStore())
+const { data, src } = storeToRefs(appStore())
 const info = ref<Data>()
+const infoSrc = ref<Src>()
 const { $gsap: gsap } = useNuxtApp()
 provide('data', info)
+const file_names = ref<string[]>()
 const lang = useCookie('lang')
 const db_table = computed(() => {
-	if (lang.value === 'en') return 'info'
-	if (lang.value === 'fr') return 'info_fr'
-	if (lang.value === 'es') return 'info_es'
-	if (lang.value === 'de') return 'info_de'
+	if (lang.value === 'en') return 'english'
+	if (lang.value === 'fr') return 'french'
+	if (lang.value === 'es') return 'spanish'
+	if (lang.value === 'de') return 'german'
 })
 
 const loading = ref(false)
@@ -1067,8 +1069,6 @@ function sortByDateDesc(array: any) {
 	});
 }
 
-const file_names = ref<string[]>()
-
 async function sendFile(file: File = document.querySelector<HTMLInputElement>('input[type="file"]')!.files![0]) {
 	let item = document.querySelector<HTMLInputElement>('input[type="file"]')!.files![0]
 	if (!item) return errorMsg('No file selected!', 1)
@@ -1096,11 +1096,13 @@ const getFileNames = async () => {
 			.storage
 			.from('images')
 			.list('', {
-				limit: 100,
-				offset: 0,
+				// limit: 100,
+				// offset: 0,
 				sortBy: { column: 'name', order: 'asc' },
 			})
 		if (error) throw error
+
+		console.log(data)
 		return data.map(item => item.name)
 	}
 	catch (error) {
@@ -1133,6 +1135,7 @@ async function SaveData() {
 
 onBeforeMount(() => {
 	info.value = data.value
+	infoSrc.value = src.value
 })
 
 onMounted(async () => {
@@ -1146,7 +1149,6 @@ onMounted(async () => {
 			.from('msg')
 			.select('*')
 			.order('created_at', { ascending: false }) // Descending order
-		console.log(msg)
 		if (error2) throw error2
 		messages.value = msg!
 
@@ -1165,7 +1167,7 @@ async function logOut() {
 	try {
 		let { error } = await supabase.auth.signOut()
 		if (error) throw error
-		setTimeout
+		// setTimeout
 		useNuxtApp().$router.push('/')
 		setTimeout(() => {
 			location.reload()

@@ -30,6 +30,7 @@
     "@tresjs/nuxt": "^2.0.1",
     "@vueuse/motion": "^2.0.0",
     "@vueuse/nuxt": "^10.7.2",
+    "dotenv": "^17.2.3",
     "gsap": "^3.12.4",
     "pinia": "^2.1.7",
     "primevue": "^3.49.1",

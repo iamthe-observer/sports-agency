@@ -1,12 +1,7 @@
-import type { Data } from '~/interfaces/int'
+import type { Data, Src } from '~/interfaces/int'
 import { useBreakpoints, breakpointsTailwind } from '@vueuse/core'
-import { createClient } from '@supabase/supabase-js'
 
 const appStore = defineStore('app', () => {
-  const supabase = createClient(
-    'https://roytgrkmdhudfbxqxigm.supabase.co',
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJveXRncmttZGh1ZGZieHF4aWdtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI1NDQyNzAsImV4cCI6MjA3ODEyMDI3MH0.BirWS7ciJogIdXHeEtLpSsiDts6TzjsZGXnpbPCHOjo'
-  )
   const breakpoints = useBreakpoints(breakpointsTailwind)
   const if_sm = breakpoints.smaller('lg')
   const showNav = ref(false)
@@ -18,23 +13,10 @@ const appStore = defineStore('app', () => {
   const if_loading = ref(true)
   const if_pass = ref(false)
   const appData = ref<Data>()
+  const appSrc = ref<Src>()
   const { $gsap: gsap } = useNuxtApp()
   const serv_toggle = ref(false)
   const news_toggle = ref(false)
-
-  // async function getAppData() {
-  //   try {
-  //     const { data: dataz, error } = await supabase
-  //       .from('eagleeyespc')
-  //       .select('data')
-  //       .single()
-  //     if (error) throw error
-  //     console.log(`data loaded1`)
-  //     return dataz.data
-  //   } catch (error) {
-  //     console.log(error)
-  //   }
-  // }
 
   const toggleContact = (bool?: boolean) => {
     if (bool) {
@@ -87,7 +69,7 @@ const appStore = defineStore('app', () => {
     toggleContact,
     if_loading,
     data: appData,
-    // getAppData,
+    src: appSrc,
     if_pass,
     serv_toggle,
     news_toggle,

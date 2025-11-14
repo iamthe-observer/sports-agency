@@ -1,4 +1,3 @@
-import { Loading } from './../.nuxt/components.d'
 export interface Data {
   email: string
   phone: string[]
@@ -70,6 +69,43 @@ export interface Data {
       msg: string
       date: string
     }[]
+  }
+}
+
+export interface Src {
+  routes: {
+    home: {
+      vid_src?: string
+      opening: {
+        src?: string
+      }
+      services: {
+        left: { src: string }
+        right: {
+          serv: {
+            src?: string
+          }[]
+        }
+      }
+      news: {
+        src?: string
+      }[]
+    }
+
+    about: {
+      _src?: string
+      img_src?: string
+      team_src?: {
+        src: string
+      }[]
+    }
+
+    athletes: {
+      _src?: string
+      athl_src?: {
+        src: string
+      }[]
+    }
   }
 }
 
