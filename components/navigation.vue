@@ -130,11 +130,12 @@ import appStore from '~/stores/app';
 import navStore from '~/stores/nav';
 import info from '~/assets/data/nav.json'
 import linkData from '~/assets/data/home.json'
+import supabase from '../supabase'
 
 const { $gsap: gsap } = useNuxtApp();
 const { opened, data } = storeToRefs(appStore())
 const { curr_nav } = storeToRefs(navStore())
-const { $$b: supabase } = useNuxtApp()
+// const { $$b: supabase } = useNuxtApp()
 const lang = useCookie('lang')
 
 // lang data

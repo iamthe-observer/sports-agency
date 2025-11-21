@@ -882,7 +882,8 @@
 </template>
 
 <script setup lang="ts">
-import { createClient } from '@supabase/supabase-js'
+// import { createClient } from '@supabase/supabase-js'
+import supabase from '../supabase'
 import appStore from '~/stores/app';
 import type { Data, Src } from '~/interfaces/int'
 
@@ -910,10 +911,10 @@ type Player = {
 	src: string,
 }
 
-const supabase = createClient(
-	'https://roytgrkmdhudfbxqxigm.supabase.co',
-	'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJveXRncmttZGh1ZGZieHF4aWdtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI1NDQyNzAsImV4cCI6MjA3ODEyMDI3MH0.BirWS7ciJogIdXHeEtLpSsiDts6TzjsZGXnpbPCHOjo'
-)
+// const supabase = createClient(
+// 	'https://roytgrkmdhudfbxqxigm.supabase.co',
+// 	'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJveXRncmttZGh1ZGZieHF4aWdtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI1NDQyNzAsImV4cCI6MjA3ODEyMDI3MH0.BirWS7ciJogIdXHeEtLpSsiDts6TzjsZGXnpbPCHOjo'
+// )
 
 const { data, src } = storeToRefs(appStore())
 const info = ref<Data>()

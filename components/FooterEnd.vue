@@ -226,15 +226,15 @@
 </template>
 
 <script setup lang="ts">
-import { createClient } from '@supabase/supabase-js';
+// import { createClient } from '@supabase/supabase-js';
 import appStore from '~/stores/app';
 import navStore from '~/stores/nav';
 import info from '~/assets/data/home.json';
-
-const supabase = createClient(
-	'https://roytgrkmdhudfbxqxigm.supabase.co',
-	'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJveXRncmttZGh1ZGZieHF4aWdtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI1NDQyNzAsImV4cCI6MjA3ODEyMDI3MH0.BirWS7ciJogIdXHeEtLpSsiDts6TzjsZGXnpbPCHOjo'
-)
+import supabase from '../supabase'
+// const supabase = createClient(
+// 	'https://roytgrkmdhudfbxqxigm.supabase.co',
+// 	'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJveXRncmttZGh1ZGZieHF4aWdtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI1NDQyNzAsImV4cCI6MjA3ODEyMDI3MH0.BirWS7ciJogIdXHeEtLpSsiDts6TzjsZGXnpbPCHOjo'
+// )
 
 const { $gsap: gsap } = useNuxtApp();
 const { if_contact, data } = storeToRefs(appStore())

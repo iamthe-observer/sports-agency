@@ -31,8 +31,10 @@
 
 <script setup lang="ts">
 import appStore from '~/stores/app'
-import { createClient } from '@supabase/supabase-js'
+// import { createClient } from '@supabase/supabase-js'
 import info from '~/assets/data/home.json'
+import supabase from '../supabase'
+
 const lang = useCookie('lang')
 // lang data
 const _ = ref()
@@ -51,10 +53,10 @@ watchEffect(() => {
 const { $gsap: gsap } = useNuxtApp()
 const { if_pass } = storeToRefs(appStore())
 const pass = ref('')
-const supabase = createClient(
-	'https://roytgrkmdhudfbxqxigm.supabase.co',
-	'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJveXRncmttZGh1ZGZieHF4aWdtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI1NDQyNzAsImV4cCI6MjA3ODEyMDI3MH0.BirWS7ciJogIdXHeEtLpSsiDts6TzjsZGXnpbPCHOjo'
-)
+// const supabase = createClient(
+// 	'https://roytgrkmdhudfbxqxigm.supabase.co',
+// 	'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJveXRncmttZGh1ZGZieHF4aWdtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI1NDQyNzAsImV4cCI6MjA3ODEyMDI3MH0.BirWS7ciJogIdXHeEtLpSsiDts6TzjsZGXnpbPCHOjo'
+// )
 
 
 async function userLogin() {

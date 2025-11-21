@@ -11,12 +11,12 @@
 import navStore from './stores/nav'
 import appStore from './stores/app'
 import { useBreakpoints, breakpointsTailwind } from '@vueuse/core'
-import { createClient } from '@supabase/supabase-js'
-
-const supabase = createClient(
-	'https://roytgrkmdhudfbxqxigm.supabase.co',
-	'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJveXRncmttZGh1ZGZieHF4aWdtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI1NDQyNzAsImV4cCI6MjA3ODEyMDI3MH0.BirWS7ciJogIdXHeEtLpSsiDts6TzjsZGXnpbPCHOjo'
-)
+// import { createClient } from '@supabase/supabase-js'
+import supabase from './supabase'
+// const supabase = createClient(
+// 	'https://roytgrkmdhudfbxqxigm.supabase.co',
+// 	'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJveXRncmttZGh1ZGZieHF4aWdtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI1NDQyNzAsImV4cCI6MjA3ODEyMDI3MH0.BirWS7ciJogIdXHeEtLpSsiDts6TzjsZGXnpbPCHOjo'
+// )
 
 const { curr_nav } = storeToRefs(navStore())
 const { if_loading } = storeToRefs(appStore())
