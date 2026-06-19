@@ -221,7 +221,7 @@
 	<div
 		class="w-full lg:h-[20px] lg:py-8 min-h-[20px] lg:border-b lg:border-l border-golden-three border-t flex lg:flex-row flex-col items-center lg:gap-2 text-white justify-center lg:justify-evenly text-[2vw] lg:text-xs py-6 tracking-wide">
 		<span>Copyright &copy; 2024 EagleEye Sports Consults. All rights reserved.</span>
-		<span>Web design & development by <span class="text-golden-three cursor-pointer">THE OBSERVER</span></span>
+		<span>Web design & development by <span class="text-golden-three cursor-pointer"><a href="https://obsrvr.online" target="_blank">THE OBSERVER</a></span></span>
 	</div>
 </template>
 
